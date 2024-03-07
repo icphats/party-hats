@@ -1,0 +1,33 @@
+{
+    "canisters": {
+      "front": {
+        "dependencies": [],
+        "frontend": {
+          "entrypoint": "dist/index.html"
+        },
+        "source": [
+          "dist/assets",
+          "dist"
+        ],
+        "type": "assets"
+      }
+    },
+    "defaults": {
+      "build": {
+        "args": ""      
+      }
+    },
+    "networks": {
+      "local": {
+        "type": "ephemeral"
+      },
+      "ic": {
+        "providers": [
+          "https://mainnet.dfinity.network"
+        ],
+        "type": "persistent"
+      }
+    },
+    "output_env_file": ".env",
+    "version": 1
+  }
