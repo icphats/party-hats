@@ -1,27 +1,32 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  
-  height: 100vh;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  /* Ensure full height */
-  height: 80%;
-  overflow: hidden;
+  height: 100%; /* Keeps it relative to the viewport */
+  
+  
+  overflow: auto; /* Prevents scrollbar, use with caution */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
 
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: default;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #FFFFFF;
+  background-color: #12002C;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -65,10 +70,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #12002C;
   }
   a:hover {
     color: #747bff;
@@ -76,11 +81,27 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+.content {
+  height: 100vh;
+}
+
+.splash-container {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../src/assets/PhatsBG2Frame_1920x1080.gif"); /* Correct path to your GIF */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  display: flex; /* Use Flexbox for easier content alignment */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
 }
 
 .stats-container {
   display: flex;
   flex-wrap: wrap;
+  height: 20vh;
 }
 
 .stat {
@@ -97,9 +118,6 @@ button:focus-visible {
   width: 50%;
   height: auto;
 }
-.content {
-  max-height: calc(100vh - 68px);
-}
 
 .stats-container {
   display: flex;
@@ -113,18 +131,34 @@ button:focus-visible {
 }
 
 .grid-container {
-  max-height: 480px;
+  height: 80vh;
+  margin: 0 5vw 200px 5vw;
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  
+  background-color: #12002C;
+  scrollbar-width: none;
+
+  border: 3px solid salmon;
+  border-radius: 10px;
   padding: 20px;
-  background-color: #242424;
+
 }
 
-.nft-item {
-  background-color: #545050;
+.grid-container::-webkit-scrollbar {
+  display: none; /* This will hide the scrollbar in WebKit browsers */
+}
+
+.card-container {
+  color: white;
+  line-height: 0;
   border-radius: 8px;
+}
+
+.nft-image-container {
+  border-radius: 8px 8px 0px 0px;
   overflow: hidden;
 }
 
@@ -132,6 +166,73 @@ button:focus-visible {
   width: 100%;
   height: auto;
 }
+
+.gradient-border {
+  padding: 1.5px;
+  background-image: linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.card-description-container{
+  background-color: rgb(55, 55, 55);
+  border-radius: 0px 0px 8px 8px;
+}
+
+.card-d-container-row {
+  display: flex; /* This makes it a flex container */
+  justify-content: space-between; /* This spreads out the items to the left and right ends */
+  align-items: center; /* This centers the items vertically, you can adjust as needed */
+  font-size: 16px;
+  margin-right: 16px;
+  margin-left: 16px;
+  height: 3em;
+}
+
+.nri-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.nri-text {
+  background-color: #535bf2; /* Background applied to the text */
+  border-radius: 5px; /* Match the container's border-radius if needed */
+  padding: 0.8em; /* Adjust padding as needed to control background size */
+  color: #FFFFFF;
+}
+
+.nft-price-container {
+  display: flex;
+  align-items: center;
+}
+
+.dfinity-price-image{
+  height: 1em;
+  width: 1em;
+  padding-left: 6px;
+}
+
+.buy-now-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.buy-now-text {
+  background-color: #598C58; /* Background applied to the text */
+  border-radius: 5px; /* Match the container's border-radius if needed */
+  padding: 0.8em; /* Adjust padding as needed to control background size */
+  color: #000000;
+}
+
+/* .card-d-container-r2{
+
+} */
+
+
 
 .pagination {
   margin-top: 20px;

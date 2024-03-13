@@ -60,9 +60,11 @@ function App() {
 
   return (
     <div className="content">
-      <div className="banner-container">
-        <img src={banner} className="banner" alt="home banner" />
+      <div className="splash-container">
       </div>
+      {/* <div className="banner-container">
+        <img src={banner} className="banner" alt="home banner" />
+      </div> */}
       {stats && (
         <div className="stats-container">
           <p className="stat">owners: {stats.total}</p>
@@ -70,23 +72,6 @@ function App() {
           <p className="stat">Listings: {stats.listings}</p>
         </div>
       )}
-
-      <div className="grid-container">
-        {listings
-          .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
-          .map((tokenId, index) => {
-            console.log("token", tokens[index]);
-            return (
-              <div key={index} className="nft-item">
-                <img
-                  src={`https://gq5kt-4iaaa-aaaal-qdhuq-cai.raw.icp0.io/?tokenid=${tokens[index]}`}
-                  alt={`Item ${index + 1}`}
-                  className="nft-image"
-                />
-              </div>
-            );
-          })}
-      </div>
       <div className="pagination">
         {currentPage > 8 && (
           <button onClick={() => handlePageChange(currentPage - 8)}>
@@ -103,6 +88,44 @@ function App() {
             Next
           </button>
         )}
+      </div>
+      <div className="grid-container">
+        {listings
+          .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+          .map((tokenId, index) => {
+            console.log("token", tokens[index]);
+            return (
+              <div class="gradient-border">
+             <div className="card-container">
+              <div key={index} className="nft-image-container">
+                <img
+                  src={`https://gq5kt-4iaaa-aaaal-qdhuq-cai.raw.icp0.io/?tokenid=${tokens[index]}`}
+                  alt={`Item ${index + 1}`}
+                  className="nft-image"
+                />
+              </div>
+              <div className="card-description-container">
+                <div className="card-d-container-row">
+                  <p className="">#1322</p>
+                  <div className="nri-container">
+                    <p className="nri-text">47%</p>
+                  </div>
+                </div>
+                <div className="card-d-container-row">
+                  <div className="nft-price-container">
+                    <p>1.384</p>
+                    <img className="dfinity-price-image" src="../src/assets/ICP.png" alt="dfinity logo"/>
+                  </div>
+                  <div className="buy-now-container">
+                    <p className="buy-now-text">buy</p>
+                  </div>
+                </div>
+              </div>
+              
+             </div>
+             </div>              
+            );  
+          })}
       </div>
     </div>
   );
