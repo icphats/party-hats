@@ -2,6 +2,20 @@
   box-sizing: border-box;
 }
 
+
+@font-face {
+  font-family: 'Bruno Ace';
+  src: url('assets/font/BrunoAce-Regular.ttf') format('truetype');
+  /* You can add other font properties here if needed, like font-weight, font-style, etc. */
+}
+
+
+body {
+  font-family: 'Bruno Ace', sans-serif;
+}
+/* Other CSS rules where you want to use the 'Bruno Ace' font */
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -29,27 +43,6 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
 button {
   border-radius: 8px;
@@ -62,6 +55,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
@@ -131,17 +125,14 @@ button:focus-visible {
 }
 
 .grid-container {
-  height: 80vh;
-  margin: 0 5vw 200px 5vw;
+  height: 90vh;
+  margin: 0 5vw 36px 5vw;
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  
   background-color: #12002C;
   scrollbar-width: none;
-
-  border: 3px solid salmon;
   border-radius: 10px;
   padding: 20px;
 
@@ -162,9 +153,9 @@ button:focus-visible {
   overflow: hidden;
 }
 
-.nft-image {
-  width: 100%;
-  height: auto;
+
+.nft-image-solo{
+  height: 500px;
 }
 
 .gradient-border {
@@ -241,4 +232,80 @@ button:focus-visible {
 .pagination button {
   margin-right: 5px;
   cursor: pointer;
+}
+
+
+.nft-item {
+  width: 200px; /* Adjust width as needed */
+  margin: 10px; /* Adjust margin as needed */
+}
+
+.image-container {
+  position: relative;
+}
+
+.price-tag {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.icon-placeholder {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  /* Add styles for the icon placeholder as needed */
+}
+
+.details-container {
+  position: relative;
+}
+
+
+
+.splash{
+  height: 100%;
+}
+
+.volumen-stat{
+  text-align: center;
+  font-size: 43px;
+}
+
+.h1{
+  text-align: center;
+}
+
+
+.stat{
+  margin-right: 36px;
+}
+
+
+.title {
+  font-weight: bold;
+  font-size: 16px; /* Adjust font size for titles */
+}
+
+.value {
+  margin-top: 5px; /* Adjust spacing between title and value */
+  font-size: 49px; /* Adjust font size for values */
+}
+
+
+.title.p{
+  text-align: left;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button {
+  /* Add any button styling you need */
+  margin: 0 5px; /* Adjust spacing between buttons */
 }
