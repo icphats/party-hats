@@ -133,16 +133,10 @@ const { version } = JSON.parse(json);
 // 	};
 // });
 
-
-
-
-
-
-
-
-
-
 // https://vitejs.dev/config/
+
+
+
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
