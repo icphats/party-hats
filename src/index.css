@@ -9,22 +9,17 @@
   /* You can add other font properties here if needed, like font-weight, font-style, etc. */
 }
 
-
-body {
-  font-family: 'Bruno Ace', sans-serif;
-}
-/* Other CSS rules where you want to use the 'Bruno Ace' font */
-
-
 html, body {
   margin: 0;
   padding: 0;
   height: 100%; /* Keeps it relative to the viewport */
-  
+
+  font-family: 'Bruno Ace', sans-serif;
   
   overflow: auto; /* Prevents scrollbar, use with caution */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
+  cursor: url('assets/dds.png'), default;
 }
 
 
@@ -41,6 +36,17 @@ html, body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.loading-container {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("assets/loading_screen.png"); /* Correct path to your GIF */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  display: flex; /* Use Flexbox for easier content alignment */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
 }
 
 
@@ -81,16 +87,7 @@ button:focus-visible {
   height: 100vh;
 }
 
-.splash-container {
-  height: 100vh;
-  width: 100vw;
-  background-image: url("../src/assets/PhatsBG2Frame_1920x1080.gif"); /* Correct path to your GIF */
-  background-size: cover; /* Cover the entire container */
-  background-position: center; /* Center the background image */
-  display: flex; /* Use Flexbox for easier content alignment */
-  justify-content: center; /* Center children horizontally */
-  align-items: center; /* Center children vertically */
-}
+
 
 .stats-container {
   display: flex;

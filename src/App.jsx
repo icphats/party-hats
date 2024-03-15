@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import banner from "./assets/homepage_banner.gif";
 import { Principal } from "@dfinity/principal";
+import Page_1 from "./components/Page_1/index.jsx";
 //import splash from "../assets/splash.png"
 import "./App.css";
 import extjs from "./ic/extjs.js";
@@ -130,14 +130,11 @@ function App() {
   //   {/* Your other content goes here */}
   // </div>;
 
-  if (!loaded) return <div className="splash-container"></div>;
+  if (!loaded) return <div className="loading-container"></div>;
 
   return (
     <div className="content">
-      <div className="splash-container"></div>
-      {/* <div className="banner-container">
-        <img src={banner} className="banner" alt="home banner" />
-      </div> */}
+      <Page_1></Page_1>
       {stats && (
         <div className="volumen-stat">
           <h3 claaName="volumen-stat">volumen</h3>
@@ -200,8 +197,8 @@ function App() {
               </div>
             );
           })}
-      </div>
-      <div className="pagination">
+      </div> 
+       <div className="pagination">
         {currentPage > 8 && (
           <button onClick={() => handlePageChange(currentPage - 8)}>
             Previous

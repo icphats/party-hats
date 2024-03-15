@@ -16,7 +16,7 @@ jobs:
           node-version: "18"
 
       - name: Install Dependencies
-        run: npm i
+        run: npm ci
 
       - name: Build
         run: npm run build
