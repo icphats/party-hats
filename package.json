@@ -12,15 +12,18 @@
   "dependencies": {
     "@dfinity/agent": "^1.0.1",
     "@dfinity/principal": "^1.0.1",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@junobuild/core": "^0.0.46",
     "axios": "^1.6.7",
     "bignumber.js": "^9.1.2",
     "bip39": "^3.1.0",
+    "buffer": "^6.0.3",
     "json-bigint": "^1.0.0",
     "pbkdf2": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sjcl": "^1.0.8"
+    "sjcl": "^1.0.8",
+    "vite-plugin-notifier": "^0.1.5"
   },
   "devDependencies": {
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",

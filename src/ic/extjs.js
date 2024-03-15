@@ -329,6 +329,14 @@ class ExtConnection {
                     a[1],
                 ]);
             },
+            userCollection: async (tokenid,user)=>{
+                    let balanceRequest = {token:tokenid,user:{principal:user}};
+                   let response = await api.balance(balanceRequest);
+                   console.log("response",Number(response.ok))
+                   if(response && response.ok){
+                    return response.ok
+                   }
+            },
             stats: () => {
                 return new Promise((resolve, reject) => {
                     try {

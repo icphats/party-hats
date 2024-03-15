@@ -1,13 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+
+@font-face {
+  font-family: 'Bruno Ace';
+  src: url('assets/font/BrunoAce-Regular.ttf') format('truetype');
+  /* You can add other font properties here if needed, like font-weight, font-style, etc. */
+}
+
+
+body {
+  font-family: 'Bruno Ace', sans-serif;
+}
+/* Other CSS rules where you want to use the 'Bruno Ace' font */
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Keeps it relative to the viewport */
+  
+  
+  overflow: auto; /* Prevents scrollbar, use with caution */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: default;
   font-weight: 400;
-  
-  height: 100vh;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #FFFFFF;
+  background-color: #12002C;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,36 +43,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  /* Ensure full height */
-  height: 80%;
-  overflow: hidden;
-
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
 button {
   border-radius: 8px;
@@ -57,6 +55,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
@@ -65,10 +64,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #12002C;
   }
   a:hover {
     color: #747bff;
@@ -76,11 +75,27 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+.content {
+  height: 100vh;
+}
+
+.splash-container {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../src/assets/PhatsBG2Frame_1920x1080.gif"); /* Correct path to your GIF */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  display: flex; /* Use Flexbox for easier content alignment */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
 }
 
 .stats-container {
   display: flex;
   flex-wrap: wrap;
+  height: 20vh;
 }
 
 .stat {
@@ -97,9 +112,6 @@ button:focus-visible {
   width: 50%;
   height: auto;
 }
-.content {
-  max-height: calc(100vh - 68px);
-}
 
 .stats-container {
   display: flex;
@@ -113,25 +125,105 @@ button:focus-visible {
 }
 
 .grid-container {
-  max-height: 480px;
+  height: 90vh;
+  margin: 0 5vw 36px 5vw;
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  background-color: #12002C;
+  scrollbar-width: none;
+  border-radius: 10px;
   padding: 20px;
-  background-color: #242424;
+
 }
 
-.nft-item {
-  background-color: #545050;
+.grid-container::-webkit-scrollbar {
+  display: none; /* This will hide the scrollbar in WebKit browsers */
+}
+
+.card-container {
+  color: white;
+  line-height: 0;
   border-radius: 8px;
+}
+
+.nft-image-container {
+  border-radius: 8px 8px 0px 0px;
   overflow: hidden;
 }
 
-.nft-image {
-  width: 100%;
-  height: auto;
+
+.nft-image-solo{
+  height: 500px;
 }
+
+.gradient-border {
+  padding: 1.5px;
+  background-image: linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.card-description-container{
+  background-color: rgb(55, 55, 55);
+  border-radius: 0px 0px 8px 8px;
+}
+
+.card-d-container-row {
+  display: flex; /* This makes it a flex container */
+  justify-content: space-between; /* This spreads out the items to the left and right ends */
+  align-items: center; /* This centers the items vertically, you can adjust as needed */
+  font-size: 16px;
+  margin-right: 16px;
+  margin-left: 16px;
+  height: 3em;
+}
+
+.nri-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.nri-text {
+  background-color: #535bf2; /* Background applied to the text */
+  border-radius: 5px; /* Match the container's border-radius if needed */
+  padding: 0.8em; /* Adjust padding as needed to control background size */
+  color: #FFFFFF;
+}
+
+.nft-price-container {
+  display: flex;
+  align-items: center;
+}
+
+.dfinity-price-image{
+  height: 1em;
+  width: 1em;
+  padding-left: 6px;
+}
+
+.buy-now-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.buy-now-text {
+  background-color: #598C58; /* Background applied to the text */
+  border-radius: 5px; /* Match the container's border-radius if needed */
+  padding: 0.8em; /* Adjust padding as needed to control background size */
+  color: #000000;
+}
+
+/* .card-d-container-r2{
+
+} */
+
+
 
 .pagination {
   margin-top: 20px;
@@ -140,4 +232,80 @@ button:focus-visible {
 .pagination button {
   margin-right: 5px;
   cursor: pointer;
+}
+
+
+.nft-item {
+  width: 200px; /* Adjust width as needed */
+  margin: 10px; /* Adjust margin as needed */
+}
+
+.image-container {
+  position: relative;
+}
+
+.price-tag {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.icon-placeholder {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  /* Add styles for the icon placeholder as needed */
+}
+
+.details-container {
+  position: relative;
+}
+
+
+
+.splash{
+  height: 100%;
+}
+
+.volumen-stat{
+  text-align: center;
+  font-size: 43px;
+}
+
+.h1{
+  text-align: center;
+}
+
+
+.stat{
+  margin-right: 36px;
+}
+
+
+.title {
+  font-weight: bold;
+  font-size: 16px; /* Adjust font size for titles */
+}
+
+.value {
+  margin-top: 5px; /* Adjust spacing between title and value */
+  font-size: 49px; /* Adjust font size for values */
+}
+
+
+.title.p{
+  text-align: left;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button {
+  /* Add any button styling you need */
+  margin: 0 5px; /* Adjust spacing between buttons */
 }
