@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Principal } from "@dfinity/principal";
 import Page_1 from "./components/Page_1/index.jsx";
+import Page_2 from "./components/Page_2/index.jsx";
 //import splash from "../assets/splash.png"
 import "./App.css";
 import extjs from "./ic/extjs.js";
@@ -135,10 +136,11 @@ function App() {
   return (
     <div className="content">
       <Page_1></Page_1>
+      {/* <Page_2></Page_2> */}
       {stats && (
         <div className="volumen-stat">
-          <h3 claaName="volumen-stat">volumen</h3>
-          <h1 claaName="volumen-stat">{stats.total}</h1>
+          <h3 className="volumen-stat">volumen</h3>
+          <h1 className="volumen-stat">{stats.total}</h1>
           <div class="stats-container">
             <div class="stat">
               <p class="title">Owners:</p>
