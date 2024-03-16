@@ -2,7 +2,7 @@
     height: 100vh;
     width: 100vw;
     background-image: url("../../assets/PhatsBG2Frame_1920x1080_1.gif"); /* Correct path to your GIF */
-    background-size: cover; /* Cover the entire container */
+    background-size: cover;
     background-position: center; /* Center the background image */
     display: flex; /* Use Flexbox for easier content alignment */
     justify-content: center; /* Center children horizontally */

@@ -45,7 +45,6 @@ export const useAuthClient = (options = defaultOptions) => {
 
 
   useEffect(() => {
-    console.log("what sup");
     // Initialize AuthClient
     AuthClient.create(options.createOptions).then(async (client) => {
       updateClient(client);
@@ -66,14 +65,12 @@ export const useAuthClient = (options = defaultOptions) => {
     setIsAuthenticated(isAuthenticated);
 
     const identity = client.getIdentity();
-    console.log("getting identity",identity)
     setIdentity(identity);
 
     const principal = identity.getPrincipal();
     setPrincipal(principal);
 
     setAuthClient(client);
-      console.log("before creating actor",canisterId)
     const actor = createActor(canisterId, {
       agentOptions: {
         identity,
@@ -89,7 +86,6 @@ export const useAuthClient = (options = defaultOptions) => {
         identity,
       }
     })
-    console.log("actor",actor)
     setbackendActor(actor);
     setIcEthActor(icEthActor)
     setCkBtcActor(ckBtcActor)

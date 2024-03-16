@@ -307,7 +307,6 @@ class ExtConnection {
                 });
             },
             size: async () => {
-                // console.log(tokenObj.canister);
                 if (tokenObj.canister == '46sy3-aiaaa-aaaah-qczza-cai') {
                     let x = await api.getRegistry();
                     return x.length;
@@ -332,7 +331,6 @@ class ExtConnection {
             userCollection: async (tokenid,user)=>{
                     let balanceRequest = {token:tokenid,user:{principal:user}};
                    let response = await api.balance(balanceRequest);
-                   console.log("response",Number(response.ok))
                    if(response && response.ok){
                     return response.ok
                    }

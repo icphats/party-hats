@@ -1,0 +1,74 @@
+.stats-brand-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height:5vh;
+    width: auto;
+}
+
+.brand-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.brand-logo {
+    height: 5vh; /* Set the height to 5% of the viewport height */
+    width: auto; /* Adjust width automatically to maintain aspect ratio */
+  }
+
+.social_links{
+    display: flex;
+    align-items: center;
+}
+
+.stats-container{
+    display: flex;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+}
+
+.volumen-stat > h3 {
+    color: #a9a9a9;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .volumen-stat > h1 {
+    color: #f0f0f0;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  .stat {
+    text-align: center;
+  }
+  
+  .stat .title {
+    text-align: left;
+    color: #a9a9a9;
+    font-size: 0.75rem;
+    margin: 0;
+  }
+  
+  .stat .value {
+    color: #f0f0f0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  /* Responsive Design */
+@media (max-width: 768px) {
+    .stats-container {
+      flex-direction: column;
+    }
+  
+    .stat {
+      margin-bottom: 10px;
+    }
+  }
