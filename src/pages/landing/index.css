@@ -13,3 +13,7 @@
     justify-content: center; /* Center children horizontally */
     align-items: center; /* Center children vertically */
 }
+
+.front-banner {
+    width: 80vw;
+  }
