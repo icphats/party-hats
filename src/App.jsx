@@ -118,7 +118,7 @@ function App() {
     }
   };
   // !loaded
-  if (true) return <div className="loading-container">
+  if (!loaded) return <div className="loading-container">
     <div className="loading-inner-content-container">
       <img className="loading-logo" src={logo} alt="" />
       <p className="loading-text df-font">Built on the Internet Computer</p>
