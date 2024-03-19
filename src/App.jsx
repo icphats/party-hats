@@ -6,6 +6,7 @@ import "./App.css";
 import extjs from "./ic/extjs.js";
 const api = extjs.connect("https://icp0.io/");
 const partyhatscanister = "gq5kt-4iaaa-aaaal-qdhuq-cai";
+import logo from "./assets/logo_1000x1000.png"
 
 function App() {
   const [listings, setListings] = useState([]);
@@ -116,8 +117,13 @@ function App() {
       return [];
     }
   };
-
-  if (!loaded) return <div className="loading-container"></div>;
+  // !loaded
+  if (true) return <div className="loading-container">
+    <div className="loading-inner-content-container">
+      <img className="loading-logo" src={logo} alt="" />
+      <p className="loading-text df-font">Built on the Internet Computer</p>
+    </div>
+  </div>;
 
   return (
     <div className="content">
