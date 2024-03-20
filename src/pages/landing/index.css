@@ -1,6 +1,9 @@
 .Landing {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #151515;
 }
 
 .Banner {
@@ -14,6 +17,8 @@
     align-items: center; /* Center children vertically */
 }
 
-.front-banner {
-    width: 80vw;
-  }
+.nftBoard{
+    margin: 30px;
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+}

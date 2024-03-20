@@ -1,25 +1,36 @@
 .grid-container {
-    height: 70vh;
+    height: calc(100vh - 250px);
     flex: 1;
-    margin: 0 5vw 36px 5vw;
+    margin: 30px;
     overflow: auto;
+    overflow-y: scroll;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    background-color: #12002C;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
     scrollbar-width: none;
     border-radius: 10px;
-    padding: 0px;
+    padding: 0px 10px;
   }
 
-  .grid-container::-webkit-scrollbar {
-    display: none; /* This will hide the scrollbar in WebKit browsers */
+  .cards-container {
+    height: calc(100vh - 250px);
+    flex: 1;
+    margin: 30px;
+    overflow: auto;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    scrollbar-width: none;
+    border-radius: 10px;
+    padding: 0px 10px;
   }
+
 
 .nft-viewer {
   display: flex;
-  padding: 20px;
   width: 100vw;
+  height: calc(100vh- 188px);
 }
 
 .viewmodes {
@@ -28,8 +39,8 @@
   justify-content: center;
   align-items: center;
   margin-right: 50px;
-  padding-right: 50px;
-  border-right: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 20px 50px;
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .viewmodes>a{
@@ -43,13 +54,14 @@
   justify-content: right;
   align-items: center;
   flex-direction: row;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
   .item-preview {
     flex: none;
     width: 400px;
     border-right: 3px solid rgba(255, 255, 255, 0.2);
     border-radius: 3px;
-    height: 70vh;
+    height: calc(100vh - 190px);
   }
   
   .card-container {
@@ -59,7 +71,6 @@
   }
   
   .nft-image-container {
-    border-radius: 8px 8px 0px 0px;
     overflow: hidden;
   }
   
@@ -71,13 +82,11 @@
   .gradient-border {
     padding: 1.5px;
     background-image: linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24);
-    border-radius: 8px;
     display: inline-block;
   }
   
   .card-description-container{
     background-color: gray;
-    border-radius: 0px 0px 8px 8px;
   }
   
   .card-d-container-row {
@@ -156,4 +165,14 @@
   
   .details-container {
     position: relative;
+  }
+  
+  @media (max-width: 768px) {
+    .item-preview {
+      /* Adjust the height for mobile if necessary, or any other styles */
+      display: none;
+    }
+    .viewmodes{
+      border-right: 0;
+    }
   }

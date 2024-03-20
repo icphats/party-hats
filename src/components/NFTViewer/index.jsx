@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import extjs from "../../ic/extjs.js";
 const api = extjs.connect("https://icp0.io/");
 const partyhatscanister = "gq5kt-4iaaa-aaaal-qdhuq-cai";
@@ -53,7 +53,7 @@ const NftItem = ({_viewMode, tokens, index}) => {
 }
 
 function NFT_Grid() {
-  const [viewMode, setViewMode] = useState(1);
+  const [viewMode, setViewMode] = useState(2);
   const [listings, setListings] = useState([]);
   const [tokens, setTokens] = useState([]);
   const [stats, setStats] = useState([]);
@@ -61,8 +61,10 @@ function NFT_Grid() {
   const [index, setIndex] = useState(""); // State variable for index input\
   const [indexToken, setIndexToken] = useState("");
   const [loaded, setLoaded] = useState(false);
+  const [count, setCount] = useState(0);
   const [userCollectionState, setUserColletion] = useState([]);
-  const itemsPerPage = 50;
+  const itemsPerPage = 150;
+  const containerRef = useRef(null);
 
   useEffect(() => { }, [loaded, userCollectionState]);
 
@@ -106,11 +108,21 @@ function NFT_Grid() {
 
   const totalPages = Math.ceil(listings.length / itemsPerPage);
 
-  const handlePageChange = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
+  useEffect(() => {
+    if (tokens.length > 50)
+      setCount(50);
+    else setCount(tokens.length);
+  }, [tokens]);
+
+  const handleScroll = () => {
+    const container = containerRef.current;
+    if (
+      container.scrollTop + container.clientHeight >= container.scrollHeight
+    ) {
+      setCount((count + 20) > tokens.length ? tokens.length : (count + 20));
+      console.log("bottom reached");
     }
-  };
+  }
 
   const handleIndexChange = async (event) => {
     setIndex(event.target.value);
@@ -144,8 +156,8 @@ function NFT_Grid() {
   return <>
     <div className="state-control">
       <div className="viewmodes">
-        <a href="#" onClick={() => { setViewMode(1) }} style={{border: (viewMode==1?"1px solid white":"0px")}}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp;
-        <a href="#" onClick={() => { setViewMode(2) }} style={{border: (viewMode==2?"1px solid white":"0px")}}><img src={gridview_icon} alt="Card View" width={20} /></a>
+        <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp;
+        <a href="#" onClick={() => { setViewMode(2) }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
       </div>
       <Stats />
     </div>
@@ -153,11 +165,11 @@ function NFT_Grid() {
       <div className="item-preview">
         <ItemPreview />
       </div>
-      <div className="grid-container">
+      <div className={viewMode == 1 ? "grid-container" : "cards-container"} onScroll={handleScroll} ref={containerRef}>
         {listings
-          .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+          .slice(0, count)
           .map((tokenId, index) => {
-            return <NftItem _viewMode={viewMode} index={index} tokens={tokens}/>
+            return <NftItem _viewMode={viewMode} index={index} tokens={tokens} />
           })}
       </div>
     </div>
@@ -165,3 +177,6 @@ function NFT_Grid() {
 }
 
 export default NFT_Grid;
+
+
+//(currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
