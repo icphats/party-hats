@@ -38,10 +38,10 @@ function Stats() {
             <p className="title">Volume</p>
             <p className="value">{stats.total}</p>
           </div>
-          <div className="stat">
+          {/* <div className="stat">
             <p className="title">Owners</p>
             <p className="value">{stats.owners}</p>
-          </div>
+          </div> */}
           <div className="stat">
             <p className="title">Floor</p>
             <p className="value">{stats.floor}</p>
