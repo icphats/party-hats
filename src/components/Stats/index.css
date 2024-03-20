@@ -81,4 +81,8 @@
     .stat {
       margin-bottom: 10px;
     }
+
+    .stats-brand-container {
+      display: none;
+    }
   }
