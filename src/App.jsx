@@ -6,9 +6,11 @@ import "./App.css";
 import extjs from "./ic/extjs.js";
 const api = extjs.connect("https://icp0.io/");
 const partyhatscanister = "gq5kt-4iaaa-aaaal-qdhuq-cai";
-import logo from "./assets/logo_1000x1000.png"
+
+
 
 function App() {
+
   // if (!loaded) return <div className="loading-container">
   //   <div className="loading-inner-content-container">
   //     <img className="loading-logo" src={logo} alt="" />

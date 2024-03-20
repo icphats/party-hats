@@ -1,1011 +1,2403 @@
 [
     {
-        "klf5x-hikor-uwiaa-aaaaa-c4az5-eaqca-aaaaa-a": {
-            "mint": 1,
-            "assetlayers": {
-                "0" : 39,
-                "1" : 15,
-                "2" : 20,
-                "3" : 1,
-                "4" : 1 
-            },
-            "nri": 0.394
+      "klf5x-hikor-uwiaa-aaaaa-c4az5-eaqca-aaaaa-a": {
+        "mint": 1,
+        "assetlayers": {
+          "0": 39,
+          "1": 15,
+          "2": 20,
+          "3": 1,
+          "4": 1
         }
-    },
-    {
-        "exgow-cykor-uwiaa-aaaaa-c4az5-eaqca-aaaaa-q": {
-            "mint": 2
-        }
-    },
-    {
-        "xtc3v-mikor-uwiaa-aaaaa-c4az5-eaqca-aaaab-a": {
-            "mint": 3
-        }
-    },
-    {
-        "zpbiu-jykor-uwiaa-aaaaa-c4az5-eaqca-aaaab-q": {
-            "mint": 4
-        }
-    },
-    {
-        "kwtb7-bakor-uwiaa-aaaaa-c4az5-eaqca-aaaac-a": {
-            "mint": 5
-        }
-    },
-    {
-        "ekqs6-eqkor-uwiaa-aaaaa-c4az5-eaqca-aaaac-q": {
-            "mint": 6
-        }
-    },
-    {
-        "xouh5-kakor-uwiaa-aaaaa-c4az5-eaqca-aaaad-a": {
-            "mint": 7
-        }
-    },
-    {
-        "zsxu4-pqkor-uwiaa-aaaaa-c4az5-eaqca-aaaad-q": {
-            "mint": 8
+      }
+    },
+    {
+      "exgow-cykor-uwiaa-aaaaa-c4az5-eaqca-aaaaa-q": {
+        "mint": 2,
+        "assetlayers": {
+          "0": 37,
+          "1": 17,
+          "2": 23,
+          "3": 3,
+          "4": 1
         }
-    },
-    {
-        "lqifh-lykor-uwiaa-aaaaa-c4az5-eaqca-aaaae-a": {
-            "mint": 9
-        }
-    },
-    {
-        "fmlwg-oikor-uwiaa-aaaaa-c4az5-eaqca-aaaae-q": {
-            "mint": 10
+      }
+    },
+    {
+      "xtc3v-mikor-uwiaa-aaaaa-c4az5-eaqca-aaaab-a": {
+        "mint": 3,
+        "assetlayers": {
+          "0": 66,
+          "1": 18,
+          "2": 20,
+          "3": 9,
+          "4": 1
         }
-    },
-    {
-        "wipdf-aykor-uwiaa-aaaaa-c4az5-eaqca-aaaaf-a": {
-            "mint": 11
-        }
-    },
-    {
-        "yumqe-fikor-uwiaa-aaaaa-c4az5-eaqca-aaaaf-q": {
-            "mint": 12
+      }
+    },
+    {
+      "zpbiu-jykor-uwiaa-aaaaa-c4az5-eaqca-aaaab-q": {
+        "mint": 4,
+        "assetlayers": {
+          "0": 66,
+          "1": 20,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
-    },
-    {
-        "ln6zp-nqkor-uwiaa-aaaaa-c4az5-eaqca-aaaag-a": {
-            "mint": 13
+      }
+    },
+    {
+      "kwtb7-bakor-uwiaa-aaaaa-c4az5-eaqca-aaaac-a": {
+        "mint": 5,
+        "assetlayers": {
+          "0": 70,
+          "1": 20,
+          "2": 1,
+          "3": 0,
+          "4": 1
         }
-    },
-    {
-        "fr5ko-iakor-uwiaa-aaaaa-c4az5-eaqca-aaaag-q": {
-            "mint": 14
+      }
+    },
+    {
+      "ekqs6-eqkor-uwiaa-aaaaa-c4az5-eaqca-aaaac-q": {
+        "mint": 6,
+        "assetlayers": {
+          "0": 71,
+          "1": 15,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
-    },
-    {
-        "wvz7n-gqkor-uwiaa-aaaaa-c4az5-eaqca-aaaah-a": {
-            "mint": 15
+      }
+    },
+    {
+      "xouh5-kakor-uwiaa-aaaaa-c4az5-eaqca-aaaad-a": {
+        "mint": 7,
+        "assetlayers": {
+          "0": 40,
+          "1": 8,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
-    },
-    {
-        "yj2mm-dakor-uwiaa-aaaaa-c4az5-eaqca-aaaah-q": {
-            "mint": 16
+      }
+    },
+    {
+      "zsxu4-pqkor-uwiaa-aaaaa-c4az5-eaqca-aaaad-q": {
+        "mint": 8,
+        "assetlayers": {
+          "0": 12,
+          "1": 12,
+          "2": 13,
+          "3": 6,
+          "4": 1
         }
-    },
-    {
-        "j56mx-6ikor-uwiaa-aaaaa-c4az5-eaqca-aaaai-a": {
-            "mint": 17
+      }
+    },
+    {
+      "lqifh-lykor-uwiaa-aaaaa-c4az5-eaqca-aaaae-a": {
+        "mint": 9,
+        "assetlayers": {
+          "0": 33,
+          "1": 0,
+          "2": 14,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "hb57w-3ykor-uwiaa-aaaaa-c4az5-eaqca-aaaai-q": {
-            "mint": 18
+      "fmlwg-oikor-uwiaa-aaaaa-c4az5-eaqca-aaaae-q": {
+        "mint": 10,
+        "assetlayers": {
+          "0": 12,
+          "1": 15,
+          "2": 16,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "ufzkv-vikor-uwiaa-aaaaa-c4az5-eaqca-aaaaj-a": {
-            "mint": 19
+      "wipdf-aykor-uwiaa-aaaaa-c4az5-eaqca-aaaaf-a": {
+        "mint": 11,
+        "assetlayers": {
+          "0": 29,
+          "1": 18,
+          "2": 0,
+          "3": 3,
+          "4": 1
         }
+      }
     },
     {
-        "2z2zu-qykor-uwiaa-aaaaa-c4az5-eaqca-aaaaj-q": {
-            "mint": 20
+      "yumqe-fikor-uwiaa-aaaaa-c4az5-eaqca-aaaaf-q": {
+        "mint": 12,
+        "assetlayers": {
+          "0": 57,
+          "1": 11,
+          "2": 10,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "jaiq7-yakor-uwiaa-aaaaa-c4az5-eaqca-aaaak-a": {
-            "mint": 21
+      "ln6zp-nqkor-uwiaa-aaaaa-c4az5-eaqca-aaaag-a": {
+        "mint": 13,
+        "assetlayers": {
+          "0": 29,
+          "1": 13,
+          "2": 23,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "h4ld6-5qkor-uwiaa-aaaaa-c4az5-eaqca-aaaak-q": {
-            "mint": 22
+      "fr5ko-iakor-uwiaa-aaaaa-c4az5-eaqca-aaaag-q": {
+        "mint": 14,
+        "assetlayers": {
+          "0": 27,
+          "1": 15,
+          "2": 5,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "uypw5-takor-uwiaa-aaaaa-c4az5-eaqca-aaaal-a": {
-            "mint": 23
+      "wvz7n-gqkor-uwiaa-aaaaa-c4az5-eaqca-aaaah-a": {
+        "mint": 15,
+        "assetlayers": {
+          "0": 38,
+          "1": 18,
+          "2": 6,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "2emf4-wqkor-uwiaa-aaaaa-c4az5-eaqca-aaaal-q": {
-            "mint": 24
+      "yj2mm-dakor-uwiaa-aaaaa-c4az5-eaqca-aaaah-q": {
+        "mint": 16,
+        "assetlayers": {
+          "0": 25,
+          "1": 18,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "igtuh-sykor-uwiaa-aaaaa-c4az5-eaqca-aaaam-a": {
-            "mint": 25
+      "j56mx-6ikor-uwiaa-aaaaa-c4az5-eaqca-aaaai-a": {
+        "mint": 17,
+        "assetlayers": {
+          "0": 60,
+          "1": 18,
+          "2": 16,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "g2qhg-xikor-uwiaa-aaaaa-c4az5-eaqca-aaaam-q": {
-            "mint": 26
+      "hb57w-3ykor-uwiaa-aaaaa-c4az5-eaqca-aaaai-q": {
+        "mint": 18,
+        "assetlayers": {
+          "0": 32,
+          "1": 18,
+          "2": 5,
+          "3": 4,
+          "4": 1
         }
+      }
     },
     {
-        "v6usf-zykor-uwiaa-aaaaa-c4az5-eaqca-aaaan-a": {
-            "mint": 27
+      "ufzkv-vikor-uwiaa-aaaaa-c4az5-eaqca-aaaaj-a": {
+        "mint": 19,
+        "assetlayers": {
+          "0": 9,
+          "1": 15,
+          "2": 1,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "3cxbe-4ikor-uwiaa-aaaaa-c4az5-eaqca-aaaan-q": {
-            "mint": 28
+      "2z2zu-qykor-uwiaa-aaaaa-c4az5-eaqca-aaaaj-q": {
+        "mint": 20,
+        "assetlayers": {
+          "0": 13,
+          "1": 18,
+          "2": 17,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "i3fip-uqkor-uwiaa-aaaaa-c4az5-eaqca-aaaao-a": {
-            "mint": 29
+      "jaiq7-yakor-uwiaa-aaaaa-c4az5-eaqca-aaaak-a": {
+        "mint": 21,
+        "assetlayers": {
+          "0": 6,
+          "1": 18,
+          "2": 17,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "ghg3o-rakor-uwiaa-aaaaa-c4az5-eaqca-aaaao-q": {
-            "mint": 30
+      "h4ld6-5qkor-uwiaa-aaaaa-c4az5-eaqca-aaaak-q": {
+        "mint": 22,
+        "assetlayers": {
+          "0": 64,
+          "1": 18,
+          "2": 6,
+          "3": 12,
+          "4": 1
         }
+      }
     },
     {
-        "vdcon-7qkor-uwiaa-aaaaa-c4az5-eaqca-aaaap-a": {
-            "mint": 31
+      "uypw5-takor-uwiaa-aaaaa-c4az5-eaqca-aaaal-a": {
+        "mint": 23,
+        "assetlayers": {
+          "0": 48,
+          "1": 8,
+          "2": 16,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "37b5m-2akor-uwiaa-aaaaa-c4az5-eaqca-aaaap-q": {
-            "mint": 32
+      "2emf4-wqkor-uwiaa-aaaaa-c4az5-eaqca-aaaal-q": {
+        "mint": 24,
+        "assetlayers": {
+          "0": 72,
+          "1": 17,
+          "2": 15,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "ngs7w-vikor-uwiaa-aaaaa-c4az5-eaqca-aaaaq-a": {
-            "mint": 33
+      "igtuh-sykor-uwiaa-aaaaa-c4az5-eaqca-aaaam-a": {
+        "mint": 25,
+        "assetlayers": {
+          "0": 2,
+          "1": 18,
+          "2": 21,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "d2rmx-qykor-uwiaa-aaaaa-c4az5-eaqca-aaaaq-q": {
-            "mint": 34
+      "g2qhg-xikor-uwiaa-aaaaa-c4az5-eaqca-aaaam-q": {
+        "mint": 26,
+        "assetlayers": {
+          "0": 27,
+          "1": 18,
+          "2": 10,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "q6vzu-6ikor-uwiaa-aaaaa-c4az5-eaqca-aaaar-a": {
-            "mint": 35
+      "v6usf-zykor-uwiaa-aaaaa-c4az5-eaqca-aaaan-a": {
+        "mint": 27,
+        "assetlayers": {
+          "0": 12,
+          "1": 2,
+          "2": 15,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "6cwkv-3ykor-uwiaa-aaaaa-c4az5-eaqca-aaaar-q": {
-            "mint": 36
+      "3cxbe-4ikor-uwiaa-aaaaa-c4az5-eaqca-aaaan-q": {
+        "mint": 28,
+        "assetlayers": {
+          "0": 0,
+          "1": 18,
+          "2": 6,
+          "3": 4,
+          "4": 1
         }
+      }
     },
     {
-        "n3ed6-takor-uwiaa-aaaaa-c4az5-eaqca-aaaas-a": {
-            "mint": 37
+      "i3fip-uqkor-uwiaa-aaaaa-c4az5-eaqca-aaaao-a": {
+        "mint": 29,
+        "assetlayers": {
+          "0": 2,
+          "1": 8,
+          "2": 19,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "dhhq7-wqkor-uwiaa-aaaaa-c4az5-eaqca-aaaas-q": {
-            "mint": 38
+      "ghg3o-rakor-uwiaa-aaaaa-c4az5-eaqca-aaaao-q": {
+        "mint": 30,
+        "assetlayers": {
+          "0": 59,
+          "1": 14,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "qddf4-yakor-uwiaa-aaaaa-c4az5-eaqca-aaaat-a": {
-            "mint": 39
+      "vdcon-7qkor-uwiaa-aaaaa-c4az5-eaqca-aaaap-a": {
+        "mint": 31,
+        "assetlayers": {
+          "0": 37,
+          "1": 18,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "67aw5-5qkor-uwiaa-aaaaa-c4az5-eaqca-aaaat-q": {
-            "mint": 40
+      "37b5m-2akor-uwiaa-aaaaa-c4az5-eaqca-aaaap-q": {
+        "mint": 32,
+        "assetlayers": {
+          "0": 23,
+          "1": 14,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "m57hg-zykor-uwiaa-aaaaa-c4az5-eaqca-aaaau-a": {
-            "mint": 41
+      "ngs7w-vikor-uwiaa-aaaaa-c4az5-eaqca-aaaaq-a": {
+        "mint": 33,
+        "assetlayers": {
+          "0": 9,
+          "1": 8,
+          "2": 23,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "cb4uh-4ikor-uwiaa-aaaaa-c4az5-eaqca-aaaau-q": {
-            "mint": 42
+      "d2rmx-qykor-uwiaa-aaaaa-c4az5-eaqca-aaaaq-q": {
+        "mint": 34,
+        "assetlayers": {
+          "0": 69,
+          "1": 14,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "rfybe-sykor-uwiaa-aaaaa-c4az5-eaqca-aaaav-a": {
-            "mint": 43
+      "q6vzu-6ikor-uwiaa-aaaaa-c4az5-eaqca-aaaar-a": {
+        "mint": 35,
+        "assetlayers": {
+          "0": 50,
+          "1": 12,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "7z3sf-xikor-uwiaa-aaaaa-c4az5-eaqca-aaaav-q": {
-            "mint": 44
+      "6cwkv-3ykor-uwiaa-aaaaa-c4az5-eaqca-aaaar-q": {
+        "mint": 36,
+        "assetlayers": {
+          "0": 19,
+          "1": 18,
+          "2": 15,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "maj3o-7qkor-uwiaa-aaaaa-c4az5-eaqca-aaaaw-a": {
-            "mint": 45
+      "n3ed6-takor-uwiaa-aaaaa-c4az5-eaqca-aaaas-a": {
+        "mint": 37,
+        "assetlayers": {
+          "0": 13,
+          "1": 12,
+          "2": 11,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "c4kip-2akor-uwiaa-aaaaa-c4az5-eaqca-aaaaw-q": {
-            "mint": 46
+      "dhhq7-wqkor-uwiaa-aaaaa-c4az5-eaqca-aaaas-q": {
+        "mint": 38,
+        "assetlayers": {
+          "0": 51,
+          "1": 8,
+          "2": 18,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "ryo5m-uqkor-uwiaa-aaaaa-c4az5-eaqca-aaaax-a": {
-            "mint": 47
+      "qddf4-yakor-uwiaa-aaaaa-c4az5-eaqca-aaaat-a": {
+        "mint": 39,
+        "assetlayers": {
+          "0": 32,
+          "1": 18,
+          "2": 10,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "7enon-rakor-uwiaa-aaaaa-c4az5-eaqca-aaaax-q": {
-            "mint": 48
+      "67aw5-5qkor-uwiaa-aaaaa-c4az5-eaqca-aaaat-q": {
+        "mint": 40,
+        "assetlayers": {
+          "0": 70,
+          "1": 18,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "oqjow-mikor-uwiaa-aaaaa-c4az5-eaqca-aaaay-a": {
-            "mint": 49
+      "m57hg-zykor-uwiaa-aaaaa-c4az5-eaqca-aaaau-a": {
+        "mint": 41,
+        "assetlayers": {
+          "0": 11,
+          "1": 18,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "amk5x-jykor-uwiaa-aaaaa-c4az5-eaqca-aaaay-q": {
-            "mint": 50
+      "cb4uh-4ikor-uwiaa-aaaaa-c4az5-eaqca-aaaau-q": {
+        "mint": 42,
+        "assetlayers": {
+          "0": 15,
+          "1": 15,
+          "2": 14,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "tioiu-hikor-uwiaa-aaaaa-c4az5-eaqca-aaaaz-a": {
-            "mint": 51
+      "rfybe-sykor-uwiaa-aaaaa-c4az5-eaqca-aaaav-a": {
+        "mint": 43,
+        "assetlayers": {
+          "0": 38,
+          "1": 14,
+          "2": 1,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "5un3v-cykor-uwiaa-aaaaa-c4az5-eaqca-aaaaz-q": {
-            "mint": 52
+      "7z3sf-xikor-uwiaa-aaaaa-c4az5-eaqca-aaaav-q": {
+        "mint": 44,
+        "assetlayers": {
+          "0": 30,
+          "1": 1,
+          "2": 6,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "on7s6-kakor-uwiaa-aaaaa-c4az5-eaqca-aaaa2-a": {
-            "mint": 53
+      "maj3o-7qkor-uwiaa-aaaaa-c4az5-eaqca-aaaaw-a": {
+        "mint": 45,
+        "assetlayers": {
+          "0": 56,
+          "1": 15,
+          "2": 1,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "ar4b7-pqkor-uwiaa-aaaaa-c4az5-eaqca-aaaa2-q": {
-            "mint": 54
+      "c4kip-2akor-uwiaa-aaaaa-c4az5-eaqca-aaaaw-q": {
+        "mint": 46,
+        "assetlayers": {
+          "0": 57,
+          "1": 3,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "tvyu4-bakor-uwiaa-aaaaa-c4az5-eaqca-aaaa3-a": {
-            "mint": 55
+      "ryo5m-uqkor-uwiaa-aaaaa-c4az5-eaqca-aaaax-a": {
+        "mint": 47,
+        "assetlayers": {
+          "0": 38,
+          "1": 18,
+          "2": 17,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "5j3h5-eqkor-uwiaa-aaaaa-c4az5-eaqca-aaaa3-q": {
-            "mint": 56
+      "7enon-rakor-uwiaa-aaaaa-c4az5-eaqca-aaaax-q": {
+        "mint": 48,
+        "assetlayers": {
+          "0": 68,
+          "1": 18,
+          "2": 16,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "plewg-aykor-uwiaa-aaaaa-c4az5-eaqca-aaaa4-a": {
-            "mint": 57
+      "oqjow-mikor-uwiaa-aaaaa-c4az5-eaqca-aaaay-a": {
+        "mint": 49,
+        "assetlayers": {
+          "0": 40,
+          "1": 21,
+          "2": 23,
+          "3": 6,
+          "4": 0
         }
+      }
     },
     {
-        "bxhfh-fikor-uwiaa-aaaaa-c4az5-eaqca-aaaa4-q": {
-            "mint": 58
+      "amk5x-jykor-uwiaa-aaaaa-c4az5-eaqca-aaaay-q": {
+        "mint": 50,
+        "assetlayers": {
+          "0": 13,
+          "1": 20,
+          "2": 16,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "stdqe-lykor-uwiaa-aaaaa-c4az5-eaqca-aaaa5-a": {
-            "mint": 59
+      "tioiu-hikor-uwiaa-aaaaa-c4az5-eaqca-aaaaz-a": {
+        "mint": 51,
+        "assetlayers": {
+          "0": 50,
+          "1": 18,
+          "2": 5,
+          "3": 12,
+          "4": 1
         }
+      }
     },
     {
-        "4padf-oikor-uwiaa-aaaaa-c4az5-eaqca-aaaa5-q": {
-            "mint": 60
+      "5un3v-cykor-uwiaa-aaaaa-c4az5-eaqca-aaaaz-q": {
+        "mint": 52,
+        "assetlayers": {
+          "0": 54,
+          "1": 18,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "pwsko-gqkor-uwiaa-aaaaa-c4az5-eaqca-aaaa6-a": {
-            "mint": 61
+      "on7s6-kakor-uwiaa-aaaaa-c4az5-eaqca-aaaa2-a": {
+        "mint": 53,
+        "assetlayers": {
+          "0": 64,
+          "1": 18,
+          "2": 4,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "bkrzp-dakor-uwiaa-aaaaa-c4az5-eaqca-aaaa6-q": {
-            "mint": 62
+      "ar4b7-pqkor-uwiaa-aaaaa-c4az5-eaqca-aaaa2-q": {
+        "mint": 54,
+        "assetlayers": {
+          "0": 48,
+          "1": 12,
+          "2": 20,
+          "3": 12,
+          "4": 1
         }
+      }
     },
     {
-        "sovmm-nqkor-uwiaa-aaaaa-c4az5-eaqca-aaaa7-a": {
-            "mint": 63
+      "tvyu4-bakor-uwiaa-aaaaa-c4az5-eaqca-aaaa3-a": {
+        "mint": 55,
+        "assetlayers": {
+          "0": 64,
+          "1": 8,
+          "2": 14,
+          "3": 9,
+          "4": 1
         }
+      }
     },
     {
-        "4sw7n-iakor-uwiaa-aaaaa-c4az5-eaqca-aaaa7-q": {
-            "mint": 64
+      "5j3h5-eqkor-uwiaa-aaaaa-c4az5-eaqca-aaaa3-q": {
+        "mint": 56,
+        "assetlayers": {
+          "0": 9,
+          "1": 18,
+          "2": 18,
+          "3": 6,
+          "4": 0
         }
+      }
     },
     {
-        "eqlzu-dikor-uwiaa-aaaaa-c4az5-eaqca-aaaba-a": {
-            "mint": 65
+      "plewg-aykor-uwiaa-aaaaa-c4az5-eaqca-aaaa4-a": {
+        "mint": 57,
+        "assetlayers": {
+          "0": 72,
+          "1": 18,
+          "2": 12,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "kmikv-gykor-uwiaa-aaaaa-c4az5-eaqca-aaaba-q": {
-            "mint": 66
+      "bxhfh-fikor-uwiaa-aaaaa-c4az5-eaqca-aaaa4-q": {
+        "mint": 58,
+        "assetlayers": {
+          "0": 13,
+          "1": 8,
+          "2": 17,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "zim7w-iikor-uwiaa-aaaaa-c4az5-eaqca-aaabb-a": {
-            "mint": 67
+      "stdqe-lykor-uwiaa-aaaaa-c4az5-eaqca-aaaa5-a": {
+        "mint": 59,
+        "assetlayers": {
+          "0": 11,
+          "1": 21,
+          "2": 19,
+          "3": 10,
+          "4": 0
         }
+      }
     },
     {
-        "xupmx-nykor-uwiaa-aaaaa-c4az5-eaqca-aaabb-q": {
-            "mint": 68
+      "4padf-oikor-uwiaa-aaaaa-c4az5-eaqca-aaaa5-q": {
+        "mint": 60,
+        "assetlayers": {
+          "0": 70,
+          "1": 5,
+          "2": 23,
+          "3": 10,
+          "4": 1
         }
+      }
     },
     {
-        "en5f4-fakor-uwiaa-aaaaa-c4az5-eaqca-aaabc-a": {
-            "mint": 69
+      "pwsko-gqkor-uwiaa-aaaaa-c4az5-eaqca-aaaa6-a": {
+        "mint": 61,
+        "assetlayers": {
+          "0": 72,
+          "1": 18,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "kr6w5-aqkor-uwiaa-aaaaa-c4az5-eaqca-aaabc-q": {
-            "mint": 70
+      "bkrzp-dakor-uwiaa-aaaaa-c4az5-eaqca-aaaa6-q": {
+        "mint": 62,
+        "assetlayers": {
+          "0": 20,
+          "1": 18,
+          "2": 22,
+          "3": 3,
+          "4": 1
         }
+      }
     },
     {
-        "zv2d6-oakor-uwiaa-aaaaa-c4az5-eaqca-aaabd-a": {
-            "mint": 71
+      "sovmm-nqkor-uwiaa-aaaaa-c4az5-eaqca-aaaa7-a": {
+        "mint": 63,
+        "assetlayers": {
+          "0": 68,
+          "1": 18,
+          "2": 5,
+          "3": 0,
+          "4": 1
         }
+      }
     },
     {
-        "xjzq7-lqkor-uwiaa-aaaaa-c4az5-eaqca-aaabd-q": {
-            "mint": 72
+      "4sw7n-iakor-uwiaa-aaaaa-c4az5-eaqca-aaaa7-q": {
+        "mint": 64,
+        "assetlayers": {
+          "0": 4,
+          "1": 1,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "flgbe-pykor-uwiaa-aaaaa-c4az5-eaqca-aaabe-a": {
-            "mint": 73
+      "eqlzu-dikor-uwiaa-aaaaa-c4az5-eaqca-aaaba-a": {
+        "mint": 65,
+        "assetlayers": {
+          "0": 59,
+          "1": 1,
+          "2": 15,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "lxfsf-kikor-uwiaa-aaaaa-c4az5-eaqca-aaabe-q": {
-            "mint": 74
+      "kmikv-gykor-uwiaa-aaaaa-c4az5-eaqca-aaaba-q": {
+        "mint": 66,
+        "assetlayers": {
+          "0": 12,
+          "1": 20,
+          "2": 17,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "ytbhg-eykor-uwiaa-aaaaa-c4az5-eaqca-aaabf-a": {
-            "mint": 75
+      "zim7w-iikor-uwiaa-aaaaa-c4az5-eaqca-aaabb-a": {
+        "mint": 67,
+        "assetlayers": {
+          "0": 4,
+          "1": 13,
+          "2": 1,
+          "3": 2,
+          "4": 1
         }
+      }
     },
     {
-        "wpcuh-bikor-uwiaa-aaaaa-c4az5-eaqca-aaabf-q": {
-            "mint": 76
+      "xupmx-nykor-uwiaa-aaaaa-c4az5-eaqca-aaabb-q": {
+        "mint": 68,
+        "assetlayers": {
+          "0": 19,
+          "1": 18,
+          "2": 5,
+          "3": 10,
+          "4": 1
         }
+      }
     },
     {
-        "fwq5m-jqkor-uwiaa-aaaaa-c4az5-eaqca-aaabg-a": {
-            "mint": 77
+      "en5f4-fakor-uwiaa-aaaaa-c4az5-eaqca-aaabc-a": {
+        "mint": 69,
+        "assetlayers": {
+          "0": 8,
+          "1": 18,
+          "2": 16,
+          "3": 0,
+          "4": 1
         }
+      }
     },
     {
-        "lkton-makor-uwiaa-aaaaa-c4az5-eaqca-aaabg-q": {
-            "mint": 78
+      "kr6w5-aqkor-uwiaa-aaaaa-c4az5-eaqca-aaabc-q": {
+        "mint": 70,
+        "assetlayers": {
+          "0": 72,
+          "1": 18,
+          "2": 8,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "yox3o-cqkor-uwiaa-aaaaa-c4az5-eaqca-aaabh-a": {
-            "mint": 79
+      "zv2d6-oakor-uwiaa-aaaaa-c4az5-eaqca-aaabd-a": {
+        "mint": 71,
+        "assetlayers": {
+          "0": 59,
+          "1": 19,
+          "2": 1,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "wsuip-hakor-uwiaa-aaaaa-c4az5-eaqca-aaabh-q": {
-            "mint": 80
+      "xjzq7-lqkor-uwiaa-aaaaa-c4az5-eaqca-aaabd-q": {
+        "mint": 72,
+        "assetlayers": {
+          "0": 25,
+          "1": 5,
+          "2": 10,
+          "3": 6,
+          "4": 0
         }
+      }
     },
     {
-        "hgqiu-2ikor-uwiaa-aaaaa-c4az5-eaqca-aaabi-a": {
-            "mint": 81
+      "flgbe-pykor-uwiaa-aaaaa-c4az5-eaqca-aaabe-a": {
+        "mint": 73,
+        "assetlayers": {
+          "0": 19,
+          "1": 19,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "j2t3v-7ykor-uwiaa-aaaaa-c4az5-eaqca-aaabi-q": {
-            "mint": 82
+      "lxfsf-kikor-uwiaa-aaaaa-c4az5-eaqca-aaabe-q": {
+        "mint": 74,
+        "assetlayers": {
+          "0": 9,
+          "1": 20,
+          "2": 12,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "26xow-rikor-uwiaa-aaaaa-c4az5-eaqca-aaabj-a": {
-            "mint": 83
+      "ytbhg-eykor-uwiaa-aaaaa-c4az5-eaqca-aaabf-a": {
+        "mint": 75,
+        "assetlayers": {
+          "0": 53,
+          "1": 18,
+          "2": 11,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "ucu5x-uykor-uwiaa-aaaaa-c4az5-eaqca-aaabj-q": {
-            "mint": 84
+      "wpcuh-bikor-uwiaa-aaaaa-c4az5-eaqca-aaabf-q": {
+        "mint": 76,
+        "assetlayers": {
+          "0": 13,
+          "1": 19,
+          "2": 14,
+          "3": 9,
+          "4": 1
         }
+      }
     },
     {
-        "h3gu4-4akor-uwiaa-aaaaa-c4az5-eaqca-aaabk-a": {
-            "mint": 85
+      "fwq5m-jqkor-uwiaa-aaaaa-c4az5-eaqca-aaabg-a": {
+        "mint": 77,
+        "assetlayers": {
+          "0": 22,
+          "1": 18,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "jhfh5-zqkor-uwiaa-aaaaa-c4az5-eaqca-aaabk-q": {
-            "mint": 86
+      "lkton-makor-uwiaa-aaaaa-c4az5-eaqca-aaabg-q": {
+        "mint": 78,
+        "assetlayers": {
+          "0": 8,
+          "1": 20,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "2dbs6-xakor-uwiaa-aaaaa-c4az5-eaqca-aaabl-a": {
-            "mint": 87
+      "yox3o-cqkor-uwiaa-aaaaa-c4az5-eaqca-aaabh-a": {
+        "mint": 79,
+        "assetlayers": {
+          "0": 25,
+          "1": 18,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "u7cb7-sqkor-uwiaa-aaaaa-c4az5-eaqca-aaabl-q": {
-            "mint": 88
+      "wsuip-hakor-uwiaa-aaaaa-c4az5-eaqca-aaabh-q": {
+        "mint": 80,
+        "assetlayers": {
+          "0": 2,
+          "1": 18,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "g55qe-wykor-uwiaa-aaaaa-c4az5-eaqca-aaabm-a": {
-            "mint": 89
+      "hgqiu-2ikor-uwiaa-aaaaa-c4az5-eaqca-aaabi-a": {
+        "mint": 81,
+        "assetlayers": {
+          "0": 71,
+          "1": 17,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "ib6df-tikor-uwiaa-aaaaa-c4az5-eaqca-aaabm-q": {
-            "mint": 90
+      "j2t3v-7ykor-uwiaa-aaaaa-c4az5-eaqca-aaabi-q": {
+        "mint": 82,
+        "assetlayers": {
+          "0": 23,
+          "1": 18,
+          "2": 11,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "3f2wg-5ykor-uwiaa-aaaaa-c4az5-eaqca-aaabn-a": {
-            "mint": 91
+      "26xow-rikor-uwiaa-aaaaa-c4az5-eaqca-aaabj-a": {
+        "mint": 83,
+        "assetlayers": {
+          "0": 23,
+          "1": 1,
+          "2": 23,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "vzzfh-yikor-uwiaa-aaaaa-c4az5-eaqca-aaabn-q": {
-            "mint": 92
+      "ucu5x-uykor-uwiaa-aaaaa-c4az5-eaqca-aaabj-q": {
+        "mint": 84,
+        "assetlayers": {
+          "0": 27,
+          "1": 18,
+          "2": 16,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "galmm-qqkor-uwiaa-aaaaa-c4az5-eaqca-aaabo-a": {
-            "mint": 93
+      "h3gu4-4akor-uwiaa-aaaaa-c4az5-eaqca-aaabk-a": {
+        "mint": 85,
+        "assetlayers": {
+          "0": 61,
+          "1": 18,
+          "2": 21,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "i4i7n-vakor-uwiaa-aaaaa-c4az5-eaqca-aaabo-q": {
-            "mint": 94
+      "jhfh5-zqkor-uwiaa-aaaaa-c4az5-eaqca-aaabk-q": {
+        "mint": 86,
+        "assetlayers": {
+          "0": 54,
+          "1": 18,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "3ymko-3qkor-uwiaa-aaaaa-c4az5-eaqca-aaabp-a": {
-            "mint": 95
+      "2dbs6-xakor-uwiaa-aaaaa-c4az5-eaqca-aaabl-a": {
+        "mint": 87,
+        "assetlayers": {
+          "0": 19,
+          "1": 11,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "vepzp-6akor-uwiaa-aaaaa-c4az5-eaqca-aaabp-q": {
-            "mint": 96
+      "u7cb7-sqkor-uwiaa-aaaaa-c4az5-eaqca-aaabl-q": {
+        "mint": 88,
+        "assetlayers": {
+          "0": 64,
+          "1": 8,
+          "2": 23,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "d543v-rikor-uwiaa-aaaaa-c4az5-eaqca-aaabq-a": {
-            "mint": 97
+      "g55qe-wykor-uwiaa-aaaaa-c4az5-eaqca-aaabm-a": {
+        "mint": 89,
+        "assetlayers": {
+          "0": 15,
+          "1": 20,
+          "2": 2,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "nb7iu-uykor-uwiaa-aaaaa-c4az5-eaqca-aaabq-q": {
-            "mint": 98
+      "ib6df-tikor-uwiaa-aaaaa-c4az5-eaqca-aaabm-q": {
+        "mint": 90,
+        "assetlayers": {
+          "0": 54,
+          "1": 18,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "6f35x-2ikor-uwiaa-aaaaa-c4az5-eaqca-aaabr-a": {
-            "mint": 99
+      "3f2wg-5ykor-uwiaa-aaaaa-c4az5-eaqca-aaabn-a": {
+        "mint": 91,
+        "assetlayers": {
+          "0": 72,
+          "1": 12,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "qzyow-7ykor-uwiaa-aaaaa-c4az5-eaqca-aaabr-q": {
-            "mint": 100
+      "vzzfh-yikor-uwiaa-aaaaa-c4az5-eaqca-aaabn-q": {
+        "mint": 92,
+        "assetlayers": {
+          "0": 72,
+          "1": 17,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "dakh5-xakor-uwiaa-aaaaa-c4az5-eaqca-aaabs-a": {
-            "mint": 101
+      "galmm-qqkor-uwiaa-aaaaa-c4az5-eaqca-aaabo-a": {
+        "mint": 93,
+        "assetlayers": {
+          "0": 13,
+          "1": 17,
+          "2": 11,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "n4ju4-sqkor-uwiaa-aaaaa-c4az5-eaqca-aaabs-q": {
-            "mint": 102
+      "i4i7n-vakor-uwiaa-aaaaa-c4az5-eaqca-aaabo-q": {
+        "mint": 94,
+        "assetlayers": {
+          "0": 57,
+          "1": 18,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "6ynb7-4akor-uwiaa-aaaaa-c4az5-eaqca-aaabt-a": {
-            "mint": 103
+      "3ymko-3qkor-uwiaa-aaaaa-c4az5-eaqca-aaabp-a": {
+        "mint": 95,
+        "assetlayers": {
+          "0": 64,
+          "1": 19,
+          "2": 17,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "qeos6-zqkor-uwiaa-aaaaa-c4az5-eaqca-aaabt-q": {
-            "mint": 104
+      "vepzp-6akor-uwiaa-aaaaa-c4az5-eaqca-aaabp-q": {
+        "mint": 96,
+        "assetlayers": {
+          "0": 71,
+          "1": 12,
+          "2": 11,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "cgrdf-5ykor-uwiaa-aaaaa-c4az5-eaqca-aaabu-a": {
-            "mint": 105
+      "d543v-rikor-uwiaa-aaaaa-c4az5-eaqca-aaabq-a": {
+        "mint": 97,
+        "assetlayers": {
+          "0": 20,
+          "1": 15,
+          "2": 18,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "m2sqe-yikor-uwiaa-aaaaa-c4az5-eaqca-aaabu-q": {
-            "mint": 106
+      "nb7iu-uykor-uwiaa-aaaaa-c4az5-eaqca-aaabq-q": {
+        "mint": 98,
+        "assetlayers": {
+          "0": 50,
+          "1": 1,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "76wfh-wykor-uwiaa-aaaaa-c4az5-eaqca-aaabv-a": {
-            "mint": 107
+      "6f35x-2ikor-uwiaa-aaaaa-c4az5-eaqca-aaabr-a": {
+        "mint": 99,
+        "assetlayers": {
+          "0": 39,
+          "1": 14,
+          "2": 11,
+          "3": 0,
+          "4": 1
         }
+      }
     },
     {
-        "rcvwg-tikor-uwiaa-aaaaa-c4az5-eaqca-aaabv-q": {
-            "mint": 108
+      "qzyow-7ykor-uwiaa-aaaaa-c4az5-eaqca-aaabr-q": {
+        "mint": 100,
+        "assetlayers": {
+          "0": 4,
+          "1": 11,
+          "2": 17,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "c3h7n-3qkor-uwiaa-aaaaa-c4az5-eaqca-aaabw-a": {
-            "mint": 109
+      "dakh5-xakor-uwiaa-aaaaa-c4az5-eaqca-aaabs-a": {
+        "mint": 101,
+        "assetlayers": {
+          "0": 46,
+          "1": 12,
+          "2": 16,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "mhemm-6akor-uwiaa-aaaaa-c4az5-eaqca-aaabw-q": {
-            "mint": 110
+      "n4ju4-sqkor-uwiaa-aaaaa-c4az5-eaqca-aaabs-q": {
+        "mint": 102,
+        "assetlayers": {
+          "0": 2,
+          "1": 12,
+          "2": 4,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "7dazp-qqkor-uwiaa-aaaaa-c4az5-eaqca-aaabx-a": {
-            "mint": 111
+      "6ynb7-4akor-uwiaa-aaaaa-c4az5-eaqca-aaabt-a": {
+        "mint": 103,
+        "assetlayers": {
+          "0": 27,
+          "1": 1,
+          "2": 12,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "r7dko-vakor-uwiaa-aaaaa-c4az5-eaqca-aaabx-q": {
-            "mint": 112
+      "qeos6-zqkor-uwiaa-aaaaa-c4az5-eaqca-aaabt-q": {
+        "mint": 104,
+        "assetlayers": {
+          "0": 63,
+          "1": 14,
+          "2": 17,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "alhkv-iikor-uwiaa-aaaaa-c4az5-eaqca-aaaby-a": {
-            "mint": 113
+      "cgrdf-5ykor-uwiaa-aaaaa-c4az5-eaqca-aaabu-a": {
+        "mint": 105,
+        "assetlayers": {
+          "0": 19,
+          "1": 18,
+          "2": 17,
+          "3": 12,
+          "4": 1
         }
+      }
     },
     {
-        "oxezu-nykor-uwiaa-aaaaa-c4az5-eaqca-aaaby-q": {
-            "mint": 114
+      "m2sqe-yikor-uwiaa-aaaaa-c4az5-eaqca-aaabu-q": {
+        "mint": 106,
+        "assetlayers": {
+          "0": 56,
+          "1": 13,
+          "2": 23,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "5tamx-dikor-uwiaa-aaaaa-c4az5-eaqca-aaabz-a": {
-            "mint": 115
+      "76wfh-wykor-uwiaa-aaaaa-c4az5-eaqca-aaabv-a": {
+        "mint": 107,
+        "assetlayers": {
+          "0": 51,
+          "1": 12,
+          "2": 15,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "tpd7w-gykor-uwiaa-aaaaa-c4az5-eaqca-aaabz-q": {
-            "mint": 116
+      "rcvwg-tikor-uwiaa-aaaaa-c4az5-eaqca-aaabv-q": {
+        "mint": 108,
+        "assetlayers": {
+          "0": 5,
+          "1": 1,
+          "2": 14,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "awrw5-oakor-uwiaa-aaaaa-c4az5-eaqca-aaab2-a": {
-            "mint": 117
+      "c3h7n-3qkor-uwiaa-aaaaa-c4az5-eaqca-aaabw-a": {
+        "mint": 109,
+        "assetlayers": {
+          "0": 50,
+          "1": 12,
+          "2": 23,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "oksf4-lqkor-uwiaa-aaaaa-c4az5-eaqca-aaab2-q": {
-            "mint": 118
+      "mhemm-6akor-uwiaa-aaaaa-c4az5-eaqca-aaabw-q": {
+        "mint": 110,
+        "assetlayers": {
+          "0": 72,
+          "1": 20,
+          "2": 16,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "5owq7-fakor-uwiaa-aaaaa-c4az5-eaqca-aaab3-a": {
-            "mint": 119
+      "7dazp-qqkor-uwiaa-aaaaa-c4az5-eaqca-aaabx-a": {
+        "mint": 111,
+        "assetlayers": {
+          "0": 15,
+          "1": 1,
+          "2": 4,
+          "3": 12,
+          "4": 1
         }
+      }
     },
     {
-        "tsvd6-aqkor-uwiaa-aaaaa-c4az5-eaqca-aaab3-q": {
-            "mint": 120
+      "r7dko-vakor-uwiaa-aaaaa-c4az5-eaqca-aaabx-q": {
+        "mint": 112,
+        "assetlayers": {
+          "0": 57,
+          "1": 1,
+          "2": 2,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "bqksf-eykor-uwiaa-aaaaa-c4az5-eaqca-aaab4-a": {
-            "mint": 121
+      "alhkv-iikor-uwiaa-aaaaa-c4az5-eaqca-aaaby-a": {
+        "mint": 113,
+        "assetlayers": {
+          "0": 72,
+          "1": 1,
+          "2": 0,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "pmjbe-bikor-uwiaa-aaaaa-c4az5-eaqca-aaab4-q": {
-            "mint": 122
+      "oxezu-nykor-uwiaa-aaaaa-c4az5-eaqca-aaaby-q": {
+        "mint": 114,
+        "assetlayers": {
+          "0": 23,
+          "1": 19,
+          "2": 10,
+          "3": 7,
+          "4": 1
         }
+      }
     },
     {
-        "4inuh-pykor-uwiaa-aaaaa-c4az5-eaqca-aaab5-a": {
-            "mint": 123
+      "5tamx-dikor-uwiaa-aaaaa-c4az5-eaqca-aaabz-a": {
+        "mint": 115,
+        "assetlayers": {
+          "0": 33,
+          "1": 19,
+          "2": 20,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "suohg-kikor-uwiaa-aaaaa-c4az5-eaqca-aaab5-q": {
-            "mint": 124
+      "tpd7w-gykor-uwiaa-aaaaa-c4az5-eaqca-aaabz-q": {
+        "mint": 116,
+        "assetlayers": {
+          "0": 33,
+          "1": 4,
+          "2": 4,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "bn4on-cqkor-uwiaa-aaaaa-c4az5-eaqca-aaab6-a": {
-            "mint": 125
+      "awrw5-oakor-uwiaa-aaaaa-c4az5-eaqca-aaab2-a": {
+        "mint": 117,
+        "assetlayers": {
+          "0": 72,
+          "1": 8,
+          "2": 23,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "pr75m-hakor-uwiaa-aaaaa-c4az5-eaqca-aaab6-q": {
-            "mint": 126
+      "oksf4-lqkor-uwiaa-aaaaa-c4az5-eaqca-aaab2-q": {
+        "mint": 118,
+        "assetlayers": {
+          "0": 51,
+          "1": 18,
+          "2": 16,
+          "3": 4,
+          "4": 1
         }
+      }
     },
     {
-        "4v3ip-jqkor-uwiaa-aaaaa-c4az5-eaqca-aaab7-a": {
-            "mint": 127
+      "5owq7-fakor-uwiaa-aaaaa-c4az5-eaqca-aaab3-a": {
+        "mint": 119,
+        "assetlayers": {
+          "0": 53,
+          "1": 20,
+          "2": 10,
+          "3": 2,
+          "4": 1
         }
+      }
     },
     {
-        "sjy3o-makor-uwiaa-aaaaa-c4az5-eaqca-aaab7-q": {
-            "mint": 128
+      "tsvd6-aqkor-uwiaa-aaaaa-c4az5-eaqca-aaab3-q": {
+        "mint": 120,
+        "assetlayers": {
+          "0": 59,
+          "1": 14,
+          "2": 20,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "x5zvr-pikor-uwiaa-aaaaa-c4az5-eaqca-aaaca-a": {
-            "mint": 129
+      "bqksf-eykor-uwiaa-aaaaa-c4az5-eaqca-aaab4-a": {
+        "mint": 121,
+        "assetlayers": {
+          "0": 15,
+          "1": 8,
+          "2": 5,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "zb2gq-kykor-uwiaa-aaaaa-c4az5-eaqca-aaaca-q": {
-            "mint": 130
+      "pmjbe-bikor-uwiaa-aaaaa-c4az5-eaqca-aaab4-q": {
+        "mint": 122,
+        "assetlayers": {
+          "0": 66,
+          "1": 19,
+          "2": 8,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "kf6tt-eikor-uwiaa-aaaaa-c4az5-eaqca-aaacb-a": {
-            "mint": 131
+      "4inuh-pykor-uwiaa-aaaaa-c4az5-eaqca-aaab5-a": {
+        "mint": 123,
+        "assetlayers": {
+          "0": 53,
+          "1": 3,
+          "2": 12,
+          "3": 6,
+          "4": 0
         }
+      }
     },
     {
-        "ez5as-bykor-uwiaa-aaaaa-c4az5-eaqca-aaacb-q": {
-            "mint": 132
+      "suohg-kikor-uwiaa-aaaaa-c4az5-eaqca-aaab5-q": {
+        "mint": 124,
+        "assetlayers": {
+          "0": 30,
+          "1": 15,
+          "2": 10,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "xapjz-jakor-uwiaa-aaaaa-c4az5-eaqca-aaacc-a": {
-            "mint": 133
+      "bn4on-cqkor-uwiaa-aaaaa-c4az5-eaqca-aaab6-a": {
+        "mint": 125,
+        "assetlayers": {
+          "0": 59,
+          "1": 19,
+          "2": 21,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "z4m2y-mqkor-uwiaa-aaaaa-c4az5-eaqca-aaacc-q": {
-            "mint": 134
+      "pr75m-hakor-uwiaa-aaaaa-c4az5-eaqca-aaab6-q": {
+        "mint": 126,
+        "assetlayers": {
+          "0": 48,
+          "1": 19,
+          "2": 10,
+          "3": 4,
+          "4": 1
         }
+      }
     },
     {
-        "kyip3-cakor-uwiaa-aaaaa-c4az5-eaqca-aaacd-a": {
-            "mint": 135
+      "4v3ip-jqkor-uwiaa-aaaaa-c4az5-eaqca-aaab7-a": {
+        "mint": 127,
+        "assetlayers": {
+          "0": 40,
+          "1": 16,
+          "2": 21,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "eel42-hqkor-uwiaa-aaaaa-c4az5-eaqca-aaacd-q": {
-            "mint": 136
+      "sjy3o-makor-uwiaa-aaaaa-c4az5-eaqca-aaab7-q": {
+        "mint": 128,
+        "assetlayers": {
+          "0": 37,
+          "1": 18,
+          "2": 2,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "wgunb-dykor-uwiaa-aaaaa-c4az5-eaqca-aaace-a": {
-            "mint": 137
+      "x5zvr-pikor-uwiaa-aaaaa-c4az5-eaqca-aaaca-a": {
+        "mint": 129,
+        "assetlayers": {
+          "0": 39,
+          "1": 18,
+          "2": 14,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "y2x6a-gikor-uwiaa-aaaaa-c4az5-eaqca-aaace-q": {
-            "mint": 138
+      "zb2gq-kykor-uwiaa-aaaaa-c4az5-eaqca-aaaca-q": {
+        "mint": 130,
+        "assetlayers": {
+          "0": 48,
+          "1": 18,
+          "2": 4,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "l6tld-iykor-uwiaa-aaaaa-c4az5-eaqca-aaacf-a": {
-            "mint": 139
+      "kf6tt-eikor-uwiaa-aaaaa-c4az5-eaqca-aaacb-a": {
+        "mint": 131,
+        "assetlayers": {
+          "0": 23,
+          "1": 18,
+          "2": 10,
+          "3": 10,
+          "4": 1
         }
+      }
     },
     {
-        "fcqyc-nikor-uwiaa-aaaaa-c4az5-eaqca-aaacf-q": {
-            "mint": 140
+      "ez5as-bykor-uwiaa-aaaaa-c4az5-eaqca-aaacb-q": {
+        "mint": 132,
+        "assetlayers": {
+          "0": 0,
+          "1": 14,
+          "2": 10,
+          "3": 10,
+          "4": 1
         }
+      }
     },
     {
-        "w3crj-fqkor-uwiaa-aaaaa-c4az5-eaqca-aaacg-a": {
-            "mint": 141
+      "xapjz-jakor-uwiaa-aaaaa-c4az5-eaqca-aaacc-a": {
+        "mint": 133,
+        "assetlayers": {
+          "0": 51,
+          "1": 15,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "yhbci-aakor-uwiaa-aaaaa-c4az5-eaqca-aaacg-q": {
-            "mint": 142
+      "z4m2y-mqkor-uwiaa-aaaaa-c4az5-eaqca-aaacc-q": {
+        "mint": 134,
+        "assetlayers": {
+          "0": 71,
+          "1": 14,
+          "2": 10,
+          "3": 4,
+          "4": 1
         }
+      }
     },
     {
-        "ldfxl-oqkor-uwiaa-aaaaa-c4az5-eaqca-aaach-a": {
-            "mint": 143
+      "kyip3-cakor-uwiaa-aaaaa-c4az5-eaqca-aaacd-a": {
+        "mint": 135,
+        "assetlayers": {
+          "0": 48,
+          "1": 18,
+          "2": 10,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "f7gek-lakor-uwiaa-aaaaa-c4az5-eaqca-aaach-q": {
-            "mint": 144
+      "eel42-hqkor-uwiaa-aaaaa-c4az5-eaqca-aaacd-q": {
+        "mint": 136,
+        "assetlayers": {
+          "0": 11,
+          "1": 18,
+          "2": 23,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "ulcer-wikor-uwiaa-aaaaa-c4az5-eaqca-aaaci-a": {
-            "mint": 145
+      "wgunb-dykor-uwiaa-aaaaa-c4az5-eaqca-aaace-a": {
+        "mint": 137,
+        "assetlayers": {
+          "0": 33,
+          "1": 15,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "2xbxq-tykor-uwiaa-aaaaa-c4az5-eaqca-aaaci-q": {
-            "mint": 146
+      "y2x6a-gikor-uwiaa-aaaaa-c4az5-eaqca-aaace-q": {
+        "mint": 138,
+        "assetlayers": {
+          "0": 71,
+          "1": 18,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "jtfct-5ikor-uwiaa-aaaaa-c4az5-eaqca-aaacj-a": {
-            "mint": 147
+      "l6tld-iykor-uwiaa-aaaaa-c4az5-eaqca-aaacf-a": {
+        "mint": 139,
+        "assetlayers": {
+          "0": 48,
+          "1": 14,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "hpgrs-yykor-uwiaa-aaaaa-c4az5-eaqca-aaacj-q": {
-            "mint": 148
+      "fcqyc-nikor-uwiaa-aaaaa-c4az5-eaqca-aaacf-q": {
+        "mint": 140,
+        "assetlayers": {
+          "0": 30,
+          "1": 18,
+          "2": 5,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "uwuyz-qakor-uwiaa-aaaaa-c4az5-eaqca-aaack-a": {
-            "mint": 149
+      "w3crj-fqkor-uwiaa-aaaaa-c4az5-eaqca-aaacg-a": {
+        "mint": 141,
+        "assetlayers": {
+          "0": 15,
+          "1": 18,
+          "2": 10,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "2kxly-vqkor-uwiaa-aaaaa-c4az5-eaqca-aaack-q": {
-            "mint": 150
+      "yhbci-aakor-uwiaa-aaaaa-c4az5-eaqca-aaacg-q": {
+        "mint": 142,
+        "assetlayers": {
+          "0": 37,
+          "1": 13,
+          "2": 23,
+          "3": 9,
+          "4": 1
         }
+      }
     },
     {
-        "jot63-3akor-uwiaa-aaaaa-c4az5-eaqca-aaacl-a": {
-            "mint": 151
+      "ldfxl-oqkor-uwiaa-aaaaa-c4az5-eaqca-aaach-a": {
+        "mint": 143,
+        "assetlayers": {
+          "0": 68,
+          "1": 13,
+          "2": 4,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "hsqn2-6qkor-uwiaa-aaaaa-c4az5-eaqca-aaacl-q": {
-            "mint": 152
+      "f7gek-lakor-uwiaa-aaaaa-c4az5-eaqca-aaach-q": {
+        "mint": 144,
+        "assetlayers": {
+          "0": 67,
+          "1": 15,
+          "2": 23,
+          "3": 0,
+          "4": 1
         }
+      }
     },
     {
-        "vqp4b-2ykor-uwiaa-aaaaa-c4az5-eaqca-aaacm-a": {
-            "mint": 153
+      "ulcer-wikor-uwiaa-aaaaa-c4az5-eaqca-aaaci-a": {
+        "mint": 145,
+        "assetlayers": {
+          "0": 60,
+          "1": 18,
+          "2": 23,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "3mmpa-7ikor-uwiaa-aaaaa-c4az5-eaqca-aaacm-q": {
-            "mint": 154
+      "2xbxq-tykor-uwiaa-aaaaa-c4az5-eaqca-aaaci-q": {
+        "mint": 146,
+        "assetlayers": {
+          "0": 72,
+          "1": 8,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "iii2d-rykor-uwiaa-aaaaa-c4az5-eaqca-aaacn-a": {
-            "mint": 155
+      "jtfct-5ikor-uwiaa-aaaaa-c4az5-eaqca-aaacj-a": {
+        "mint": 147,
+        "assetlayers": {
+          "0": 33,
+          "1": 4,
+          "2": 23,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "guljc-uikor-uwiaa-aaaaa-c4az5-eaqca-aaacn-q": {
-            "mint": 156
+      "hpgrs-yykor-uwiaa-aaaaa-c4az5-eaqca-aaacj-q": {
+        "mint": 148,
+        "assetlayers": {
+          "0": 54,
+          "1": 18,
+          "2": 17,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "vnzaj-4qkor-uwiaa-aaaaa-c4az5-eaqca-aaaco-a": {
-            "mint": 157
+      "uwuyz-qakor-uwiaa-aaaaa-c4az5-eaqca-aaack-a": {
+        "mint": 149,
+        "assetlayers": {
+          "0": 9,
+          "1": 18,
+          "2": 11,
+          "3": 3,
+          "4": 1
         }
+      }
     },
     {
-        "3r2ti-zakor-uwiaa-aaaaa-c4az5-eaqca-aaaco-q": {
-            "mint": 158
+      "2kxly-vqkor-uwiaa-aaaaa-c4az5-eaqca-aaack-q": {
+        "mint": 150,
+        "assetlayers": {
+          "0": 34,
+          "1": 18,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "iv6gl-xqkor-uwiaa-aaaaa-c4az5-eaqca-aaacp-a": {
-            "mint": 159
+      "jot63-3akor-uwiaa-aaaaa-c4az5-eaqca-aaacl-a": {
+        "mint": 151,
+        "assetlayers": {
+          "0": 37,
+          "1": 1,
+          "2": 2,
+          "3": 5,
+          "4": 1
         }
+      }
     },
     {
-        "gj5vk-sakor-uwiaa-aaaaa-c4az5-eaqca-aaacp-q": {
-            "mint": 160
+      "hsqn2-6qkor-uwiaa-aaaaa-c4az5-eaqca-aaacl-q": {
+        "mint": 152,
+        "assetlayers": {
+          "0": 27,
+          "1": 1,
+          "2": 4,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "qqoxq-5ikor-uwiaa-aaaaa-c4az5-eaqca-aaacq-a": {
-            "mint": 161
+      "vqp4b-2ykor-uwiaa-aaaaa-c4az5-eaqca-aaacm-a": {
+        "mint": 153,
+        "assetlayers": {
+          "0": 57,
+          "1": 18,
+          "2": 8,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "6mner-yykor-uwiaa-aaaaa-c4az5-eaqca-aaacq-q": {
-            "mint": 162
+      "3mmpa-7ikor-uwiaa-aaaaa-c4az5-eaqca-aaacm-q": {
+        "mint": 154,
+        "assetlayers": {
+          "0": 67,
+          "1": 17,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "nijrs-wikor-uwiaa-aaaaa-c4az5-eaqca-aaacr-a": {
-            "mint": 163
+      "iii2d-rykor-uwiaa-aaaaa-c4az5-eaqca-aaacn-a": {
+        "mint": 155,
+        "assetlayers": {
+          "0": 64,
+          "1": 12,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "dukct-tykor-uwiaa-aaaaa-c4az5-eaqca-aaacr-q": {
-            "mint": 164
+      "guljc-uikor-uwiaa-aaaaa-c4az5-eaqca-aaacn-q": {
+        "mint": 156,
+        "assetlayers": {
+          "0": 27,
+          "1": 17,
+          "2": 4,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "qnyly-3akor-uwiaa-aaaaa-c4az5-eaqca-aaacs-a": {
-            "mint": 165
+      "vnzaj-4qkor-uwiaa-aaaaa-c4az5-eaqca-aaaco-a": {
+        "mint": 157,
+        "assetlayers": {
+          "0": 42,
+          "1": 4,
+          "2": 23,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "6r3yz-6qkor-uwiaa-aaaaa-c4az5-eaqca-aaacs-q": {
-            "mint": 166
+      "3r2ti-zakor-uwiaa-aaaaa-c4az5-eaqca-aaaco-q": {
+        "mint": 158,
+        "assetlayers": {
+          "0": 70,
+          "1": 8,
+          "2": 23,
+          "3": 0,
+          "4": 1
         }
+      }
     },
     {
-        "nv7n2-qakor-uwiaa-aaaaa-c4az5-eaqca-aaact-a": {
-            "mint": 167
+      "iv6gl-xqkor-uwiaa-aaaaa-c4az5-eaqca-aaacp-a": {
+        "mint": 159,
+        "assetlayers": {
+          "0": 38,
+          "1": 18,
+          "2": 16,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "dj463-vqkor-uwiaa-aaaaa-c4az5-eaqca-aaact-q": {
-            "mint": 168
+      "gj5vk-sakor-uwiaa-aaaaa-c4az5-eaqca-aaacp-q": {
+        "mint": 160,
+        "assetlayers": {
+          "0": 69,
+          "1": 18,
+          "2": 6,
+          "3": 4,
+          "4": 1
         }
+      }
     },
     {
-        "rldpa-rykor-uwiaa-aaaaa-c4az5-eaqca-aaacu-a": {
-            "mint": 169
+      "qqoxq-5ikor-uwiaa-aaaaa-c4az5-eaqca-aaacq-a": {
+        "mint": 161,
+        "assetlayers": {
+          "0": 72,
+          "1": 18,
+          "2": 7,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "7xa4b-uikor-uwiaa-aaaaa-c4az5-eaqca-aaacu-q": {
-            "mint": 170
+      "6mner-yykor-uwiaa-aaaaa-c4az5-eaqca-aaacq-q": {
+        "mint": 162,
+        "assetlayers": {
+          "0": 56,
+          "1": 9,
+          "2": 4,
+          "3": 1,
+          "4": 1
         }
+      }
     },
     {
-        "mtejc-2ykor-uwiaa-aaaaa-c4az5-eaqca-aaacv-a": {
-            "mint": 171
+      "nijrs-wikor-uwiaa-aaaaa-c4az5-eaqca-aaacr-a": {
+        "mint": 163,
+        "assetlayers": {
+          "0": 25,
+          "1": 18,
+          "2": 5,
+          "3": 7,
+          "4": 1
         }
+      }
     },
     {
-        "cph2d-7ikor-uwiaa-aaaaa-c4az5-eaqca-aaacv-q": {
-            "mint": 172
+      "dukct-tykor-uwiaa-aaaaa-c4az5-eaqca-aaacr-q": {
+        "mint": 164,
+        "assetlayers": {
+          "0": 48,
+          "1": 1,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "rwvti-xqkor-uwiaa-aaaaa-c4az5-eaqca-aaacw-a": {
-            "mint": 173
+      "qnyly-3akor-uwiaa-aaaaa-c4az5-eaqca-aaacs-a": {
+        "mint": 165,
+        "assetlayers": {
+          "0": 56,
+          "1": 4,
+          "2": 2,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "7kwaj-sakor-uwiaa-aaaaa-c4az5-eaqca-aaacw-q": {
-            "mint": 174
+      "6r3yz-6qkor-uwiaa-aaaaa-c4az5-eaqca-aaacs-q": {
+        "mint": 166,
+        "assetlayers": {
+          "0": 13,
+          "1": 18,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "mosvk-4qkor-uwiaa-aaaaa-c4az5-eaqca-aaacx-a": {
-            "mint": 175
+      "nv7n2-qakor-uwiaa-aaaaa-c4az5-eaqca-aaact-a": {
+        "mint": 167,
+        "assetlayers": {
+          "0": 71,
+          "1": 21,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "csrgl-zakor-uwiaa-aaaaa-c4az5-eaqca-aaacx-q": {
-            "mint": 176
+      "dj463-vqkor-uwiaa-aaaaa-c4az5-eaqca-aaact-q": {
+        "mint": 168,
+        "assetlayers": {
+          "0": 63,
+          "1": 15,
+          "2": 23,
+          "3": 12,
+          "4": 1
         }
+      }
     },
     {
-        "tgvgq-eikor-uwiaa-aaaaa-c4az5-eaqca-aaacy-a": {
-            "mint": 177
+      "rldpa-rykor-uwiaa-aaaaa-c4az5-eaqca-aaacu-a": {
+        "mint": 169,
+        "assetlayers": {
+          "0": 13,
+          "1": 12,
+          "2": 23,
+          "3": 10,
+          "4": 1
         }
+      }
     },
     {
-        "52wvr-bykor-uwiaa-aaaaa-c4az5-eaqca-aaacy-q": {
-            "mint": 178
+      "7xa4b-uikor-uwiaa-aaaaa-c4az5-eaqca-aaacu-q": {
+        "mint": 170,
+        "assetlayers": {
+          "0": 2,
+          "1": 15,
+          "2": 12,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "o6sas-pikor-uwiaa-aaaaa-c4az5-eaqca-aaacz-a": {
-            "mint": 179
+      "mtejc-2ykor-uwiaa-aaaaa-c4az5-eaqca-aaacv-a": {
+        "mint": 171,
+        "assetlayers": {
+          "0": 33,
+          "1": 18,
+          "2": 4,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "acrtt-kykor-uwiaa-aaaaa-c4az5-eaqca-aaacz-q": {
-            "mint": 180
+      "cph2d-7ikor-uwiaa-aaaaa-c4az5-eaqca-aaacv-q": {
+        "mint": 172,
+        "assetlayers": {
+          "0": 9,
+          "1": 18,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "t3d2y-cakor-uwiaa-aaaaa-c4az5-eaqca-aaac2-a": {
-            "mint": 181
+      "rwvti-xqkor-uwiaa-aaaaa-c4az5-eaqca-aaacw-a": {
+        "mint": 173,
+        "assetlayers": {
+          "0": 60,
+          "1": 14,
+          "2": 18,
+          "3": 10,
+          "4": 1
         }
+      }
     },
     {
-        "5hajz-hqkor-uwiaa-aaaaa-c4az5-eaqca-aaac2-q": {
-            "mint": 182
+      "7kwaj-sakor-uwiaa-aaaaa-c4az5-eaqca-aaacw-q": {
+        "mint": 174,
+        "assetlayers": {
+          "0": 17,
+          "1": 17,
+          "2": 20,
+          "3": 6,
+          "4": 0
         }
+      }
     },
     {
-        "ode42-jakor-uwiaa-aaaaa-c4az5-eaqca-aaac3-a": {
-            "mint": 183
+      "mosvk-4qkor-uwiaa-aaaaa-c4az5-eaqca-aaacx-a": {
+        "mint": 175,
+        "assetlayers": {
+          "0": 57,
+          "1": 18,
+          "2": 23,
+          "3": 10,
+          "4": 1
         }
+      }
     },
     {
-        "a7hp3-mqkor-uwiaa-aaaaa-c4az5-eaqca-aaac3-q": {
-            "mint": 184
+      "csrgl-zakor-uwiaa-aaaaa-c4az5-eaqca-aaacx-q": {
+        "mint": 176,
+        "assetlayers": {
+          "0": 11,
+          "1": 17,
+          "2": 6,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "s5y6a-iykor-uwiaa-aaaaa-c4az5-eaqca-aaac4-a": {
-            "mint": 185
+      "tgvgq-eikor-uwiaa-aaaaa-c4az5-eaqca-aaacy-a": {
+        "mint": 177,
+        "assetlayers": {
+          "0": 71,
+          "1": 18,
+          "2": 13,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "4b3nb-nikor-uwiaa-aaaaa-c4az5-eaqca-aaac4-q": {
-            "mint": 186
+      "52wvr-bykor-uwiaa-aaaaa-c4az5-eaqca-aaacy-q": {
+        "mint": 178,
+        "assetlayers": {
+          "0": 19,
+          "1": 18,
+          "2": 20,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "pf7yc-dykor-uwiaa-aaaaa-c4az5-eaqca-aaac5-a": {
-            "mint": 187
+      "o6sas-pikor-uwiaa-aaaaa-c4az5-eaqca-aaacz-a": {
+        "mint": 179,
+        "assetlayers": {
+          "0": 70,
+          "1": 1,
+          "2": 21,
+          "3": 8,
+          "4": 1
         }
+      }
     },
     {
-        "bz4ld-gikor-uwiaa-aaaaa-c4az5-eaqca-aaac5-q": {
-            "mint": 188
+      "acrtt-kykor-uwiaa-aaaaa-c4az5-eaqca-aaacz-q": {
+        "mint": 180,
+        "assetlayers": {
+          "0": 51,
+          "1": 18,
+          "2": 1,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "saoci-oqkor-uwiaa-aaaaa-c4az5-eaqca-aaac6-a": {
-            "mint": 189
+      "t3d2y-cakor-uwiaa-aaaaa-c4az5-eaqca-aaac2-a": {
+        "mint": 181,
+        "assetlayers": {
+          "0": 70,
+          "1": 15,
+          "2": 23,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "44nrj-lakor-uwiaa-aaaaa-c4az5-eaqca-aaac6-q": {
-            "mint": 190
+      "5hajz-hqkor-uwiaa-aaaaa-c4az5-eaqca-aaac2-q": {
+        "mint": 182,
+        "assetlayers": {
+          "0": 9,
+          "1": 18,
+          "2": 8,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "pyjek-fqkor-uwiaa-aaaaa-c4az5-eaqca-aaac7-a": {
-            "mint": 191
+      "ode42-jakor-uwiaa-aaaaa-c4az5-eaqca-aaac3-a": {
+        "mint": 183,
+        "assetlayers": {
+          "0": 13,
+          "1": 19,
+          "2": 23,
+          "3": 7,
+          "4": 1
         }
+      }
     },
     {
-        "bekxl-aakor-uwiaa-aaaaa-c4az5-eaqca-aaac7-q": {
-            "mint": 192
+      "a7hp3-mqkor-uwiaa-aaaaa-c4az5-eaqca-aaac3-q": {
+        "mint": 184,
+        "assetlayers": {
+          "0": 63,
+          "1": 17,
+          "2": 11,
+          "3": 11,
+          "4": 1
         }
+      }
     },
     {
-        "zgxrs-likor-uwiaa-aaaaa-c4az5-eaqca-aaada-a": {
-            "mint": 193
+      "s5y6a-iykor-uwiaa-aaaaa-c4az5-eaqca-aaac4-a": {
+        "mint": 185,
+        "assetlayers": {
+          "0": 40,
+          "1": 15,
+          "2": 6,
+          "3": 10,
+          "4": 1
         }
+      }
     },
     {
-        "x2uct-oykor-uwiaa-aaaaa-c4az5-eaqca-aaada-q": {
-            "mint": 194
+      "4b3nb-nikor-uwiaa-aaaaa-c4az5-eaqca-aaac4-q": {
+        "mint": 186,
+        "assetlayers": {
+          "0": 38,
+          "1": 11,
+          "2": 5,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "e6qxq-aikor-uwiaa-aaaaa-c4az5-eaqca-aaadb-a": {
-            "mint": 195
+      "pf7yc-dykor-uwiaa-aaaaa-c4az5-eaqca-aaac5-a": {
+        "mint": 187,
+        "assetlayers": {
+          "0": 48,
+          "1": 0,
+          "2": 17,
+          "3": 7,
+          "4": 1
         }
+      }
     },
     {
-        "kcter-fykor-uwiaa-aaaaa-c4az5-eaqca-aaadb-q": {
-            "mint": 196
+      "bz4ld-gikor-uwiaa-aaaaa-c4az5-eaqca-aaac5-q": {
+        "mint": 188,
+        "assetlayers": {
+          "0": 40,
+          "1": 19,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "z3bn2-nakor-uwiaa-aaaaa-c4az5-eaqca-aaadc-a": {
-            "mint": 197
+      "saoci-oqkor-uwiaa-aaaaa-c4az5-eaqca-aaac6-a": {
+        "mint": 189,
+        "assetlayers": {
+          "0": 25,
+          "1": 14,
+          "2": 14,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "xhc63-iqkor-uwiaa-aaaaa-c4az5-eaqca-aaadc-q": {
-            "mint": 198
+      "44nrj-lakor-uwiaa-aaaaa-c4az5-eaqca-aaac6-q": {
+        "mint": 190,
+        "assetlayers": {
+          "0": 11,
+          "1": 19,
+          "2": 16,
+          "3": 6,
+          "4": 1
         }
+      }
     },
     {
-        "edgly-gakor-uwiaa-aaaaa-c4az5-eaqca-aaadd-a": {
-            "mint": 199
+      "pyjek-fqkor-uwiaa-aaaaa-c4az5-eaqca-aaac7-a": {
+        "mint": 191,
+        "assetlayers": {
+          "0": 13,
+          "1": 14,
+          "2": 20,
+          "3": 6,
+          "4": 0
         }
+      }
     },
     {
-        "k7fyz-dqkor-uwiaa-aaaaa-c4az5-eaqca-aaadd-q": {
-            "mint": 200
-        }
+      "bekxl-aakor-uwiaa-aaaaa-c4az5-eaqca-aaac7-q": {
+        "mint": 192,
+        "assetlayers": {
+          "0": 51,
+          "1": 20,
+          "2": 4,
+          "3": 8,
+          "4": 1
+        }
+      }
+    },
+    {
+      "zgxrs-likor-uwiaa-aaaaa-c4az5-eaqca-aaada-a": {
+        "mint": 193,
+        "assetlayers": {
+          "0": 34,
+          "1": 18,
+          "2": 15,
+          "3": 6,
+          "4": 1
+        }
+      }
+    },
+    {
+      "x2uct-oykor-uwiaa-aaaaa-c4az5-eaqca-aaada-q": {
+        "mint": 194,
+        "assetlayers": {
+          "0": 8,
+          "1": 18,
+          "2": 4,
+          "3": 9,
+          "4": 1
+        }
+      }
+    },
+    {
+      "e6qxq-aikor-uwiaa-aaaaa-c4az5-eaqca-aaadb-a": {
+        "mint": 195,
+        "assetlayers": {
+          "0": 63,
+          "1": 18,
+          "2": 4,
+          "3": 8,
+          "4": 1
+        }
+      }
+    },
+    {
+      "kcter-fykor-uwiaa-aaaaa-c4az5-eaqca-aaadb-q": {
+        "mint": 196,
+        "assetlayers": {
+          "0": 37,
+          "1": 18,
+          "2": 10,
+          "3": 5,
+          "4": 1
+        }
+      }
+    },
+    {
+      "z3bn2-nakor-uwiaa-aaaaa-c4az5-eaqca-aaadc-a": {
+        "mint": 197,
+        "assetlayers": {
+          "0": 59,
+          "1": 20,
+          "2": 6,
+          "3": 6,
+          "4": 1
+        }
+      }
+    },
+    {
+      "xhc63-iqkor-uwiaa-aaaaa-c4az5-eaqca-aaadc-q": {
+        "mint": 198,
+        "assetlayers": {
+          "0": 17,
+          "1": 17,
+          "2": 12,
+          "3": 9,
+          "4": 1
+        }
+      }
+    },
+    {
+      "edgly-gakor-uwiaa-aaaaa-c4az5-eaqca-aaadd-a": {
+        "mint": 199,
+        "assetlayers": {
+          "0": 27,
+          "1": 17,
+          "2": 14,
+          "3": 7,
+          "4": 1
+        }
+      }
+    },
+    {
+      "k7fyz-dqkor-uwiaa-aaaaa-c4az5-eaqca-aaadd-q": {
+        "mint": 200,
+        "assetlayers": {
+          "0": 12,
+          "1": 18,
+          "2": 17,
+          "3": 3,
+          "4": 1
+        }
+      }
     },
     {
         "y52jc-hykor-uwiaa-aaaaa-c4az5-eaqca-aaade-a": {
