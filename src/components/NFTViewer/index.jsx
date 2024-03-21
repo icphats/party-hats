@@ -10,14 +10,15 @@ import cardview_icon from "../../assets/card-view-icon.png";
 import gridview_icon from "../../assets/grid-view-icon.png";
 import FilterView from "./FilterViewer.jsx";
 
-const NftItem = ({ _viewMode, tokens, index }) => {
+import nftStatic from '../../json/nft_static.json'
+
+const NftItem = ({_viewMode, tokens, index}) => {
   return (
     <div className="gradient-border">
       <div className="card-container">
         <div key={index} className="nft-image-container">
           <img
-            src={`https://gq5kt-4iaaa-aaaal-qdhuq-cai.raw.icp0.io/?tokenid=${tokens && tokens[index].tokenId
-              }`}
+            src={`https://gq5kt-4iaaa-aaaal-qdhuq-cai.raw.icp0.io/?tokenid=${Object.keys(nftStatic[index])[0]}`}
             alt={`Item ${index + 1}`}
             className="nft-image"
           />
@@ -87,6 +88,7 @@ function NFT_Grid() {
             (currentPage - 1) * itemsPerPage + i
           );
           const details = await fetchTokenDetails(tokenId);
+          console.log(details)
           tokenPromises.push({ tokenId, details });
         }
         const tokenIds = await Promise.all(tokenPromises);
@@ -150,9 +152,6 @@ function NFT_Grid() {
       return [];
     }
   };
-
-
-  if (!loaded) return <div>merp</div>;
 
   return <>
     <div className="state-control">

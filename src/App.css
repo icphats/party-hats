@@ -10,6 +10,44 @@
   height: 20vw;
 }
 
+.loading-inner-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 50vh;
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+.loading-logo {
+  height: 5em;
+  display: inline-block; /* Ensure transform applies correctly */
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.loading-text {
+  font-size: 0.8em;
+  margin-top: 0.5em;
+}
+
+.df-font {
+  font-family: 'Circular Std', sans-serif; /* Fallback to sans-serif if Circular Std isn't available */
+}
+
+
+
+
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -37,15 +75,6 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 
 /* Adjustments for Mobile */
 @media (max-width: 768px) {
