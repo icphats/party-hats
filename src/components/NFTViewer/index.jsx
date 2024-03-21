@@ -8,7 +8,7 @@ import Stats from "../Stats/index.jsx";
 
 import cardview_icon from "../../assets/card-view-icon.png";
 import gridview_icon from "../../assets/grid-view-icon.png";
-import ItemPreview from "./ItemPreview.jsx";
+import FilterView from "./FilterViewer.jsx";
 
 const NftItem = ({ _viewMode, tokens, index }) => {
   return (
@@ -163,8 +163,8 @@ function NFT_Grid() {
       <Stats />
     </div>
     <div className="nft-viewer">
-      <div className="item-preview">
-        <ItemPreview />
+      <div className="filter-preview">
+        <FilterView />
       </div>
       <div className={viewMode == 1 ? "grid-container" : "cards-container"} onScroll={handleScroll} ref={containerRef}>
         {listings

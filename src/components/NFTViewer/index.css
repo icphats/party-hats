@@ -56,14 +56,27 @@
   flex-direction: row;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
-  .item-preview {
+  .filter-preview {
     flex: none;
-    width: 400px;
+    width: 460px;
     border-right: 3px solid rgba(255, 255, 255, 0.2);
     border-radius: 3px;
+    padding: 30px;
     height: calc(100vh - 190px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 40px));
+    gap: 10px;
   }
   
+  .filter_asset_container{
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    width: 40px;
+    height: 40px
+  }
+  .filter_asset_container:hover{
+    border: 3px solid rgba(255, 255, 255, 0.5);
+  }
   .card-container {
     color: white;
     line-height: 0;
