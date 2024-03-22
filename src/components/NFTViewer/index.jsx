@@ -162,7 +162,7 @@ function NFT_Grid() {
       <Stats />
     </div>
     <div className="nft-viewer">
-      <div className="filter-preview">
+      <div className="filter-container">
         <FilterView />
       </div>
       <div className={viewMode == 1 ? "grid-container" : "cards-container"} onScroll={handleScroll} ref={containerRef}>

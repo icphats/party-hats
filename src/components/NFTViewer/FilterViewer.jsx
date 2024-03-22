@@ -47,7 +47,7 @@ const FilterView = () => {
 
     assetClicked();
     return (
-        <>
+        <div className="filter-preview">
             {
                 layers.map(layer => {
                     return <div className="layer-view">
@@ -65,7 +65,7 @@ const FilterView = () => {
                 })
 
             }
-        </>
+        </div>
     )
 }
 
