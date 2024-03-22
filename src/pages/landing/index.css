@@ -17,6 +17,10 @@
     align-items: center; /* Center children vertically */
 }
 
+.front-banner {
+    width: 100vw;
+}
+
 .nftBoard{
     margin: 30px;
     background-color: rgba(0,0,0,0.7);
