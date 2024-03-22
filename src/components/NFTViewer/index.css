@@ -56,16 +56,25 @@
   flex-direction: row;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
+
+.filter-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  width: 460px;
+  height: calc(100vh - 190px);
+}
+
   .filter-preview {
     flex: none;
     width: 460px;
-    border-right: 3px solid rgba(255, 255, 255, 0.2);
     border-radius: 3px;
     padding: 30px;
-    height: calc(100vh - 190px);
-    display: grid;
-
-    overflow-y: auto;
+    padding-top: 0px;
+    height: calc(100vh - 220px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
     gap: 10px;
   }
 
@@ -79,9 +88,7 @@
   }
 
   .filter-active{
-    border: 2px solid rgba(255, 255, 255, 0.8) !important;
-    border-radius: 50%;
-    scale: 1.2;
+    border: 2px solid rgba(0, 255, 0, 0.6) !important;
   }
   
   .filter-preview::-webkit-scrollbar-track {
@@ -90,9 +97,9 @@
 
   .layer-view{
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30px, 30px));
-    column-gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
   .filter_asset_container{
