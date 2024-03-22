@@ -34,17 +34,11 @@ const FilterView = () => {
         const assets = document.getElementsByClassName("filter_asset_container");
         for(let i = 0 ; i < assets.length; i ++){
             const asset = assets.item(i);
-            console.log(asset.id);
             if(asset.id == backgroundLayer || asset.id == borderLayer || asset.id == embleLayer || asset.id == phatLayer || asset.id == glowLayer)
                 document.getElementById(asset.id).classList.add("filter-active");
             else document.getElementById(asset.id).classList.remove("filter-active");
         }
     }
-
-    useEffect(()=>{
-        console.log(backgroundLayer, borderLayer,embleLayer,phatLayer,glowLayer);
-    }, [backgroundLayer, borderLayer,embleLayer,phatLayer,glowLayer])
-
     assetClicked();
     return (
         <div className="filter-preview">

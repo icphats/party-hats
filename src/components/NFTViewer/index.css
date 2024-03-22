@@ -4,8 +4,8 @@
     margin: 30px;
     overflow: auto;
     overflow-y: scroll;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     scrollbar-width: none;
     border-radius: 10px;
@@ -18,15 +18,17 @@
     margin: 30px;
     overflow: auto;
     overflow-y: scroll;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
     scrollbar-width: none;
     border-radius: 10px;
     padding: 0px 10px;
   }
 
 
+  .nft-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 .nft-viewer {
   display: flex;
   width: 100vw;
@@ -131,6 +133,9 @@
     padding: 1.5px;
     background-image: linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24);
     display: inline-block;
+    min-width: 195px;
+    max-width: 250px;
+    max-height: 290px;
   }
   
   .card-description-container{
