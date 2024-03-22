@@ -99,7 +99,7 @@
   }
   
   .card-description-container{
-    background-color: gray;
+    background-color: rgb(37, 37, 37);
   }
   
   .card-d-container-row {
@@ -111,6 +111,7 @@
     margin-left: 16px;
     height: 3em;
   }
+  
   
   .nri-container{
     display: flex;
@@ -129,6 +130,11 @@
   .nft-price-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+
+  .nft-price-container p {
+    margin: 0 0 -2px 0;
   }
   
   .preview-container {

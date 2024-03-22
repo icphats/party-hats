@@ -29,7 +29,7 @@ html, body {
   padding: 0;
   height: 100%; /* Keeps it relative to the viewport */
 
-  font-family: 'Bruno Ace', sans-serif;
+  font-family: 'HalfBoldPixel7';
   
   overflow: auto; /* Prevents scrollbar, use with caution */
   scrollbar-width: none; /* Firefox */
