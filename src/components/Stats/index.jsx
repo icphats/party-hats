@@ -43,11 +43,11 @@ function Stats() {
             <p className="value">{stats.owners}</p>
           </div> */}
           <div className="stat">
-            <p className="title">Floor</p>
+            <p className="title2">Floor</p>
             <p className="value">{stats.floor}</p>
           </div>
           <div className="stat">
-            <p className="title">Listings</p>
+            <p className="title3">Listings</p>
             <p className="value">{stats.listings}</p>
           </div>
         </div>

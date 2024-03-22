@@ -35,6 +35,7 @@
     display: flex;
     column-gap: 30px;
     justify-content: center;
+    align-items: center;
 }
 
 .volume-stat > h3 {
@@ -57,10 +58,27 @@
     padding: 0px 0.5em 0px 0.5em;
   }
   
-  .stat .title {
+  .title {
+    font-family: 'DoublePixel7';
     text-align: left;
-    color: #a9a9a9;
-    font-size: 0.75rem;
+    color: #ffffff;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .title2 {
+    font-family: 'HalfBoldPixel7';
+    text-align: left;
+    color: #ffffff;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .title3 {
+    font-family: 'Hardpixel';
+    text-align: left;
+    color: #ffffff;
+    font-size: 24px;
     margin: 0;
   }
   
