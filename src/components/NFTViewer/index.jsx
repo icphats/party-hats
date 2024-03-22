@@ -9,7 +9,7 @@ import Stats from "../Stats/index.jsx";
 import cardview_icon from "../../assets/card-view-icon.png";
 import gridview_icon from "../../assets/grid-view-icon.png";
 import FilterView from "./FilterViewer.jsx";
-
+import { LayerProvider } from "./LayerContext.jsx";
 import nftStatic from '../../json/nft_static.json'
 
 const NftItem = ({_viewMode, tokens, index}) => {
@@ -153,7 +153,7 @@ function NFT_Grid() {
     }
   };
 
-  return <>
+  return <LayerProvider>
     <div className="state-control">
       <div className="viewmodes">
         <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp;
@@ -173,7 +173,7 @@ function NFT_Grid() {
           })}
       </div>
     </div>
-  </>
+  </LayerProvider>
 }
 
 export default NFT_Grid;
