@@ -2,34 +2,20 @@
   box-sizing: border-box;
 }
 
+
+
 @font-face {
   font-family: 'Bruno Ace';
   src: url('assets/font/BrunoAce-Regular.ttf') format('truetype');
   /* You can add other font properties here if needed, like font-weight, font-style, etc. */
 }
 
-@font-face {
-  font-family: 'DoublePixel7';
-  src: url('assets/font/double_pixel-7.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'HalfBoldPixel7';
-  src: url('assets/font/half_bold_pixel-7.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Hardpixel';
-  src: url('./fonts/Hardpixel.otf') format('opentype');
-}
-
-
 html, body {
   margin: 0;
   padding: 0;
   height: 100%; /* Keeps it relative to the viewport */
 
-  font-family: 'HalfBoldPixel7';
+  font-family: 'Bruno Ace', sans-serif;
   
   overflow: auto; /* Prevents scrollbar, use with caution */
   scrollbar-width: none; /* Firefox */

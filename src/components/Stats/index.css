@@ -35,13 +35,19 @@
     display: flex;
     column-gap: 30px;
     justify-content: center;
-    align-items: center;
 }
+
+.volume-stat > h3 {
+    color: #a9a9a9;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
   
   h1 {
     color: #f0f0f0;
     font-size: 2rem;
-    margin: 0 0 -15px 10px;
+    margin: 0;
     padding: 0;
   }
   
@@ -51,37 +57,19 @@
     padding: 0px 0.5em 0px 0.5em;
   }
   
-  /* .title {
-    font-family: 'DoublePixel7';
+  .stat .title {
     text-align: left;
-    color: #ffffff;
-    font-size: 24px;
-    margin: 0;
-  } */
-
-  .title2 {
-    font-family: 'HalfBoldPixel7';
-    text-align: left;
-    color: #ffffff;
-    font-size: 1em;
+    color: #a9a9a9;
+    font-size: 0.75rem;
     margin: 0;
   }
-
-  /* .title3 {
-    font-family: 'Hardpixel';
-    text-align: left;
-    color: #ffffff;
-    font-size: 0.5rem;
-    margin: 0;
-  } */
   
   .stat .value {
-    font-family: 'HalfBoldPixel7';
     text-align: left;
     color: #f0f0f0;
-    font-size: 1.6rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    margin: 8px 0 0 0;
+    margin: 0;
   }
 
   /* Responsive Design */

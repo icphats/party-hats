@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import extjs from "../../ic/extjs.js";
 const api = extjs.connect("https://icp0.io/");
 const partyhatscanister = "gq5kt-4iaaa-aaaal-qdhuq-cai";
@@ -6,10 +6,10 @@ const partyhatscanister = "gq5kt-4iaaa-aaaal-qdhuq-cai";
 import "./index.css"
 import Stats from "../Stats/index.jsx";
 
+import { LayerContext } from "./LayerContext";
 import cardview_icon from "../../assets/card-view-icon.png";
 import gridview_icon from "../../assets/grid-view-icon.png";
 import FilterView from "./FilterViewer.jsx";
-import { LayerProvider } from "./LayerContext.jsx";
 import nftStatic from '../../json/nft_static.json'
 
 const NftItem = ({_viewMode, tokens, index}) => {
@@ -18,7 +18,7 @@ const NftItem = ({_viewMode, tokens, index}) => {
       <div className="card-container">
         <div key={index} className="nft-image-container">
           <img
-            src={`https://gq5kt-4iaaa-aaaal-qdhuq-cai.raw.icp0.io/?tokenid=${Object.keys(nftStatic[index])[0]}`}
+            src={`./assets/saved_svgs/${tokens[index]}.svg`}
             alt={`Item ${index + 1}`}
             className="nft-image"
           />
@@ -55,19 +55,60 @@ const NftItem = ({_viewMode, tokens, index}) => {
 function NFT_Grid() {
   const [viewMode, setViewMode] = useState(2);
   const [listings, setListings] = useState([]);
-  const [tokens, setTokens] = useState([]);
   const [stats, setStats] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [index, setIndex] = useState(""); // State variable for index input\
   const [indexToken, setIndexToken] = useState("");
-  const [loaded, setLoaded] = useState(false);
   const [count, setCount] = useState(0);
-  const [userCollectionState, setUserColletion] = useState([]);
   const itemsPerPage = 150;
   const containerRef = useRef(null);
+  const [layer, setLayer] = useState([]);
+  const [nfts, setNfts] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
-  useEffect(() => { }, [loaded, userCollectionState]);
+  const {
+    backgroundLayer,
+    borderLayer,
+    embleLayer,
+    phatLayer,
+    glowLayer,
+} = useContext(LayerContext);
 
+  const updateShowData = () => {
+    let bg=-1, bd=-1,em=-1,ph=-1,gl=-1;
+    layer.map(asset=>{
+      if(asset[0].toLowerCase().indexOf(backgroundLayer.toLowerCase()) >= 0 && backgroundLayer != "")
+        bg = asset[1].asset_index_within_layer;
+      if(asset[0].toLowerCase().indexOf(borderLayer.toLowerCase()) >= 0 && borderLayer != "")
+        bd = asset[1].asset_index_within_layer;
+      if(asset[0].toLowerCase().indexOf(embleLayer.toLowerCase()) >= 0 && embleLayer != "")
+        em = asset[1].asset_index_within_layer;
+      if(asset[0].toLowerCase().indexOf(phatLayer.toLowerCase()) >= 0 && phatLayer != "")
+        ph = asset[1].asset_index_within_layer;
+      if(asset[0].toLowerCase().indexOf(glowLayer.toLowerCase()) >= 0 && glowLayer != "")
+        gl = asset[1].asset_index_within_layer;
+    })
+    console.log(bg,bd,em,ph,gl);
+    const data = (() =>{
+        let content = [];
+        for(let i = 0 ; i < nftStatic.length ; i ++)
+        {
+          const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
+            if ((em == -1 || layerData[0] == em) &&
+              (bd == -1 || layerData[1] == bd) &&
+              (ph == -1 || layerData[2] == ph) && 
+              (gl == -1 || layerData[3] == gl) &&
+              (bg == -1 || layerData[4] == bg))
+              content.push(Object.keys(nftStatic[i])[0]);
+        }
+        return content;
+    })();
+    setFilteredData(data);
+  }
+
+  useEffect(()=>{
+    updateShowData();
+  }, [backgroundLayer,borderLayer, embleLayer, phatLayer, glowLayer])
   useEffect(() => {
     (async () => {
       // await getUserCollectionn()
@@ -76,50 +117,49 @@ function NFT_Grid() {
       setListings(listings);
       setStats(statsResponse);
     })();
+
+    (async () => {
+        try {
+          const response = await fetch('./json/layers_static.json');
+          const jsonData = await response.json();
+          setLayer(jsonData);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      })();
+
+      (async () => {
+        try {
+          const response = await fetch('./json/nft_static.json');
+          const jsonData = await response.json();
+          setNfts(jsonData);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      })();
   }, []);
 
   useEffect(() => {
-    const fetchListings = async () => {
-      try {
-        const tokenPromises = [];
-        for (let i = 0; i < itemsPerPage; i++) {
-          const tokenId = await extjs.encodeTokenId(
-            partyhatscanister,
-            (currentPage - 1) * itemsPerPage + i
-          );
-          const details = await fetchTokenDetails(tokenId);
-          console.log(details)
-          tokenPromises.push({ tokenId, details });
-        }
-        const tokenIds = await Promise.all(tokenPromises);
-        setTokens(tokenIds);
-        setLoaded(true);
-      } catch (error) {
-        console.error("Error fetching listings:", error);
-      }
-    };
-
-    fetchListings();
-  }, [currentPage]);
+    updateShowData();
+  }, []);
 
   useEffect(() => {
     setCurrentPage(1); // Reset to page 1 whenever listings change
-  }, [listings, tokens]);
+  }, [listings, filteredData]);
 
   const totalPages = Math.ceil(listings.length / itemsPerPage);
-
   useEffect(() => {
-    if (tokens.length > 50)
+    if (filteredData.length > 50)
       setCount(50);
-    else setCount(tokens.length);
-  }, [tokens]);
+    else setCount(filteredData.length);
+  }, [filteredData]);
 
   const handleScroll = () => {
     const container = containerRef.current;
     if (
       container.scrollTop + container.clientHeight >= container.scrollHeight
     ) {
-      setCount((count + 20) > tokens.length ? tokens.length : (count + 20));
+      setCount((count + 20) > filteredData.length ? filteredData.length : (count + 20));
       console.log("bottom reached");
     }
   }
@@ -153,7 +193,7 @@ function NFT_Grid() {
     }
   };
 
-  return <LayerProvider>
+  return <>
     <div className="state-control">
       <div className="viewmodes">
         <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp;
@@ -166,14 +206,16 @@ function NFT_Grid() {
         <FilterView />
       </div>
       <div className={viewMode == 1 ? "grid-container" : "cards-container"} onScroll={handleScroll} ref={containerRef}>
-        {listings
+        <div className="nft-container">
+        {filteredData
           .slice(0, count)
           .map((tokenId, index) => {
-            return <NftItem _viewMode={viewMode} index={index} tokens={tokens} />
+            return <NftItem _viewMode={viewMode} index={index} tokens={filteredData.slice(0, count)} />
           })}
+          </div>
       </div>
     </div>
-  </LayerProvider>
+  </>
 }
 
 export default NFT_Grid;
