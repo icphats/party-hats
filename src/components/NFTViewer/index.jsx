@@ -28,14 +28,14 @@ const NftItem = ({_viewMode, tokens, index}) => {
           _viewMode == 2 &&
           <div className="card-description-container">
             <div className="card-d-container-row">
-              <p className="">#{index + 1}</p>
+              <p className="">#{tokens[index].mint}</p>
               <div className="nri-container">
                 <p className="nri-text">47%</p>
               </div>
             </div>
             <div className="card-d-container-row">
               <div className="nft-price-container">
-                <p>{tokens[index].mint}</p>
+                <p>1.352</p>
                 <img
                   className="dfinity-price-image"
                   src="../src/assets/ICP.png"
@@ -199,7 +199,7 @@ function NFT_Grid() {
   return <>
     <div className="state-control">
       <div className="viewmodes">
-      <h3>{filteredData.length} Filtered</h3> &nbsp;&nbsp;&nbsp;
+      <h3>{filteredData.length}</h3> &nbsp;&nbsp;&nbsp;
         <a href="#" onClick={() => { showFilter(1-filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
         <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp;
         <a href="#" onClick={() => { setViewMode(2) }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
@@ -210,8 +210,8 @@ function NFT_Grid() {
       <div className={filter==1?"mobile-filter-container" : "filter-container"}>
         <FilterView />
       </div>
-      <div className={viewMode == 1 ? "grid-container" : "cards-container"} onScroll={handleScroll} ref={containerRef}>
-        <div className="nft-container">
+      <div className={viewMode == 1 ? "grid-container" : "cards-container"} >
+        <div className="nft-container" onScroll={handleScroll} ref={containerRef}>
         {filteredData
           .slice(0, count)
           .map((token, index) => {
