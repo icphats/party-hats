@@ -206,6 +206,7 @@ function NFT_Grid() {
         <FilterView />
       </div>
       <div className={viewMode == 1 ? "grid-container" : "cards-container"} onScroll={handleScroll} ref={containerRef}>
+        <h3>{nftStatic.length} / {filteredData.length}</h3>
         <div className="nft-container">
         {filteredData
           .slice(0, count)

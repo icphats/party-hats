@@ -2,10 +2,6 @@
     height: calc(100vh - 250px);
     flex: 1;
     margin: 30px;
-    overflow: auto;
-    overflow-y: scroll;
-    display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     scrollbar-width: none;
     border-radius: 10px;
@@ -16,7 +12,6 @@
     height: calc(100vh - 250px);
     flex: 1;
     margin: 30px;
-    overflow: auto;
     overflow-y: scroll;
     scrollbar-width: none;
     border-radius: 10px;
@@ -60,12 +55,13 @@
 }
 
 .filter-container {
-  padding-top: 30px;
+  padding-top: 50px;
   padding-bottom: 30px;
 
   width: 460px;
   height: calc(100vh - 190px);
 }
+
 
   .filter-preview {
     flex: none;
@@ -73,15 +69,14 @@
     border-radius: 3px;
     padding: 30px;
     padding-top: 0px;
-    height: calc(100vh - 220px);
     display: flex;
     flex-direction: column;
-    overflow-y: hidden;
+    height: calc(100vh - 290px);
     gap: 10px;
   }
 
   .filter-preview::-webkit-scrollbar {
-    width: 3px;
+    width: 0px;
   }
   
   .filter-preview::-webkit-scrollbar-thumb {
@@ -129,12 +124,14 @@
     height: 500px;
   }
   
+
+  .nft-image{
+    width: 190px;
+  }
   .gradient-border {
     padding: 1.5px;
     background-image: linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24);
-    display: inline-block;
-    min-width: 195px;
-    max-width: 250px;
+    display: flex;
     max-height: 290px;
   }
   
