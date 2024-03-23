@@ -9,6 +9,7 @@ import Stats from "../Stats/index.jsx";
 import { LayerContext } from "./LayerContext";
 import cardview_icon from "../../assets/card-view-icon.png";
 import gridview_icon from "../../assets/grid-view-icon.png";
+import filter_icon from "../../assets/filter-icon.png";
 import FilterView from "./FilterViewer.jsx";
 import nftStatic from '../../json/nft_static.json'
 
@@ -18,7 +19,7 @@ const NftItem = ({_viewMode, tokens, index}) => {
       <div className="card-container">
         <div key={index} className="nft-image-container">
           <img
-            src={`./assets/saved_svgs/${tokens[index]}.svg`}
+            src={`./assets/saved_svgs/${tokens[index].id}.svg`}
             alt={`Item ${index + 1}`}
             className="nft-image"
           />
@@ -34,7 +35,7 @@ const NftItem = ({_viewMode, tokens, index}) => {
             </div>
             <div className="card-d-container-row">
               <div className="nft-price-container">
-                <p>1.384</p>
+                <p>{tokens[index].mint}</p>
                 <img
                   className="dfinity-price-image"
                   src="../src/assets/ICP.png"
@@ -54,6 +55,7 @@ const NftItem = ({_viewMode, tokens, index}) => {
 
 function NFT_Grid() {
   const [viewMode, setViewMode] = useState(2);
+  const [filter, showFilter] = useState(0);
   const [listings, setListings] = useState([]);
   const [stats, setStats] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -99,11 +101,12 @@ function NFT_Grid() {
               (ph == -1 || layerData[2] == ph) && 
               (gl == -1 || layerData[3] == gl) &&
               (bg == -1 || layerData[4] == bg))
-              content.push(Object.keys(nftStatic[i])[0]);
+              content.push({id: Object.keys(nftStatic[i])[0], mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint});
         }
         return content;
     })();
     setFilteredData(data);
+    setCount(50);
   }
 
   useEffect(()=>{
@@ -196,21 +199,22 @@ function NFT_Grid() {
   return <>
     <div className="state-control">
       <div className="viewmodes">
+      <h3>{filteredData.length} Filtered</h3> &nbsp;&nbsp;&nbsp;
+        <a href="#" onClick={() => { showFilter(1-filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
         <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp;
         <a href="#" onClick={() => { setViewMode(2) }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
       </div>
       <Stats />
     </div>
     <div className="nft-viewer">
-      <div className="filter-container">
+      <div className={filter==1?"mobile-filter-container" : "filter-container"}>
         <FilterView />
       </div>
       <div className={viewMode == 1 ? "grid-container" : "cards-container"} onScroll={handleScroll} ref={containerRef}>
-        <h3>{nftStatic.length} / {filteredData.length}</h3>
         <div className="nft-container">
         {filteredData
           .slice(0, count)
-          .map((tokenId, index) => {
+          .map((token, index) => {
             return <NftItem _viewMode={viewMode} index={index} tokens={filteredData.slice(0, count)} />
           })}
           </div>

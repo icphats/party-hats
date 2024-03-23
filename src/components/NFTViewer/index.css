@@ -1,21 +1,19 @@
 .grid-container {
-    height: calc(100vh - 250px);
+    height: calc(100vh - 280px);
     flex: 1;
-    margin: 30px;
+    margin: 40px;
     gap: 10px;
-    scrollbar-width: none;
     border-radius: 10px;
-    padding: 0px 10px;
+    padding: 0px 20px;
   }
 
   .cards-container {
-    height: calc(100vh - 250px);
+    height: calc(100vh - 280px);
     flex: 1;
-    margin: 30px;
-    overflow-y: scroll;
+    margin: 40px;
     scrollbar-width: none;
     border-radius: 10px;
-    padding: 0px 10px;
+    padding: 0px 20px;
   }
 
 
@@ -23,11 +21,27 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    max-height: calc(100vh - 330px);
+    overflow-y: scroll 
   }
+
+  .nft-container::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  .nft-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+  }
+  
+  .nft-container::-webkit-scrollbar-track {
+    background-color: none;
+  }
+
 .nft-viewer {
   display: flex;
   width: 100vw;
-  height: calc(100vh- 188px);
+  height: calc(100vh- 198px);
 }
 
 .viewmodes {
@@ -57,9 +71,8 @@
 .filter-container {
   padding-top: 50px;
   padding-bottom: 30px;
-
   width: 460px;
-  height: calc(100vh - 190px);
+  height: calc(100vh - 210px);
 }
 
 
@@ -73,6 +86,8 @@
     flex-direction: column;
     height: calc(100vh - 290px);
     gap: 10px;
+    overflow-y: scroll;
+
   }
 
   .filter-preview::-webkit-scrollbar {
@@ -108,6 +123,19 @@
   }
   .filter_asset_container:hover{
     border: 3px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .filterIcon{
+    display: none;
+  }
+
+  .mobile-filter-container{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    display:none;
+    width: 100vw;
+    flex: none;
+    height: calc(100vh - 190px);
   }
   .card-container {
     color: white;
@@ -152,6 +180,8 @@
   .nri-container{
     display: flex;
     align-items: center;
+
+
     justify-content: center;
     border-radius: 5px;
   }
@@ -218,11 +248,19 @@
   }
   
   @media (max-width: 768px) {
-    .item-preview {
+    .filter-container {
       /* Adjust the height for mobile if necessary, or any other styles */
-      display: none;
+      display: none !important;
+    }
+    .filterIcon{
+      display: block;
     }
     .viewmodes{
       border-right: 0;
+    }
+    .mobile-filter-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
