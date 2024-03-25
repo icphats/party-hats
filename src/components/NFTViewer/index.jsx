@@ -56,7 +56,6 @@ function NFT_Grid() {
 
     const data = (() =>{
         let content = [];
-        let mintNum;
         for(let i = 0 ; i < nftStatic.length - 1; i++)
         {
           const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
@@ -66,20 +65,16 @@ function NFT_Grid() {
               (gl == -1 || layerData[3] == gl) &&
               (bg == -1 || layerData[4] == bg))
 
-              // console.log(
-              //   listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint] ?
-              //   listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint + 1] : false
-              // );
+            // console.log()
               
-             mintNum = nftStatic[i][Object.keys(nftStatic[i])[0]].mint
-            //  console.log(mintNum)
+              // mintNum = nftStatic[i][Object.keys(nftStatic[i])[0]].mint
 
               content.push({
                 id: Object.keys(nftStatic[i])[0], 
                 mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint, 
                 bg: layerData[4], 
-                price: listings[mintNum - 1] ?
-                listings[mintNum - 1] : false
+                price: listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] ?
+                listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] : false
               });
         }
         return content;
@@ -90,7 +85,7 @@ function NFT_Grid() {
 
   useEffect(()=>{
     updateShowData();
-  }, [backgroundLayer,borderLayer, embleLayer, phatLayer, glowLayer, listings])
+  }, [backgroundLayer,borderLayer, embleLayer, phatLayer, glowLayer])
 
   useEffect(() => {
     (async () => {
