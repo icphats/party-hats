@@ -4,7 +4,7 @@ import { useContext, useEffect } from "react";
 
 const layers = ["background", "border", "emble", "glow", "phat"];
 
-const FilterView = () => {
+const FilterView = (props) => {
     const {
         backgroundLayer,
         setBackgroundLayer,
@@ -17,6 +17,8 @@ const FilterView = () => {
         glowLayer,
         setGlowLayer
     } = useContext(LayerContext);
+
+    // console.log(FilterView);
 
     const handleClick = (layer, item) => {
         if(item.indexOf("_Ph") >= 0) setPhatLayer(phatLayer == item ? "" : item);
@@ -42,6 +44,11 @@ const FilterView = () => {
     assetClicked();
     return (
         <div className="filter-preview">
+            {/* <div>
+                <div className="NFT-Count-Container">
+                    <p className="NFT-count">{props.count}</p>
+                </div>
+            </div> */}
             {
                 layers.map(layer => {
                     return <div className="layer-view">

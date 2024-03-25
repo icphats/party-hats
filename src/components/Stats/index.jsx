@@ -28,24 +28,24 @@ function Stats() {
 
 
   return <div className="stats-brand-container">
-    <a href="https://twitter.com/icphats" className="social_links" target="_blank" rel="noopener noreferrer">
+    {/* <a href="https://twitter.com/icphats" className="social_links" target="_blank" rel="noopener noreferrer">
       <img src="../../src/assets/x_logo.png" alt="Follow us on Twitter" style={{ width: '24px', height: '24px' }} />
-    </a>
+    </a> */}
     {stats && (
       <div>
         <div className="stats-container">
           <div className="stat">
-            <p className="title">Volume</p>
-            <p className="value">{stats.total}</p>
-          </div>
-          <div className="stat">
-            <p className="title">Owners</p>
-            <p className="value">{stats.owners}</p>
-          </div>
-          <div className="stat">
             <p className="title">Floor</p>
             <p className="value">{stats.floor}</p>
           </div>
+          <div className="stat">
+            <p className="title">Volume</p>
+            <p className="value">{stats.total}</p>
+          </div>
+          {/* <div className="stat">
+            <p className="title">Owners</p>
+            <p className="value">{stats.owners}</p>
+          </div> */}
           <div className="stat">
             <p className="title">Listings</p>
             <p className="value">{stats.listings}</p>

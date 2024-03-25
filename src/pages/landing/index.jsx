@@ -7,11 +7,11 @@ import { LayerProvider } from "../../components/NFTViewer/LayerContext";
 const Landing = () => {
     return (
         <LayerProvider>
-            <div className = "Banner">
+            {/* <div className = "Banner">
                 <img className="front-banner" src={banner} alt="image" />
-            </div>
+            </div> */}
             <div className = "Landing">
-                <Navbar />
+                {/* <Navbar /> */}
                 {/* <Search_Filter></Search_Filter> */}
                 <NFTViewer />
             </div>

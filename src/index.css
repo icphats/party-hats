@@ -5,8 +5,8 @@
 
 
 @font-face {
-  font-family: 'Bruno Ace';
-  src: url('assets/font/BrunoAce-Regular.ttf') format('truetype');
+  font-family: 'Half Bold Pixel-7';
+  src: url('assets/font/half_bold_pixel-7.ttf') format('truetype');
   /* You can add other font properties here if needed, like font-weight, font-style, etc. */
 }
 
@@ -15,12 +15,22 @@ html, body {
   padding: 0;
   height: 100%; /* Keeps it relative to the viewport */
 
-  font-family: 'Bruno Ace', sans-serif;
-  
-  overflow: auto; /* Prevents scrollbar, use with caution */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  font-family: 'Half Bold Pixel-7', sans-serif;
   cursor: url('assets/dds2.png'), default;
+}
+
+body::-webkit-scrollbar {
+  margin-right: 0;
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: none;
 }
 
 
@@ -150,4 +160,8 @@ button:focus-visible {
 .pagination button {
   /* Add any button styling you need */
   margin: 0 5px; /* Adjust spacing between buttons */
+}
+
+.hide {
+  opacity: 0;
 }
