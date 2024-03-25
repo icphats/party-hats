@@ -11,47 +11,10 @@ import cardview_icon from "../../assets/card-view-icon.png";
 import gridview_icon from "../../assets/grid-view-icon.png";
 import filter_icon from "../../assets/filter-icon.png";
 import FilterView from "./FilterViewer.jsx";
-import nftStatic from '../../json/nft_static.json'
+import nftStatic from "../../json/nft_static.json"
+import logo from "../../assets/1000x1000.png"
 
-const NftItem = ({_viewMode, tokens, index}) => {
-  return (
-    <div className="gradient-border">
-      <div className="card-container">
-        <div key={index} className="nft-image-container">
-          <img
-            src={`./assets/saved_svgs/${tokens[index].id}.svg`}
-            alt={`Item ${index + 1}`}
-            className="nft-image"
-          />
-        </div>
-        {
-          _viewMode == 2 &&
-          <div className="card-description-container">
-            <div className="card-d-container-row">
-              <p className="">#{tokens[index].mint}</p>
-              <div className="nri-container">
-                <p className="nri-text">47%</p>
-              </div>
-            </div>
-            <div className="card-d-container-row">
-              <div className="nft-price-container">
-                <p>1.352</p>
-                <img
-                  className="dfinity-price-image"
-                  src="../src/assets/ICP.png"
-                  alt="dfinity logo"
-                />
-              </div>
-              <div className="buy-now-container">
-                <p className="buy-now-text">buy</p>
-              </div>
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-  );
-}
+
 
 function NFT_Grid() {
   const [viewMode, setViewMode] = useState(2);
@@ -62,7 +25,7 @@ function NFT_Grid() {
   const [index, setIndex] = useState(""); // State variable for index input\
   const [indexToken, setIndexToken] = useState("");
   const [count, setCount] = useState(0);
-  const itemsPerPage = 150;
+  const itemsPerPage = 10000;
   const containerRef = useRef(null);
   const [layer, setLayer] = useState([]);
   const [nfts, setNfts] = useState([]);
@@ -90,10 +53,11 @@ function NFT_Grid() {
       if(asset[0].toLowerCase().indexOf(glowLayer.toLowerCase()) >= 0 && glowLayer != "")
         gl = asset[1].asset_index_within_layer;
     })
-    console.log(bg,bd,em,ph,gl);
+
     const data = (() =>{
         let content = [];
-        for(let i = 0 ; i < nftStatic.length ; i ++)
+        let mintNum;
+        for(let i = 0 ; i < nftStatic.length - 1; i++)
         {
           const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
             if ((em == -1 || layerData[0] == em) &&
@@ -101,7 +65,22 @@ function NFT_Grid() {
               (ph == -1 || layerData[2] == ph) && 
               (gl == -1 || layerData[3] == gl) &&
               (bg == -1 || layerData[4] == bg))
-              content.push({id: Object.keys(nftStatic[i])[0], mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint});
+
+              // console.log(
+              //   listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint] ?
+              //   listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint + 1] : false
+              // );
+              
+             mintNum = nftStatic[i][Object.keys(nftStatic[i])[0]].mint
+            //  console.log(mintNum)
+
+              content.push({
+                id: Object.keys(nftStatic[i])[0], 
+                mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint, 
+                bg: layerData[4], 
+                price: listings[mintNum - 1] ?
+                listings[mintNum - 1] : false
+              });
         }
         return content;
     })();
@@ -111,7 +90,8 @@ function NFT_Grid() {
 
   useEffect(()=>{
     updateShowData();
-  }, [backgroundLayer,borderLayer, embleLayer, phatLayer, glowLayer])
+  }, [backgroundLayer,borderLayer, embleLayer, phatLayer, glowLayer, listings])
+
   useEffect(() => {
     (async () => {
       // await getUserCollectionn()
@@ -151,10 +131,12 @@ function NFT_Grid() {
   }, [listings, filteredData]);
 
   const totalPages = Math.ceil(listings.length / itemsPerPage);
+  
   useEffect(() => {
     if (filteredData.length > 50)
       setCount(50);
-    else setCount(filteredData.length);
+    else 
+      setCount(filteredData.length);
   }, [filteredData]);
 
   const handleScroll = () => {
@@ -184,41 +166,137 @@ function NFT_Grid() {
     }
   };
 
-  const fetchTokenDetails = async (tokenId) => {
-    try {
-      const tokenDetails = await fetch(
-        `https://us-central1-entrepot-api.cloudfunctions.net/api/token/${tokenId}`
-      );
-      return tokenDetails.json();
-    } catch (error) {
-      console.error("Error fetching token details:", error);
-      return [];
+  // const fetchTokenDetails = async (tokenId) => {
+  //   try {
+  //     const tokenDetails = await fetch(
+  //       `https://us-central1-entrepot-api.cloudfunctions.net/api/token/${tokenId}`
+  //     );
+  //     return tokenDetails.json();
+  //   } catch (error) {
+  //     console.error("Error fetching token details:", error);
+  //     return [];
+  //   }
+  // };
+
+  const NftItem = ({_viewMode, tokens, index, bg, price}) => {
+
+
+    const formatPrice = (priceData) => {
+      if (!priceData) return false; // Loading or not available
+      // Assuming priceData.price is the value you want to format
+      const formattedPrice = formatNumberToThreeDigits(priceData);
+      return formattedPrice;
+    };
+  
+    const formatNumberToThreeDigits = (bigNumber) => {
+      // Convert BigInt to a Number for formatting, aware of potential precision loss for very large numbers
+      let number = Number(bigNumber) / 100000000;
+    
+      // Define thresholds
+      const thousand = 1e3; // Equivalent to 1000
+      const million = 1e6;  // Equivalent to 1000000
+    
+      // Helper function for formatting
+      function format(n, divisor, suffix) {
+        let result = n / divisor;
+        // For numbers where division brings them below 100, ensure two decimal places
+        if (result < 100) {
+          result = result.toFixed(2);
+        } else {
+          // Round to nearest integer for k and m to keep significant figure handling simple
+          result = Math.round(result).toString();
+        }
+        return result + suffix;
+      }
+    
+      // Determine and format based on range
+      if (number < thousand) {
+        // For numbers less than 1000, round and return as is
+        return Math.round(number).toString();
+      } else if (number < million) {
+        // For thousands, use "k" suffix
+        return format(number, thousand, 'k');
+      } else {
+        // For millions and above, use "m" suffix
+        return format(number, million, 'm');
+      }
     }
-  };
+    
+  
+    return (
+      <div className={bg === 0 ? 'gradient-border' : 'black-border'}>
+        <div className="card-container">
+          <div key={index} className="nft-image-container">
+            <img
+              src={`./assets/saved_svgs/${tokens[index].id}.svg`}
+              alt={`Item ${index + 1}`}
+              className="nft-image"
+            />
+          </div>
+          {
+            _viewMode == 2 &&
+            <div className="card-description-container">
+              <div className="card-d-container-row">
+                <p className="">#{tokens[index].mint}</p>
+                {/* <div className="nri-container">
+                  <p className="nri-text">47%</p>
+                </div> */}
+              </div>
+              <div className="card-d-container-row">
+                <div className="nft-price-container">
+                  <p>{formatPrice(price[1]?.price)}</p>
+                  <img
+                    className={formatPrice(price[1]?.price) ? "dfinity-price-image" : "hide"}
+                    src="../src/assets/ICP.png"
+                    alt="dfinity logo"
+                  />
+                </div>
+                <div className="buy-now-container">
+                  <p className="buy-now-text">buy</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    );
+  }
 
   return <>
-    <div className="state-control">
-      <div className="viewmodes">
-      <h3>{filteredData.length}</h3> &nbsp;&nbsp;&nbsp;
-        <a href="#" onClick={() => { showFilter(1-filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
-        <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp;
-        <a href="#" onClick={() => { setViewMode(2) }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
-      </div>
-      <Stats />
-    </div>
     <div className="nft-viewer">
-      <div className={filter==1?"mobile-filter-container" : "filter-container"}>
-        <FilterView />
+    <div className="state-control">
+      <div className="logo-container">
+        <img src={logo} className="icphats-logo" alt="icphats logo" />
       </div>
-      <div className={viewMode == 1 ? "grid-container" : "cards-container"} >
-        <div className="nft-container" onScroll={handleScroll} ref={containerRef}>
+      <div className="state-control-minus-logo">
+        <div className="viewmodes">
+          <div className="nft-count-container">
+              <p>{filteredData.length}</p>
+          </div>
+          <a href="#" onClick={() => { showFilter(1-filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
+          {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
+          <a href="#" onClick={() => { setViewMode(viewMode === 1 ? 2 : 1) }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
+        </div>
+        <Stats />
+      </div>
+      
+    </div>
+    <div className="grid-filter-container">
+      <div className={filter==1?"mobile-filter-container" : "filter-container"}>
+        <FilterView count={filteredData.length}/>
+      </div>
+      <div className={"grid-container"} >
+        <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>
         {filteredData
           .slice(0, count)
           .map((token, index) => {
-            return <NftItem _viewMode={viewMode} index={index} tokens={filteredData.slice(0, count)} />
+            return <NftItem _viewMode={viewMode} index={index} tokens={filteredData.slice(0, count)} bg={token.bg} price={token.price}/>
+            // return <NftItem index={index} tokens={filteredData.slice(0, count)} />
           })}
           </div>
       </div>
+    </div>
+      
     </div>
   </>
 }

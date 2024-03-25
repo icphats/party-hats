@@ -2,10 +2,9 @@
     display: flex;
     justify-content: right;
     align-items: center;
-    padding: 20px 5px;
-    padding-right: 100px;
     column-gap: 20px;
     width: auto;
+    margin-right: 20px;
 }
 
 .brand-container{
@@ -36,13 +35,6 @@
     column-gap: 30px;
     justify-content: center;
 }
-
-.volume-stat > h3 {
-    color: #a9a9a9;
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
-  }
   
   h1 {
     color: #f0f0f0;
@@ -51,25 +43,24 @@
     padding: 0;
   }
   
-  
+
   .stat {
     text-align: center;
-    padding: 0px 0.5em 0px 0.5em;
   }
   
   .stat .title {
     text-align: left;
-    color: #a9a9a9;
+    color: #808080;
     font-size: 0.75rem;
     margin: 0;
   }
   
   .stat .value {
     text-align: left;
-    color: #f0f0f0;
+    color: white;
     font-size: 1.25rem;
     font-weight: bold;
-    margin: 0;
+    margin: 5px 0 0 0;
   }
 
   /* Responsive Design */

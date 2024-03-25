@@ -1,47 +1,95 @@
 .grid-container {
-    height: calc(100vh - 280px);
+    height: calc(100vh - 200px);
     flex: 1;
-    margin: 40px;
+    margin: 20px 0 20px 0;
     gap: 10px;
     border-radius: 10px;
-    padding: 0px 20px;
+    padding: 0px 3px 0 20px;
+    scrollbar-width: none;
   }
 
-  .cards-container {
-    height: calc(100vh - 280px);
+  .grid-filter-container {
+    display: flex;
+  }
+
+  /* .cards-container {
+    height: calc(100vh - 140px);
     flex: 1;
-    margin: 40px;
-    scrollbar-width: none;
+    margin: 20px 0 20px 0;
     border-radius: 10px;
     padding: 0px 20px;
-  }
+  } */
 
 
   .nft-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    /* display: flex;
+    flex-wrap: wrap; */
     gap: 10px;
-    max-height: calc(100vh - 280px);
-    overflow-y: scroll 
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll ;
+    padding-right: 10px; /* Create space for the scrollbar */
   }
 
+  .nft-container-card-version {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    /* display: flex;
+    flex-wrap: wrap; */
+    gap: 10px;
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll; 
+    padding-right: 10px;
+  }
+  
   .nft-container::-webkit-scrollbar {
-    width: 0px;
+    margin-right: 0;
+    width: 10px;
   }
   
   .nft-container::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
+    background-color: #808080;
+    border-radius: 0px;
   }
   
   .nft-container::-webkit-scrollbar-track {
     background-color: none;
   }
 
+  .nft-container-card-version::-webkit-scrollbar {
+    margin-right: 0;
+    width: 10px;
+  }
+  
+  .nft-container-card-version::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 0px;
+  }
+
+  .logo-container {
+    margin-left: 20px;
+    width: 210px;
+  }
+
+  .icphats-logo {
+    height: 70px;
+    margin-left: -7px;
+  }
+
+
+
 .nft-viewer {
   display: flex;
-  width: 100vw;
-  height: calc(100vh- 198px);
+  flex-direction: column;
+  width: calc(100vh- 60px);
+  height: calc(100vh - 80px);
+  margin: 40px 60px 40px 60px;
+  border: 2px solid #c0c0c0;
+  background-color: black;
+  box-shadow: 
+    inset 1px 1px 0px #ffffff, /* Top left inner white to mimic raised effect */
+    inset -1px -1px 0px #5f5f5f; /* Bottom right inner shadow for depth */
 }
 
 .viewmodes {
@@ -49,9 +97,7 @@
   column-gap: 5px;
   justify-content: center;
   align-items: center;
-  margin-right: 50px;
-  padding: 20px 50px;
-  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 0 30px 0 0;
 }
 
 .viewmodes>a{
@@ -62,56 +108,86 @@
 
 .state-control{
   display: flex;
-  justify-content: right;
+  height: 100px;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid #808080;
+}
+
+.state-control-minus-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+  gap: 30px;
+}
+
+.nft-count-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #22006C; /* Retro purple background */
+  width: 115px;
+  height: 45px;
+  box-shadow: inset 0 0 10px #381E5A; 
+  border: 3px solid #FFFFFF; /* Add a white border for that classic look */
+  text-shadow: 3px 3px 0 #000; /* Gives the text a more defined, pixelated look */
+}
+
+.nft-count-container p{
+  font-size: 1.5rem;
+  margin: 0 0 -3px 0;
 }
 
 .filter-container {
-  padding-top: 50px;
-  padding-bottom: 30px;
-  width: 460px;
-  height: calc(100vh - 210px);
+  margin: 20px 0px 20px 0px;
+  width: 210px;
+  height: calc(100vh - 200px);
 }
 
 
   .filter-preview {
     flex: none;
-    width: 460px;
-    border-radius: 3px;
-    padding: 30px;
-    padding-top: 0px;
+    width: 210px;
+    padding: 0px 10px 20px 20px;
+    border-radius: 0px;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 290px);
-    gap: 10px;
+    height: calc(100vh - 200px);
+    gap: 30px;
     overflow-y: scroll;
 
   }
 
-  .filter-preview::-webkit-scrollbar {
-    width: 0px;
-  }
-  
-  .filter-preview::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-  }
 
   .filter-active{
     border: 2px solid rgba(0, 255, 0, 0.6) !important;
   }
+
+  .filter-preview::-webkit-scrollbar {
+    margin-right: 0;
+    width: 10px;
+  }
+  
+  .filter-preview::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 0px;
+  }
   
   .filter-preview::-webkit-scrollbar-track {
-    background-color: none;
+    background-color: black;
+  }
+
+  .filter-preview::-webkit-scrollbar-track-piece {
+
   }
 
   .layer-view{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
   }
   
   .filter_asset_container{
@@ -147,24 +223,47 @@
     overflow: hidden;
   }
   
-  
-  .nft-image-solo{
-    height: 500px;
-  }
-  
 
   .nft-image{
-    width: 190px;
+    width: 100%;
   }
+
   .gradient-border {
     padding: 1.5px;
     background-image: linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24);
-    display: flex;
-    max-height: 290px;
+  }
+
+  .black-border {
+    padding: 1.5px;
+    background-color: #808080;
+  }
+
+  .gradient-border:hover {
+    /* transform: scale(1.03); Scales up the whole container including the gradient border */
+    background-image: none;
+    background-color: green;
+  }
+
+  .gradient-border:hover img{
+    /* transform: scale(0.95); Scales up by 5% on hover */
+  }
+
+  .black-border:hover {
+    /* transform: scale(1.03); Scales up the whole container including the gradient border */
+    background-color: green;
+  }
+
+  .black-border:hover img{
+    /* transform: scale(0.95); Scales up by 5% on hover */
   }
   
+  
   .card-description-container{
-    background-color: gray;
+    background-color: #1b1b1b;
+  }
+
+  .card-description-container p{
+    margin: 0 0 -3px 0;
   }
   
   .card-d-container-row {
@@ -174,7 +273,7 @@
     font-size: 16px;
     margin-right: 16px;
     margin-left: 16px;
-    height: 3em;
+    height: 42px;
   }
   
   .nri-container{
@@ -194,8 +293,15 @@
   }
   
   .nft-price-container {
+    /* background-color: #22006C; */
     display: flex;
     align-items: center;
+    height: 23px;
+    /* border: solid 1px white; */
+  }
+
+  .nft-price-container p{
+    padding: 0px 0px 0px 0px;
   }
   
   .preview-container {
@@ -203,8 +309,8 @@
   }
 
   .dfinity-price-image{
-    height: 0.8em;
-    padding-left: 4px;
+    height: 13px;
+    padding: 0 10px 0 4px;
     object-fit: contain;
   }
   
@@ -212,13 +318,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    height: 23px;
+    background-color: #598C58; /* Background applied to the text */
   }
   
   .buy-now-text {
-    background-color: #598C58; /* Background applied to the text */
+    padding: 0px 10px;
     border-radius: 5px; /* Match the container's border-radius if needed */
-    padding: 0.8em; /* Adjust padding as needed to control background size */
     color: #000000;
   }
 
@@ -246,6 +352,8 @@
   .details-container {
     position: relative;
   }
+
+
   
   @media (max-width: 768px) {
     .filter-container {

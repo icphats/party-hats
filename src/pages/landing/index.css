@@ -3,7 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #151515;
+    background-color: #808080;
 }
 
 .Banner {
@@ -15,6 +15,10 @@
     display: flex; /* Use Flexbox for easier content alignment */
     justify-content: center; /* Center children horizontally */
     align-items: center; /* Center children vertically */
+}
+
+.front-banner {
+    width: 100vw;
 }
 
 .nftBoard{
