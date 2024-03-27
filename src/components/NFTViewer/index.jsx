@@ -20,8 +20,8 @@ function NFT_Grid() {
   const [viewMode, setViewMode] = useState(2);
   const [filter, showFilter] = useState(0);
   const [listings, setListings] = useState([]);
-  const [stats, setStats] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [filterMode, setFilterMode] = useState(0);
   const [index, setIndex] = useState(""); // State variable for index input\
   const [indexToken, setIndexToken] = useState("");
   const [count, setCount] = useState(0);
@@ -37,84 +37,133 @@ function NFT_Grid() {
     embleLayer,
     phatLayer,
     glowLayer,
-} = useContext(LayerContext);
+    setBackgroundLayer,
+    setBorderLayer,
+    setEmbleLayer,
+    setPhatLayer,
+    setGlowLayer
+  } = useContext(LayerContext);
+
+  const handleViewMode = () => {
+    setViewMode(viewMode === 1 ? 2 : 1);
+    if (viewMode == 1) {
+      if (count < 150) setCount(Math.min(150, filteredData.length));
+    }
+    if (viewMode == 2) {
+      if (count < 70) setCount(Math.min(70, filteredData.length));
+    }
+  }
+
+  const handleReset = () => {
+    setBackgroundLayer("");
+    setBorderLayer("");
+    setEmbleLayer("");
+    setPhatLayer("");
+    setGlowLayer("");
+  }
 
   const updateShowData = () => {
-    let bg=-1, bd=-1,em=-1,ph=-1,gl=-1;
-    layer.map(asset=>{
-      if(asset[0].toLowerCase().indexOf(backgroundLayer.toLowerCase()) >= 0 && backgroundLayer != "")
+    let bg = -1, bd = -1, em = -1, ph = -1, gl = -1;
+    layer.map(asset => {
+      if (asset[0].toLowerCase().indexOf(backgroundLayer.toLowerCase()) >= 0 && backgroundLayer != "")
         bg = asset[1].asset_index_within_layer;
-      if(asset[0].toLowerCase().indexOf(borderLayer.toLowerCase()) >= 0 && borderLayer != "")
+      if (asset[0].toLowerCase().indexOf(borderLayer.toLowerCase()) >= 0 && borderLayer != "")
         bd = asset[1].asset_index_within_layer;
-      if(asset[0].toLowerCase().indexOf(embleLayer.toLowerCase()) >= 0 && embleLayer != "")
+      if (asset[0].toLowerCase().indexOf(embleLayer.toLowerCase()) >= 0 && embleLayer != "")
         em = asset[1].asset_index_within_layer;
-      if(asset[0].toLowerCase().indexOf(phatLayer.toLowerCase()) >= 0 && phatLayer != "")
+      if (asset[0].toLowerCase().indexOf(phatLayer.toLowerCase()) >= 0 && phatLayer != "")
         ph = asset[1].asset_index_within_layer;
-      if(asset[0].toLowerCase().indexOf(glowLayer.toLowerCase()) >= 0 && glowLayer != "")
+      if (asset[0].toLowerCase().indexOf(glowLayer.toLowerCase()) >= 0 && glowLayer != "")
         gl = asset[1].asset_index_within_layer;
     })
 
-    const data = (() =>{
-        let content = [];
-        for(let i = 0 ; i < nftStatic.length - 1; i++)
-        {
-          const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
-            if ((em == -1 || layerData[0] == em) &&
-              (bd == -1 || layerData[1] == bd) &&
-              (ph == -1 || layerData[2] == ph) && 
-              (gl == -1 || layerData[3] == gl) &&
-              (bg == -1 || layerData[4] == bg))
-
-            // console.log()
-              
-              // mintNum = nftStatic[i][Object.keys(nftStatic[i])[0]].mint
-
-              content.push({
-                id: Object.keys(nftStatic[i])[0], 
-                mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint, 
-                bg: layerData[4], 
-                price: listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] ?
-                listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] : false
-              });
-        }
-        return content;
+    const data = (() => {
+      let content = [];
+      for (let i = 0; i < nftStatic.length - 1; i++) {
+        const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
+        if (filterMode == 0 && (em == -1 || layerData[0] == em) &&
+          (bd == -1 || layerData[1] == bd) &&
+          (ph == -1 || layerData[2] == ph) &&
+          (gl == -1 || layerData[3] == gl) &&
+          (bg == -1 || layerData[4] == bg))
+          content.push({
+            id: Object.keys(nftStatic[i])[0],
+            mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint,
+            bg: layerData[4],
+            price: listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] ?
+              listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] : false
+          });
+        if (filterMode == 1 && (
+          (layerData[1] == bd) ||
+          (layerData[2] == ph) ||
+          (layerData[3] == gl) ||
+          (layerData[4] == bg) ||
+          (bd == -1 && ph == -1 && gl == -1 && bg == -1)
+        ))
+          content.push({
+            id: Object.keys(nftStatic[i])[0],
+            mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint,
+            bg: layerData[4],
+            price: listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] ?
+              listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] : false
+          });
+      }
+      return content;
     })();
     setFilteredData(data);
-    setCount(50);
+    if (viewMode == 1) {
+      if (count < 150) setCount(Math.min(150, filteredData.length));
+    }
+    if (viewMode == 2) {
+      if (count < 70) setCount(Math.min(70, filteredData.length));
+    }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     updateShowData();
-  }, [backgroundLayer,borderLayer, embleLayer, phatLayer, glowLayer])
+  }, [backgroundLayer, borderLayer, embleLayer, phatLayer, glowLayer, filterMode])
 
   useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) { // Check if ESC key is pressed (keyCode 27)
+        handleReset(); 
+      }
+    };
+
+    // Add event listener when the component mounts
+    document.addEventListener('keydown', handleKeyDown);
+
     (async () => {
       // await getUserCollectionn()
       let listings = await api.token(partyhatscanister).listings();
       let statsResponse = await api.token(partyhatscanister).stats();
       setListings(listings);
-      setStats(statsResponse);
     })();
 
     (async () => {
-        try {
-          const response = await fetch('./json/layers_static.json');
-          const jsonData = await response.json();
-          setLayer(jsonData);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      })();
+      try {
+        const response = await fetch('./json/layers_static.json');
+        const jsonData = await response.json();
+        setLayer(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    })();
 
-      (async () => {
-        try {
-          const response = await fetch('./json/nft_static.json');
-          const jsonData = await response.json();
-          setNfts(jsonData);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      })();
+    (async () => {
+      try {
+        const response = await fetch('./json/nft_static.json');
+        const jsonData = await response.json();
+        setNfts(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    })();
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   useEffect(() => {
@@ -126,11 +175,11 @@ function NFT_Grid() {
   }, [listings, filteredData]);
 
   const totalPages = Math.ceil(listings.length / itemsPerPage);
-  
+
   useEffect(() => {
-    if (filteredData.length > 50)
-      setCount(50);
-    else 
+    if (filteredData.length > 70)
+      setCount(70);
+    else
       setCount(filteredData.length);
   }, [filteredData]);
 
@@ -139,7 +188,7 @@ function NFT_Grid() {
     if (
       container.scrollTop + container.clientHeight >= container.scrollHeight
     ) {
-      setCount((count + 20) > filteredData.length ? filteredData.length : (count + 20));
+      setCount((count + 30) > filteredData.length ? filteredData.length : (count + 30));
       console.log("bottom reached");
     }
   }
@@ -173,7 +222,7 @@ function NFT_Grid() {
   //   }
   // };
 
-  const NftItem = ({_viewMode, tokens, index, bg, price}) => {
+  const NftItem = ({ _viewMode, tokens, index, bg, price }) => {
 
 
     const formatPrice = (priceData) => {
@@ -182,15 +231,15 @@ function NFT_Grid() {
       const formattedPrice = formatNumberToThreeDigits(priceData);
       return formattedPrice;
     };
-  
+
     const formatNumberToThreeDigits = (bigNumber) => {
       // Convert BigInt to a Number for formatting, aware of potential precision loss for very large numbers
       let number = Number(bigNumber) / 100000000;
-    
+
       // Define thresholds
       const thousand = 1e3; // Equivalent to 1000
       const million = 1e6;  // Equivalent to 1000000
-    
+
       // Helper function for formatting
       function format(n, divisor, suffix) {
         let result = n / divisor;
@@ -203,7 +252,7 @@ function NFT_Grid() {
         }
         return result + suffix;
       }
-    
+
       // Determine and format based on range
       if (number < thousand) {
         // For numbers less than 1000, round and return as is
@@ -216,8 +265,8 @@ function NFT_Grid() {
         return format(number, million, 'm');
       }
     }
-    
-  
+
+
     return (
       <div className={bg === 0 ? 'gradient-border' : 'black-border'}>
         <div className="card-container">
@@ -259,39 +308,41 @@ function NFT_Grid() {
 
   return <>
     <div className="nft-viewer">
-    <div className="state-control">
-      <div className="logo-container">
-        <img src={logo} className="icphats-logo" alt="icphats logo" />
-      </div>
-      <div className="state-control-minus-logo">
-        <div className="viewmodes">
-          <div className="nft-count-container">
-              <p>{filteredData.length}</p>
-          </div>
-          <a href="#" onClick={() => { showFilter(1-filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
-          {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
-          <a href="#" onClick={() => { setViewMode(viewMode === 1 ? 2 : 1) }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
+      <div className="state-control">
+        <div className="logo-container">
+          <img src={logo} className="icphats-logo" alt="icphats logo" />
         </div>
-        <Stats />
-      </div>
-      
-    </div>
-    <div className="grid-filter-container">
-      <div className={filter==1?"mobile-filter-container" : "filter-container"}>
-        <FilterView count={filteredData.length}/>
-      </div>
-      <div className={"grid-container"} >
-        <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>
-        {filteredData
-          .slice(0, count)
-          .map((token, index) => {
-            return <NftItem _viewMode={viewMode} index={index} tokens={filteredData.slice(0, count)} bg={token.bg} price={token.price}/>
-            // return <NftItem index={index} tokens={filteredData.slice(0, count)} />
-          })}
+        <div className="state-control-minus-logo">
+          <div className="viewmodes">
+            <div className="nft-count-container">
+              <p>{filteredData.length}</p>
+            </div>
+            <a href="#" onClick={() => { showFilter(1 - filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
+            {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
+            <a href="#" onClick={() => { setFilterMode(1 - filterMode) }} > U </a> &nbsp;
+            <a href="#" onClick={() => { handleReset() }} ><img src={cardview_icon} alt="Card View" width={20} /></a> &nbsp;
+            <a href="#" onClick={() => { handleViewMode() }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
           </div>
+          <Stats />
+        </div>
+
       </div>
-    </div>
-      
+      <div className="grid-filter-container">
+        <div className={filter == 1 ? "mobile-filter-container" : "filter-container"}>
+          <FilterView count={filteredData.length} />
+        </div>
+        <div className={"grid-container"} >
+          <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>
+            {filteredData
+              .slice(0, count)
+              .map((token, index) => {
+                return <NftItem _viewMode={viewMode} index={index} tokens={filteredData.slice(0, count)} bg={token.bg} price={token.price} />
+                // return <NftItem index={index} tokens={filteredData.slice(0, count)} />
+              })}
+          </div>
+        </div>
+      </div>
+
     </div>
   </>
 }
