@@ -311,8 +311,8 @@ function NFT_Grid() {
             </div>
             <a href="#" onClick={() => { showFilter(1 - filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
             {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
-            <a href="#" onClick={() => { setFilterMode(1 - filterMode) }} > U </a> &nbsp;
-            <a href="#" onClick={() => { handleReset() }} ><img src={cardview_icon} alt="Card View" width={20} /></a> &nbsp;
+            {/* <a href="#" onClick={() => { setFilterMode(1 - filterMode) }} > U </a> &nbsp;
+            <a href="#" onClick={() => { handleReset() }} ><img src={cardview_icon} alt="Card View" width={20} /></a> &nbsp; */}
             <a href="#" onClick={() => { handleViewMode() }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
           </div>
           <Stats />
