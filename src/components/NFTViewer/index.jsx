@@ -120,7 +120,6 @@ function NFT_Grid() {
   }
 
   useEffect(() => {
-    console.log("dddd");
     updateShowData();
   }, [backgroundLayer, borderLayer, embleLayer, phatLayer, glowLayer, filterMode])
 
@@ -177,12 +176,14 @@ function NFT_Grid() {
 
   const handleScroll = () => {
     const container = containerRef.current;
+
     if (
-      container.scrollTop + container.clientHeight >= container.scrollHeight
+      container.scrollTop + container.clientHeight + 1 >= container.scrollHeight
     ) {
       setCount((count + 30) > filteredData.length ? filteredData.length : (count + 30));
       console.log("bottom reached");
     }
+
   }
 
   const handleIndexChange = async (event) => {
