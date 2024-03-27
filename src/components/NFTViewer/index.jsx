@@ -27,8 +27,6 @@ function NFT_Grid() {
   const [count, setCount] = useState(0);
   const itemsPerPage = 10000;
   const containerRef = useRef(null);
-  const [items, setItems] = useState([]); // for lazy load
-  const loaderRef = useRef(null); // for lasy load
   const [layer, setLayer] = useState([]);
   const [nfts, setNfts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -45,37 +43,6 @@ function NFT_Grid() {
     setPhatLayer,
     setGlowLayer
   } = useContext(LayerContext);
-
-  /* -------------------------------------- */
-  
-  // const fetchMoreItems = () => {
-  //   const newItems = 
-  //   setItems(prevItems => [...prevItems, ...newItems]);
-  // };
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver((entries) => {
-  //     const first = entries[0];
-  //     if (first.isIntersecting) {
-  //       fetchMoreItems();
-  //     }
-  //   });
-
-  //   const currentLoader = loaderRef.current;
-  //   if (currentLoader) {
-  //     observer.observe(currentLoader);
-  //     console.log('hi')
-  //   }
-
-  //   return () => {
-  //     if (currentLoader) {
-  //       observer.unobserve(currentLoader);
-  //     }
-  //   };
-  // }, []);
-
-  /* -------------------------------------- */
-
 
   const handleViewMode = () => {
     setViewMode(viewMode === 1 ? 2 : 1);
@@ -209,8 +176,6 @@ function NFT_Grid() {
 
   const handleScroll = () => {
     const container = containerRef.current;
-    console.log(`${container.scrollTop + container.clientHeight} + ${container.scrollHeight}`)
-    // console.log(`${container}`)
 
     if (
       container.scrollTop + container.clientHeight + 1 >= container.scrollHeight
