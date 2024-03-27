@@ -10,6 +10,18 @@
   height: 20vw;
 }
 
+.loading-container {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("assets/loading-background.png"); /* Correct path to your GIF */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  display: flex; /* Use Flexbox for easier content alignment */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+}
+
+
 .loading-inner-content-container {
   display: flex;
   flex-direction: column;
@@ -28,6 +40,19 @@
   }
 }
 
+.password-input-box {
+  font-family: 'Half Bold Pixel-7', sans-serif;
+  background-color: #222; /* Dark background */
+  border: 2px solid #808080; /* Bright green border, typical of old monitors */
+  color: #0f0; /* Bright green text color */
+  padding: 10px;
+  width: 200px; /* Adjust as needed */
+
+  /* Retro glow effect for focus */
+  /* box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0, 0 0 20px #0f0; */
+  outline: none; /* Remove the default focus outline */
+}
+
 .loading-logo {
   height: 5em;
   display: inline-block; /* Ensure transform applies correctly */
@@ -35,7 +60,7 @@
 }
 
 .loading-text {
-  font-size: 0.8em;
+  font-size: 1rem;
   margin-top: 0.5em;
 }
 
