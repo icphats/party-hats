@@ -46,10 +46,10 @@ function NFT_Grid() {
 
   const handleViewMode = () => {
     setViewMode(viewMode === 1 ? 2 : 1);
-    if (viewMode == 1) {
+    if (viewMode == 2) {
       if (count < 150) setCount(Math.min(150, filteredData.length));
     }
-    if (viewMode == 2) {
+    if (viewMode == 1) {
       if (count < 70) setCount(Math.min(70, filteredData.length));
     }
   }
@@ -111,15 +111,16 @@ function NFT_Grid() {
       return content;
     })();
     setFilteredData(data);
-    if (viewMode == 1) {
-      if (count < 150) setCount(Math.min(150, filteredData.length));
-    }
     if (viewMode == 2) {
-      if (count < 70) setCount(Math.min(70, filteredData.length));
+      if (count < 150) setCount(Math.min(150, data.length));
+    }
+    if (viewMode == 1) {
+      if (count < 70) setCount(Math.min(70, data.length));
     }
   }
 
   useEffect(() => {
+    console.log("dddd");
     updateShowData();
   }, [backgroundLayer, borderLayer, embleLayer, phatLayer, glowLayer, filterMode])
 
@@ -160,6 +161,8 @@ function NFT_Grid() {
       }
     })();
 
+
+    updateShowData();
     // Clean up the event listener when the component unmounts
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
@@ -167,21 +170,10 @@ function NFT_Grid() {
   }, []);
 
   useEffect(() => {
-    updateShowData();
-  }, []);
-
-  useEffect(() => {
     setCurrentPage(1); // Reset to page 1 whenever listings change
   }, [listings, filteredData]);
 
   const totalPages = Math.ceil(listings.length / itemsPerPage);
-
-  useEffect(() => {
-    if (filteredData.length > 70)
-      setCount(70);
-    else
-      setCount(filteredData.length);
-  }, [filteredData]);
 
   const handleScroll = () => {
     const container = containerRef.current;
