@@ -16,7 +16,7 @@ html, body {
   height: 100%; /* Keeps it relative to the viewport */
 
   font-family: 'Half Bold Pixel-7', sans-serif;
-  cursor: url('assets/dds2.png'), default;
+  /* cursor: url('assets/dds2.png'), default; */
 }
 
 body::-webkit-scrollbar {
