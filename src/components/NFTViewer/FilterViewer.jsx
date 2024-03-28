@@ -1,7 +1,6 @@
 import layer_assets from "../../utils/const";
 import { LayerContext } from "./LayerContext";
-import { useContext, useEffect } from "react";
-
+import { useContext, useEffect , useState} from "react";
 const layers = ["background", "border", "emble", "glow", "phat"];
 
 const FilterView = (props) => {
@@ -17,31 +16,100 @@ const FilterView = (props) => {
         glowLayer,
         setGlowLayer
     } = useContext(LayerContext);
-
-    // console.log(FilterView);
-
+    const [layerStatic, setLayer] = useState([]);
+    const mode = props.filterMode;
     const handleClick = (layer, item) => {
-        if(item.indexOf("_Ph") >= 0) setPhatLayer(phatLayer == item ? "" : item);
-        else if(item.indexOf("_Em") >= 0) setEmbleLayer(embleLayer == item ? "" : item);
-        else if(item.indexOf("_Gl") >= 0) setGlowLayer(glowLayer == item ? "" : item);
-        else if(item.indexOf("_Bg") >= 0) setBackgroundLayer(backgroundLayer == item ? "" : item);
-        else setBorderLayer(borderLayer == item ? "" : item);
+        layerStatic.map(asset => {
+            let currentLayer, currentId;
+            if(asset[0].toLowerCase().indexOf(item.toLowerCase()) == asset[0].length-item.length && asset[0].length-item.length>=0)
+                currentLayer = asset[1].layer_index, currentId = asset[1].asset_index_within_layer;
+            else return;
+
+            if(currentLayer == 0){
+                if(embleLayer.includes(currentId.toString())) setEmbleLayer(embleLayer.filter(item=> item!= currentId.toString()));
+                else {
+                    if(mode == 0)
+                        setEmbleLayer([currentId.toString()])
+                    else
+                        setEmbleLayer([...embleLayer, currentId.toString()]);
+                } 
+            }
+            if(currentLayer == 1){
+                if(borderLayer.includes(currentId.toString())) setBorderLayer(borderLayer.filter(item=> item!= currentId.toString()));
+                else {
+                    if(mode == 0)
+                        setBorderLayer([currentId.toString()])
+                    else
+                        setBorderLayer([...borderLayer, currentId.toString()]);
+                } 
+            }
+            if(currentLayer == 2){
+                if(phatLayer.includes(currentId.toString())) setPhatLayer(phatLayer.filter(item=> item!= currentId.toString()));
+                else {
+                    if(mode == 0)
+                        setPhatLayer([currentId.toString()])
+                    else
+                        setPhatLayer([...phatLayer, currentId.toString()]);
+                } 
+            }
+            if(currentLayer == 3){
+                if(glowLayer.includes(currentId.toString())) setGlowLayer(glowLayer.filter(item=> item!= currentId.toString()));
+                else {
+                    if(mode == 0)
+                        setGlowLayer([currentId.toString()])
+                    else
+                        setGlowLayer([...glowLayer, currentId.toString()]);
+                } 
+            }
+            if(currentLayer == 4){
+                if(backgroundLayer.includes(currentId.toString())) setBackgroundLayer(backgroundLayer.filter(item=> item!= currentId.toString()));
+                else {
+                    if(mode == 0)
+                        setBackgroundLayer([currentId.toString()])
+                    else
+                        setBackgroundLayer([...backgroundLayer, currentId.toString()]);
+                } 
+            }
+        });
     }
+
+    useEffect(()=>{
+        (async () => {
+            try {
+              const response = await fetch('./json/layers_static.json');
+              const jsonData = await response.json();
+              console.log(jsonData);
+              setLayer(jsonData);
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+        })();
+    }, [])
 
     const isSelected = (item) => {
         return backgroundLayer == item || borderLayer == item || embleLayer == item || phatLayer == item || glowLayer == item;
     }
 
-    const assetClicked =() => {
+    const assetClicked = () => {
         const assets = document.getElementsByClassName("filter_asset_container");
+        console.log(embleLayer,borderLayer,backgroundLayer, phatLayer, glowLayer);
         for(let i = 0 ; i < assets.length; i ++){
             const asset = assets.item(i);
-            if(asset.id == backgroundLayer || asset.id == borderLayer || asset.id == embleLayer || asset.id == phatLayer || asset.id == glowLayer)
+            const current = layerStatic.filter(ast => {
+                return ast[0].indexOf(asset.id) == (ast[0].length-asset.id.length) && (ast[0].length-asset.id.length)>=0;
+            });
+            if(current[0][1] && (current[0][1].layer_index == 0&&embleLayer.includes(current[0][1].asset_index_within_layer.toString())) ||
+                (current[0][1].layer_index == 1&&borderLayer.includes(current[0][1].asset_index_within_layer.toString())) ||
+                (current[0][1].layer_index == 2&&phatLayer.includes(current[0][1].asset_index_within_layer.toString())) ||
+                (current[0][1].layer_index == 3&&glowLayer.includes(current[0][1].asset_index_within_layer.toString())) ||
+                (current[0][1].layer_index == 4&&backgroundLayer.includes(current[0][1].asset_index_within_layer.toString())))
                 document.getElementById(asset.id).classList.add("filter-active");
             else document.getElementById(asset.id).classList.remove("filter-active");
         }
     }
-    assetClicked();
+    if(layerStatic && layerStatic.length > 0){
+        assetClicked();
+    }
     return (
         <div className="filter-preview">
             {/* <div>

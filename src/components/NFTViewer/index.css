@@ -104,6 +104,9 @@
   width: 20px;
   height: 20px;
   padding: 1px;
+  justify-content: center;
+  align-items:center;
+  display: flex;
 }
 
 .state-control{
@@ -202,7 +205,7 @@
   }
 
   .filterIcon{
-    display: none;
+    visibility: hidden;
   }
 
   .mobile-filter-container{
@@ -361,7 +364,8 @@
       display: none !important;
     }
     .filterIcon{
-      display: block;
+      visibility: visible;
+      margin-left: 20px;
     }
     .viewmodes{
       border-right: 0;
