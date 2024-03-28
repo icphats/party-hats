@@ -259,6 +259,7 @@ function NFT_Grid() {
       }
     }
 
+    const pid = Object.keys(nftStatic[index])[0] ;
 
     return (
       <div className={bg === 0 ? 'gradient-border' : 'black-border'}>
@@ -288,9 +289,9 @@ function NFT_Grid() {
                     alt="dfinity logo"
                   />
                 </div>
-                <div className="buy-now-container">
+                <a href={`https://toniq.io/marketplace/asset/${pid}`} className="buy-now-container" aria-label="Buy now" target="_blank" rel="noopener noreferrer">
                   <p className="buy-now-text">buy</p>
-                </div>
+                </a>
               </div>
             </div>
           }

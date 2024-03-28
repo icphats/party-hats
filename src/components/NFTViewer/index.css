@@ -320,6 +320,7 @@
     justify-content: center;
     height: 23px;
     background-color: #598C58; /* Background applied to the text */
+    text-decoration: none;
   }
   
   .buy-now-text {
