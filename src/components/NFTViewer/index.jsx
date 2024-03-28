@@ -21,7 +21,7 @@ function NFT_Grid() {
   const [filter, showFilter] = useState(0);
   const [listings, setListings] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [filterMode, setFilterMode] = useState(0);
+  const [filterMode, setFilterMode] = useState(1);
   const [index, setIndex] = useState(""); // State variable for index input\
   const [indexToken, setIndexToken] = useState("");
   const [count, setCount] = useState(0);
@@ -282,15 +282,17 @@ function NFT_Grid() {
           <img src={logo} className="icphats-logo" alt="icphats logo" />
         </div>
         <div className="state-control-minus-logo">
-          <div className="viewmodes">
+          <div className="count-viewmodes-container">
             <div className="nft-count-container">
               <p>{filteredData.length}</p>
             </div>
-            <a href="#" onClick={() => { showFilter(1 - filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
-            {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
-            <a href="#" onClick={() => { setFilterMode(1 - filterMode); handleReset(); }} style={{fontSize:"18px", backgroundColor:"rgba(255,255,255,0.5)"}}> {filterMode==0?1:"∞"} </a> &nbsp;
-            <a href="#" onClick={() => { handleReset() }} ><img src={cardview_icon} alt="Card View" width={20} /></a> &nbsp;
-            <a href="#" onClick={() => { handleViewMode() }} style={{ border: (viewMode == 2 ? "1px solid white" : "0px") }}><img src={gridview_icon} alt="Card View" width={20} /></a>
+            <div className="viewmodes">
+            <a href="#" onClick={() => { handleReset() }} ><div className="escape-icon">ESC</div></a>
+              <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" width={20} /></a>
+              <a href="#" onClick={() => { showFilter(1 - filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
+              {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
+              {/* <a href="#" onClick={() => { setFilterMode(1 - filterMode); handleReset(); }} className="one-∞"> {filterMode==0?1:"∞"} </a> &nbsp; */}
+            </div>
           </div>
           <Stats />
         </div>

@@ -78,7 +78,6 @@
   }
 
 
-
 .nft-viewer {
   display: flex;
   flex-direction: column;
@@ -92,21 +91,29 @@
     inset -1px -1px 0px #5f5f5f; /* Bottom right inner shadow for depth */
 }
 
+.count-viewmodes-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .viewmodes {
   display: flex;
   column-gap: 5px;
   justify-content: center;
   align-items: center;
-  padding: 0 30px 0 0;
+  margin: 0 0px 0 20px;
+  gap: 8px;
 }
 
+
 .viewmodes>a{
-  width: 20px;
   height: 20px;
   padding: 1px;
   justify-content: center;
   align-items:center;
   display: flex;
+  text-decoration: none;
+  
 }
 
 .state-control{
@@ -185,6 +192,39 @@
   .filter-preview::-webkit-scrollbar-track-piece {
 
   }
+
+  .one-∞{
+    text-decoration: none;
+    background: white;
+    color: black;
+  }
+  
+  .escape-icon {
+    display: inline-block; /* Allows setting width and height */
+    width: 20px; /* Adjusted width to accommodate for border within a 20x20px box */
+    height: 20px; /* Adjusted height for the same reason */
+    background-color: #D3D3D3; /* Light grey background */
+    border: 2px solid #A9A9A9; /* Adds a border while staying within the 20px constraint */
+    border-radius: 2px; /* Mildly rounded corners */
+    box-shadow: none; /* No shadow to save space and because it won't be noticeable */
+    text-align: center; /* Center alignment for text */
+    align-items: center;
+    font-family: Arial, sans-serif; /* Uses Arial as the sans-serif font */
+    font-size: 5px; /* Essentially removes the text by setting font size to 0 */
+    user-select: none; /* Prevents text selection */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+    text-decoration: none;
+    color: black;
+  }
+  
+  .escape-icon:active {
+    background-color: #C0C0C0; /* Changes background color to simulate pressing */
+  }
+  
+  
+  
+  /* Adjusting for no shadow due to size, focusing on a simple, clean look */
+   
 
   .layer-view{
     width: 100%;
