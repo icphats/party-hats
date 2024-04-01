@@ -17,7 +17,7 @@ import logo from "../../assets/1000x1000.png"
 
 
 
-function NFT_Grid() {
+function NFT_Grid({setIsPasswordCorrect}) {
   const [viewMode, setViewMode] = useState(2);
   const [mobileFilter, setMobileFilter] = useState(0);
   const [listings, setListings] = useState([]);
@@ -280,7 +280,7 @@ function NFT_Grid() {
     <div className="nft-viewer">
       <div className="state-control">
         <div className="logo-container">
-          <img src={logo} className="icphats-logo" alt="icphats logo" />
+          <img onClick={() => setIsPasswordCorrect(false)} src={logo} className="icphats-logo" alt="icphats logo" />
         </div>
         <div className="nft-count-container">
               <p>{filteredData.length}</p>

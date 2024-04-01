@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className="content">
-      <Landing />
+      <Landing setIsPasswordCorrect={setIsPasswordCorrect}/>
     </div>
   );
 }

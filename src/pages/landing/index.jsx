@@ -4,7 +4,7 @@ import Stats from "../../components/Stats";
 import NFTViewer from "../../components/NFTViewer";
 import "./index.css";
 import { LayerProvider } from "../../components/NFTViewer/LayerContext";
-const Landing = () => {
+const Landing = ({setIsPasswordCorrect}) => {
     return (
         <LayerProvider>
             {/* <div className = "Banner">
@@ -13,7 +13,7 @@ const Landing = () => {
             <div className = "Landing">
                 {/* <Navbar /> */}
                 {/* <Search_Filter></Search_Filter> */}
-                <NFTViewer />
+                <NFTViewer setIsPasswordCorrect={setIsPasswordCorrect}/>
             </div>
         </LayerProvider>
     );
