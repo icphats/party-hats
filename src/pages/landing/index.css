@@ -3,7 +3,8 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #808080;
+    background-color: #22006c;
+    /* background-image: url("../../assets/blank_background_desktop.gif"); Correct path to your GIF */
 }
 
 .Banner {

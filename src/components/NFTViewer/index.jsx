@@ -10,6 +10,7 @@ import { LayerContext } from "./LayerContext";
 import cardview_icon from "../../assets/card-view-icon.png";
 import gridview_icon from "../../assets/grid-view-icon.png";
 import filter_icon from "../../assets/filter-icon.png";
+import filter_icon_2 from "../../assets/filter-icon_2.png";
 import FilterView from "./FilterViewer.jsx";
 import nftStatic from "../../json/nft_static.json"
 import logo from "../../assets/1000x1000.png"
@@ -18,7 +19,7 @@ import logo from "../../assets/1000x1000.png"
 
 function NFT_Grid() {
   const [viewMode, setViewMode] = useState(2);
-  const [filter, showFilter] = useState(0);
+  const [mobileFilter, setMobileFilter] = useState(0);
   const [listings, setListings] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filterMode, setFilterMode] = useState(1);
@@ -259,7 +260,7 @@ function NFT_Grid() {
                 <div className="nft-price-container">
                   <p>{formatPrice(price[1]?.price)}</p>
                   <img
-                    className={formatPrice(price[1]?.price) ? "dfinity-price-image" : "hide"}
+                    className={formatPrice(price[1]?.price) ? "dfinity-price-image" : "hide-price-logo"}
                     src="../src/assets/ICP.png"
                     alt="dfinity logo"
                   />
@@ -281,25 +282,27 @@ function NFT_Grid() {
         <div className="logo-container">
           <img src={logo} className="icphats-logo" alt="icphats logo" />
         </div>
-        <div className="state-control-minus-logo">
-          <div className="count-viewmodes-container">
-            <div className="nft-count-container">
+        <div className="nft-count-container">
               <p>{filteredData.length}</p>
-            </div>
-            <div className="viewmodes">
+        </div>
+        <div className="viewmodes">
             <a href="#" onClick={() => { handleReset() }} ><div className="escape-icon">ESC</div></a>
               <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" width={20} /></a>
-              <a href="#" onClick={() => { showFilter(1 - filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
+              <a href="#" onClick={() => { setMobileFilter(1 - mobileFilter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a>
               {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
               {/* <a href="#" onClick={() => { setFilterMode(1 - filterMode); handleReset(); }} className="one-∞"> {filterMode==0?1:"∞"} </a> &nbsp; */}
-            </div>
-          </div>
-          <Stats />
         </div>
+        <Stats />
+        {/* <div className="count-viewmodes-container">
+            
+        
+        <div className="state-control-minus-logo">
+          </div>
+        </div> */}
 
       </div>
       <div className="grid-filter-container">
-        <div className={filter == 1 ? "mobile-filter-container" : "filter-container"}>
+        <div className={mobileFilter == 1 ? "mobile-filter-container" : "filter-container"}>
           <FilterView count={filteredData.length} layer = {layer} filterMode = {filterMode}/>
         </div>
         <div className={"grid-container"} >

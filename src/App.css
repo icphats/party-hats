@@ -27,9 +27,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50vw;
-  height: 50vh;
+  width: 100vw;
+  height: 100vh;
 }
+
 
 @keyframes wiggle {
   0%, 100% {
@@ -62,15 +63,14 @@
 .loading-text {
   font-size: 1rem;
   margin-top: 12px;
+  text-align: center;
+  line-height: 1.4rem;
+  padding: 0 10vw;
 }
 
 .df-font {
   font-family: 'Circular Std', sans-serif; /* Fallback to sans-serif if Circular Std isn't available */
 }
-
-
-
-
 
 
 .logo {
