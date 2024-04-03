@@ -66,7 +66,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
   const updateShowData = () => {
     const data = (() => {
       let content = [];
-      console.log(embleLayer,borderLayer,phatLayer,glowLayer,backgroundLayer);
+      // console.log(embleLayer,borderLayer,phatLayer,glowLayer,backgroundLayer);
       for (let i = 0; i < nftStatic.length - 1; i++) {
         const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
         if ((embleLayer.length==0 || embleLayer.includes(layerData[0].toString())) &&
@@ -82,10 +82,10 @@ function NFT_Grid({setIsPasswordCorrect}) {
                 listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] : false
             });
       }
-      console.log(content);
+      // console.log(content);
       return content;
     })();
-    console.log(data);
+    // console.log(data);
     setFilteredData(data);
     if (viewMode == 2) {
       if (count < 150) setCount(Math.min(150, data.length));

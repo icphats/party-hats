@@ -78,7 +78,6 @@ const FilterView = (props) => {
             try {
               const response = await fetch('./json/layers_static.json');
               const jsonData = await response.json();
-              console.log(jsonData);
               setLayer(jsonData);
             } catch (error) {
               console.error('Error fetching data:', error);
@@ -92,7 +91,6 @@ const FilterView = (props) => {
 
     const assetClicked = () => {
         const assets = document.getElementsByClassName("filter_asset_container");
-        console.log(embleLayer,borderLayer,backgroundLayer, phatLayer, glowLayer);
         for(let i = 0 ; i < assets.length; i ++){
             const asset = assets.item(i);
             const current = layerStatic.filter(ast => {
