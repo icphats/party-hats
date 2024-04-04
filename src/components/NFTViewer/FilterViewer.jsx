@@ -16,7 +16,7 @@ const FilterView = (props) => {
         glowLayer,
         setGlowLayer
     } = useContext(LayerContext);
-    const [layerStatic, setLayer] = useState([]);
+    const layerStatic = props.layer;
     const mode = props.filterMode;
     const handleClick = (layer, item) => {
         layerStatic.map(asset => {
@@ -73,18 +73,18 @@ const FilterView = (props) => {
         });
     }
 
-    useEffect(()=>{
-        (async () => {
-            try {
-              const response = await fetch('./json/layers_static.json');
-              const jsonData = await response.json();
-              console.log(jsonData);
-              setLayer(jsonData);
-            } catch (error) {
-              console.error('Error fetching data:', error);
-            }
-        })();
-    }, [])
+    // useEffect(()=>{
+    //     (async () => {
+    //         try {
+    //           const response = await fetch('./json/layers_static.json');
+    //           const jsonData = await response.json();
+    //           console.log(jsonData);
+    //           setLayer(jsonData);
+    //         } catch (error) {
+    //           console.error('Error fetching data:', error);
+    //         }
+    //     })();
+    // }, [])
 
     const isSelected = (item) => {
         return backgroundLayer == item || borderLayer == item || embleLayer == item || phatLayer == item || glowLayer == item;
