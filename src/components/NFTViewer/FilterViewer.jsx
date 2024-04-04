@@ -16,7 +16,10 @@ const FilterView = (props) => {
         glowLayer,
         setGlowLayer
     } = useContext(LayerContext);
+    
     const [layerStatic, setLayer] = useState([]);
+
+
     const mode = props.filterMode;
     const handleClick = (layer, item) => {
         layerStatic.map(asset => {
@@ -108,32 +111,34 @@ const FilterView = (props) => {
     if(layerStatic && layerStatic.length > 0){
         assetClicked();
     }
-    return (
-        <div className="filter-preview">
-            {/* <div>
-                <div className="NFT-Count-Container">
-                    <p className="NFT-count">{props.count}</p>
+    return (<>
+                <div className="NFT-Search-Container">
+                    <input
+                    type="number"
+                    className="NFT-search-input"
+                    placeholder="Mint #"
+                    onChange={(e) => props.setSearchIndex(e.target.value)} // Assuming setIndex updates the state
+                    />
                 </div>
-            </div> */}
-            {
-                layers.map(layer => {
-                    return <div className="layer-view">
-                        {layer_assets[layer].
-                            map(item =>
-                                <div className="filter_asset_container" id={item} onClick={()=>{handleClick(layer, item)}}>
-                                    <img
-                                        width={26}
-                                        height={26}
-                                        src={`./assets/ICPhats_Collection/${layer}/${item}.png`}
-                                    />
-                                </div>
-                            )}
-                    </div>
-                })
+                <div className="filter-preview">
+                    {
+                        layers.map(layer => {
+                            return <div className="layer-view">
+                                {layer_assets[layer].
+                                    map(item =>
+                                        <div className="filter_asset_container" id={item} onClick={()=>{handleClick(layer, item)}}>
+                                            <img
+                                                width={26}
+                                                height={26}
+                                                src={`./assets/ICPhats_Collection/${layer}/${item}.png`}
+                                            />
+                                        </div>
+                                    )}
+                            </div>
+                        })
 
-            }
-        </div>
-    )
-}
+                    }
+                </div>
+            </>)}
 
 export default FilterView;

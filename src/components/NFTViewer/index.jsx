@@ -31,6 +31,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
   const [layer, setLayer] = useState([]);
   const [nfts, setNfts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [searchIndex, setSearchIndex] = useState(0)
 
   const {
     backgroundLayer,
@@ -66,8 +67,9 @@ function NFT_Grid({setIsPasswordCorrect}) {
   const updateShowData = () => {
     const data = (() => {
       let content = [];
+      console.log(nftStatic.length)
       // console.log(embleLayer,borderLayer,phatLayer,glowLayer,backgroundLayer);
-      for (let i = 0; i < nftStatic.length - 1; i++) {
+      for (let i = 0; i < nftStatic.length; i++) {
         const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
         if ((embleLayer.length==0 || embleLayer.includes(layerData[0].toString())) &&
           (borderLayer.length==0 || borderLayer.includes(layerData[1].toString())) &&
@@ -85,7 +87,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
       // console.log(content);
       return content;
     })();
-    // console.log(data);
     setFilteredData(data);
     if (viewMode == 2) {
       if (count < 150) setCount(Math.min(150, data.length));
@@ -171,12 +172,24 @@ function NFT_Grid({setIsPasswordCorrect}) {
     setIndexToken(token);
   };
 
-  const handleSearch = () => {
-    if (!isNaN(index) && index > 0 && index <= listings.length) {
-      setCurrentPage(Math.ceil(index / itemsPerPage));
-    } else {
-      setCurrentPage(1);
+  useEffect(() => {
+    handleSearch(searchIndex)
+  }, [searchIndex]);
+
+  const handleSearch = (n) => {
+    // handleReset();
+    let i;
+    if (n > 0 && n <= 10000){
+      i = n - 1
+      setFilteredData([{
+        id: Object.keys(nftStatic[i])[0],
+        mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint,
+        bg: nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers,
+        price: listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] ?
+          listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] : false
+      }]);
     }
+
   };
 
   // const fetchTokenDetails = async (tokenId) => {
@@ -204,11 +217,11 @@ function NFT_Grid({setIsPasswordCorrect}) {
     const formatNumberToThreeDigits = (bigNumber) => {
       // Convert BigInt to a Number for formatting, aware of potential precision loss for very large numbers
       let number = Number(bigNumber) / 100000000;
-
+    
       // Define thresholds
       const thousand = 1e3; // Equivalent to 1000
       const million = 1e6;  // Equivalent to 1000000
-
+    
       // Helper function for formatting
       function format(n, divisor, suffix) {
         let result = n / divisor;
@@ -221,9 +234,12 @@ function NFT_Grid({setIsPasswordCorrect}) {
         }
         return result + suffix;
       }
-
+    
       // Determine and format based on range
-      if (number < thousand) {
+      if (number < 1) {
+        // For numbers less than 1, display with two decimal places
+        return number.toFixed(2);
+      } else if (number < thousand) {
         // For numbers less than 1000, round and return as is
         return Math.round(number).toString();
       } else if (number < million) {
@@ -303,7 +319,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
       </div>
       <div className="grid-filter-container">
         <div className={mobileFilter == 1 ? "mobile-filter-container" : "filter-container"}>
-          <FilterView count={filteredData.length} layer = {layer} filterMode = {filterMode}/>
+          <FilterView setSearchIndex={setSearchIndex} layer = {layer} filterMode = {filterMode}/>
         </div>
         <div className={"grid-container"} >
           <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>

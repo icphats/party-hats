@@ -171,8 +171,8 @@
     border-radius: 0px;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 200px);
-    gap: 30px;
+    height: calc(100vh - 250px);
+    gap: 20px;
     overflow-y: scroll;
 
   }
@@ -205,6 +205,36 @@
     background: white;
     color: black;
   }
+
+  .NFT-Search-Container{
+    display: flex;
+    /* justify-content: center; */
+    width: 200px; /* Adjust as needed */
+    height: 30px;
+    padding: 0px 10px;
+    margin: 0 0 20px 0;
+  }
+
+  .NFT-search-input {
+    font-family: 'Half Bold Pixel-7', sans-serif;
+    background-color: #222; /* Dark background */
+    border: 2px solid #808080; /* Bright green border, typical of old monitors */
+    color: #0f0; /* Bright green text color */
+    width: 170px;
+    outline: none; /* Remove the default focus outline */
+    padding: 0 10px;
+  }
+
+.NFT-search-input::-webkit-outer-spin-button,
+.NFT-search-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+.NFT-search-input[type="number"] {
+  -moz-appearance: textfield;
+}
   
   .escape-icon {
     display: flex; /* Allows setting width and height */
