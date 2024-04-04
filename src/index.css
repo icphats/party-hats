@@ -150,6 +150,3 @@ button:focus-visible {
   margin: 0 5px; /* Adjust spacing between buttons */
 }
 
-.hide {
-  opacity: 0;
-}

@@ -10,15 +10,16 @@ import { LayerContext } from "./LayerContext";
 import cardview_icon from "../../assets/card-view-icon.png";
 import gridview_icon from "../../assets/grid-view-icon.png";
 import filter_icon from "../../assets/filter-icon.png";
+import filter_icon_2 from "../../assets/filter-icon_2.png";
 import FilterView from "./FilterViewer.jsx";
 import nftStatic from "../../json/nft_static.json"
 import logo from "../../assets/1000x1000.png"
 
 
 
-function NFT_Grid() {
+function NFT_Grid({setIsPasswordCorrect}) {
   const [viewMode, setViewMode] = useState(2);
-  const [filter, showFilter] = useState(0);
+  const [mobileFilter, setMobileFilter] = useState(0);
   const [listings, setListings] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filterMode, setFilterMode] = useState(1);
@@ -30,6 +31,7 @@ function NFT_Grid() {
   const [layer, setLayer] = useState([]);
   const [nfts, setNfts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [searchIndex, setSearchIndex] = useState(0)
 
   const {
     backgroundLayer,
@@ -65,7 +67,7 @@ function NFT_Grid() {
   const updateShowData = () => {
     const data = (() => {
       let content = [];
-      for (let i = 0; i < nftStatic.length - 1; i++) {
+      for (let i = 0; i < nftStatic.length; i++) {
         const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
         if ((embleLayer.length==0 || embleLayer.includes(layerData[0].toString())) &&
           (borderLayer.length==0 || borderLayer.includes(layerData[1].toString())) &&
@@ -167,12 +169,24 @@ function NFT_Grid() {
     setIndexToken(token);
   };
 
-  const handleSearch = () => {
-    if (!isNaN(index) && index > 0 && index <= listings.length) {
-      setCurrentPage(Math.ceil(index / itemsPerPage));
-    } else {
-      setCurrentPage(1);
+  useEffect(() => {
+    handleSearch(searchIndex)
+  }, [searchIndex]);
+
+  const handleSearch = (n) => {
+    // handleReset();
+    let i;
+    if (n > 0 && n <= 10000){
+      i = n - 1
+      setFilteredData([{
+        id: Object.keys(nftStatic[i])[0],
+        mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint,
+        bg: nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers,
+        price: listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] ?
+          listings[nftStatic[i][Object.keys(nftStatic[i])[0]].mint - 1] : false
+      }]);
     }
+
   };
 
   // const fetchTokenDetails = async (tokenId) => {
@@ -200,11 +214,11 @@ function NFT_Grid() {
     const formatNumberToThreeDigits = (bigNumber) => {
       // Convert BigInt to a Number for formatting, aware of potential precision loss for very large numbers
       let number = Number(bigNumber) / 100000000;
-
+    
       // Define thresholds
       const thousand = 1e3; // Equivalent to 1000
       const million = 1e6;  // Equivalent to 1000000
-
+    
       // Helper function for formatting
       function format(n, divisor, suffix) {
         let result = n / divisor;
@@ -217,9 +231,12 @@ function NFT_Grid() {
         }
         return result + suffix;
       }
-
+    
       // Determine and format based on range
-      if (number < thousand) {
+      if (number < 1) {
+        // For numbers less than 1, display with two decimal places
+        return number.toFixed(2);
+      } else if (number < thousand) {
         // For numbers less than 1000, round and return as is
         return Math.round(number).toString();
       } else if (number < million) {
@@ -256,7 +273,7 @@ function NFT_Grid() {
                 <div className="nft-price-container">
                   <p>{formatPrice(price[1]?.price)}</p>
                   <img
-                    className={formatPrice(price[1]?.price) ? "dfinity-price-image" : "hide"}
+                    className={formatPrice(price[1]?.price) ? "dfinity-price-image" : "hide-price-logo"}
                     src="../src/assets/ICP.png"
                     alt="dfinity logo"
                   />
@@ -276,28 +293,30 @@ function NFT_Grid() {
     <div className="nft-viewer">
       <div className="state-control">
         <div className="logo-container">
-          <img src={logo} className="icphats-logo" alt="icphats logo" />
+          <img onClick={() => setIsPasswordCorrect(false)} src={logo} className="icphats-logo" alt="icphats logo" />
         </div>
-        <div className="state-control-minus-logo">
-          <div className="count-viewmodes-container">
-            <div className="nft-count-container">
+        <div className="nft-count-container">
               <p>{filteredData.length}</p>
-            </div>
-            <div className="viewmodes">
+        </div>
+        <div className="viewmodes">
             <a href="#" onClick={() => { handleReset() }} ><div className="escape-icon">ESC</div></a>
               <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" width={20} /></a>
-              <a href="#" onClick={() => { showFilter(1 - filter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a> &nbsp;
+              <a href="#" onClick={() => { setMobileFilter(1 - mobileFilter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a>
               {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
               {/* <a href="#" onClick={() => { setFilterMode(1 - filterMode); handleReset(); }} className="one-∞"> {filterMode==0?1:"∞"} </a> &nbsp; */}
-            </div>
-          </div>
-          <Stats />
         </div>
+        <Stats />
+        {/* <div className="count-viewmodes-container">
+            
+        
+        <div className="state-control-minus-logo">
+          </div>
+        </div> */}
 
       </div>
       <div className="grid-filter-container">
-        <div className={filter == 1 ? "mobile-filter-container" : "filter-container"}>
-          <FilterView count={filteredData.length} layer = {layer} filterMode = {filterMode}/>
+        <div className={mobileFilter == 1 ? "mobile-filter-container" : "filter-container"}>
+          <FilterView setSearchIndex={setSearchIndex} layer = {layer} filterMode = {filterMode}/>
         </div>
         <div className={"grid-container"} >
           <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>
