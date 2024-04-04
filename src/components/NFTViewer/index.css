@@ -115,7 +115,7 @@
 
 .viewmodes>a{
   height: 20px;
-  padding: 1px;
+  /* padding: 1px; */
   justify-content: center;
   align-items:center;
   display: flex;
@@ -242,7 +242,6 @@
     height: 20px; /* Adjusted height for the same reason */
     background-color: #D3D3D3; /* Light grey background */
     border: 2px solid #A9A9A9; /* Adds a border while staying within the 20px constraint */
-    border-radius: 2px; /* Mildly rounded corners */
     box-shadow: none; /* No shadow to save space and because it won't be noticeable */
     align-items: center;
     justify-content: center;
@@ -257,6 +256,26 @@
   
   .escape-icon:active {
     background-color: #C0C0C0; /* Changes background color to simulate pressing */
+  }
+
+  .price-view-icon{
+    display: flex; /* Allows setting width and height */
+    width: 20px; /* Adjusted width to accommodate for border within a 20x20px box */
+    height: 20px; /* Adjusted height for the same reason */
+    background-color: #598C58; /* Light grey background */
+    border: 2px solid #2d2d2d7b; /* Adds a border while staying within the 20px constraint */
+    box-shadow: none; /* No shadow to save space and because it won't be noticeable */
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* Essentially removes the text by setting font size to 0 */
+    user-select: none; /* Prevents text selection */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+    text-decoration: none;
+    color: black;
+  }
+
+  .price-view-icon p {
+    margin: 0 0 -3px;
   }
   
   
@@ -555,7 +574,6 @@
       /* display: flex;
       flex-wrap: wrap; */
       gap: 10px;
-      height: 100%;
       overflow-y: scroll; 
     }
 

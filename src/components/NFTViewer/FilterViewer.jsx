@@ -88,6 +88,7 @@ const FilterView = (props) => {
         })();
     }, [])
 
+
     const isSelected = (item) => {
         return backgroundLayer == item || borderLayer == item || embleLayer == item || phatLayer == item || glowLayer == item;
     }
