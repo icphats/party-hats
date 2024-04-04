@@ -201,9 +201,9 @@ function NFT_Grid({setIsPasswordCorrect}) {
   //   }
   // };
 
-  const NftItem = ({ _viewMode, tokens, index, bg, price }) => {
+  const NftItem = ({ _viewMode, tokens, index, bg, price, pid }) => {
 
-
+    console.log()
     const formatPrice = (priceData) => {
       if (!priceData) return false; // Loading or not available
       // Assuming priceData.price is the value you want to format
@@ -248,7 +248,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
       }
     }
 
-    const pid = Object.keys(nftStatic[index])[0] ;
+    // const pid = Object.keys(nftStatic[index])[0] ;
 
     return (
       <div className={bg === 0 ? 'gradient-border' : 'black-border'}>
@@ -274,7 +274,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
                   <p>{formatPrice(price[1]?.price)}</p>
                   <img
                     className={formatPrice(price[1]?.price) ? "dfinity-price-image" : "hide-price-logo"}
-                    src="../src/assets/ICP.png"
+                    src="../assets/general/ICP.png"
                     alt="dfinity logo"
                   />
                 </div>
@@ -301,6 +301,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
         <div className="viewmodes">
             <a href="#" onClick={() => { handleReset() }} ><div className="escape-icon">ESC</div></a>
               <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" width={20} /></a>
+              <a href="#" onClick={() => { priceViewToggle() }}><div className="price-view-icon"><p>$</p></div></a>
               <a href="#" onClick={() => { setMobileFilter(1 - mobileFilter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a>
               {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
               {/* <a href="#" onClick={() => { setFilterMode(1 - filterMode); handleReset(); }} className="one-∞"> {filterMode==0?1:"∞"} </a> &nbsp; */}
@@ -323,8 +324,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
             {filteredData
               .slice(0, count)
               .map((token, index) => {
-                return <NftItem _viewMode={viewMode} index={index} tokens={filteredData.slice(0, count)} bg={token.bg} price={token.price} />
-                // return <NftItem index={index} tokens={filteredData.slice(0, count)} />
+                return <NftItem _viewMode={viewMode} index={index} tokens={filteredData.slice(0, count)} bg={token.bg} price={token.price} pid={token.id} />
               })}
           </div>
         </div>
