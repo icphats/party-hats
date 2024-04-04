@@ -284,8 +284,16 @@
   }
 
   .mobile-filter-container{
-    display: none;
+    display: flex;
+    flex-direction: column;
   }
+
+  .NFT-Search-Container{
+    width: 100px;
+  }
+
+  
+
   .card-container {
     color: white;
     line-height: 0;
@@ -448,6 +456,22 @@
       /* Adjust the height for mobile if necessary, or any other styles */
       display: none !important;
     }
+
+    .NFT-Search-Container{
+      display: flex;
+      /* justify-content: center; */
+      width: 110px; /* Adjust as needed */
+      height: 30px;
+      padding: 0px 10px;
+      margin: 0 0 20px 0;
+    }
+  
+    .NFT-search-input {
+      width: 100px;
+      outline: none; /* Remove the default focus outline */
+      padding: 5px 10px;
+    }
+
     .filterIcon{
       visibility: visible;
     }
@@ -469,7 +493,7 @@
     }
 
     .filter-preview {
-      height: 100%;
+      flex: 1;
       width: 110px;
       padding-right: 0;
     }
