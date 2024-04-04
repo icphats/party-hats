@@ -301,7 +301,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
         <div className="viewmodes">
             <a href="#" onClick={() => { handleReset() }} ><div className="escape-icon">ESC</div></a>
               <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" width={20} /></a>
-              <a href="#" onClick={() => { priceViewToggle() }}><div className="price-view-icon"><p>$</p></div></a>
+              {/* <a href="#" onClick={() => { priceViewToggle() }}><div className="price-view-icon"><p>$</p></div></a> */}
               <a href="#" onClick={() => { setMobileFilter(1 - mobileFilter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={20} /></a>
               {/* <a href="#" onClick={() => { setViewMode(1) }} style={{ border: (viewMode == 1 ? "1px solid white" : "0px") }}><img src={cardview_icon} alt="Image View" width={20} /></a> &nbsp; */}
               {/* <a href="#" onClick={() => { setFilterMode(1 - filterMode); handleReset(); }} className="one-∞"> {filterMode==0?1:"∞"} </a> &nbsp; */}
