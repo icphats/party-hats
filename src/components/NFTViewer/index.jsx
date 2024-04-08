@@ -28,7 +28,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
   const [searchIndex, setSearchIndex] = useState(0)
 
   const { listings } = useMyContext();
-  
   const {
     backgroundLayer,
     borderLayer,

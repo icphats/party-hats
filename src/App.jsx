@@ -29,24 +29,27 @@ function App() {
     }
   };
 
-  if (!isPasswordCorrect) return <div className="loading-container">
-    <div className="loading-inner-content-container">
-      {!showPasswordInput &&
-        (<>
-          <img onClick={handleButtonClick} className="loading-logo" src={logo} alt="" />
-          <p className="loading-text">Built on the Internet Computer</p>
-        </>)}
+  if (false) 
+  return (
+      <div className="loading-container">
+        <div className="loading-inner-content-container">
+          {!showPasswordInput &&
+            (<>
+              <img onClick={handleButtonClick} className="loading-logo" src={logo} alt="" />
+              <p className="loading-text">Built on the Internet Computer</p>
+            </>)}
 
-      {showPasswordInput &&
-        (<input
-          type="password"
-          placeholder="Enter Password"
-          className="password-input-box"
-          onChange={handlePasswordChange}
-        />)
-      }
-    </div>
-  </div>;
+          {showPasswordInput &&
+            (<input
+              type="password"
+              placeholder="Enter Password"
+              className="password-input-box"
+              onChange={handlePasswordChange}
+            />)
+          }
+        </div>
+      </div>
+    );
 
   return (
     <div className="content">

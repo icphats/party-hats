@@ -489,6 +489,7 @@
       width: 100px;
       outline: none; /* Remove the default focus outline */
       padding: 5px 10px;
+      border-radius: 0px;
     }
 
     .filterIcon{
