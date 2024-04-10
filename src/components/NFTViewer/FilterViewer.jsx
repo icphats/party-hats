@@ -1,7 +1,7 @@
 import layer_assets from "../../utils/const";
 import { LayerContext } from "./LayerContext";
 import { useContext, useEffect , useState} from "react";
-const layers = ["background", "border", "emble", "glow", "phat"];
+const layers = ["custom", "background", "border", "emble", "glow", "phat"];
 
 const FilterView = (props) => {
     const {
@@ -16,64 +16,86 @@ const FilterView = (props) => {
         glowLayer,
         setGlowLayer
     } = useContext(LayerContext);
-    
+
+    const CUSTOM_GR = [52,10,26,7,21,3,18,58,22,73,36,62,47,31,1,41,43,14,49,45,28,16,65,55,24];
     const [layerStatic, setLayer] = useState([]);
 
+    const handleClick = (item) => {
+      
+        const asset = document.getElementById(item);
+        let index = item.indexOf('_');  // Finds the index of the first underscore
+        let layerName = item.slice(0, index);
 
-    const mode = props.filterMode;
-    const handleClick = (layer, item) => {
-        layerStatic.map(asset => {
-            let currentLayer, currentId;
-            if(asset[0].toLowerCase().indexOf(item.toLowerCase()) == asset[0].length-item.length && asset[0].length-item.length>=0)
-                currentLayer = asset[1].layer_index, currentId = asset[1].asset_index_within_layer;
-            else return;
+        if(item === "Emblem___Gr"){
 
-            if(currentLayer == 0){
-                if(embleLayer.includes(currentId.toString())) setEmbleLayer(embleLayer.filter(item=> item!= currentId.toString()));
-                else {
-                    if(mode == 0)
-                        setEmbleLayer([currentId.toString()])
-                    else
-                        setEmbleLayer([...embleLayer, currentId.toString()]);
-                } 
+            if(asset.classList.contains("filter-active")){
+                asset.classList.remove("filter-active");
+                setEmbleLayer(embleLayer.filter(item => !CUSTOM_GR.includes(item)));
+            } else {
+                asset.classList.add("filter-active");
+                setEmbleLayer([...embleLayer, ...CUSTOM_GR])
             }
-            if(currentLayer == 1){
-                if(borderLayer.includes(currentId.toString())) setBorderLayer(borderLayer.filter(item=> item!= currentId.toString()));
-                else {
-                    if(mode == 0)
-                        setBorderLayer([currentId.toString()])
-                    else
-                        setBorderLayer([...borderLayer, currentId.toString()]);
-                } 
+
+        } else {
+    
+            let layerIndex = layerStatic.findIndex(i => i[0] === item)
+            let assetIndexWithinLayer = layerStatic[layerIndex][1].asset_index_within_layer
+
+
+            if(asset.classList.contains("filter-active")){
+                asset.classList.remove("filter-active");
+                
+                switch (layerName) {
+                    case "Emblem":
+                            setEmbleLayer(embleLayer.filter(item => item !== assetIndexWithinLayer));
+                        break;
+                    case "Border":
+                        if (borderLayer.includes(assetIndexWithinLayer))
+                            setBorderLayer(borderLayer.filter(item => item !== assetIndexWithinLayer));
+                        break;
+                    case "Phat":
+                        if (phatLayer.includes(assetIndexWithinLayer))
+                            setPhatLayer(phatLayer.filter(item => item !== assetIndexWithinLayer));
+                        break;
+                    case "Glow":
+                        if (glowLayer.includes(assetIndexWithinLayer))
+                            setGlowLayer(glowLayer.filter(item => item !== assetIndexWithinLayer));
+                        break;
+                    case "Background":
+                        if (backgroundLayer.includes(assetIndexWithinLayer))
+                            setBackgroundLayer(backgroundLayer.filter(item => item !== assetIndexWithinLayer));
+                        break;
+                    default:
+                        console.log("Invalid layer");
+                        break;
+                }
             }
-            if(currentLayer == 2){
-                if(phatLayer.includes(currentId.toString())) setPhatLayer(phatLayer.filter(item=> item!= currentId.toString()));
-                else {
-                    if(mode == 0)
-                        setPhatLayer([currentId.toString()])
-                    else
-                        setPhatLayer([...phatLayer, currentId.toString()]);
-                } 
+            else {
+                asset.classList.add("filter-active");
+
+                switch (layerName) {
+                    case "Emblem":
+                            setEmbleLayer([...embleLayer, assetIndexWithinLayer]);
+                        break;
+                    case "Border":
+                            setBorderLayer([...borderLayer, assetIndexWithinLayer]);
+                        break;
+                    case "Phat":
+                            setPhatLayer([...phatLayer, assetIndexWithinLayer]);
+                        break;
+                    case "Glow":
+                            setGlowLayer([...glowLayer, assetIndexWithinLayer]);
+                        break;
+                    case "Background":
+                            setBackgroundLayer([...backgroundLayer, assetIndexWithinLayer]);
+                        break;
+                    default:
+                        // Optionally handle any other cases or error conditions
+                        console.log("Invalid layer");
+                        break;
+                }
             }
-            if(currentLayer == 3){
-                if(glowLayer.includes(currentId.toString())) setGlowLayer(glowLayer.filter(item=> item!= currentId.toString()));
-                else {
-                    if(mode == 0)
-                        setGlowLayer([currentId.toString()])
-                    else
-                        setGlowLayer([...glowLayer, currentId.toString()]);
-                } 
-            }
-            if(currentLayer == 4){
-                if(backgroundLayer.includes(currentId.toString())) setBackgroundLayer(backgroundLayer.filter(item=> item!= currentId.toString()));
-                else {
-                    if(mode == 0)
-                        setBackgroundLayer([currentId.toString()])
-                    else
-                        setBackgroundLayer([...backgroundLayer, currentId.toString()]);
-                } 
-            }
-        });
+        }
     }
 
     useEffect(()=>{
@@ -89,29 +111,6 @@ const FilterView = (props) => {
     }, [])
 
 
-    const isSelected = (item) => {
-        return backgroundLayer == item || borderLayer == item || embleLayer == item || phatLayer == item || glowLayer == item;
-    }
-
-    const assetClicked = () => {
-        const assets = document.getElementsByClassName("filter_asset_container");
-        for(let i = 0 ; i < assets.length; i ++){
-            const asset = assets.item(i);
-            const current = layerStatic.filter(ast => {
-                return ast[0].indexOf(asset.id) == (ast[0].length-asset.id.length) && (ast[0].length-asset.id.length)>=0;
-            });
-            if(current[0][1] && (current[0][1].layer_index == 0&&embleLayer.includes(current[0][1].asset_index_within_layer.toString())) ||
-                (current[0][1].layer_index == 1&&borderLayer.includes(current[0][1].asset_index_within_layer.toString())) ||
-                (current[0][1].layer_index == 2&&phatLayer.includes(current[0][1].asset_index_within_layer.toString())) ||
-                (current[0][1].layer_index == 3&&glowLayer.includes(current[0][1].asset_index_within_layer.toString())) ||
-                (current[0][1].layer_index == 4&&backgroundLayer.includes(current[0][1].asset_index_within_layer.toString())))
-                document.getElementById(asset.id).classList.add("filter-active");
-            else document.getElementById(asset.id).classList.remove("filter-active");
-        }
-    }
-    if(layerStatic && layerStatic.length > 0){
-        assetClicked();
-    }
     return (<>
                 <div className="NFT-Search-Container">
                     <input
@@ -127,11 +126,12 @@ const FilterView = (props) => {
                             return <div className="layer-view">
                                 {layer_assets[layer].
                                     map(item =>
-                                        <div className="filter_asset_container" id={item} onClick={()=>{handleClick(layer, item)}}>
+                                        <div className="filter_asset_container" id={item} onClick={()=>{handleClick(item)}}>
                                             <img
                                                 width={26}
                                                 height={26}
                                                 src={`./assets/ICPhats_Collection/${layer}/${item}.png`}
+                                                className="filter-image"
                                             />
                                         </div>
                                     )}

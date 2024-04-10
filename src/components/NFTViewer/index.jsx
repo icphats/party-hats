@@ -3,6 +3,7 @@ import { useEffect, useState, useRef, useContext } from "react";
 import "./index.css"
 import Stats from "../Stats/index.jsx";
 import NftItem from "./NFTItem.jsx";
+import layer_assets from "../../utils/const.jsx";
 
 import { LayerContext } from "./LayerContext";
 import { useMyContext } from "../../context/MyContext.jsx";
@@ -18,7 +19,6 @@ import logo from "../../assets/1000x1000.png"
 function NFT_Grid({setIsPasswordCorrect}) {
   const [viewMode, setViewMode] = useState(2);
   const [mobileFilter, setMobileFilter] = useState(0);
-  const [filterMode, setFilterMode] = useState(1);
   const [count, setCount] = useState(0);
   const itemsPerPage = 10000;
   const containerRef = useRef(null);
@@ -57,18 +57,30 @@ function NFT_Grid({setIsPasswordCorrect}) {
     setEmbleLayer([]);
     setPhatLayer([]);
     setGlowLayer([]);
+
+    const layerNamed = ["background", "border", "emble", "glow", "phat"];
+
+    for(let i = 0; i < layerNamed.length; i++){
+      for(let j = 0; j < layer_assets[layerNamed[i]].length; j++){
+        let actualLayerName = layer_assets[layerNamed[i]][j]
+        let a = document.getElementById(actualLayerName)
+        a.classList.remove("filter-active")
+      }
+    }
   }
 
   const updateShowData = () => {
     const data = (() => {
       let content = [];
       for (let i = 0; i < nftStatic.length; i++) {
+
         const layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
-        if ((embleLayer.length==0 || embleLayer.includes(layerData[0].toString())) &&
-          (borderLayer.length==0 || borderLayer.includes(layerData[1].toString())) &&
-          (phatLayer.length==0 || phatLayer.includes(layerData[2].toString())) &&
-          (glowLayer.length==0 || glowLayer.includes(layerData[3].toString())) &&
-          (backgroundLayer.length==0 || backgroundLayer.includes(layerData[4].toString())))
+
+        if ((embleLayer.length==0 || embleLayer.includes(layerData[0])) &&
+          (borderLayer.length==0 || borderLayer.includes(layerData[1])) &&
+          (phatLayer.length==0 || phatLayer.includes(layerData[2])) &&
+          (glowLayer.length==0 || glowLayer.includes(layerData[3])) &&
+          (backgroundLayer.length==0 || backgroundLayer.includes(layerData[4])))
             content.push({
               id: Object.keys(nftStatic[i])[0],
               mint: nftStatic[i][Object.keys(nftStatic[i])[0]].mint,
@@ -184,7 +196,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
       </div>
       <div className="grid-filter-container">
         <div className={mobileFilter == 1 ? "mobile-filter-container" : "filter-container"}>
-          <FilterView setSearchIndex={setSearchIndex} layer = {layer} filterMode = {filterMode}/>
+          <FilterView setSearchIndex={setSearchIndex} layer = {layer}/>
         </div>
         <div className={"grid-container"} >
           <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>
