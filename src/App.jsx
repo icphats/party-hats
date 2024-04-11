@@ -20,7 +20,6 @@ function App() {
   };
 
 
-
   const handlePasswordChange = (event) => {
     const password = event.target.value;
     if (password === 'icphats') {

@@ -4,8 +4,9 @@ import {defineConfig} from '@junobuild/config';
 export default defineConfig({
   satellite: {
     id: 'zggvx-3aaaa-aaaal-adxyq-cai',
-    source: 'dist'
+    source: 'dist',
+    "storage": {
+      "iframe": "allow-any"
+    }
   }
-});
-
-
+})

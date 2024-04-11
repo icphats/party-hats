@@ -1,6 +1,7 @@
 import layer_assets from "../../utils/const";
 import { LayerContext } from "./LayerContext";
 import { useContext, useEffect , useState} from "react";
+import gridview_icon from "../../assets/grid-view-icon.png"
 const layers = ["custom", "background", "border", "emble", "glow", "phat"];
 
 const FilterView = (props) => {
@@ -90,7 +91,6 @@ const FilterView = (props) => {
                             setBackgroundLayer([...backgroundLayer, assetIndexWithinLayer]);
                         break;
                     default:
-                        // Optionally handle any other cases or error conditions
                         console.log("Invalid layer");
                         break;
                 }
@@ -119,6 +119,11 @@ const FilterView = (props) => {
                     placeholder="Mint #"
                     onChange={(e) => props.setSearchIndex(e.target.value)} // Assuming setIndex updates the state
                     />
+                </div>
+                <div className="filters-button-container">
+                    <a href="#"  onClick={() => { props.handleReset() }} ><div className="escape-icon">ESC</div></a>
+                    <a href="#" onClick={() => { props.handleViewMode() }}><img src={gridview_icon} alt="Card View" /></a>
+                    <a href="#" onClick={() => { props.setPriceViewToggle((props.priceViewToggle + 1) % 4) }}><div className={`price-view ${props.priceViewToggle > 0 ? "price-view-active" : ""}`}><p>{props.priceSymbol}</p></div></a>
                 </div>
                 <div className="filter-preview">
                     {

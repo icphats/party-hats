@@ -171,10 +171,9 @@
     border-radius: 0px;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 300px);
     gap: 20px;
     overflow-y: scroll;
-
   }
 
 
@@ -238,14 +237,12 @@
   
   .escape-icon {
     display: flex; /* Allows setting width and height */
-    width: 20px; /* Adjusted width to accommodate for border within a 20x20px box */
-    height: 20px; /* Adjusted height for the same reason */
+    width: 26px; /* Adjusted width to accommodate for border within a 20x20px box */
+    height: 26px; /* Adjusted height for the same reason */
     background-color: #D3D3D3; /* Light grey background */
-    border: 2px solid #A9A9A9; /* Adds a border while staying within the 20px constraint */
     box-shadow: none; /* No shadow to save space and because it won't be noticeable */
     align-items: center;
     justify-content: center;
-
     font-family: Arial, sans-serif; /* Uses Arial as the sans-serif font */
     font-size: 6px; /* Essentially removes the text by setting font size to 0 */
     user-select: none; /* Prevents text selection */
@@ -258,12 +255,11 @@
     background-color: #C0C0C0; /* Changes background color to simulate pressing */
   }
 
-  .price-view-icon{
+  .price-view {
     display: flex; /* Allows setting width and height */
-    width: 20px; /* Adjusted width to accommodate for border within a 20x20px box */
-    height: 20px; /* Adjusted height for the same reason */
+    width: 26px; /* Adjusted width to accommodate for border within a 20x20px box */
+    height: 26px; /* Adjusted height for the same reason */
     background-color: #598C58; /* Light grey background */
-    border: 2px solid #2d2d2d7b; /* Adds a border while staying within the 20px constraint */
     box-shadow: none; /* No shadow to save space and because it won't be noticeable */
     align-items: center;
     justify-content: center;
@@ -274,6 +270,10 @@
     color: black;
   }
 
+  .price-view-active{
+    color: white;
+  }
+
   .price-view-icon p {
     margin: 0 0 -3px;
   }
@@ -282,6 +282,28 @@
   
   /* Adjusting for no shadow due to size, focusing on a simple, clean look */
    
+  .filters-button-container{
+    align-items: center;
+    width: 200px;
+    padding: 0px 10px 0px 10px;
+    margin: 0 0 20px 0;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .filters-button-container a{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+  }
+
+  .filters-button-container img{
+    height: 26px;
+    width: 26px;
+  }
 
   .layer-view{
     width: 100%;
@@ -471,6 +493,11 @@
 
   
   @media (max-width: 768px) {
+
+    .filters-button-container{
+      width: 110px;
+    }
+
     .filter-container {
       /* Adjust the height for mobile if necessary, or any other styles */
       display: none !important;
@@ -490,6 +517,10 @@
       outline: none; /* Remove the default focus outline */
       padding: 5px 10px;
       border-radius: 0px;
+    }
+
+    .card-container p{
+      font-size: 14px;
     }
 
     .filterIcon{
@@ -571,7 +602,7 @@
     }
 
     .nft-container-card-version {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
       /* display: flex;
       flex-wrap: wrap; */
       gap: 10px;
