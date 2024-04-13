@@ -141,17 +141,14 @@ function NFT_Grid({setIsPasswordCorrect}) {
 
     switch(priceViewToggle){   
       case 0:
-        console.log("sorted 0")
         setPriceSymbol("$")
         setTruth(partialTruth)
         break;
       case 1:
-        console.log("sorted 1")
         setPriceSymbol("$")
         setTruth(newData);
         break;
       case 2:
-        console.log("sorted 2")
         setPriceSymbol("↑")
         const sortedDataAsc = newData.sort((a, b) => {
           return a.price - b.price;
@@ -159,7 +156,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
         setTruth(sortedDataAsc);
         break;
       case 3:
-        console.log("sorted 3")
         setPriceSymbol("↓")
         const sortedDataDesc = newData.sort((a, b) => {
           return b.price - a.price;

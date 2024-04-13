@@ -132,7 +132,6 @@ const FilterView = (props) => {
                                 {layer_assets[layer].
                                     map(item =>
                                         <div className="filter_asset_container" id={item} onClick={()=>{handleClick(item)}}>
-                                                                                    {console.log(`${layer} ${item}`)}
                                             <img
                                                 width={26}
                                                 height={26}
