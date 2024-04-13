@@ -1,7 +1,4 @@
 const layer_assets = {
-    custom: [
-        "Emblem___Gr"
-    ],
     background: [
         "Background__Black_Bg",
         "Background__White_Bg",
@@ -31,6 +28,7 @@ const layer_assets = {
         "Border__Yellow_B"
     ],
     emble: [
+        "Emblem___Gr",
         "Emblem__None_Em",
         "Emblem__1UP_Em",
         "Emblem__AB_Em",

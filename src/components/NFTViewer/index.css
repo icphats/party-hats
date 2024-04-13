@@ -274,6 +274,10 @@
   .price-view-icon p {
     margin: 0 0 -3px;
   }
+
+  .filter-image {
+    background-color: rgb(30, 30, 30);
+  }
   
   
   

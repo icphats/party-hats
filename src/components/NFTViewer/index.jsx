@@ -63,7 +63,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
     setEmbleLayer([]);
     setPhatLayer([]);
     setGlowLayer([]);
-    setPriceViewToggle(0);
+    setPriceViewToggle(-4);
 
     for(let i = 0; i < LAYERSECTIONS.length; i++){
       for(let j = 0; j < layer_assets[LAYERSECTIONS[i]].length; j++){
@@ -74,7 +74,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
     }
 
     updateShowData()
-
   }
 
   const pushOneItem = (i, layerData) => {
@@ -220,7 +219,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
   }, [searchIndex]);
 
 
-
   const handleSearch = (n) => {
     if (n > 0 && n <= 10000){
       let i = n - 1;
@@ -239,9 +237,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
               <p>{truth.length}</p>
         </div>
         <div className="viewmodes">
-            {/* <a href="#" onClick={() => { handleReset() }} ><div className="escape-icon">ESC</div></a>
-            <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" width={20} /></a>
-            <a href="#" onClick={() => { setPriceViewToggle((priceViewToggle + 1) % 4) }}><div className={`price-view ${priceViewToggle > 0 ? "price-view-active" : ""}`}><p>{priceSymbol}</p></div></a> */}
             <a href="#" onClick={() => { setMobileFilter(1 - mobileFilter) }} className="filterIcon"><img src={filter_icon} alt="Filter View" width={26} /></a>
         </div>
         <Stats />
