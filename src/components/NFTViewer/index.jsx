@@ -223,8 +223,9 @@ function NFT_Grid({setIsPasswordCorrect}) {
 
   const handleSearch = (n) => {
     if (n > 0 && n <= 10000){
-      let layerData = nftStatic[n-1][Object.keys(nftStatic[n-1])[0]].assetlayers;
-      setTruth([pushOneItem(n-1, layerData)])
+      let i = n - 1;
+      let layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
+      setTruth([pushOneItem(i, layerData)])
     }
   };
 
