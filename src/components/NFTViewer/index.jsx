@@ -31,7 +31,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
   const [priceSymbol, setPriceSymbol] = useState("$")
   const { listings } = useMyContext();
   const [changer, setChanger] = useState(0)
-  const LAYERSECTIONS = ["custom", "background", "border", "emble", "glow", "phat"];
+  const LAYERSECTIONS = ["background", "border", "emble", "glow", "phat"];
 
 
   const {
@@ -66,7 +66,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
     setPriceViewToggle(-4);
 
     for(let i = 0; i < LAYERSECTIONS.length; i++){
-      for(let j = 0; j < layer_assets[LAYERSECTIONS[i]].length; j++){
+      for(let j = 0; j < layer_assets[LAYERSECTIONS[i]]?.length; j++){
         let actualLayerName = layer_assets[LAYERSECTIONS[i]][j]
         let a = document.getElementById(actualLayerName)
         a.classList.remove("filter-active")
@@ -221,6 +221,9 @@ function NFT_Grid({setIsPasswordCorrect}) {
       let layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
       setTruth([pushOneItem(i, layerData)])
     }
+    // if(){
+
+    // }
   };
 
   return <>
@@ -246,7 +249,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
             {truth
               .slice(0, count)
               .map((token, index) => {
-                return <NftItem _viewMode={viewMode} index={index} bg={token.bg} price={token.price} pid={token.pid} mint={token.mint} />
+                return <NftItem key={index} _viewMode={viewMode} index={index} bg={token.bg} price={token.price} pid={token.pid} mint={token.mint} />
               })}
           </div>
         </div>

@@ -32,6 +32,7 @@ function App() {
   return (
       <div className="loading-container">
         <div className="loading-inner-content-container">
+        <h2>icphats.xyz</h2>
           {!showPasswordInput &&
             (<>
               <img onClick={handleButtonClick} className="loading-logo" src={logo} alt="" />

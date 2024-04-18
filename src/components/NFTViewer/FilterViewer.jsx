@@ -128,10 +128,10 @@ const FilterView = (props) => {
                 <div className="filter-preview">
                     {
                         layers.map(layer => {
-                            return <div className="layer-view">
+                            return <div key={layer} className="layer-view">
                                 {layer_assets[layer].
                                     map(item =>
-                                        <div className="filter_asset_container" id={item} onClick={()=>{handleClick(item)}}>
+                                        <div key={item} className="filter_asset_container" id={item} onClick={()=>{handleClick(item)}}>
                                             <img
                                                 width={26}
                                                 height={26}

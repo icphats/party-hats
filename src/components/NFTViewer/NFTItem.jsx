@@ -53,9 +53,9 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint }) => {
     return (
       <div className={bg === 0 ? 'gradient-border' : 'black-border'}>
         <div className="card-container">
-          <div key={index} className="nft-image-container">
+          <div key={index} className={`nft-image-container ${bg === 0 ? 'black' : 'white'}`}>
             <img
-              src={`./assets/saved_svgs/${pid}.svg`}
+              src={`./assets/saved_pngs/${pid}.png`}
               alt={`Item ${index + 1}`}
               className="nft-image"
             />
