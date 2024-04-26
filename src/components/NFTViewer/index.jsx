@@ -4,11 +4,8 @@ import "./index.css"
 import Stats from "../Stats/index.jsx";
 import NftItem from "./NFTItem.jsx";
 import layer_assets from "../../utils/const.jsx";
-
 import { LayerContext } from "./LayerContext";
 import { useMyContext } from "../../context/MyContext.jsx";
-
-
 import gridview_icon from "../../assets/grid-view-icon.png";
 import filter_icon from "../../assets/filter-icon.png";
 import FilterView from "./FilterViewer.jsx";
@@ -32,8 +29,9 @@ function NFT_Grid({setIsPasswordCorrect}) {
   const { listings } = useMyContext();
   const [changer, setChanger] = useState(0)
   const LAYERSECTIONS = ["background", "border", "emble", "glow", "phat"];
-
-
+  const SCROLL_OFFSET = 1;  // Adjust based on your specific needs
+  const ITEMS_INCREMENT = 30;  // Number of items to load on each increment
+  
   const {
     backgroundLayer,
     borderLayer,
@@ -84,42 +82,36 @@ function NFT_Grid({setIsPasswordCorrect}) {
     let pid = Object.keys(nftStatic[i])[0]
     return{ pid, mint, bg, price };
   }
-
   const updateShowData = () => {
-    const data = (() => {
-      let content = [];
-      if (listings && listings.length > 0) {
-        for (let i = 0; i < nftStatic.length; i++) {
-          let layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
-          if (
-              (embleLayer.length === 0 || embleLayer.includes(layerData[0])) &&
-              (borderLayer.length === 0 || borderLayer.includes(layerData[1])) &&
-              (phatLayer.length === 0 || phatLayer.includes(layerData[2])) &&
-              (glowLayer.length === 0 || glowLayer.includes(layerData[3])) &&
-              (backgroundLayer.length === 0 || backgroundLayer.includes(layerData[4]))
-            )
-            content.push(pushOneItem(i, layerData))
+    if (!listings || listings.length === 0) {
+        setPartialTruth([]);
+        return;
+    }
+
+    const content = nftStatic.reduce((acc, item, index) => {
+        const layerData = item[Object.keys(item)[0]].assetlayers;
+        if ((embleLayer.length === 0 || embleLayer.includes(layerData[0])) &&
+            (borderLayer.length === 0 || borderLayer.includes(layerData[1])) &&
+            (phatLayer.length === 0 || phatLayer.includes(layerData[2])) &&
+            (glowLayer.length === 0 || glowLayer.includes(layerData[3])) &&
+            (backgroundLayer.length === 0 || backgroundLayer.includes(layerData[4]))) {
+            acc.push(pushOneItem(index, layerData));
         }
-      }
-      return content;
-    })();
+        return acc;
+    }, []);
 
-    setPartialTruth(data);
-
-    if(priceViewToggle > 0) {
-      let n = changer + 1
-      setChanger(n);
+    setPartialTruth(content);
+    if (priceViewToggle > 0) {
+        setChanger(changer + 1);
     } else {
-      setTruth(data)
+        setTruth(content);
     }
 
-    if (viewMode == 2) {
-      if (count < 150) setCount(Math.min(150, data.length));
-    }
-    if (viewMode == 1) {
-      if (count < 70) setCount(Math.min(70, data.length));
-    }
-  }
+    // Dynamically adjust item count based on view mode
+    const maxCount = viewMode === 2 ? 150 : 70;
+    setCount(count => Math.min(maxCount, content.length));
+}
+
 
   
 
@@ -200,14 +192,12 @@ function NFT_Grid({setIsPasswordCorrect}) {
 
   const handleScroll = () => {
     const container = containerRef.current;
-
-    if (
-      container.scrollTop + container.clientHeight + 1 >= container.scrollHeight
-    ) {
-      setCount((count + 30) > truth.length ? truth.length : (count + 30));
-      console.log("bottom reached");
+    if (container && container.scrollTop + container.clientHeight + SCROLL_OFFSET >= container.scrollHeight) {
+      window.requestAnimationFrame(() => {
+        setCount(prevCount => Math.min(prevCount + ITEMS_INCREMENT, truth.length));
+        console.log("bottom reached");
+      });
     }
-
   }
 
   useEffect(() => {
