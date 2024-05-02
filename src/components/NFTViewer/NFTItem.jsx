@@ -1,6 +1,6 @@
 import "./index.css"
 
-const NftItem = ({ _viewMode, index, bg, price, pid, mint }) => {
+const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
 
   const formatNumberToThreeDigits = (number) => {
     // Define thresholds
@@ -48,6 +48,25 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint }) => {
     }
   }
 
+  const toPercent = (num) => {
+    let final = num * 100
+    return `${final.toFixed(1)}%`
+  }
+
+  const getHeatMapColor= (num) => {
+    // Ensure the input is within the range of 0 to 1
+    const normalizedValue = Math.max(0, Math.min(1, num));
+    
+    // Calculate the red component: higher as the value increases
+    const red = Math.floor(255 * normalizedValue);
+    // Calculate the blue component: lower as the value increases
+    const blue = Math.floor(255 * (1 - normalizedValue));
+    // Keep the green component at 0 for simplicity
+    const green = 0;
+
+    return `rgb(${red}, ${green}, ${blue}, 0.8)`;
+}
+
 
 
   return (
@@ -66,9 +85,9 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint }) => {
           <div className="card-description-container">
             <div className="card-d-container-row">
               <p className="">#{mint}</p>
-              {/* <div className="nri-container">
-                  <p className="nri-text">47%</p>
-                </div> */}
+              <div className="nri-container" style={{ backgroundColor: `${getHeatMapColor(nri)}` }}>
+                  <p className="nri-text">{toPercent(nri)}</p>
+                </div>
             </div>
             <div className="card-d-container-row">
               <div className="nft-price-container">

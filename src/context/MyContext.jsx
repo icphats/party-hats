@@ -26,7 +26,6 @@ export const MyProvider = ({ children }) => {
 
         let listings = await api.token(partyhatscanister).listings();
         let statsResponse = await api.token(partyhatscanister).stats();
-        
         // for (let i = 0; i < nftStatic.length; i++) {
         //     let phatDetails = await phatApi.getDetails(nftStatic[i][0])
         //     console.log(phatDetails)

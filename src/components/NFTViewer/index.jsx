@@ -80,7 +80,8 @@ function NFT_Grid({setIsPasswordCorrect}) {
     let bg = layerData[4];
     let mint = nftStatic[i][Object.keys(nftStatic[i])[0]].mint;
     let pid = Object.keys(nftStatic[i])[0]
-    return{ pid, mint, bg, price };
+    let nri = nftStatic[i][Object.keys(nftStatic[i])[0]].nri
+    return{ pid, mint, bg, price, nri };
   }
   const updateShowData = () => {
     if (!listings || listings.length === 0) {
@@ -112,9 +113,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
     setCount(count => Math.min(maxCount, content.length));
 }
 
-
-  
-
   useEffect(()=> {
     if (listings && listings.length > 0) {
       updateShowData();
@@ -126,7 +124,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
   }, [backgroundLayer, borderLayer, embleLayer, phatLayer, glowLayer])
 
   useEffect(() => {
-
     const newData = partialTruth.filter((item) => {
       return item.price > 0;
     });
@@ -239,7 +236,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
             {truth
               .slice(0, count)
               .map((token, index) => {
-                return <NftItem key={index} _viewMode={viewMode} index={index} bg={token.bg} price={token.price} pid={token.pid} mint={token.mint} />
+                return <NftItem key={index} _viewMode={viewMode} index={index} bg={token.bg} price={token.price} pid={token.pid} mint={token.mint} nri={token.nri} />
               })}
           </div>
         </div>

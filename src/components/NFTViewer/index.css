@@ -407,21 +407,7 @@
     height: 42px;
   }
   
-  .nri-container{
-    display: flex;
-    align-items: center;
 
-
-    justify-content: center;
-    border-radius: 5px;
-  }
-  
-  .nri-text {
-    background-color: #535bf2; /* Background applied to the text */
-    border-radius: 5px; /* Match the container's border-radius if needed */
-    padding: 0.8em; /* Adjust padding as needed to control background size */
-    color: #FFFFFF;
-  }
   
   .nft-price-container {
     /* background-color: #22006C; */
@@ -452,6 +438,22 @@
     opacity: 0;
   }
   
+  .nri-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 23px;
+    text-decoration: none;
+    width: 50px;
+    border-radius: 4px;
+  }
+  
+  .nri-text {
+    border-radius: 5px; /* Match the container's border-radius if needed */
+    color: #FFFFFF;
+    font-size: 12px;
+  }
+  
   .buy-now-container {
     display: flex;
     align-items: center;
@@ -459,6 +461,7 @@
     height: 23px;
     background-color: #598C58; /* Background applied to the text */
     text-decoration: none;
+    width: 50px;
   }
   
   .buy-now-text {
