@@ -78,7 +78,7 @@ const getHeatMapColor1= (num) => {
   // Keep the green component at 0 for simplicity
   const green = 0;
 
-  return `rgb(${red}, ${green}, ${blue}, 0.15)`;
+  return `rgb(${red}, ${green}, ${blue}, 0.2)`;
 }
 
 
