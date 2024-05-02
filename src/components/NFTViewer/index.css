@@ -391,6 +391,7 @@
   
   .card-description-container{
     background-color: #1b1b1b;
+    padding: 4px 16px;
   }
 
   .card-description-container p{
@@ -402,12 +403,10 @@
     justify-content: space-between; /* This spreads out the items to the left and right ends */
     align-items: center; /* This centers the items vertically, you can adjust as needed */
     font-size: 16px;
-    margin-right: 16px;
-    margin-left: 16px;
-    height: 42px;
+    /* margin-right: 16px;
+    margin-left: 16px; */
+    height: 38px;
   }
-  
-
   
   .nft-price-container {
     /* background-color: #22006C; */
@@ -532,10 +531,6 @@
       border-radius: 0px;
     }
 
-    .card-container p{
-      font-size: 14px;
-    }
-
     .filterIcon{
       visibility: visible;
     }
@@ -625,10 +620,14 @@
     .card-d-container-row {
       margin: 0px;
       height: 30px;
+      font-size: 14px;
     }
 
     .card-description-container {
-      padding: 4px 10px;
+      padding: 4px 14px;
+    }
+
+    .card-description-container p{
     }
 
     .buy-now-text {
@@ -644,6 +643,18 @@
     .viewmodes{
       margin: 0 10px 0 0;
       width: 50px;
+    }
+
+    .nri-container{
+      width: 42px;
+    }
+    
+    .nri-text{
+      font-size: 10px;
+    }
+
+    .buy-now-container {
+      width: 42px;
     }
 
     .nft-count-container{
