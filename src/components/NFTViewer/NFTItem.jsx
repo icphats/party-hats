@@ -64,7 +64,21 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
     // Keep the green component at 0 for simplicity
     const green = 0;
 
-    return `rgb(${red}, ${green}, ${blue}, 0.8)`;
+    return `rgb(${red}, ${green}, ${blue}, 1)`;
+}
+
+const getHeatMapColor1= (num) => {
+  // Ensure the input is within the range of 0 to 1
+  const normalizedValue = Math.max(0, Math.min(1, num));
+  
+  // Calculate the red component: higher as the value increases
+  const red = Math.floor(255 * normalizedValue);
+  // Calculate the blue component: lower as the value increases
+  const blue = Math.floor(255 * (1 - normalizedValue));
+  // Keep the green component at 0 for simplicity
+  const green = 0;
+
+  return `rgb(${red}, ${green}, ${blue}, 0.15)`;
 }
 
 
@@ -85,7 +99,7 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
           <div className="card-description-container">
             <div className="card-d-container-row">
               <p className="">#{mint}</p>
-              <div className="nri-container" style={{ backgroundColor: `${getHeatMapColor(nri)}` }}>
+              <div className="nri-container" style={{ border: `1px solid ${getHeatMapColor(nri)}`, backgroundColor: `${getHeatMapColor1(nri)}` }}>
                   <p className="nri-text">{toPercent(nri)}</p>
                 </div>
             </div>

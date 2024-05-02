@@ -446,11 +446,12 @@
     text-decoration: none;
     width: 50px;
     border-radius: 4px;
+    /* background-color: rgb(120, 120, 120); */
   }
   
   .nri-text {
     border-radius: 5px; /* Match the container's border-radius if needed */
-    color: #FFFFFF;
+    color: white;
     font-size: 12px;
   }
   
