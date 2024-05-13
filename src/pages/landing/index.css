@@ -33,4 +33,8 @@
         margin: 0;
         box-shadow: none;
     }
+
+    .web-app-content-container {
+        border-top: 2px solid #c0c0c0;
+    }
 }
