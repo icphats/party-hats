@@ -1,12 +1,25 @@
-.navbar-container{
-    height: 100px;
+.navbar-container {
+    display: flex;
+    height: 20px;
     display: flex;
     align-items: center;
-    padding: 20px;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
-    background-color: #1f1f1f
 }
 
-.navbar-container h3{
-    font-weight: bold;
+.navbar-container button {
+    background-color: #C0C0C0; /* Light gray */
+    border: 2px outset #ffffff;
+    color: black;
+    padding: 3px 6px;
+    font-family: 'MS Sans Serif', Geneva, sans-serif;
+    font-size: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.navbar-container button:hover {
+    background-color: #E0E0E0; /* Lighter gray */
+}
+
+.navbar-container button:active {
+    border: 2px inset #ffffff; /* Mimic the button being pressed */
 }

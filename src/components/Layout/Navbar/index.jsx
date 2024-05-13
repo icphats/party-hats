@@ -1,10 +1,13 @@
 import "./index.css"
 
-function Navbar() {
-    return <div className="navbar-container">
-        <img src="../../src/assets/avatar_1000x1000.png" height={90} alt="icphats logo" />
-        {/* <h1>IC Party Hats</h1> */}
-    </div>
+function Navbar({handleTabs}) {
+    return (
+        <div className="navbar-container">
+            <button onClick={() => handleTabs(0)}>Home Room</button>
+            <button onClick={() => handleTabs(1)}>Party Room</button>
+        </div>
+    )
+    
 }
 
 export default Navbar;

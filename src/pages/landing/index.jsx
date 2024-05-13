@@ -1,20 +1,43 @@
-import banner from "../../assets/phats_banner_transp.gif"
 import Navbar from "../../components/Layout/Navbar";
-import Stats from "../../components/Stats";
 import NFTViewer from "../../components/NFTViewer";
-import "./index.css";
 import { LayerProvider } from "../../components/NFTViewer/LayerContext";
-const Landing = ({setIsPasswordCorrect}) => {
+import PartyRoom from '../../components/Partyroom'
+import { useEffect, useState } from "react";
+import "./index.css";
+
+
+const Landing = () => {
+
+    const [tab, setTab] = useState(0);
+    const [page, setPage] = useState()
+
+
+    const handleTabs = (number) => {
+        setTab(number)
+    }
+
+    useEffect(() => {
+        switch (tab) {
+            case 0:
+                setPage(<NFTViewer/>);
+                break;
+            case 1:
+                setPage(<PartyRoom/>);
+                break;
+            default:
+                setPage(<PartyRoom/>);
+                break;
+        }
+    }, [tab]);
+
     return (
         <LayerProvider>
-            {/* <div className = "Banner">
-                <img className="front-banner" src={banner} alt="image" />
-            </div> */}
-            <div className = "Landing">
-                {/* <Navbar /> */}
-                {/* <Search_Filter></Search_Filter> */}
-                <NFTViewer setIsPasswordCorrect={setIsPasswordCorrect}/>
-            </div>
+                <div className="web-app-container">
+                    {/* <Navbar handleTabs={handleTabs}/> */}
+                    <div className="web-app-content-container">
+                        {page}
+                    </div>   
+                </div>    
         </LayerProvider>
     );
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./index.css"
 
 const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
@@ -32,7 +33,7 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
     // Determine and format based on range
     if (number < 1) {
       // For numbers less than 1, show up to two decimal places
-      return parseFloat(number.toFixed(2)).toString();
+      return number.toFixed(2).toString();
     } else if (number < thousand) {
       // For numbers less than 1000, show exactly three significant digits
       return number.toPrecision(3);
@@ -53,35 +54,37 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
     return `${final.toFixed(1)}%`
   }
 
-  const getHeatMapColor= (num) => {
+  const getHeatMapColor = () => {
     // Ensure the input is within the range of 0 to 1
-    const normalizedValue = Math.max(0, Math.min(1, num));
     
-    // Calculate the red component: higher as the value increases
-    const red = Math.floor(255 * normalizedValue);
-    // Calculate the blue component: lower as the value increases
-    const blue = Math.floor(255 * (1 - normalizedValue));
+    // Calculate the red component: always high but more vibrant as the value increases
+    const red = 255;
     // Keep the green component at 0 for simplicity
     const green = 0;
+    // Calculate the blue component: higher (more towards pink) for lower values, lower (more towards red) for higher values
+    const blue = Math.floor(255 * (1 - nri));
 
-    return `rgb(${red}, ${green}, ${blue}, 1)`;
+    // if(nri > 0.99) {
+    //   // return { 
+    //   //   border: ``,
+    //   //   fill: `rgb(${red}, ${green}, ${blue}, 0.2)`,
+    //   //   image: `linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24)`
+    //   // }
+    // } else
+     if(nri > 0.95) {
+      return { 
+        border: `1px solid rgb(${red}, ${green}, ${blue})`,
+        fill: `rgb(${red}, ${green}, ${blue}, 0.2)`,
+        image: ``,
+      }
+    } else{
+      return { 
+        border: `1px solid rgb(${red}, ${green}, ${blue})`,
+        fill: `rgb(${red}, ${green}, ${blue}, 0.2)`,
+        image: ``,
+      };
+    }
 }
-
-const getHeatMapColor1= (num) => {
-  // Ensure the input is within the range of 0 to 1
-  const normalizedValue = Math.max(0, Math.min(1, num));
-  
-  // Calculate the red component: higher as the value increases
-  const red = Math.floor(255 * normalizedValue);
-  // Calculate the blue component: lower as the value increases
-  const blue = Math.floor(255 * (1 - normalizedValue));
-  // Keep the green component at 0 for simplicity
-  const green = 0;
-
-  return `rgb(${red}, ${green}, ${blue}, 0.2)`;
-}
-
-
 
   return (
     <div className={bg === 0 ? 'gradient-border' : 'black-border'}>
@@ -99,8 +102,15 @@ const getHeatMapColor1= (num) => {
           <div className="card-description-container">
             <div className="card-d-container-row">
               <p className="">#{mint}</p>
-              <div className="nri-container" style={{ border: `1px solid ${getHeatMapColor(nri)}`, backgroundColor: `${getHeatMapColor1(nri)}` }}>
-                  <p className="nri-text">{toPercent(nri)}</p>
+              <div className="nri-container" style={{ border: `${getHeatMapColor().border}`, backgroundColor: `${getHeatMapColor().fill}`, backgroundImage: `${getHeatMapColor().image}` }}>
+                  <div className="nri-inside-container" 
+                  style={{
+                    backgroundColor: nri > 0.99 ? 'rgb(0, 0, 0)' : '',
+                    display: 'flex' // This makes the div shrink-wrap its content
+                  }}
+                  >
+                    <p className="nri-text">{toPercent(nri)}</p>
+                  </div>
                 </div>
             </div>
             <div className="card-d-container-row">

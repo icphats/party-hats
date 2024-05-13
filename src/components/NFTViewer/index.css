@@ -1,106 +1,64 @@
-.grid-container {
-    height: calc(100vh - 200px);
-    flex: 1;
-    gap: 10px;
-    border-radius: 10px;
-    padding: 0px 3px 0 0px;
-    scrollbar-width: none;
-  }
-
-  .grid-filter-container {
-    display: flex;
-    margin: 20px 0px;
-  }
-
-  /* .cards-container {
-    height: calc(100vh - 140px);
-    flex: 1;
-    margin: 20px 0 20px 0;
-    border-radius: 10px;
-    padding: 0px 20px;
-  } */
-
-
-  .nft-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    /* display: flex;
-    flex-wrap: wrap; */
-    gap: 10px;
-    max-height: calc(100vh - 200px);
-    overflow-y: scroll ;
-    padding-left: 10px;
-    padding-right: 10px; /* Create space for the scrollbar */  }
-
-  .nft-container-card-version {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    /* display: flex;
-    flex-wrap: wrap; */
-    gap: 10px;
-    max-height: calc(100vh - 200px);
-    overflow-y: scroll; 
-    padding: 0px 10px;  
-  }
-  
-  .nft-container::-webkit-scrollbar {
-    margin-right: 0;
-    width: 10px;
-  }
-  
-  .nft-container::-webkit-scrollbar-thumb {
-    background-color: #808080;
-    border-radius: 0px;
-  }
-  
-  .nft-container::-webkit-scrollbar-track {
-    background-color: none;
-  }
-
-  .nft-container-card-version::-webkit-scrollbar {
-    margin-right: 0;
-    width: 10px;
-  }
-  
-  .nft-container-card-version::-webkit-scrollbar-thumb {
-    background-color: #808080;
-    border-radius: 0px;
-  }
-
-  .logo-container {
-    margin-left: 20px;
-    width: 180px;
-  }
-
-  .icphats-logo {
-    height: 70px;
-    margin-left: -7px;
-  }
-
-
-.nft-viewer {
+.grid-filter-container {
   display: flex;
-  flex-direction: column;
-  width: calc(100vh- 60px);
-  height: calc(100vh - 80px);
-  margin: 40px 60px 40px 60px;
-  border: 2px solid #c0c0c0;
-  background-color: black;
-  box-shadow: 
-    inset 1px 1px 0px #ffffff, /* Top left inner white to mimic raised effect */
-    inset -1px -1px 0px #5f5f5f, /* Bottom right inner shadow for depth */
-    0px 10px 40px rgba(0, 0, 0, 0.5), /* Outer shadow for floating effect */
-    0px -10px 40px rgba(0, 0, 0, 0.5), /* Outer shadow for floating effect */
-    10px 0px 40px rgba(0, 0, 0, 0.5), /* Outer shadow for floating effect */
-    -10px 0px 40px rgba(0, 0, 0, 0.5); /* Outer shadow for floating effect */
-
-
-
+  padding: 10px 0 10px 0;
+  height: calc(100vh - 90px);
 }
 
-.count-viewmodes-container {
-  display: flex;
-  flex-direction: row;
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0px 3px 0 0px;
+}
+
+.nft-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+  overflow-y: auto;
+  padding: 0 10px;
+}
+
+.nft-container-card-version {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  overflow-y: auto; 
+  padding: 0px 10px;  
+}
+
+.nft-container::-webkit-scrollbar {
+  margin-right: 0;
+  width: 10px;
+}
+
+.nft-container::-webkit-scrollbar-thumb {
+  background-color: #808080;
+  border-radius: 0px;
+}
+
+.nft-container::-webkit-scrollbar-track {
+  background-color: none;
+}
+
+.nft-container-card-version::-webkit-scrollbar {
+  margin-right: 0;
+  width: 10px;
+}
+
+.nft-container-card-version::-webkit-scrollbar-thumb {
+  background-color: #808080;
+  border-radius: 0px;
+}
+
+.logo-container {
+  margin-left: 20px;
+  width: 180px;
+}
+
+.icphats-logo {
+  height: 70px;
+  margin-left: -7px;
 }
 
 .viewmodes {
@@ -112,7 +70,6 @@
   gap: 8px;
 }
 
-
 .viewmodes>a{
   height: 20px;
   align-items:center;
@@ -120,12 +77,18 @@
   text-decoration: none;
 }
 
+.nri-inside-container{
+  display: flex;
+  width: auto;
+  height: auto;
+  background-color: black;
+}
+
 .state-control{
   display: flex;
-  height: 100px;
-  /* justify-content: space-between; */
   align-items: center;
   flex-direction: row;
+  height: 80px;
   border-bottom: 2px solid #808080;
 }
 
@@ -156,22 +119,19 @@
 }
 
 .filter-container {
-  width: 200px;
-  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Add this to clip any overflowing content within this container */
 }
 
-
-  .filter-preview {
-    flex: none;
-    width: 200px;
-    padding: 0px 10px 0px 10px;
-    border-radius: 0px;
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 300px);
-    gap: 20px;
-    overflow-y: scroll;
-  }
+.filter-preview {
+  display: flex;
+  width: 200px;
+  padding: 0px 10px 0px 10px;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
 
 
   .filter-active{
@@ -204,9 +164,8 @@
 
   .NFT-Search-Container{
     display: flex;
-    /* justify-content: center; */
     width: 200px; /* Adjust as needed */
-    height: 30px;
+    height: 50px;
     padding: 0px 10px;
     margin: 0 0 20px 0;
   }
@@ -250,6 +209,29 @@
   
   .escape-icon:active {
     background-color: #C0C0C0; /* Changes background color to simulate pressing */
+  }
+
+  .nri-view {
+    display: flex; /* Allows setting width and height */
+    width: 26px; /* Adjusted width to accommodate for border within a 20x20px box */
+    height: 26px; /* Adjusted height for the same reason */
+    background-color: rgba(255, 0, 0, 0.63); /* Light grey background */
+    box-shadow: none; /* No shadow to save space and because it won't be noticeable */
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* Essentially removes the text by setting font size to 0 */
+    user-select: none; /* Prevents text selection */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+    text-decoration: none;
+    color: black;
+  }
+
+  .nri-view-active{
+    color: white;
+  }
+
+  .nri-view-icon p {
+    margin: 0 0 -3px;
   }
 
   .price-view {
@@ -330,12 +312,6 @@
     flex-direction: column;
   }
 
-  .NFT-Search-Container{
-    width: 100px;
-  }
-
-  
-
   .card-container {
     color: white;
     line-height: 0;
@@ -368,26 +344,6 @@
     padding: 1.5px;
     background-color: #808080;
   }
-
-  .gradient-border:hover {
-    /* transform: scale(1.03); Scales up the whole container including the gradient border */
-    /* background-image: none; */
-    /* background-color: green; */
-  }
-
-  .gradient-border:hover img{
-    /* transform: scale(0.95); Scales up by 5% on hover */
-  }
-
-  .black-border:hover {
-    /* transform: scale(1.03); Scales up the whole container including the gradient border */
-    /* background-color: green; */
-  }
-
-  .black-border:hover img{
-    /* transform: scale(0.95); Scales up by 5% on hover */
-  }
-  
   
   .card-description-container{
     background-color: #1b1b1b;
@@ -403,17 +359,13 @@
     justify-content: space-between; /* This spreads out the items to the left and right ends */
     align-items: center; /* This centers the items vertically, you can adjust as needed */
     font-size: 16px;
-    /* margin-right: 16px;
-    margin-left: 16px; */
     height: 38px;
   }
   
   .nft-price-container {
-    /* background-color: #22006C; */
     display: flex;
     align-items: center;
     height: 23px;
-    /* border: solid 1px white; */
   }
 
   .nft-price-container p{
@@ -445,7 +397,6 @@
     text-decoration: none;
     width: 50px;
     border-radius: 2px;
-    /* background-color: rgb(120, 120, 120); */
   }
   
   .nri-text {
@@ -488,7 +439,6 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
-    /* Add styles for the icon placeholder as needed */
   }
   
   .details-container {
@@ -517,8 +467,7 @@
 
     .NFT-Search-Container{
       display: flex;
-      /* justify-content: center; */
-      width: 110px; /* Adjust as needed */
+      width: 110px;
       height: 30px;
       padding: 0px 10px;
       margin: 0 0 20px 0;
@@ -528,7 +477,6 @@
       width: 100px;
       outline: none; /* Remove the default focus outline */
       padding: 5px 10px;
-      border-radius: 0px;
     }
 
     .filterIcon{
@@ -560,14 +508,6 @@
     .viewmodes{
       border-right: 0;
     }
- 
-    .nft-viewer{
-      width: 100vw;
-      height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-      margin: 0;
-      border: 2px solid #c0c0c0;
-      box-shadow: none;
-    }
 
     .state-control{
       display: flex;
@@ -586,8 +526,6 @@
 
     .grid-filter-container {
       display: flex;
-      height: calc(100vh - 100px);
-      margin: 10px 0px;
     }
 
     .grid-container {
@@ -598,21 +536,15 @@
     .nft-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-      /* display: flex;
-      flex-wrap: wrap; */
       gap: 10px;
-      max-height: calc(100vh - 100px);
       overflow-y: scroll ;
     }
     
     .nft-container-card-version {
-      max-height: calc(100vh - 100px);
     }
 
     .nft-container-card-version {
       grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      /* display: flex;
-      flex-wrap: wrap; */
       gap: 10px;
       overflow-y: scroll; 
     }

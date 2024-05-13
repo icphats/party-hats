@@ -124,6 +124,7 @@ const FilterView = (props) => {
                     <a href="#"  onClick={() => { props.handleReset() }} ><div className="escape-icon">ESC</div></a>
                     <a href="#" onClick={() => { props.handleViewMode() }}><img src={gridview_icon} alt="Card View" /></a>
                     <a href="#" onClick={() => { props.setPriceViewToggle((Math.abs(props.priceViewToggle) + 1) % 4) }}><div className={`price-view ${props.priceViewToggle > 0 ? "price-view-active" : ""}`}><p>{props.priceSymbol}</p></div></a>
+                    {/* <a href="#" onClick={() => { }}><div className={`nri-view`}><p>{props.priceSymbol}</p></div></a> */}
                 </div>
                 <div className="filter-preview">
                     {

@@ -1,0 +1,11 @@
+.party-room-container{
+    display: flex;
+    flex-grow: 1;
+}
+
+.party-room-logged-out {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}

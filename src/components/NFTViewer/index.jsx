@@ -1,19 +1,16 @@
 import { useEffect, useState, useRef, useContext } from "react";
-
 import "./index.css"
 import Stats from "../Stats/index.jsx";
 import NftItem from "./NFTItem.jsx";
 import layer_assets from "../../utils/const.jsx";
 import { LayerContext } from "./LayerContext";
 import { useMyContext } from "../../context/MyContext.jsx";
-import gridview_icon from "../../assets/grid-view-icon.png";
 import filter_icon from "../../assets/filter-icon.png";
 import FilterView from "./FilterViewer.jsx";
 import nftStatic from "../../json/nft_static.json"
 import logo from "../../assets/1000x1000.png"
 
-
-function NFT_Grid({setIsPasswordCorrect}) {
+function NFT_Grid() {
   
   const [truth, setTruth] = useState([])
 
@@ -208,16 +205,12 @@ function NFT_Grid({setIsPasswordCorrect}) {
       let layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
       setTruth([pushOneItem(i, layerData)])
     }
-    // if(){
-
-    // }
   };
 
   return <>
-    <div className="nft-viewer">
       <div className="state-control">
         <div className="logo-container">
-          <img onClick={() => setIsPasswordCorrect(false)} src={logo} className="icphats-logo" alt="icphats logo" />
+          <img src={logo} className="icphats-logo" alt="icphats logo" />
         </div>
         <div className="nft-count-container">
               <p>{truth.length}</p>
@@ -231,7 +224,7 @@ function NFT_Grid({setIsPasswordCorrect}) {
         <div className={mobileFilter == 1 ? "mobile-filter-container" : "filter-container"}>
           <FilterView setSearchIndex={setSearchIndex} layer = {layer} handleReset={handleReset} handleViewMode={handleViewMode} setPriceViewToggle={setPriceViewToggle} priceViewToggle={priceViewToggle} priceSymbol={priceSymbol}/>
         </div>
-        <div className={"grid-container"} >
+        <div className="grid-container" >
           <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>
             {truth
               .slice(0, count)
@@ -241,8 +234,6 @@ function NFT_Grid({setIsPasswordCorrect}) {
           </div>
         </div>
       </div>
-
-    </div>
   </>
 }
 
