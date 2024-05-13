@@ -1,12 +1,12 @@
-import Navbar from "../../components/Layout/Navbar";
-import NFTViewer from "../../components/NFTViewer";
-import { LayerProvider } from "../../components/NFTViewer/LayerContext";
+import Navbar from "../../components/Navbar";
+import WebAppContent from "../../components/WebAppContent";
+import { LayerProvider } from "../../context/LayerContext";
 import PartyRoom from '../../components/Partyroom'
 import { useEffect, useState } from "react";
 import "./index.css";
 
 
-const Landing = () => {
+const WebApp = () => {
 
     const [tab, setTab] = useState(0);
     const [page, setPage] = useState()
@@ -19,7 +19,7 @@ const Landing = () => {
     useEffect(() => {
         switch (tab) {
             case 0:
-                setPage(<NFTViewer/>);
+                setPage(<WebAppContent/>);
                 break;
             case 1:
                 setPage(<PartyRoom/>);
@@ -35,11 +35,11 @@ const Landing = () => {
                 <div className="web-app-container">
                     {/* <Navbar handleTabs={handleTabs}/> */}
                     <div className="web-app-content-container">
-                        {page}
+                        <WebAppContent/>
                     </div>   
                 </div>    
         </LayerProvider>
     );
 }
 
-export default Landing;
+export default WebApp;

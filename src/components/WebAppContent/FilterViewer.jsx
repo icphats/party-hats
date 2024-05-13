@@ -1,5 +1,5 @@
 import layer_assets from "../../utils/const";
-import { LayerContext } from "./LayerContext";
+import { LayerContext } from "../../context/LayerContext";
 import { useContext, useEffect , useState} from "react";
 import gridview_icon from "../../assets/grid-view-icon.png"
 const layers = ["background", "border", "emble", "glow", "phat"];

@@ -1,7 +1,7 @@
 .grid-filter-container {
   display: flex;
   padding: 10px 0 10px 0;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 82px);
 }
 
 .grid-container {

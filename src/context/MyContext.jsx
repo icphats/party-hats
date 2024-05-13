@@ -1,18 +1,11 @@
 import React, { createContext, useContext, useState } from 'react';
 import extjs from '../ic/extjs';
-import nftStatic from "../json/nft_static.json"
+import ic from '../utils/blast';
+import { idlFactory as nftidl } from '../ic/nft-canister.idl';
 
 
 const api = extjs.connect("https://icp0.io/");
-const partyhatscanister = "gq5kt-4iaaa-aaaal-qdhuq-cai";
-
-let phatApi = api.token(partyhatscanister)
-// let phatId = "1";
-// let phatToken = phatApi.decodeTokenId(phatId)
-// console.log(phatToken)
-// console.log("phats details",phatDetails.ok)
-
-
+const phatCanister = "gq5kt-4iaaa-aaaal-qdhuq-cai";
 const MyContext = createContext();
 
 export const useMyContext = () => useContext(MyContext);
@@ -20,18 +13,20 @@ export const useMyContext = () => useContext(MyContext);
 export const MyProvider = ({ children }) => {
     const [listings, setListings] = useState([]);
     const [liveStats, setLiveStats] = useState([]);
-    const [accountIds, setAccountIds] = useState([])
 
     const loadInitialData = async () => {
 
-        let listings = await api.token(partyhatscanister).listings();
-        let statsResponse = await api.token(partyhatscanister).stats();
-        // for (let i = 0; i < nftStatic.length; i++) {
-        //     let phatDetails = await phatApi.getDetails(nftStatic[i][0])
-        //     console.log(phatDetails)
-        // }
+        let nftCanister = await ic(phatCanister, nftidl);
+        let data = await nftCanister.listings();
 
-        setListings(listings);
+        let listingsResponse = await api.token(phatCanister).listings();
+        let statsResponse = await api.token(phatCanister).stats();
+
+        console.log(data);
+        console.log(listingsResponse);
+        console.log(statsResponse);
+
+        setListings(listingsResponse);
         setLiveStats(statsResponse);
     };
 

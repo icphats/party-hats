@@ -3,14 +3,14 @@ import "./index.css"
 import Stats from "../Stats/index.jsx";
 import NftItem from "./NFTItem.jsx";
 import layer_assets from "../../utils/const.jsx";
-import { LayerContext } from "./LayerContext";
+import { LayerContext } from "../../context/LayerContext.jsx";
 import { useMyContext } from "../../context/MyContext.jsx";
 import filter_icon from "../../assets/filter-icon.png";
 import FilterView from "./FilterViewer.jsx";
-import nftStatic from "../../json/nft_static.json"
+import nftStatic from '../../utils/json/nft_static.json'
 import logo from "../../assets/1000x1000.png"
 
-function NFT_Grid() {
+function WebAppContent() {
   
   const [truth, setTruth] = useState([])
 
@@ -45,10 +45,10 @@ function NFT_Grid() {
   const handleViewMode = () => {
     setViewMode(viewMode === 1 ? 2 : 1);
     if (viewMode == 2) {
-      if (count < 150) setCount(Math.min(150, truth.length));
+      if (count < 200) setCount(Math.min(200, truth.length));
     }
     if (viewMode == 1) {
-      if (count < 70) setCount(Math.min(70, truth.length));
+      if (count < 100) setCount(Math.min(100, truth.length));
     }
   }
 
@@ -237,6 +237,6 @@ function NFT_Grid() {
   </>
 }
 
-export default NFT_Grid;
+export default WebAppContent;
 
 
