@@ -18,6 +18,7 @@ function WebAppContent() {
 
   const [viewMode, setViewMode] = useState(2);
   const [mobileFilter, setMobileFilter] = useState(0);
+
   const [count, setCount] = useState(300);
   const containerRef = useRef(null);
   const [layer, setLayer] = useState([]);
@@ -26,7 +27,6 @@ function WebAppContent() {
   const [priceViewToggle, setPriceViewToggle] = useState(0);
   const [nriViewToggle, setNriViewToggle] = useState(0);
 
-  const [changer, setChanger] = useState(0)
   const LAYERSECTIONS = ["background", "border", "emble", "glow", "phat"];
   const SCROLL_OFFSET = 1;  // Adjust based on your specific needs
   const ITEMS_INCREMENT = 30;  // Number of items to load on each increment
@@ -64,14 +64,13 @@ function WebAppContent() {
   }
 
   const updateShowData2 = () => {
-    // Filter For Layers
     let content = nftArray.reduce((acc, item) => {
-        const layerData = item[Object.keys(item)[0]].assetlayers;
-        if ((embleLayer.length === 0 || embleLayer.includes(layerData[0])) &&
-            (borderLayer.length === 0 || borderLayer.includes(layerData[1])) &&
-            (phatLayer.length === 0 || phatLayer.includes(layerData[2])) &&
-            (glowLayer.length === 0 || glowLayer.includes(layerData[3])) &&
-            (backgroundLayer.length === 0 || backgroundLayer.includes(layerData[4]))) {
+        const layerData = item.assetlayers;
+        if ((embleLayer.length === 0 || embleLayer.includes(layerData["0"])) &&
+            (borderLayer.length === 0 || borderLayer.includes(layerData["1"])) &&
+            (phatLayer.length === 0 || phatLayer.includes(layerData["2"])) &&
+            (glowLayer.length === 0 || glowLayer.includes(layerData["3"])) &&
+            (backgroundLayer.length === 0 || backgroundLayer.includes(layerData["4"]))) {
             acc.push(item);
         }
         return acc;
