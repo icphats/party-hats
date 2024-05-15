@@ -4,7 +4,7 @@ import { useContext, useEffect , useState} from "react";
 import gridview_icon from "../../assets/grid-view-icon.png"
 const layers = ["background", "border", "emble", "glow", "phat"];
 
-const FilterView = (props) => {
+const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNriViewToggle, setSearchIndex, handleReset, handleViewMode}) => {
     const {
         backgroundLayer,
         setBackgroundLayer,
@@ -20,6 +20,10 @@ const FilterView = (props) => {
 
     const CUSTOM_GR = [52,10,26,7,21,3,18,58,22,73,36,62,47,31,1,41,43,14,49,45,28,16,65,55,24];
     const [layerStatic, setLayer] = useState([]);
+    const [priceSymbol, setPriceSymbol] = useState("$")
+    const [nriSymbol, setNriSymbol] = useState("%")
+
+
 
     const handleClick = (item) => {
       
@@ -110,6 +114,50 @@ const FilterView = (props) => {
         })();
     }, [])
 
+    const handlePriceView = () => {
+        //Price View includes filtering and ordering, NRI just handles ordering. That's why there are 3 modes.
+        if(priceViewToggle >= 1) setNriViewToggle(0)
+        setPriceViewToggle((Math.abs(priceViewToggle) + 1) % 4)
+    }
+
+    const handleNriOrder = () => {
+        if(priceViewToggle > 1) setPriceViewToggle(0)
+        setNriViewToggle((Math.abs(nriViewToggle) + 1) % 3)
+    }
+
+    useEffect(() => {
+        switch(priceViewToggle){
+            case 0:
+                setPriceSymbol("$")
+                break;
+            case 1:
+                setPriceSymbol("$")
+                break;
+            case 2:
+                setPriceSymbol("↑")
+                break;
+            case 3:
+                setPriceSymbol("↓")
+                break;
+            default:
+                setPriceSymbol("$")
+            break; 
+        }
+        switch(nriViewToggle){
+            case 0:
+                setNriSymbol("%")
+                break;
+            case 1:
+                setNriSymbol("↑")
+                break;
+            case 2:
+                setNriSymbol("↓")
+                break;
+            default:
+                setNriSymbol("%")
+            break; 
+        }
+    }, [priceViewToggle, nriViewToggle])
 
     return (<>
                 <div className="NFT-Search-Container">
@@ -117,14 +165,14 @@ const FilterView = (props) => {
                     type="number"
                     className="NFT-search-input"
                     placeholder="Mint #"
-                    onChange={(e) => props.setSearchIndex(e.target.value)} // Assuming setIndex updates the state
+                    onChange={(e) => setSearchIndex(e.target.value)} // Assuming setIndex updates the state
                     />
                 </div>
                 <div className="filters-button-container">
-                    <a href="#"  onClick={() => { props.handleReset() }} ><div className="escape-icon">ESC</div></a>
-                    <a href="#" onClick={() => { props.handleViewMode() }}><img src={gridview_icon} alt="Card View" /></a>
-                    <a href="#" onClick={() => { props.setPriceViewToggle((Math.abs(props.priceViewToggle) + 1) % 4) }}><div className={`price-view ${props.priceViewToggle > 0 ? "price-view-active" : ""}`}><p>{props.priceSymbol}</p></div></a>
-                    {/* <a href="#" onClick={() => { }}><div className={`nri-view`}><p>{props.priceSymbol}</p></div></a> */}
+                    <a href="#"  onClick={() => { handleReset() }} ><div className="escape-icon">ESC</div></a>
+                    <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" /></a>
+                    <a href="#" onClick={handlePriceView}><div className={`price-view ${priceViewToggle > 0 ? "price-view-active" : ""}`}><p>{priceSymbol}</p></div></a>
+                    <a href="#" onClick={handleNriOrder}><div className={`nri-view ${nriViewToggle > 0 ? "nri-view-active" : ""}`}><p>{nriSymbol}</p></div></a>
                 </div>
                 <div className="filter-preview">
                     {

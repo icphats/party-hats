@@ -1,9 +1,9 @@
 import "./index.css"
-import { useMyContext } from "../../context/MyContext.jsx";
+import { useNftContext } from "../../context/NftContext.jsx";
 
 function Stats() {
 
-  const { liveStats } = useMyContext();
+  const { liveStats } = useNftContext();
 
   return <div className="stats-brand-container">
     {liveStats && (

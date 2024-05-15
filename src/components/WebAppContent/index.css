@@ -215,7 +215,7 @@
     display: flex; /* Allows setting width and height */
     width: 26px; /* Adjusted width to accommodate for border within a 20x20px box */
     height: 26px; /* Adjusted height for the same reason */
-    background-color: rgba(255, 0, 0, 0.63); /* Light grey background */
+    background-color: #374fd8; /* Light grey background */
     box-shadow: none; /* No shadow to save space and because it won't be noticeable */
     align-items: center;
     justify-content: center;
@@ -457,7 +457,11 @@
   @media (max-width: 768px) {
 
     .filters-button-container{
+      display: flex;
+      flex-wrap: wrap;
       width: 110px;
+      padding: 0px 0px 0px 10px;
+
     }
 
     .filter-container {
@@ -476,7 +480,7 @@
     .NFT-search-input {
       width: 100px;
       outline: none; /* Remove the default focus outline */
-      padding: 5px 10px;
+      /* padding: 5px 10px; */
     }
 
     .filterIcon{
@@ -526,6 +530,7 @@
 
     .grid-filter-container {
       display: flex;
+      height: calc(100vh - 84px); /* +2 to account for the top border*/
     }
 
     .grid-container {
