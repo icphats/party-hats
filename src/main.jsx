@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { Buffer } from 'buffer/'
-import { MyProvider } from './context/MyContext'
+import { MyProvider } from './context/NftContext.jsx'
 globalThis.Buffer = Buffer
 
 ReactDOM.createRoot(document.getElementById('root')).render(

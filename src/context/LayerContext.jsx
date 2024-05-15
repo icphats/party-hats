@@ -1,6 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const LayerContext = createContext();
+
+export const useLayerContext = () => useContext(LayerContext);
+
 
 export const LayerProvider = ({children}) => {
     const [backgroundLayer, setBackgroundLayer] = useState([]);
