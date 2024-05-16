@@ -66,11 +66,11 @@ function WebAppContent() {
   const updateShowData2 = () => {
     let content = nftArray.reduce((acc, item) => {
         const layerData = item.assetlayers;
-        if ((embleLayer.length === 0 || embleLayer.includes(layerData["0"])) &&
-            (borderLayer.length === 0 || borderLayer.includes(layerData["1"])) &&
-            (phatLayer.length === 0 || phatLayer.includes(layerData["2"])) &&
-            (glowLayer.length === 0 || glowLayer.includes(layerData["3"])) &&
-            (backgroundLayer.length === 0 || backgroundLayer.includes(layerData["4"]))) {
+        if ((embleLayer.length === 0 || embleLayer.includes(layerData[0])) &&
+            (borderLayer.length === 0 || borderLayer.includes(layerData[1])) &&
+            (phatLayer.length === 0 || phatLayer.includes(layerData[2])) &&
+            (glowLayer.length === 0 || glowLayer.includes(layerData[3])) &&
+            (backgroundLayer.length === 0 || backgroundLayer.includes(layerData[4]))) {
             acc.push(item);
         }
         return acc;
@@ -87,10 +87,11 @@ function WebAppContent() {
 
   const pushOneItem = (item) => {
     let price = item.price ? item.price / 100000000 : null
-    let bg = item.assetlayers["4"];
+    let bg = item.assetlayers[4];
     let mint = item.mint
     let pid = item.id
     let nri = item.nri
+    console.log({ pid, mint, bg, price, nri })
     return{ pid, mint, bg, price, nri };
   }
 
@@ -248,7 +249,7 @@ useEffect(() => {
             {loaded && truth
               .slice(0, count)
               .map((nft, index) => {
-                return <NftItem key={index} _viewMode={viewMode} index={index} nft={nft} price={nft.price} pid={nft.pid} mint={nft.mint} nri={nft.nri} />
+                return <NftItem key={index} _viewMode={viewMode} index={index} bg={nft.bg} price={nft.price} pid={nft.pid} mint={nft.mint} nri={nft.nri} />
               })}
           </div>
         </div>
