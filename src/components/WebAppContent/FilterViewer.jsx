@@ -4,7 +4,7 @@ import { useContext, useEffect , useState} from "react";
 import gridview_icon from "../../assets/grid-view-icon.png"
 const layers = ["background", "border", "emble", "glow", "phat"];
 
-const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNriViewToggle, setSearchIndex, handleReset, handleViewMode}) => {
+const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNriViewToggle, searchIndex, setSearchIndex, handleReset, handleViewMode}) => {
     const {
         backgroundLayer,
         setBackgroundLayer,
@@ -157,6 +157,7 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
                 setNriSymbol("%")
             break; 
         }
+        setSearchIndex("")
     }, [priceViewToggle, nriViewToggle])
 
     return (<>
@@ -165,6 +166,7 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
                     type="number"
                     className="NFT-search-input"
                     placeholder="Mint #"
+                    value={searchIndex}
                     onChange={(e) => setSearchIndex(e.target.value)} // Assuming setIndex updates the state
                     />
                 </div>

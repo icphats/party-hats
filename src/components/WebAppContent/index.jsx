@@ -22,7 +22,7 @@ function WebAppContent() {
   const [count, setCount] = useState(300);
   const containerRef = useRef(null);
   const [layer, setLayer] = useState([]);
-  const [searchIndex, setSearchIndex] = useState(0)
+  const [searchIndex, setSearchIndex] = useState("")
 
   const [priceViewToggle, setPriceViewToggle] = useState(0);
   const [nriViewToggle, setNriViewToggle] = useState(0);
@@ -91,7 +91,6 @@ function WebAppContent() {
     let mint = item.mint
     let pid = item.id
     let nri = item.nri
-    console.log({ pid, mint, bg, price, nri })
     return{ pid, mint, bg, price, nri };
   }
 
@@ -161,6 +160,7 @@ const handleReset = () => {
   setGlowLayer([]);
   setPriceViewToggle(0);
   setNriViewToggle(0);
+  setSearchIndex("");
 
   for(let i = 0; i < LAYERSECTIONS.length; i++){
     for(let j = 0; j < layer_assets[LAYERSECTIONS[i]]?.length; j++){
@@ -214,15 +214,19 @@ useEffect(() => {
   }
 
   useEffect(() => {
-    handleSearch(searchIndex)
+    if(searchIndex === ''){
+      setTruth(fullArray);
+    } else {
+      handleSearch(searchIndex)
+    }
   }, [searchIndex]);
 
 
   const handleSearch = (n) => {
     if (n > 0 && n <= 10000){
       let i = n - 1;
-      let layerData = nftStatic[i][Object.keys(nftStatic[i])[0]].assetlayers;
-      setTruth([pushOneItem(i, layerData)])
+      let item = nftArray[i];
+      setTruth([pushOneItem(item)])
     }
   };
 
@@ -242,7 +246,7 @@ useEffect(() => {
       </div>
       <div className="grid-filter-container">
         <div className={mobileFilter == 1 ? "mobile-filter-container" : "filter-container"}>
-          <FilterView setSearchIndex={setSearchIndex} layer = {layer} handleReset={handleReset} handleViewMode={handleViewMode} setPriceViewToggle={setPriceViewToggle} priceViewToggle={priceViewToggle} setNriViewToggle={setNriViewToggle} nriViewToggle={nriViewToggle}/>
+          <FilterView setSearchIndex={setSearchIndex} layer = {layer} handleReset={handleReset} searchIndex={searchIndex} handleViewMode={handleViewMode} setPriceViewToggle={setPriceViewToggle} priceViewToggle={priceViewToggle} setNriViewToggle={setNriViewToggle} nriViewToggle={nriViewToggle}/>
         </div>
         <div className="grid-container" >
           <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>
