@@ -106,8 +106,6 @@ function WebAppContent() {
   }, [loaded])
 
 useEffect(() => {
-  console.log(priceViewToggle, nriViewToggle);
-
   if(priceViewToggle === 1){
     setTruth(listedArray);
     if(nriViewToggle === 1) {
