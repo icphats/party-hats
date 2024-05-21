@@ -159,6 +159,7 @@ const handleReset = () => {
   setPriceViewToggle(0);
   setNriViewToggle(0);
   setSearchIndex("");
+  setCount(300);
 
   for(let i = 0; i < LAYERSECTIONS.length; i++){
     for(let j = 0; j < layer_assets[LAYERSECTIONS[i]]?.length; j++){
