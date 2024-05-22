@@ -10,14 +10,14 @@ export const AccountProvider = ({ children }) => {
   const emptyAlert = {
     title: '',
     message: '',
-  };
+};
 
   const principals = useSelector(state => state.principals);
   const currentPrincipal = useSelector(state => state.currentPrincipal);
   const dispatch = useDispatch();
 
   const [loaderOpen, setLoaderOpen] = useState(false);
-  const [appState, setAppState] = useState(0); // 0 = no login, 1 = locked, 2 = unlocked
+  const [appState, setAppState] = useState(false); // 0 = no login, 1 = locked, 2 = unlocked
   const [loaderText, setLoaderText] = useState('');
   const [alertData, setAlertData] = useState(emptyAlert);
   const [confirmData, setConfirmData] = useState(emptyAlert);
