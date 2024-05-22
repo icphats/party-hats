@@ -1,6 +1,8 @@
 import { createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import {principalToAccountIdentifier, LEDGER_CANISTER_ID} from '../ic/utils';
 const DBVERSION = 2;
+
 var appData = {
   principals : [],
   addresses : [],
@@ -8,41 +10,42 @@ var appData = {
   currentAccount : 0,
   currentToken : 0,
 };
+
 function initDb(_db){
   var db = _db ?? localStorage.getItem('_db');
   if (db){
     db = JSON.parse(db);
-    //db versioning
-    var savenow = false;
-    if (!Array.isArray(db)) {
-      db = [[db],[]];
-      console.log("Converting old DB to new");
-      savenow = true;
-    }
-    if (db.length === 2) {
-      db.push([0,0,0]);
-      console.log("Converting old DB to new");
-      savenow = true;
-    }
-    if (db.length === 3) {
-      db.push(DBVERSION);
-      console.log("Converting old DB to new");
-      savenow = true;
-    }
-    let dbCurrentVersion = db[3];
-    if (dbCurrentVersion < 2) {
-      //This DB upgrade adds nftgeek NFT support
-      db[3] = 2;
-      db[0] = db[0].map(({accounts, ...principalRest}) => ({
-        ...principalRest,
-        accounts: accounts.map(([accountName, tokens]) => ([
-          accountName, // Preserve the accountName
-          [] // Update tokens
-          // The nfts element is omitted, effectively removing it from the structure
-        ]))
-      }));
-      savenow = true;
-    }
+    // //db versioning
+    // var savenow = false;
+    // if (!Array.isArray(db)) {
+    //   db = [[db],[]];
+    //   console.log("Converting old DB to new");
+    //   savenow = true;
+    // }
+    // if (db.length === 2) {
+    //   db.push([0,0,0]);
+    //   console.log("Converting old DB to new");
+    //   savenow = true;
+    // }
+    // if (db.length === 3) {
+    //   db.push(DBVERSION);
+    //   console.log("Converting old DB to new");
+    //   savenow = true;
+    // }
+    // let dbCurrentVersion = db[3];
+    // if (dbCurrentVersion < 2) {
+    //   //This DB upgrade adds nftgeek NFT support
+    //   db[3] = 2;
+    //   db[0] = db[0].map(({accounts, ...principalRest}) => ({
+    //     ...principalRest,
+    //     accounts: accounts.map(([accountName, tokens]) => ([
+    //       accountName, // Preserve the accountName
+    //       [] // Update tokens
+    //       // The nfts element is omitted, effectively removing it from the structure
+    //     ]))
+    //   }));
+    //   savenow = true;
+    // }
     var loadedPrincipals = [];
     appData = {
       principals : [],
@@ -213,68 +216,6 @@ function rootReducer(state = initDb(), action) {
                   return app;
                 }
               }),
-            }
-          } else {
-            return principal;
-          }
-        }),
-      });
-    case "app/add": //TODO
-      return saveDb({
-        ...state,
-        principals : state.principals.map((principal,i) => {
-          if (i === state.currentPrincipal) {
-            return {
-              ...principal,
-              apps : [
-                ...principal.apps,
-                action.payload.app
-              ]
-            }
-          } else {
-            return principal;
-          }
-        }),
-      });
-    case "app/remove": //TODO
-      return saveDb({
-        ...state,
-        principals : state.principals.map((principal,i) => {
-          if (i === state.currentPrincipal) {
-            return {
-              ...principal,
-              apps : principal.apps.filter(e => (e && e.host !== action.payload.host))
-            }
-          } else {
-            return principal;
-          }
-        }),
-      });
-    case "neuron/add": //TODO
-      return saveDb({
-        ...state,
-        principals : state.principals.map((principal,i) => {
-          if (i === state.currentPrincipal) {
-            return {
-              ...principal,
-              neurons : [
-                ...principal.neurons,
-                action.payload.neuron
-              ]
-            }
-          } else {
-            return principal;
-          }
-        }),
-      });
-    case "neuron/scan": //TODO
-      return saveDb({
-        ...state,
-        principals : state.principals.map((principal,i) => {
-          if (i === state.currentPrincipal) {
-            return {
-              ...principal,
-              neurons : action.payload.neurons
             }
           } else {
             return principal;
@@ -467,7 +408,11 @@ function rootReducer(state = initDb(), action) {
   }
   return state;
 };
-const store = createStore(rootReducer);
+
+const store = configureStore({
+    reducer: rootReducer
+});
+
 window.addEventListener('storage', (e) => {
   if (e.key === "_db" && e.url !== "https://www.stoicwallet.com/?stoicTunnel") {
     store.dispatch({

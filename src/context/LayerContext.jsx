@@ -4,7 +4,6 @@ export const LayerContext = createContext();
 
 export const useLayerContext = () => useContext(LayerContext);
 
-
 export const LayerProvider = ({children}) => {
     const [backgroundLayer, setBackgroundLayer] = useState([]);
     const [borderLayer, setBorderLayer] = useState([]);
@@ -33,5 +32,4 @@ export const LayerProvider = ({children}) => {
             {children}
         </LayerContext.Provider>
     )
-
 }

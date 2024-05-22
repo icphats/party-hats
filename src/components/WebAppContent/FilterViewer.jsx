@@ -1,6 +1,8 @@
 import layer_assets from "../../utils/const";
 import { LayerContext } from "../../context/LayerContext";
-import { useContext, useEffect , useState} from "react";
+import { AccountContext } from "../../context/AccountContext";
+import { useContext, useEffect, useState} from "react";
+import ProfileRectangle from "../Profile/ProfileRectangle";
 import gridview_icon from "../../assets/grid-view-icon.png"
 const layers = ["background", "border", "emble", "glow", "phat"];
 
@@ -161,6 +163,7 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
     }, [priceViewToggle, nriViewToggle])
 
     return (<>
+                <ProfileRectangle/>
                 <div className="NFT-Search-Container">
                     <input
                     type="number"

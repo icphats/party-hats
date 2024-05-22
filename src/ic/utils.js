@@ -9,9 +9,9 @@ const GOVERNANCE_CANISTER_ID = "rrkah-fqaaa-aaaaa-aaaaq-cai";
 const NNS_CANISTER_ID = "qoctq-giaaa-aaaaa-aaaea-cai";
 const CYCLES_MINTING_CANISTER_ID = "rkp4c-7iaaa-aaaaa-aaaca-cai";
 const rosettaApi = new RosettaApi();
-const sjcl = require('sjcl')
-const bip39 = require('bip39')
-const pbkdf2 = require("pbkdf2");
+import sjcl from 'sjcl';
+import bip39 from 'bip39';
+import pbkdf2 from 'pbkdf2';
 const getCyclesTopupAddress = (canisterId) => {
   return principalToAccountIdentifier(CYCLES_MINTING_CANISTER_ID, getCyclesTopupSubAccount(canisterId));
 }
