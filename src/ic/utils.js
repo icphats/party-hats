@@ -12,6 +12,9 @@ const rosettaApi = new RosettaApi();
 import sjcl from 'sjcl';
 import bip39 from 'bip39';
 import pbkdf2 from 'pbkdf2';
+
+import { Buffer } from 'buffer/'
+
 const getCyclesTopupAddress = (canisterId) => {
   return principalToAccountIdentifier(CYCLES_MINTING_CANISTER_ID, getCyclesTopupSubAccount(canisterId));
 }

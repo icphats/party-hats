@@ -64,7 +64,7 @@ function initDb(_db){
         identity : principal.identity
       };
       principal.accounts.forEach((account, subaccount) => {
-        //savenow = true;
+        // savenow = true;
         //if (subaccount >= 2) return;
         _principal.accounts.push({
           name : account[0],
@@ -116,7 +116,8 @@ function initDb(_db){
     appData.currentToken = ct;
     appData.addresses = db[1];
     
-    if (savenow) saveDb(appData);
+    // if (savenow) 
+    saveDb(appData);
     return appData;
   } else {
     return {

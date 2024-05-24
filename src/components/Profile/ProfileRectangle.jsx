@@ -1,6 +1,8 @@
 import Connect from "../../containers/Connect"
 import { AccountContext } from "../../context/AccountContext"
 import { useContext } from "react"
+import Unlock from "../../containers/Unlock"
+import Wallet from "../../containers/Wallet"
 
 const ProfileRectangle = () => {
 
@@ -10,27 +12,24 @@ const ProfileRectangle = () => {
         login,
         loader,
         appState,
+        logout,
         remove
     } = useContext(AccountContext)
 
-    console.log(appState)
-
     return (
-        <div className="profile-rectangle-container">
+        <div className={`profile-rectangle-container${appState == 2 ? "-logged-in" : ""}`}>
             {appState === 0 ? (
                 <Connect alert={alert} confirm={confirm} login={login} loader={loader} />
             ) : (
                 ''
             )}
             {appState === 1 ? (
-                <>locked</>
-                // <Unlock alert={alert} confirm={confirm} login={login} remove={remove} loader={loader} />
+                <Unlock alert={alert} confirm={confirm} login={login} remove={remove} loader={loader} />
             ) : (
                 ''
             )}
             {appState === 2 ? (
-                <>logged in</>
-                // <Wallet alert={alert} confirm={confirm} logout={logout} remove={remove} loader={loader} />
+                <Wallet alert={alert} confirm={confirm} logout={logout} remove={remove} loader={loader} />
             ) : (
                 ''
             )}

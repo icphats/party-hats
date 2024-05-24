@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { StoicIdentity } from '../ic/identity';
+import extjs from '../ic/extjs';
 
 export const AccountContext = createContext();
 
@@ -13,8 +15,11 @@ export const AccountProvider = ({ children }) => {
 };
 
   const principals = useSelector(state => state.principals);
-  const currentPrincipal = useSelector(state => state.currentPrincipal);
+  const currentPrincipal = useSelector(state => state.currentPrincipal)
+  const pid = principals[currentPrincipal].identity.principal
+  const accountIdentity = principals[0].accounts[0].address
   const dispatch = useDispatch();
+
 
   const [loaderOpen, setLoaderOpen] = useState(false);
   const [appState, setAppState] = useState(false); // 0 = no login, 1 = locked, 2 = unlocked
@@ -23,6 +28,7 @@ export const AccountProvider = ({ children }) => {
   const [confirmData, setConfirmData] = useState(emptyAlert);
   const [showAlert, setShowAlert] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [userPhats, setUserPhats] = useState([]);
 
   const loader = (l, t) => {
     setLoaderText(t);
@@ -46,6 +52,7 @@ export const AccountProvider = ({ children }) => {
           setAppState(2);
         })
         .catch(e => {
+          console.log(e);
           setAppState(1);
         })
         .finally(() => loader(false));
@@ -108,6 +115,22 @@ export const AccountProvider = ({ children }) => {
     });
   };
 
+  const updateNfts = async (_address, _principal) => {
+    let res = await (await fetch('https://us-central1-entrepot-api.cloudfunctions.net/api/nftgeek/user/'+_principal+'/'+_address+'/nfts')).json();
+    console.log(res);
+    return [res.nfts, res.collections, _address, _principal];
+  };
+  const updateTransactions = async (_address, _principal) => {
+    let txs = await (await fetch('https://us-central1-entrepot-api.cloudfunctions.net/api/nftgeek/user/'+_principal+'/'+_address+'/transactions')).json();
+    console.log(res);
+    return [txs, _address, _principal];
+  };
+  const updateBalances = async (_address, _principal) => {
+    let balances = await (await fetch('https://us-central1-entrepot-api.cloudfunctions.net/api/nftgeek/user/'+_principal+'/'+_address+'/tokens')).json();
+    console.log(res);
+    return [balances, _address, _principal];
+  };
+
   useEffect(() => {
     login();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,6 +138,9 @@ export const AccountProvider = ({ children }) => {
 
   useEffect(() => {
     login();
+    updateNfts(accountIdentity, pid);
+    updateTransactions(accountIdentity, pid);
+    updateBalances(accountIdentity, pid);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPrincipal, principals]);
 
