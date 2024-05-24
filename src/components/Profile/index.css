@@ -7,8 +7,9 @@
 .profile-rectangle-container-logged-in {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 190px;
-  margin: 1px 1px 10px 10px;
+  margin: 1px 1px 20px 10px;
   padding: 10px 5px;
   background: #111;
   position: relative;
@@ -18,7 +19,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   font-family: 'Half Bold Pixel-7', sans-serif;
-
+  min-height: 60px;
 }
 
 .profile-rectangle-container-logged-in:before {
@@ -63,7 +64,7 @@
   justify-content: center;
   padding: 0.3em 2em;
   width: 170px;
-  height: 30px;
+  height: 60px;
   color: rgb(255, 255, 255);
   background: #111;
   cursor: pointer;
@@ -77,7 +78,7 @@
 }
 
 .button-85 img{
-  height: 20px;
+  height: 30px;
 }
 
 .button-85:before {

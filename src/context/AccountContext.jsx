@@ -4,7 +4,6 @@ import { StoicIdentity } from '../ic/identity';
 import extjs from '../ic/extjs';
 
 export const AccountContext = createContext();
-
 export const useAccountContext = () => useContext(AccountContext);
 
 export const AccountProvider = ({ children }) => {
@@ -12,12 +11,13 @@ export const AccountProvider = ({ children }) => {
   const emptyAlert = {
     title: '',
     message: '',
-};
+  };
 
   const principals = useSelector(state => state.principals);
   const currentPrincipal = useSelector(state => state.currentPrincipal)
-  const pid = principals[currentPrincipal].identity.principal
-  const accountIdentity = principals[0].accounts[0].address
+  console.log(principals);
+  const pid = principals.length ? principals[currentPrincipal].identity.principal : ""
+  const accountIdentity = principals.length ? principals[0].accounts[0].address : ""
   const dispatch = useDispatch();
 
 
