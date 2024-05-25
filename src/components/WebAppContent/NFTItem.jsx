@@ -1,7 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AccountContext } from "../../context/AccountContext";
+import NftOptions from "./NftOptions";
+import SendNFTForm from "./SendNFTForm";
 import "./index.css"
 
 const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
+  
+  const [openNFTForm, setOpenNFTForm] = useState(false);
+  const {
+    appState,
+    userPhats
+  } = useContext(AccountContext);
+
+  const sendNft = nft => {
+    setOpenNFTForm(true);
+  };
 
   const formatNumberToThreeDigits = (number) => {
     // Define thresholds
@@ -123,9 +136,14 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
                   loading="lazy"
                 />
               </div>
-              <a href={`https://toniq.io/marketplace/asset/${pid}`} className="buy-now-container" aria-label="Buy now" target="_blank" rel="noopener noreferrer">
-                <p className="buy-now-text">buy</p>
-              </a>
+              {userPhats.includes(pid) ?
+                <NftOptions sendNft={sendNft}/>
+              :
+                <a href={`https://toniq.io/marketplace/asset/${pid}`} className="buy-now-container" aria-label="Buy now" target="_blank" rel="noopener noreferrer">
+                  <p className="buy-now-text">buy</p>
+                </a>
+              }
+             
             </div>
           </div>
         }

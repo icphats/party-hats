@@ -159,3 +159,27 @@
   justify-content: space-evenly;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .profile-rectangle-container{
+    width: 100%;
+  }
+
+  .profile-rectangle-container-logged-in {
+    width: 100px;
+    height: auto;
+  }
+
+  .profile-row {
+    flex-wrap: wrap;
+  }
+
+  .button-85{
+    height: 50px;
+    width: 100px;
+  }
+
+  .button-85 img{
+    height: 30px;
+  }
+}

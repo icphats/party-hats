@@ -9,11 +9,14 @@ import filter_icon from "../../assets/filter-icon.png";
 import FilterView from "./FilterViewer.jsx";
 import nftStatic from '../../utils/json/nft_static.json'
 import logo from "../../assets/1000x1000.png"
+import { AccountContext } from "../../context/AccountContext.jsx";
 
 function WebAppContent() {
 
   const [fullArray, setFullArray] = useState([]); // all listed and unlisted NFTs
   const [listedArray, setListedArray] = useState([]); // just listed NFTs
+  const [userPhatArray, setUserPhatArray] = useState([]);
+
   const [truth, setTruth] = useState([]);
 
   const [viewMode, setViewMode] = useState(2);
@@ -26,6 +29,7 @@ function WebAppContent() {
 
   const [priceViewToggle, setPriceViewToggle] = useState(0);
   const [nriViewToggle, setNriViewToggle] = useState(0);
+  const [userPhatToggle, setUserPhatToggle] = useState(0);
 
   const LAYERSECTIONS = ["background", "border", "emble", "glow", "phat"];
   const SCROLL_OFFSET = 1;  // Adjust based on your specific needs
@@ -39,6 +43,11 @@ function WebAppContent() {
     transactions,
     liveListings 
   } = useNftContext();
+
+  const {
+    userPhats,
+    appState
+} = useContext(AccountContext);
 
   const {
     backgroundLayer,
@@ -81,6 +90,10 @@ function WebAppContent() {
     
     let newListedArray = newFullArray.filter(i => i.price) //price is null if not listed;
     setListedArray(newListedArray); //redundant storager for faster service
+
+    let newPhatArray = newFullArray.filter(i => userPhats.includes(i.pid));
+    setUserPhatArray(newPhatArray);
+    // console.log(userPhatArray);
 
     setTruth(fullArray)
   }
@@ -149,6 +162,14 @@ useEffect(() => {
     }
   }
 }, [priceViewToggle, nriViewToggle, fullArray, listedArray])
+
+useEffect(() => {
+  if(userPhatToggle){
+    setTruth(userPhatArray);
+  } else {
+    setTruth(fullArray);
+  }
+}, [userPhatToggle])
 
 const handleReset = () => {
   setBackgroundLayer([]);
@@ -245,7 +266,7 @@ useEffect(() => {
       </div>
       <div className="grid-filter-container">
         <div className={mobileFilter == 1 ? "mobile-filter-container" : "filter-container"}>
-          <FilterView setSearchIndex={setSearchIndex} layer = {layer} handleReset={handleReset} searchIndex={searchIndex} handleViewMode={handleViewMode} setPriceViewToggle={setPriceViewToggle} priceViewToggle={priceViewToggle} setNriViewToggle={setNriViewToggle} nriViewToggle={nriViewToggle}/>
+          <FilterView setSearchIndex={setSearchIndex} layer = {layer} handleReset={handleReset} searchIndex={searchIndex} handleViewMode={handleViewMode} setPriceViewToggle={setPriceViewToggle} priceViewToggle={priceViewToggle} setNriViewToggle={setNriViewToggle} nriViewToggle={nriViewToggle} userPhatToggle={userPhatToggle} setUserPhatToggle={setUserPhatToggle}/>
         </div>
         <div className="grid-container" >
           <div className={viewMode == 1 ? "nft-container" : "nft-container-card-version"} onScroll={handleScroll} ref={containerRef}>

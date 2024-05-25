@@ -15,7 +15,6 @@ export const AccountProvider = ({ children }) => {
 
   const principals = useSelector(state => state.principals);
   const currentPrincipal = useSelector(state => state.currentPrincipal)
-  console.log(principals);
   const pid = principals.length ? principals[currentPrincipal].identity.principal : ""
   const accountIdentity = principals.length ? principals[0].accounts[0].address : ""
   const dispatch = useDispatch();
@@ -117,7 +116,10 @@ export const AccountProvider = ({ children }) => {
 
   const updateNfts = async (_address, _principal) => {
     let res = await (await fetch('https://us-central1-entrepot-api.cloudfunctions.net/api/nftgeek/user/'+_principal+'/'+_address+'/nfts')).json();
-    console.log(res);
+    if (res.nfts) {
+      const tokenIds = res.nfts.map(i => i.tokenid);
+      setUserPhats(tokenIds);
+    }
     return [res.nfts, res.collections, _address, _principal];
   };
   const updateTransactions = async (_address, _principal) => {
@@ -160,6 +162,7 @@ export const AccountProvider = ({ children }) => {
         loader,
         logout,
         remove,
+        userPhats
       }}
     >
       {children}

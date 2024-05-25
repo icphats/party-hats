@@ -34,6 +34,7 @@ const StoicIdentity = {
       switch(type){
         case "ii":
           var auth = await AuthClient.create();
+          console.log(auth);
           auth.login({
             maxTimeToLive : BigInt(24*60*60*1000000000),
             identityProvider: "https://identity.ic0.app/",
