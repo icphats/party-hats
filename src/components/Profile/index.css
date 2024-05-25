@@ -70,7 +70,7 @@
   cursor: pointer;
   position: relative;
   z-index: 0;
-  border-radius: 10px;
+  border-radius: 2px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -100,9 +100,9 @@
   -webkit-filter: blur(3px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
+  animation: glowing-button-85 40s linear infinite;
+  transition: opacity 0.3s;
+  border-radius: 2px;
 }
 
 @keyframes glowing-button-85 {
@@ -123,10 +123,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #222;
+  background: rgba(0, 0, 0, 0.9);
   left: 0;
   top: 0;
-  border-radius: 10px;
+  border-radius: 2px;
 }
 
 .button-85:hover {

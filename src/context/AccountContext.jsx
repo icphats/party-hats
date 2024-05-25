@@ -124,12 +124,10 @@ export const AccountProvider = ({ children }) => {
   };
   const updateTransactions = async (_address, _principal) => {
     let txs = await (await fetch('https://us-central1-entrepot-api.cloudfunctions.net/api/nftgeek/user/'+_principal+'/'+_address+'/transactions')).json();
-    console.log(res);
     return [txs, _address, _principal];
   };
   const updateBalances = async (_address, _principal) => {
     let balances = await (await fetch('https://us-central1-entrepot-api.cloudfunctions.net/api/nftgeek/user/'+_principal+'/'+_address+'/tokens')).json();
-    console.log(res);
     return [balances, _address, _principal];
   };
 
