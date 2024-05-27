@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AiFillLock } from 'react-icons/ai';
+import logo from '../assets/1000x1000.png'
+
+
 
 function Wallet(props) {
 
@@ -42,7 +45,7 @@ function Wallet(props) {
   return (
     <>
       <div className="profile-row">
-      <img width="30px" height="30px" src="src/assets/1000x1000.png" alt="" />
+      <img width="30px" height="30px" src={logo} alt="" />
       <div 
         className='copiable-text'
         onClick={() => copyToClipboard(principal)}

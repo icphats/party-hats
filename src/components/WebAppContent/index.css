@@ -175,7 +175,7 @@
     background-color: #222; /* Dark background */
     border: 2px solid #808080; /* Bright green border, typical of old monitors */
     color: #0f0; /* Bright green text color */
-    width: 170px;
+    width: 190px;
     outline: none; /* Remove the default focus outline */
     padding: 0 10px;
   }
@@ -452,14 +452,14 @@
       #F15A24
     );
     position: absolute;
-    top: -1px;
-    left: -1px;
+    top: -0.5px;
+    left: -0.5px;
     background-size: 400%;
     z-index: -1;
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
     animation: glowing-button-85 20s linear infinite;
     transition: opacity 0.3s ease-in-out;
     /* border-radius: 10px; */
@@ -661,5 +661,9 @@
 
     .nft-count-container p{
       font-size: 20px;
+    }
+
+    .send-now-container {
+      width: 42px;
     }
   }
