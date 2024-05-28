@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AiFillLock } from 'react-icons/ai';
 import logo from '../assets/1000x1000.png'
-
+import { useContext } from 'react';
+import { AccountContext } from '../context/AccountContext';
 
 
 function Wallet(props) {
@@ -10,6 +11,10 @@ function Wallet(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const account = useSelector(state => (state.principals.length ? state.principals[0].accounts[0] : []))
   const principal = useSelector(state => (state.principals.length ? state.principals[0].identity.principal : []))
+
+  const {
+    appState
+  } = useContext(AccountContext);
 
   const copyToClipboard = async (text) => {
     try {
@@ -45,15 +50,33 @@ function Wallet(props) {
   return (
     <>
       <div className="profile-row">
-      <img width="30px" height="30px" src={logo} alt="" />
+      <img width="20px" height="20px" src={logo} alt="" />
       <div 
-        className='copiable-text'
+        className='copiable-text'wi
         onClick={() => copyToClipboard(principal)}
       >
           {formatAddress(principal)}
       </div>
-      <AiFillLock onClick={lockWallet}/>
+        <AiFillLock onClick={lockWallet} />
     </div>
+    <div className='treasure-chest-container'>
+    </div>
+      {appState > 1 ? 
+      <>
+        <div className='widgets-grid'>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+          <button className="button-01" onClick={props.handleUserPhatToggle}></button>
+        </div>
+      </>
+        : ''}
     </>
   );
 }

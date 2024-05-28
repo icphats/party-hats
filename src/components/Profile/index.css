@@ -7,55 +7,11 @@
 .profile-rectangle-container-logged-in {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   width: 190px;
-  margin: 1px 1px 20px 10px;
-  padding: 10px 5px;
-  background: #111;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  font-family: 'Half Bold Pixel-7', sans-serif;
-  min-height: 60px;
-}
-
-.profile-rectangle-container-logged-in:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    #842481, 
-    #ED1E79, 
-    #29ABE2, 
-    #FBB03B, 
-    #F15A24
-  );
-  position: absolute;
-  top: -0.5px;
-  left: -0.5px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
-  width: calc(100% + 1px);
-  height: calc(100% + 1px);
-  animation: glowing-button-85 20s linear infinite;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-.profile-rectangle-container-logged-in:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: black;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
+  margin: 0 0 20px 10px;
+  border: 1px solid white;
+  padding: 5px;
 }
 
 .button-85 {
@@ -156,8 +112,98 @@
 .profile-row {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
+}
+
+.widgets-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-items: center;
+  padding: 5px 0px;
+  width: 100%;
+}
+
+.treasure-chest-container {
+  display: flex;
+  width: auto;
+  padding: 30px 0px;
+  height: 100px;
+  border: 1px solid white;
+
+}
+
+.button-01 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 5px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: 'Half Bold Pixel-7', sans-serif;
+}
+
+.button-01:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #842481, 
+    #ED1E79, 
+    #29ABE2, 
+    #FBB03B, 
+    #F15A24
+  );
+  position: absolute;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  width: calc(100% + 1px);
+  height: calc(100% + 1px);
+  animation: glowing-button-01 40s linear infinite;
+  transition: opacity 0.3s;
+  border-radius: 2px;
+}
+
+@keyframes glowing-button-01 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-01:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  left: 0;
+  top: 0;
+  border-radius: 2px;
+}
+
+.button-01:hover {
+    background-color: #555; /* Change this to the desired hover background color */
+  }
+  
+.button-01:hover:before {
+  opacity: 0.5; /* Adjust the opacity or other properties to ensure visibility */
 }
 
 @media (max-width: 768px) {

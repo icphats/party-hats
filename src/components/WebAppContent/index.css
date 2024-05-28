@@ -164,10 +164,9 @@
 
   .NFT-Search-Container{
     display: flex;
-    width: 200px; /* Adjust as needed */
     height: 50px;
-    padding: 0px 10px;
-    margin: 0 0 20px 0;
+    padding: 0px 0px;
+    margin: 0 0 20px 10px;
   }
 
   .NFT-search-input {
@@ -509,7 +508,6 @@
   }
 
 
-  
   @media (max-width: 768px) {
 
     .filters-button-container{
@@ -530,7 +528,7 @@
       width: 110px;
       height: 30px;
       padding: 0px 10px;
-      margin: 0 0 20px 0;
+      margin: 0 0 20px 0px;
     }
   
     .NFT-search-input {

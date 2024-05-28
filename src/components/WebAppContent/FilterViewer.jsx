@@ -169,7 +169,7 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
     }, [priceViewToggle, nriViewToggle])
 
     return (<>
-                <ProfileRectangle/>
+                <ProfileRectangle handleUserPhatToggle={handleUserPhatToggle}/>
                 <div className="NFT-Search-Container">
                     <input
                     type="number"
@@ -184,9 +184,9 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
                     <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" /></a>
                     <a href="#" onClick={handlePriceView}><div className={`price-view ${priceViewToggle > 0 ? "price-view-active" : ""}`}><p>{priceSymbol}</p></div></a>
                     <a href="#" onClick={handleNriOrder}><div className={`nri-view ${nriViewToggle > 0 ? "nri-view-active" : ""}`}><p>{nriSymbol}</p></div></a>
-                    {appState > 0 ? 
+                    {/* {appState > 0 ? 
                         <a href="#" onClick={handleUserPhatToggle}><div className={`nri-view ${nriViewToggle > 0 ? "nri-view-active" : ""}`}><p>{nriSymbol}</p></div></a>
-                    : ''}
+                    : ''} */}
                 </div>
                 <div className="filter-preview">
                     {

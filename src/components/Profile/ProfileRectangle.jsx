@@ -4,7 +4,7 @@ import { useContext } from "react"
 import Unlock from "../../containers/Unlock"
 import Wallet from "../../containers/Wallet"
 
-const ProfileRectangle = () => {
+const ProfileRectangle = (props) => {
 
     const {
         alert,
@@ -29,7 +29,7 @@ const ProfileRectangle = () => {
                 ''
             )}
             {appState === 2 ? (
-                <Wallet alert={alert} confirm={confirm} logout={logout} remove={remove} loader={loader} />
+                <Wallet alert={alert} confirm={confirm} logout={logout} remove={remove} loader={loader} handleUserPhatToggle={props.handleUserPhatToggle}/>
             ) : (
                 ''
             )}

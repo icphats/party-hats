@@ -13,6 +13,8 @@ import { AccountContext } from "../../context/AccountContext.jsx";
 
 function WebAppContent() {
 
+  const [webAppPage, setWebAppPage] = useState(0);
+
   const [fullArray, setFullArray] = useState([]); // all listed and unlisted NFTs
   const [listedArray, setListedArray] = useState([]); // just listed NFTs
   const [userPhatArray, setUserPhatArray] = useState([]);
