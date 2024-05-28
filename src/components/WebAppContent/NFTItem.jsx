@@ -3,6 +3,8 @@ import { AccountContext } from "../../context/AccountContext";
 import NftOptions from "./NftOptions";
 import SendNFTForm from "./SendNFTForm";
 import "./index.css"
+import mixpanel from 'mixpanel-browser';
+
 
 const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
   
@@ -69,7 +71,7 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
 
   const getHeatMapColor = () => {
     // Ensure the input is within the range of 0 to 1
-    
+
     // Calculate the red component: always high but more vibrant as the value increases
     const red = 255;
     // Keep the green component at 0 for simplicity
@@ -84,20 +86,26 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
     //   //   image: `linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24)`
     //   // }
     // } else
-     if(nri > 0.95) {
-      return { 
+    if (nri > 0.95) {
+      return {
         border: `1px solid rgb(${red}, ${green}, ${blue})`,
         fill: `rgb(${red}, ${green}, ${blue}, 0.2)`,
         image: ``,
       }
-    } else{
-      return { 
+    } else {
+      return {
         border: `1px solid rgb(${red}, ${green}, ${blue})`,
         fill: `rgb(${red}, ${green}, ${blue}, 0.2)`,
         image: ``,
       };
     }
-}
+  }
+
+  const handleBuyNowClick = (pid) => {
+    mixpanel.track('Buy Now Clicked', {
+      product_id: pid
+    });
+  };
 
   return (
     <div className={bg === 0 ? 'gradient-border' : 'black-border'}>
@@ -116,15 +124,15 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
             <div className="card-d-container-row">
               <p className="">#{mint}</p>
               <div className="nri-container" style={{ border: `${getHeatMapColor().border}`, backgroundColor: `${getHeatMapColor().fill}`, backgroundImage: `${getHeatMapColor().image}` }}>
-                  <div className="nri-inside-container" 
+                <div className="nri-inside-container"
                   style={{
                     backgroundColor: nri > 0.99 ? 'rgb(0, 0, 0)' : '',
                     display: 'flex' // This makes the div shrink-wrap its content
                   }}
-                  >
-                    <p className="nri-text">{toPercent(nri)}</p>
-                  </div>
+                >
+                  <p className="nri-text">{toPercent(nri)}</p>
                 </div>
+              </div>
             </div>
             <div className="card-d-container-row">
               <div className="nft-price-container">
@@ -136,14 +144,16 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
                   loading="lazy"
                 />
               </div>
+
               {userPhats.includes(pid) ?
                 <NftOptions sendNft={sendNft}/>
               :
-                <a href={`https://toniq.io/marketplace/asset/${pid}`} className="buy-now-container" aria-label="Buy now" target="_blank" rel="noopener noreferrer">
+                <a href={`https://toniq.io/marketplace/asset/${pid}`} className="buy-now-container" aria-label="Buy now" target="_blank" rel="noopener noreferrer" onClick={() => handleBuyNowClick(pid)}>
                   <p className="buy-now-text">buy</p>
                 </a>
               }
              
+
             </div>
           </div>
         }
