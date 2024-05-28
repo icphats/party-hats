@@ -1,10 +1,12 @@
 import layer_assets from "../../utils/const";
 import { LayerContext } from "../../context/LayerContext";
-import { useContext, useEffect , useState} from "react";
+import { AccountContext } from "../../context/AccountContext";
+import { useContext, useEffect, useState} from "react";
+import ProfileRectangle from "../Profile/ProfileRectangle";
 import gridview_icon from "../../assets/grid-view-icon.png"
 const layers = ["background", "border", "emble", "glow", "phat"];
 
-const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNriViewToggle, searchIndex, setSearchIndex, handleReset, handleViewMode}) => {
+const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNriViewToggle, searchIndex, setSearchIndex, handleReset, handleViewMode, userPhatToggle, setUserPhatToggle}) => {
     const {
         backgroundLayer,
         setBackgroundLayer,
@@ -18,12 +20,14 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
         setGlowLayer
     } = useContext(LayerContext);
 
+    const {
+        appState
+    } = useContext(AccountContext);
+
     const CUSTOM_GR = [52,10,26,7,21,3,18,58,22,73,36,62,47,31,1,41,43,14,49,45,28,16,65,55,24];
     const [layerStatic, setLayer] = useState([]);
     const [priceSymbol, setPriceSymbol] = useState("$")
     const [nriSymbol, setNriSymbol] = useState("%")
-
-
 
     const handleClick = (item) => {
       
@@ -125,6 +129,10 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
         setNriViewToggle((Math.abs(nriViewToggle) + 1) % 3)
     }
 
+    const handleUserPhatToggle = () => {
+        setUserPhatToggle(() => (userPhatToggle + 1) % 2)
+    }
+
     useEffect(() => {
         switch(priceViewToggle){
             case 0:
@@ -161,6 +169,7 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
     }, [priceViewToggle, nriViewToggle])
 
     return (<>
+                <ProfileRectangle/>
                 <div className="NFT-Search-Container">
                     <input
                     type="number"
@@ -175,6 +184,9 @@ const FilterView = ({ priceViewToggle, setPriceViewToggle, nriViewToggle, setNri
                     <a href="#" onClick={() => { handleViewMode() }}><img src={gridview_icon} alt="Card View" /></a>
                     <a href="#" onClick={handlePriceView}><div className={`price-view ${priceViewToggle > 0 ? "price-view-active" : ""}`}><p>{priceSymbol}</p></div></a>
                     <a href="#" onClick={handleNriOrder}><div className={`nri-view ${nriViewToggle > 0 ? "nri-view-active" : ""}`}><p>{nriSymbol}</p></div></a>
+                    {appState > 0 ? 
+                        <a href="#" onClick={handleUserPhatToggle}><div className={`nri-view ${nriViewToggle > 0 ? "nri-view-active" : ""}`}><p>{nriSymbol}</p></div></a>
+                    : ''}
                 </div>
                 <div className="filter-preview">
                     {

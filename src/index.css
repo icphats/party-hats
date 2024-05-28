@@ -2,8 +2,6 @@
   box-sizing: border-box;
 }
 
-
-
 @font-face {
   font-family: 'Half Bold Pixel-7';
   src: url('assets/font/half_bold_pixel-7.ttf') format('truetype');
@@ -89,8 +87,6 @@ body::-webkit-scrollbar-track {
 .details-container {
   position: relative;
 }
-
-
 
 .splash{
   height: 100%;
