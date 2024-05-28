@@ -165,36 +165,35 @@ function WebAppContent() {
           break;
       }
     }
-  }
-}, [priceViewToggle, nriViewToggle, fullArray, listedArray])
+  }, [priceViewToggle, nriViewToggle, fullArray, listedArray])
 
-useEffect(() => {
-  if(userPhatToggle){
-    setTruth(userPhatArray);
-  } else {
-    setTruth(fullArray);
-  }
-}, [userPhatToggle])
-
-const handleReset = () => {
-  setBackgroundLayer([]);
-  setBorderLayer([]);
-  setEmbleLayer([]);
-  setPhatLayer([]);
-  setGlowLayer([]);
-  setPriceViewToggle(0);
-  setNriViewToggle(0);
-  setSearchIndex("");
-  setCount(300);
-
-  for(let i = 0; i < LAYERSECTIONS.length; i++){
-    for(let j = 0; j < layer_assets[LAYERSECTIONS[i]]?.length; j++){
-      let actualLayerName = layer_assets[LAYERSECTIONS[i]][j]
-      let a = document.getElementById(actualLayerName)
-      a.classList.remove("filter-active")
+  useEffect(() => {
+    if(userPhatToggle){
+      setTruth(userPhatArray);
+    } else {
+      setTruth(fullArray);
     }
+  }, [userPhatToggle])
 
-    updateShowData2()
+  const handleReset = () => {
+    setBackgroundLayer([]);
+    setBorderLayer([]);
+    setEmbleLayer([]);
+    setPhatLayer([]);
+    setGlowLayer([]);
+    setPriceViewToggle(0);
+    setNriViewToggle(0);
+    setSearchIndex("");
+    setCount(300);
+
+    for(let i = 0; i < LAYERSECTIONS.length; i++){
+      for(let j = 0; j < layer_assets[LAYERSECTIONS[i]]?.length; j++){
+        let actualLayerName = layer_assets[LAYERSECTIONS[i]][j]
+        let a = document.getElementById(actualLayerName)
+        a.classList.remove("filter-active")
+      }
+      updateShowData2()
+    }
   }
 
   useEffect(() => {
