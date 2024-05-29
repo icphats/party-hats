@@ -4,7 +4,7 @@ import filter_icon from "../../assets/filter-icon.png";
 import { useNftContext } from "../../context/NftContext.jsx";
 
 const NftTopComponent = () => {
-  const { filteredArray } = useNftContext();
+  const { filteredArray, mobileFilter, setMobileFilter } = useNftContext();
 
   return (
     <>

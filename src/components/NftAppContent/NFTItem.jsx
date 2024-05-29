@@ -2,27 +2,22 @@ import { useState, useContext } from "react";
 import { AccountContext } from "../../context/AccountContext";
 import NftOptions from "./NftOptions";
 import SendNFTForm from "./SendNFTForm";
-import "./index.css"
-import mixpanel from 'mixpanel-browser';
+import "./index.css";
+import mixpanel from "mixpanel-browser";
+import { useNftContext } from "../../context/NftContext";
 
+const NftItem = (props) => {
+  const { bg, price, pid, mint, nri } = props.nft;
 
-const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
-  
-  const [openNFTForm, setOpenNFTForm] = useState(false);
-  const {
-    appState,
-    userPhats
-  } = useContext(AccountContext);
+  const { userPhats } = useContext(AccountContext);
 
-  const sendNft = nft => {
-    setOpenNFTForm(true);
-  };
+  const { viewMode, filteredArray } = useNftContext();
 
   const formatNumberToThreeDigits = (number) => {
     // Define thresholds
     const thousand = 1e3; // Equivalent to 1000
-    const million = 1e6;  // Equivalent to 1,000,000
-    const billion = 1e9;  // Equivalent to 1,000,000,000
+    const million = 1e6; // Equivalent to 1,000,000
+    const billion = 1e9; // Equivalent to 1,000,000,000
 
     // Helper function for formatting
     function format(n, divisor, suffix) {
@@ -54,20 +49,20 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
       return number.toPrecision(3);
     } else if (number < million) {
       // For thousands, use "k" suffix
-      return format(number, thousand, 'k');
+      return format(number, thousand, "k");
     } else if (number < billion) {
       // For millions, use "m" suffix
-      return format(number, million, 'm');
+      return format(number, million, "m");
     } else {
       // For billions and above, use "b" suffix
-      return format(number, billion, 'b');
+      return format(number, billion, "b");
     }
-  }
+  };
 
   const toPercent = (num) => {
-    let final = num * 100
-    return `${final.toFixed(1)}%`
-  }
+    let final = num * 100;
+    return `${final.toFixed(1)}%`;
+  };
 
   const getHeatMapColor = () => {
     // Ensure the input is within the range of 0 to 1
@@ -80,7 +75,7 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
     const blue = Math.floor(255 * (1 - nri));
 
     // if(nri > 0.99) {
-    //   // return { 
+    //   // return {
     //   //   border: ``,
     //   //   fill: `rgb(${red}, ${green}, ${blue}, 0.2)`,
     //   //   image: `linear-gradient(to right, #842481, #ED1E79, #29ABE2, #FBB03B, #F15A24)`
@@ -91,7 +86,7 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
         border: `1px solid rgb(${red}, ${green}, ${blue})`,
         fill: `rgb(${red}, ${green}, ${blue}, 0.2)`,
         image: ``,
-      }
+      };
     } else {
       return {
         border: `1px solid rgb(${red}, ${green}, ${blue})`,
@@ -99,35 +94,45 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
         image: ``,
       };
     }
-  }
+  };
 
   const handleBuyNowClick = (pid) => {
-    mixpanel.track('Buy Now Clicked', {
-      product_id: pid
+    mixpanel.track("Buy Now Clicked", {
+      product_id: pid,
     });
   };
 
   return (
-    <div className={bg === 0 ? 'gradient-border' : 'black-border'}>
+    <div className={bg === 0 ? "gradient-border" : "black-border"}>
       <div className="card-container">
-        <div key={index} className={`nft-image-container ${bg === 0 ? 'black' : 'white'}`}>
+        <div
+          key={mint}
+          className={`nft-image-container ${bg === 0 ? "black" : "white"}`}
+        >
           <img
-            src={`./assets/saved_pngs/${pid}.png`}
-            alt={`Item ${index + 1}`}
+            src={`./assets/phats/${pid}.png`}
+            alt={`Item ${mint}`}
             className="nft-image"
             loading="lazy"
           />
         </div>
-        {
-          _viewMode == 2 &&
+        {viewMode == 2 && (
           <div className="card-description-container">
             <div className="card-d-container-row">
               <p className="">#{mint}</p>
-              <div className="nri-container" style={{ border: `${getHeatMapColor().border}`, backgroundColor: `${getHeatMapColor().fill}`, backgroundImage: `${getHeatMapColor().image}` }}>
-                <div className="nri-inside-container"
+              <div
+                className="nri-container"
+                style={{
+                  border: `${getHeatMapColor().border}`,
+                  backgroundColor: `${getHeatMapColor().fill}`,
+                  backgroundImage: `${getHeatMapColor().image}`,
+                }}
+              >
+                <div
+                  className="nri-inside-container"
                   style={{
-                    backgroundColor: nri > 0.99 ? 'rgb(0, 0, 0)' : '',
-                    display: 'flex' // This makes the div shrink-wrap its content
+                    backgroundColor: nri > 0.99 ? "rgb(0, 0, 0)" : "",
+                    display: "flex", // This makes the div shrink-wrap its content
                   }}
                 >
                   <p className="nri-text">{toPercent(nri)}</p>
@@ -145,21 +150,26 @@ const NftItem = ({ _viewMode, index, bg, price, pid, mint, nri }) => {
                 />
               </div>
 
-              {userPhats.includes(pid) ?
-                <NftOptions sendNft={sendNft}/>
-              :
-                <a href={`https://toniq.io/marketplace/asset/${pid}`} className="buy-now-container" aria-label="Buy now" target="_blank" rel="noopener noreferrer" onClick={() => handleBuyNowClick(pid)}>
+              {userPhats.includes(pid) ? (
+                <NftOptions sendNft={sendNft} />
+              ) : (
+                <a
+                  href={`https://toniq.io/marketplace/asset/${pid}`}
+                  className="buy-now-container"
+                  aria-label="Buy now"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleBuyNowClick(pid)}
+                >
                   <p className="buy-now-text">buy</p>
                 </a>
-              }
-             
-
+              )}
             </div>
           </div>
-        }
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default NftItem;

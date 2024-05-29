@@ -8,7 +8,7 @@ import FilterView from "./FilterViewer.jsx";
 import { AccountContext } from "../../context/AccountContext.jsx";
 import NftTopComponent from "./NftTopComponent.jsx";
 import NftLeftComponent from "./NftLeftComponent.jsx";
-import NftBottomComponent from "./NftBottomComponent.jsx";
+import NftRightComponent from "./NftRightComponent.jsx";
 
 function WebAppContent() {
   // const [layer, setLayer] = useState([]);
@@ -99,7 +99,7 @@ function WebAppContent() {
           <NftTopComponent />
           <div className="grid-filter-container">
             <NftLeftComponent />
-            <NftBottomComponent />
+            <NftRightComponent />
           </div>
         </>
       )}

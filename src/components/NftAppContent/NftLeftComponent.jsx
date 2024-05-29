@@ -3,7 +3,7 @@ import { useState } from "react";
 import FilterView from "./FilterViewer.jsx";
 
 const NftLeftComponent = () => {
-  const [mobileFilter, setMobileFilter] = useState(0);
+  const { mobileFilter } = useNftContext();
 
   return (
     <>

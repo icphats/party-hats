@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import ic from "../utils/blast";
 import { idlFactory as nftidl } from "../utils/idl/nftCanister.idl";
 import staticNftArray from "../utils/json/newStructureWithPrice.json";
@@ -21,6 +21,7 @@ export const NftContextProvider = ({ children }) => {
   const [userPhatToggle, setUserPhatToggle] = useState(0);
 
   // For View
+  const [mobileFilter, setMobileFilter] = useState(0);
   const [viewMode, setViewMode] = useState(2);
   const [count, setCount] = useState(300);
   const [searchIndex, setSearchIndex] = useState("");
@@ -47,13 +48,16 @@ export const NftContextProvider = ({ children }) => {
     setLoaded(true);
   };
 
-  const filterNftArray = async () => {
-    setFilteredArray(nftArray);
+  const filterNftArray = async (a) => {
+    setFilteredArray(a);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     loadInitialData();
-    // filterNftArray();
+  }, []);
+
+  useEffect(() => {
+    filterNftArray(nftArray);
   }, []);
 
   return (
@@ -76,6 +80,8 @@ export const NftContextProvider = ({ children }) => {
         setCount,
         searchIndex,
         setSearchIndex,
+        mobileFilter,
+        setMobileFilter,
       }}
     >
       {children}

@@ -89,3 +89,32 @@ const updateShowData2 = () => {
       }
     }
   }, [priceViewToggle, nriViewToggle, fullArray, listedArray]);
+
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        // Check if ESC key is pressed (keyCode 27)
+        handleReset();
+      }
+    };
+
+    // Add event listener when the component mounts
+    document.addEventListener("keydown", handleKeyDown);
+
+    // (async () => {
+    //   try {
+    //     const response = await fetch("./json/layers_static.json");
+    //     const jsonData = await response.json();
+    //     setLayer(jsonData);
+    //   } catch (error) {
+    //     console.error("Error fetching data:", error);
+    //   }
+    // })();
+
+    // updateShowData2();
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);

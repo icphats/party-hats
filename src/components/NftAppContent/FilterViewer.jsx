@@ -30,6 +30,7 @@ const FilterView = () => {
     setViewMode,
     searchIndex,
     setSearchIndex,
+    viewMode,
   } = useNftContext();
 
   const CUSTOM_GR = [
