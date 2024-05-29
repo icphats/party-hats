@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import WebApp from "./pages/webapp";
-import Connect from "./containers/Connect";
+import WebApp from "./views/webapp";
 import "./App.css";
 
 function App() {

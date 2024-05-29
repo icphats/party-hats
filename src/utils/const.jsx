@@ -27,7 +27,7 @@ const layer_assets = {
         "Border__Windoge98_B",
         "Border__Yellow_B"
     ],
-    emble: [
+    emblem: [
         "Emblem___Gr",
         "Emblem__None_Em",
         "Emblem__1UP_Em",

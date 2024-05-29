@@ -5,19 +5,19 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { MyProvider } from './context/NftContext.jsx'
+import { NftContextProvider } from './context/NftContext.jsx'
 import { AccountProvider } from './context/AccountContext.jsx'
 import { Provider } from 'react-redux'
-import store from './store/store.js'
+import store from './store.js'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <AccountProvider>
-        <MyProvider>
+        <NftContextProvider>
           <App />
-        </MyProvider>
+        </NftContextProvider>
       </AccountProvider>
     </Provider>
   </React.StrictMode>
