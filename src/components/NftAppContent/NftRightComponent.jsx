@@ -35,8 +35,6 @@ const NftRightComponent = () => {
     tempCount = Math.ceil(volume / 4000);
     setCount(Math.max(tempCount, count));
     setIncrement(tempCount);
-    console.log(count);
-    console.log(increment);
   }, [volume]);
 
   const handleScroll = () => {
