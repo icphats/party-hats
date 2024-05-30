@@ -1,7 +1,7 @@
 import layer_assets from "../../utils/const";
-import { LayerContext } from "../../context/LayerContext";
 import { useNftContext } from "../../context/NftContext";
-import { useContext, useEffect, useState } from "react";
+import { useLayerContext } from "../../context/LayerContext";
+import { useEffect, useState } from "react";
 import ProfileRectangle from "../Profile/ProfileRectangle";
 import gridview_icon from "../../assets/grid-view-icon.png";
 const layers = ["background", "border", "emblem", "glow", "phat"];
@@ -18,7 +18,7 @@ const FilterView = () => {
     setPhatLayer,
     glowLayer,
     setGlowLayer,
-  } = useContext(LayerContext);
+  } = useLayerContext();
 
   const {
     priceViewToggle,
@@ -38,43 +38,21 @@ const FilterView = () => {
     28, 16, 65, 55, 24,
   ];
 
-  // useEffect(() => {
-  //   if (searchIndex === "") {
-  //     setTruth(fullArray);
-  //   } else {
-  //     handleSearch(searchIndex);
-  //   }
-  // }, [searchIndex]);
-
-  // const handleSearch = (n) => {
-  //   if (n > 0 && n <= 10000) {
-  //     let i = n - 1;
-  //     let item = nftArray[i];
-  //     setTruth([pushOneItem(item)]);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const handleKeyDown = (event) => {
-  //     if (event.keyCode === 27) {
-  //       // Check if ESC key is pressed (keyCode 27)
-  //       handleReset();
-  //     }
-  //   };
-
-  //   // Add event listener when the component mounts
-  //   document.addEventListener("keydown", handleKeyDown);
-
-  //   updateShowData2();
-  //   // Clean up the event listener when the component unmounts
-  //   return () => {
-  //     document.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, []);
-
   const [layerStatic, setLayer] = useState([]);
   const [priceSymbol, setPriceSymbol] = useState("$");
   const [nriSymbol, setNriSymbol] = useState("%");
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch("./json/layers_static.json");
+        const jsonData = await response.json();
+        setLayer(jsonData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    })();
+  }, []);
 
   const handleClick = (item) => {
     const asset = document.getElementById(item);
@@ -96,6 +74,9 @@ const FilterView = () => {
 
       if (asset.classList.contains("filter-active")) {
         asset.classList.remove("filter-active");
+
+        console.log(assetIndexWithinLayer);
+        console.log(emblemLayer);
 
         switch (layerName) {
           case "Emblem":
@@ -158,31 +139,34 @@ const FilterView = () => {
     }
   };
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch("./json/layers_static.json");
-        const jsonData = await response.json();
-        setLayer(jsonData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const handleReset = () => {
+    setSearchIndex("");
+    setBackgroundLayer([]);
+    setBorderLayer([]);
+    setEmblemLayer([]);
+    setPhatLayer([]);
+    setGlowLayer([]);
+    setPriceViewToggle(0);
+    setNriViewToggle(0);
+    for (let i = 0; i < LAYERSECTIONS.length; i++) {
+      for (let j = 0; j < layer_assets[LAYERSECTIONS[i]]?.length; j++) {
+        let actualLayerName = layer_assets[LAYERSECTIONS[i]][j];
+        let a = document.getElementById(actualLayerName);
+        a.classList.remove("filter-active");
       }
-    })();
-  }, []);
+    }
+  };
 
   const handlePriceView = () => {
-    //Price View includes filtering and ordering, NRI just handles ordering. That's why there are 3 modes.
-    if (priceViewToggle >= 1) setNriViewToggle(0);
-    setPriceViewToggle((Math.abs(priceViewToggle) + 1) % 4);
+    setPriceViewToggle((prev) => (Math.abs(prev) + 1) % 4);
   };
 
   const handleNriOrder = () => {
-    if (priceViewToggle > 1) setPriceViewToggle(0);
-    setNriViewToggle((Math.abs(nriViewToggle) + 1) % 3);
+    setNriViewToggle((prev) => (Math.abs(prev) + 1) % 3);
   };
 
   const handleUserPhatToggle = () => {
-    setUserPhatToggle(() => (userPhatToggle + 1) % 2);
+    setUserPhatToggle((prev) => (prev + 1) % 2);
   };
 
   useEffect(() => {
@@ -260,9 +244,6 @@ const FilterView = () => {
             <p>{nriSymbol}</p>
           </div>
         </a>
-        {/* {appState > 0 ? 
-                        <a href="#" onClick={handleUserPhatToggle}><div className={`nri-view ${nriViewToggle > 0 ? "nri-view-active" : ""}`}><p>{nriSymbol}</p></div></a>
-                    : ''} */}
       </div>
       <div className="filter-preview">
         {layers.map((layer) => {
@@ -280,7 +261,7 @@ const FilterView = () => {
                   <img
                     width={26}
                     height={26}
-                    src={`./assets/ICPhats_Collection/${layer}/${item}.png`}
+                    src={`./assets/layers/${layer}/${item}.png`}
                     className="filter-image"
                   />
                 </div>

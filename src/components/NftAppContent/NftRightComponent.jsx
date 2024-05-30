@@ -1,14 +1,39 @@
-import { useEffect, useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useNftContext } from "../../context/NftContext";
 import NftItem from "./NFTItem";
 
 const NftRightComponent = () => {
-  const { loaded, viewMode, filteredArray, count } = useNftContext();
+  const { viewMode, filteredArray, count } = useNftContext();
+
+  const SCROLL_OFFSET = 1; // Adjust based on your specific needs
+  const ITEMS_INCREMENT = 30; // Number of items to load on each increment
 
   const containerRef = useRef(null);
+  const [containerHeight, setContainerHeight] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        setContainerHeight(containerRef.current.clientHeight);
+        setContainerWidth(containerRef.current.clientWidth);
+      }
+    };
+
+    // Update dimensions on mount and when the window is resized
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log(containerHeight * containerWidth);
+  }, [containerHeight, containerWidth]);
 
   const handleScroll = () => {
-    const container = containerRef.current;
     if (
       container &&
       container.scrollTop + container.clientHeight + SCROLL_OFFSET >=

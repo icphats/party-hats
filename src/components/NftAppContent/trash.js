@@ -6,6 +6,10 @@
   const [truth, setTruth] = useState([]);
 
 
+    // const [layer, setLayer] = useState([]);
+
+
+
 const updateShowData2 = () => {
     let content = nftArray.reduce((acc, item) => {
       const layerData = item.assetlayers;
@@ -118,3 +122,84 @@ const updateShowData2 = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  const handleReset = () => {
+    setBackgroundLayer([]);
+    setBorderLayer([]);
+    setEmblemLayer([]);
+    setPhatLayer([]);
+    setGlowLayer([]);
+    setPriceViewToggle(0);
+    setNriViewToggle(0);
+    setSearchIndex("");
+    setCount(300);
+
+    for (let i = 0; i < LAYERSECTIONS.length; i++) {
+      for (let j = 0; j < layer_assets[LAYERSECTIONS[i]]?.length; j++) {
+        let actualLayerName = layer_assets[LAYERSECTIONS[i]][j];
+        let a = document.getElementById(actualLayerName);
+        a.classList.remove("filter-active");
+      }
+      updateShowData2();
+    }
+  };
+
+
+  const handleViewMode = () => {
+    if (viewMode == 2) {
+      if (count < 300) setCount(Math.min(300, truth.length));
+    }
+    if (viewMode == 1) {
+      if (count < 200) setCount(Math.min(200, truth.length));
+    }
+  };
+
+  useEffect(() => {
+    updateShowData2();
+  }, [backgroundLayer, borderLayer, emblemLayer, phatLayer, glowLayer]);
+
+  useEffect(() => {
+    updateShowData2();
+  }, [loaded]);
+
+  useEffect(() => {
+    if (userPhatToggle) {
+      setTruth(userPhatArray);
+    } else {
+      setTruth(fullArray);
+    }
+  }, [userPhatToggle]);
+
+  // useEffect(() => {
+  //   if (searchIndex === "") {
+  //     setTruth(fullArray);
+  //   } else {
+  //     handleSearch(searchIndex);
+  //   }
+  // }, [searchIndex]);
+
+  // const handleSearch = (n) => {
+  //   if (n > 0 && n <= 10000) {
+  //     let i = n - 1;
+  //     let item = nftArray[i];
+  //     setTruth([pushOneItem(item)]);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const handleKeyDown = (event) => {
+  //     if (event.keyCode === 27) {
+  //       // Check if ESC key is pressed (keyCode 27)
+  //       handleReset();
+  //     }
+  //   };
+
+  //   // Add event listener when the component mounts
+  //   document.addEventListener("keydown", handleKeyDown);
+
+  //   updateShowData2();
+  //   // Clean up the event listener when the component unmounts
+  //   return () => {
+  //     document.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, []);

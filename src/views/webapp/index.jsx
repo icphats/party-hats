@@ -1,7 +1,8 @@
 import WebAppContent from "../../components/NftAppContent";
 import { LayerProvider } from "../../context/LayerContext";
-import "./index.css";
+import { NftContextProvider } from "../../context/NftContext";
 import mixpanel from "mixpanel-browser";
+import "./index.css";
 
 const WebApp = () => {
   const token = import.meta.env.VITE_REACT_APP_MIXPANEL_TOKEN;
@@ -13,9 +14,11 @@ const WebApp = () => {
 
   return (
     <LayerProvider>
-      <div className="web-app-content-container">
-        <WebAppContent />
-      </div>
+      <NftContextProvider>
+        <div className="web-app-content-container">
+          <WebAppContent />
+        </div>
+      </NftContextProvider>
     </LayerProvider>
   );
 };
