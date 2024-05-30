@@ -9,15 +9,11 @@ function WebAppContent() {
 
   return (
     <>
-      {loaded && (
-        <>
-          <NftTopComponent />
-          <div className="grid-filter-container">
-            <NftLeftComponent />
-            <NftRightComponent />
-          </div>
-        </>
-      )}
+      <NftTopComponent />
+      <div className="grid-filter-container">
+        <NftLeftComponent />
+        <NftRightComponent />
+      </div>
     </>
   );
 }

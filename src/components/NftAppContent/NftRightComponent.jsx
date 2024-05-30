@@ -3,14 +3,14 @@ import { useNftContext } from "../../context/NftContext";
 import NftItem from "./NFTItem";
 
 const NftRightComponent = () => {
-  const { viewMode, filteredArray, setCount, count } = useNftContext();
+  const { viewMode, filteredArray, setCount, count, loaded } = useNftContext();
 
   const SCROLL_OFFSET = 1; // Adjust based on your specific needs
 
   const containerRef = useRef(null);
   const container = containerRef.current;
   const [volume, setVolume] = useState(0);
-  const [increment, setIncrement] = useState(30); // Number of items to load on each increment
+  const [increment, setIncrement] = useState(0); // Number of items to load on each increment
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -28,7 +28,7 @@ const NftRightComponent = () => {
     return () => {
       window.removeEventListener("resize", updateDimensions);
     };
-  }, []);
+  }, [loaded]);
 
   useEffect(() => {
     let tempCount = 0;
@@ -52,19 +52,23 @@ const NftRightComponent = () => {
   };
 
   return (
-    <div className="grid-container">
-      <div
-        className={
-          viewMode == 1 ? "nft-container" : "nft-container-card-version"
-        }
-        onScroll={handleScroll}
-        ref={containerRef}
-      >
-        {filteredArray.slice(0, count).map((nft, index) => {
-          return <NftItem key={index} nft={nft} />;
-        })}
-      </div>
-    </div>
+    <>
+      {loaded && (
+        <div className="grid-container">
+          <div
+            className={
+              viewMode == 1 ? "nft-container" : "nft-container-card-version"
+            }
+            onScroll={handleScroll}
+            ref={containerRef}
+          >
+            {filteredArray.slice(0, count).map((nft, index) => {
+              return <NftItem key={index} nft={nft} />;
+            })}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
