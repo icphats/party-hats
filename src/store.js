@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import {principalToAccountIdentifier, LEDGER_CANISTER_ID} from '../ic/utils';
+import {principalToAccountIdentifier, LEDGER_CANISTER_ID} from './ic/utils';
 const DBVERSION = 2;
 
 var appData = {
