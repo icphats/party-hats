@@ -32,16 +32,11 @@ const NftRightComponent = () => {
 
   useEffect(() => {
     let tempCount = 0;
-    if (viewMode == 1) {
-      tempCount = volume / 40000;
-      setCount(Math.max(tempCount, count));
-      setIncrement(tempCount);
-    }
-    if (viewMode == 2) {
-      tempCount = volume / 6000;
-      setCount(Math.max(tempCount, count));
-      setIncrement(tempCount);
-    }
+    tempCount = Math.ceil(volume / 4000);
+    setCount(Math.max(tempCount, count));
+    setIncrement(tempCount);
+    console.log(count);
+    console.log(increment);
   }, [volume]);
 
   const handleScroll = () => {
