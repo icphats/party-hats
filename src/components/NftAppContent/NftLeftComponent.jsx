@@ -1,5 +1,4 @@
 import { useNftContext } from "../../context/NftContext.jsx";
-import { useState } from "react";
 import FilterView from "./FilterViewer.jsx";
 
 const NftLeftComponent = () => {

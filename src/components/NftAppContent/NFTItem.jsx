@@ -3,7 +3,6 @@ import { AccountContext } from "../../context/AccountContext";
 import UserOwnedNftButton from "./UserOwnedNftButton";
 import NftOptions from "./UserOwnedNftButton";
 import SendNFTForm from "./SendNFTForm";
-import "./index.css";
 import mixpanel from "mixpanel-browser";
 import { useNftContext } from "../../context/NftContext";
 

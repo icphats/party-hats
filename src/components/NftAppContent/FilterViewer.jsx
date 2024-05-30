@@ -223,7 +223,7 @@ const FilterView = () => {
 
   return (
     <>
-      {/* <ProfileRectangle handleUserPhatToggle={handleUserPhatToggle}/> */}
+      <ProfileRectangle />
       <div className="NFT-Search-Container">
         <input
           type="number"
