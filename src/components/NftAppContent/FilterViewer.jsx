@@ -4,7 +4,8 @@ import { useLayerContext } from "../../context/LayerContext";
 import { useEffect, useState } from "react";
 import ProfileRectangle from "../Profile/ProfileRectangle";
 import gridview_icon from "../../assets/grid-view-icon.png";
-const layers = ["background", "border", "emblem", "glow", "phat"];
+
+const LAYERSECTIONS = ["background", "border", "emblem", "glow", "phat"];
 
 const FilterView = () => {
   const {
@@ -157,6 +158,22 @@ const FilterView = () => {
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        // Check if ESC key is pressed (keyCode 27)
+        handleReset();
+      }
+    };
+
+    // Add event listener when the component mounts
+    document.addEventListener("keydown", handleKeyDown);
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const handlePriceView = () => {
     setPriceViewToggle((prev) => (Math.abs(prev) + 1) % 4);
   };
@@ -246,7 +263,7 @@ const FilterView = () => {
         </a>
       </div>
       <div className="filter-preview">
-        {layers.map((layer) => {
+        {LAYERSECTIONS.map((layer) => {
           return (
             <div key={layer} className="layer-view">
               {layer_assets[layer].map((item) => (

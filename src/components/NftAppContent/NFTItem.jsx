@@ -8,12 +8,11 @@ import { useNftContext } from "../../context/NftContext";
 
 const NftItem = (props) => {
   const { bg, price, pid, mint, nri } = props.nft;
-
   const { userPhats } = useContext(AccountContext);
-
-  const { viewMode, filteredArray } = useNftContext();
+  const { viewMode } = useNftContext();
 
   const formatNumberToThreeDigits = (number) => {
+    number = number / 100000000;
     // Define thresholds
     const thousand = 1e3; // Equivalent to 1000
     const million = 1e6; // Equivalent to 1,000,000

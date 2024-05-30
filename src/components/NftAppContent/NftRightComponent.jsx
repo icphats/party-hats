@@ -3,35 +3,46 @@ import { useNftContext } from "../../context/NftContext";
 import NftItem from "./NFTItem";
 
 const NftRightComponent = () => {
-  const { viewMode, filteredArray, count } = useNftContext();
+  const { viewMode, filteredArray, setCount, count } = useNftContext();
 
   const SCROLL_OFFSET = 1; // Adjust based on your specific needs
-  const ITEMS_INCREMENT = 30; // Number of items to load on each increment
 
   const containerRef = useRef(null);
-  const [containerHeight, setContainerHeight] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
+  const container = containerRef.current;
+  const [volume, setVolume] = useState(0);
+  const [increment, setIncrement] = useState(30); // Number of items to load on each increment
 
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
-        setContainerHeight(containerRef.current.clientHeight);
-        setContainerWidth(containerRef.current.clientWidth);
+        setVolume(
+          () =>
+            containerRef.current.clientHeight * containerRef.current.clientWidth
+        );
       }
     };
 
     // Update dimensions on mount and when the window is resized
     updateDimensions();
     window.addEventListener("resize", updateDimensions);
-
     return () => {
       window.removeEventListener("resize", updateDimensions);
     };
   }, []);
 
   useEffect(() => {
-    console.log(containerHeight * containerWidth);
-  }, [containerHeight, containerWidth]);
+    let tempCount = 0;
+    if (viewMode == 1) {
+      tempCount = volume / 40000;
+      setCount(Math.max(tempCount, count));
+      setIncrement(tempCount);
+    }
+    if (viewMode == 2) {
+      tempCount = volume / 6000;
+      setCount(Math.max(tempCount, count));
+      setIncrement(tempCount);
+    }
+  }, [volume]);
 
   const handleScroll = () => {
     if (
@@ -41,7 +52,7 @@ const NftRightComponent = () => {
     ) {
       window.requestAnimationFrame(() => {
         setCount((prevCount) =>
-          Math.min(prevCount + ITEMS_INCREMENT, filteredArray.length)
+          Math.min(prevCount + increment, filteredArray.length)
         );
       });
     }

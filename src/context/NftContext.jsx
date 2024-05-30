@@ -26,7 +26,7 @@ export const NftContextProvider = ({ children }) => {
   // For View
   const [mobileFilter, setMobileFilter] = useState(0);
   const [viewMode, setViewMode] = useState(2);
-  const [count, setCount] = useState(300);
+  const [count, setCount] = useState(10);
   const [searchIndex, setSearchIndex] = useState("");
 
   const loadInitialData = async () => {
@@ -76,10 +76,6 @@ export const NftContextProvider = ({ children }) => {
 
     setFilteredArray(newFilteredArray);
   };
-
-  //   const filterNftArrayByListing = async (a) => {
-  //     setFilteredArray(a);
-  //   };
 
   const orderNftArray = (a, type) => {
     switch (type) {
@@ -136,9 +132,22 @@ export const NftContextProvider = ({ children }) => {
   }, [priceViewToggle]);
 
   useEffect(() => {
-    if (priceViewToggle > 1) setPriceViewToggle(0);
+    if (priceViewToggle > 1 && nriViewToggle > 0) setPriceViewToggle(0);
     orderNftArray(filteredArray, "nri");
   }, [nriViewToggle]);
+
+  const searchFilter = (mint) => {
+    if (mint > 0 && mint <= 10000) {
+      let i = mint - 1;
+      setFilteredArray([nftArray[i]]);
+    } else {
+      setFilteredArray(nftArray);
+    }
+  };
+
+  useEffect(() => {
+    searchFilter(searchIndex);
+  }, [searchIndex]);
 
   return (
     <NftContext.Provider
