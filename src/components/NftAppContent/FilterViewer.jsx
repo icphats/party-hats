@@ -182,10 +182,6 @@ const FilterView = () => {
     setNriViewToggle((prev) => (Math.abs(prev) + 1) % 3);
   };
 
-  const handleUserPhatToggle = () => {
-    setUserPhatToggle((prev) => (prev + 1) % 2);
-  };
-
   useEffect(() => {
     switch (priceViewToggle) {
       case 0:

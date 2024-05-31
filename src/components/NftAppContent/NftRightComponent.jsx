@@ -63,6 +63,7 @@ const NftRightComponent = () => {
             ref={containerRef}
           >
             {filteredArray.slice(0, count).map((nft, index) => {
+              console.log(nft);
               return <NftItem key={index} nft={nft} />;
             })}
           </div>

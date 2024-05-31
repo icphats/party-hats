@@ -2,12 +2,12 @@ import { useContext } from "react";
 import { AccountContext } from "../../context/AccountContext";
 import UserOwnedNftButton from "./UserOwnedNftButton";
 import NftOptions from "./UserOwnedNftButton";
-import SendNFTForm from "./SendNFTForm";
 import mixpanel from "mixpanel-browser";
 import { useNftContext } from "../../context/NftContext";
 
 const NftItem = (props) => {
-  const { bg, price, pid, mint, nri } = props.nft;
+  const { price, pid, mint, nri } = props.nft;
+  const bg = props.nft.assetlayers["4"];
   const { userPhats } = useContext(AccountContext);
   const { viewMode } = useNftContext();
 
@@ -150,7 +150,7 @@ const NftItem = (props) => {
               </div>
 
               {userPhats.includes(pid) ? (
-                <UserOwnedNftButton sendNft={sendNft} />
+                <UserOwnedNftButton pid={pid} />
               ) : (
                 <a
                   href={`https://toniq.io/marketplace/asset/${pid}`}

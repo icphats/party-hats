@@ -3,6 +3,7 @@ import ic from "../utils/blast";
 import { idlFactory as nftidl } from "../utils/idl/nftCanister.idl";
 import staticNftArray from "../utils/json/newStructureWithPrice.json";
 import { useLayerContext } from "./LayerContext";
+import { useAccountContext } from "./AccountContext";
 
 const phatCanister = "gq5kt-4iaaa-aaaal-qdhuq-cai";
 const NftContext = createContext();
@@ -10,6 +11,7 @@ const NftContext = createContext();
 export const useNftContext = () => useContext(NftContext);
 
 export const NftContextProvider = ({ children }) => {
+  const { userPhats } = useAccountContext();
   const { backgroundLayer, borderLayer, emblemLayer, phatLayer, glowLayer } =
     useLayerContext();
   const [nftArray, setNftArray] = useState([]);
@@ -117,6 +119,17 @@ export const NftContextProvider = ({ children }) => {
         break;
     }
   };
+
+  const showUserPhats = (userPhats) => {
+    if (nftArray) {
+      let a = nftArray.filter((i) => userPhats.includes(i.pid));
+      setFilteredArray(a);
+    }
+  };
+
+  useEffect(() => {
+    userPhatToggle ? showUserPhats(userPhats) : setFilteredArray(nftArray);
+  }, [userPhatToggle]);
 
   useEffect(() => {
     filterNftArray(nftArray);
