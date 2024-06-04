@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
+import AlertDialog from "../components/AlertDialog";
 import "../styles/default-modal.css";
 
 const ModalContext = createContext();
@@ -7,6 +8,20 @@ const ModalContext = createContext();
 export const ModalProvider = ({ children }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [step, setStep] = useState(0);
+
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertTitle, setAlertTitle] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertButtonLabel, setAlertButtonLabel] = useState("close");
+  const handleDialogClose = () => {
+    console.log("clicked");
+    setAlertOpen(false);
+    setAlertTitle("");
+    setAlertMessage("");
+    setAlertButtonLabel("");
+  };
+  const [alertHandler, setAlertHandler] = useState(() => handleDialogClose);
 
   let subtitle;
 
@@ -18,6 +33,7 @@ export const ModalProvider = ({ children }) => {
 
   const closeModal = () => {
     setIsOpen(false);
+    setModalContent(false);
   };
 
   const contextValue = {
@@ -27,6 +43,11 @@ export const ModalProvider = ({ children }) => {
     afterOpenModal,
     closeModal,
     setSubtitleRef: (ref) => (subtitle = ref),
+    setAlertOpen,
+    setAlertTitle,
+    setAlertMessage,
+    setAlertButtonLabel,
+    setAlertHandler,
   };
 
   return (
@@ -41,6 +62,13 @@ export const ModalProvider = ({ children }) => {
         overlayClassName="custom-modal-overlay"
       >
         {modalContent}
+        <AlertDialog
+          open={alertOpen}
+          title={alertTitle}
+          message={alertMessage}
+          buttonLabel={alertButtonLabel}
+          handler={alertHandler}
+        />
       </Modal>
     </ModalContext.Provider>
   );

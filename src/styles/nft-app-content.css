@@ -500,6 +500,10 @@
     position: relative;
   }
 
+
+  
+  
+
   /* This will apply only if the device supports hover */
   @media (hover: hover) {
     .filter_asset_container:hover {

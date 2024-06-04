@@ -1,8 +1,9 @@
 /* global BigInt */
-import React from "react";
+import { React, useState, useEffect } from "react";
 import extjs from "../../ic/extjs.js";
 import { StoicIdentity } from "../../ic/identity.js";
 import { useSelector } from "react-redux";
+import { validatePrincipal } from "../../ic/utils.js";
 
 export default function SendNFTForm(props) {
   const addresses = useSelector((state) => state.addresses);
@@ -13,16 +14,20 @@ export default function SendNFTForm(props) {
     state.principals.length ? state.principals[currentPrincipal].identity : {}
   );
 
-  const [step, setStep] = React.useState(0);
+  const [step, setStep] = useState(0);
+  const [to, setTo] = useState("");
 
-  const [to, setTo] = React.useState("");
-  const [canister, setCanister] = React.useState("");
-  const [contacts, setContacts] = React.useState([]);
+  const { setAlertOpen, setAlertTitle, setAlertMessage } = props;
 
   const error = (e) => {
-    props.error(e);
+    setAlertTitle(e);
+    setAlertMessage(e);
+    setAlertOpen(true);
   };
   const review = () => {
+    const validationResult = validatePrincipal(to);
+    if (!validationResult) return error("Not a valid Principal");
+    if (!to) return error("Please enter a Principal ID");
     setStep(1);
   };
   const submit = async () => {
@@ -50,6 +55,7 @@ export default function SendNFTForm(props) {
           _notify
         );
       if (r !== false) {
+        props.closeModal();
         console.log(
           "Transaction complete",
           "Your transfer was sent successfully"
@@ -62,75 +68,47 @@ export default function SendNFTForm(props) {
     }
   };
 
-  React.useEffect(() => {
-    if (props.pid) setCanister(extjs.decodeTokenId(props.pid).canister);
-    else setCanister("");
-    var contacts = [];
-    principals.forEach((p) => {
-      p.accounts.forEach((a) => {
-        contacts.push({
-          group: p.identity.principal,
-          name: a.name,
-          address: a.address,
-        });
-      });
-    });
-    setContacts(contacts);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.pid]);
-
   return (
     <>
-      <div>
-        <div style={{ textAlign: "center" }}>Send NFT</div>
+      <div className="send-nft-container">
+        {/* <div>Send NFT</div> */}
         {step === 0 ? (
-          <div>
-            <div
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                marginTop: 10,
-              }}
-            >
-              Please enter the recipient address and amount that you wish to
-              send below.
-            </div>
+          <>
+            <img
+              height={"60px"}
+              src={`./assets/phats/${props.pid}.png`}
+              alt=""
+            />
             <div>
               <input
                 type="text"
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
-                placeholder="Address of the Recipient"
-                style={{
-                  width: "100%",
-                  padding: "8px",
-                  boxSizing: "border-box",
-                }}
+                placeholder="Principal ID"
               />
             </div>
-          </div>
+          </>
         ) : (
-          <div>
-            <div style={{ textAlign: "center" }}>
-              Please confirm that you are about to send NFT <br />
-              <strong style={{ color: "red" }}>{props.pid}</strong>
-              <br />
-              to <strong style={{ color: "red" }}>{to}</strong>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <strong>
-                All transactions are irreversible, so ensure the above details
-                are correct before you continue.
-              </strong>
-            </div>
-          </div>
+          <>
+            <div style={{ color: "red" }}>All transactions are final!</div>
+            <img
+              height={"60px"}
+              src={`./assets/phats/${props.pid}.png`}
+              alt=""
+            />
+
+            <div style={{ fontSize: "12px" }}>To: {to}</div>
+          </>
         )}
-        <div style={{ textAlign: "right", padding: "8px" }}>
-          <button style={{ marginRight: "8px" }}>Cancel</button>
+        <div>
           {step === 0 ? (
-            <button onClick={review}>Review Transaction</button>
+            <button className="send-nft-button" onClick={review}>
+              Review
+            </button>
           ) : (
-            <button onClick={submit}>Confirm Transaction</button>
+            <button className="send-nft-button" onClick={submit}>
+              Confirm
+            </button>
           )}
         </div>
       </div>

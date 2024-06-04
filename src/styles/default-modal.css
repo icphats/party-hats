@@ -3,17 +3,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: absolute;
+    min-height: 300px;
+    min-width: 500px;
     top: 50%;
     left: 50%;
     right: auto;
     bottom: auto;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    background: black;
+    background: #2C2C2C;
     color: white;
-    padding: 20px;
-    border-radius: 0px;
+    padding: 50px;
+    border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
   
@@ -27,4 +30,114 @@
     height: 100%; /* Cover full height */
     width: 100%; /* Cover full width */
   }
+
+
+  .default-modal-button {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 0.5em;
+    color: #fff;
+    background: #111;
+    border: 1px solid #585c8c;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Half Bold Pixel-7', sans-serif;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: relative; /* To ensure the pseudo-elements are positioned correctly */
+  }
   
+  .default-modal-button:hover {
+    border-color: #29ABE2;
+    background-color: #222;
+  }
+  
+  .default-modal-button:active {
+    background-color: #333;
+  }
+  
+  .default-modal-button:focus {
+    border-color: #29ABE2;
+    background-color: #222;
+  }
+  
+  .default-modal-button:hover:before {
+    opacity: 0.7;
+  }
+
+  .send-nft-container{
+    background-color: #2C2C2C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .send-nft-container div{
+    padding: 10px;
+    text-align: center;
+  }
+
+
+  .send-nft-container input {
+    display: block;
+    width: 100%;
+    border-radius: 50px;
+    padding: 15px 10px;
+    width: 500px;
+    color: #fff;
+    background: #111;
+    border: 1px solid #585c8c;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.19);
+    font-family: 'Half Bold Pixel-7', sans-serif;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  
+  .send-nft-container input:focus {
+    border-color: #29ABE2;
+    background-color: #222;
+  }
+  
+  .send-nft-container input::placeholder {
+    color: #888;
+  }
+
+  .send-nft-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
+    color: #fff;
+    background: #111;
+    border: 1px solid #585c8c;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Half Bold Pixel-7', sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: relative; /* To ensure the pseudo-elements are positioned correctly */
+  }
+  
+  .send-nft-button:hover {
+    border-color: #29ABE2;
+    background-color: #222;
+  }
+  
+  .send-nft-button:active {
+    background-color: #333;
+  }
+  
+  .send-nft-button:focus {
+    border-color: #29ABE2;
+    background-color: #222;
+  }
+  
+  .send-nft-button:hover:before {
+    opacity: 0.7;
+  }

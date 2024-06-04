@@ -150,7 +150,7 @@ const NftItem = (props) => {
               </div>
 
               {userPhats.includes(pid) ? (
-                <UserOwnedNftButton pid={pid} />
+                <UserOwnedNftButton key={pid} pid={pid} />
               ) : (
                 <a
                   href={`https://toniq.io/marketplace/asset/${pid}`}
