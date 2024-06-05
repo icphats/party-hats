@@ -208,7 +208,7 @@
 
 @media (max-width: 768px) {
   .profile-rectangle-container{
-    width: 100%;
+    width: 100px;
   }
 
   .profile-rectangle-container-logged-in {
