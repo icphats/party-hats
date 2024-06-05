@@ -9,17 +9,17 @@ import { useAccountContext } from "../context/AccountContext";
 
 function Wallet(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const account = useSelector((state) =>
-    state.principals.length ? state.principals[0].accounts[0] : []
-  );
+  const { liveStatsNew, userPhatToggle, setUserPhatToggle } = useNftContext();
+  const { appState, userPhats } = useAccountContext();
+  const [floorPrice, setFloorPrice] = useState(0);
+
   const principal = useSelector((state) =>
     state.principals.length ? state.principals[0].identity.principal : []
   );
 
-  const { liveStatsNew } = useNftContext();
-  const { appState, userPhats } = useAccountContext();
-
-  const [floorPrice, setFloorPrice] = useState(0);
+  const handleUserPhatToggle = () => {
+    setUserPhatToggle((prev) => (prev + 1) % 2);
+  };
 
   useEffect(() => {
     setFloorPrice(liveStatsNew[3]);
@@ -77,7 +77,7 @@ function Wallet(props) {
           <div className="widgets-grid">
             <button
               className="button-01"
-              onClick={props.handleUserPhatToggle}
+              onClick={handleUserPhatToggle}
             ></button>
           </div>
         </>

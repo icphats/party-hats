@@ -118,7 +118,7 @@
 
 .widgets-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  /* grid-template-columns: repeat(5, 1fr); */
   align-items: center;
   justify-items: center;
   padding: 5px 0px;
@@ -127,9 +127,10 @@
 
 .treasure-chest-container {
   display: flex;
+  justify-content: center;
   width: auto;
-  padding: 30px 0px;
-  height: 100px;
+  padding: 10px 0px;
+  /* height: 100px; */
   min-width: 100%;
 }
 

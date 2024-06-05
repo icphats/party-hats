@@ -7,18 +7,21 @@ const NftRightComponent = () => {
 
   const SCROLL_OFFSET = 1; // Adjust based on your specific needs
 
-  const containerRef = useRef(null);
-  const container = containerRef.current;
+  const volContainerRef = useRef(null);
+  const volContainer = volContainerRef.current;
+
+  console.log();
+
+  const scrollContainerRef = useRef(null);
+  const scrollContainer = scrollContainerRef.current;
+
   const [volume, setVolume] = useState(0);
   const [increment, setIncrement] = useState(0); // Number of items to load on each increment
 
   useEffect(() => {
     const updateDimensions = () => {
-      if (containerRef.current) {
-        setVolume(
-          () =>
-            containerRef.current.clientHeight * containerRef.current.clientWidth
-        );
+      if (volContainer) {
+        setVolume(() => volContainer.clientHeight * volContainer.clientWidth);
       }
     };
 
@@ -39,9 +42,11 @@ const NftRightComponent = () => {
 
   const handleScroll = () => {
     if (
-      container &&
-      container.scrollTop + container.clientHeight + SCROLL_OFFSET >=
-        container.scrollHeight
+      scroll &&
+      scrollContainer.scrollTop +
+        scrollContainer.clientHeight +
+        SCROLL_OFFSET >=
+        scrollContainer.scrollHeight
     ) {
       window.requestAnimationFrame(() => {
         setCount((prevCount) =>
@@ -53,21 +58,21 @@ const NftRightComponent = () => {
 
   return (
     <>
-      {loaded && (
-        <div className="grid-container">
+      {
+        <div className="grid-container" ref={volContainerRef}>
           <div
             className={
               viewMode == 1 ? "nft-container" : "nft-container-card-version"
             }
             onScroll={handleScroll}
-            ref={containerRef}
+            ref={scrollContainerRef}
           >
             {filteredArray.slice(0, count).map((nft, index) => {
               return <NftItem key={index} nft={nft} />;
             })}
           </div>
         </div>
-      )}
+      }
     </>
   );
 };
