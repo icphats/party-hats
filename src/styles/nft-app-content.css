@@ -318,6 +318,8 @@
   }
   
   .nft-image-container {
+    min-width: 100%;
+    min-height: 100%;
     overflow: hidden;
   }
 
@@ -525,9 +527,8 @@
 
     .NFT-Search-Container{
       display: flex;
-      width: 110px;
+      width: 100px;
       height: 30px;
-      padding: 0px 10px;
     }
   
     .NFT-search-input {
