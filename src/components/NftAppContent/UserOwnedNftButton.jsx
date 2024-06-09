@@ -32,7 +32,7 @@ function UserOwnedNftButton(props) {
             >
               Send
             </button>
-            <button className="default-modal-button" onClick={() => setStep(1)}>
+            {/* <button className="default-modal-button" onClick={() => setStep(1)}>
               Stake
             </button>
             <button className="default-modal-button" onClick={() => setStep(1)}>
@@ -40,7 +40,7 @@ function UserOwnedNftButton(props) {
             </button>
             <button className="default-modal-button" onClick={() => setStep(1)}>
               Theodore
-            </button>
+            </button> */}
           </>
         );
         break;
@@ -88,8 +88,8 @@ function UserOwnedNftButton(props) {
   return (
     <>
       <button onClick={() => handleNftOnClick()} className="send-now-container">
-        {/* <PiOptionBold /> */}
-        {pid.slice(0, 3)}
+        <PiOptionBold />
+        {/* {pid.slice(0, 3)} */}
       </button>
     </>
   );

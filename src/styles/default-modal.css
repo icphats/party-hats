@@ -5,8 +5,8 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    min-height: 300px;
-    min-width: 500px;
+    /* min-height: 300px;
+    min-width: 500px; */
     top: 50%;
     left: 50%;
     right: auto;
