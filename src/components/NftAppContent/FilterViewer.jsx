@@ -76,8 +76,8 @@ const FilterView = () => {
       if (asset.classList.contains("filter-active")) {
         asset.classList.remove("filter-active");
 
-        console.log(assetIndexWithinLayer);
-        console.log(emblemLayer);
+        // console.log(assetIndexWithinLayer);
+        // console.log(emblemLayer);
 
         switch (layerName) {
           case "Emblem":
@@ -233,7 +233,7 @@ const FilterView = () => {
         <a
           href="#"
           onClick={() => {
-            handleReset();
+            setTrigger((prev) => prev + 1);
           }}
         >
           <div className="escape-icon">ESC</div>

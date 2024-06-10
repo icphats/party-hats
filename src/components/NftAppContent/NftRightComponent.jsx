@@ -7,10 +7,9 @@ const NftRightComponent = () => {
 
   const SCROLL_OFFSET = 1; // Adjust based on your specific needs
 
+  //For dynamically determining how many NFTs should be displayed.
   const volContainerRef = useRef(null);
   const volContainer = volContainerRef.current;
-
-  console.log();
 
   const scrollContainerRef = useRef(null);
   const scrollContainer = scrollContainerRef.current;
