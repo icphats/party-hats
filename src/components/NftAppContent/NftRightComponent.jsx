@@ -49,8 +49,10 @@ const NftRightComponent = () => {
         scrollContainer.scrollHeight
     ) {
       window.requestAnimationFrame(() => {
-        setCount((prevCount) =>
-          Math.min(prevCount + increment, filteredArray.length)
+        setCount(
+          (prevCount) => prevCount + increment
+
+          // Math.min(prevCount + increment, filteredArray.length)
         );
       });
     }
