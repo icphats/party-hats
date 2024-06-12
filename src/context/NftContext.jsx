@@ -28,8 +28,14 @@ export const NftContextProvider = ({ children }) => {
   // For View
   const [mobileFilter, setMobileFilter] = useState(0);
   const [viewMode, setViewMode] = useState(2);
-  const [count, setCount] = useState(10);
+  const [area, setArea] = useState(0);
+  const [increment, setIncrement] = useState(0); // Number of items to load on each increment
+  const [count, setCount] = useState(10); //this is the count used in the beginning and for resets.
+  const [shownCount, setShownCount] = useState(100); //this is the count that accumulates as user scrolls in window.
   const [searchIndex, setSearchIndex] = useState("");
+
+  //Reset
+  const [resetToggle, setResetToggle] = useState(false);
 
   const loadInitialData = async () => {
     let nftCanister = await ic(phatCanister, nftidl);
@@ -138,16 +144,24 @@ export const NftContextProvider = ({ children }) => {
   useEffect(() => {
     filterNftArray(nftArray);
     if (priceViewToggle > 1) {
-      //When priceViewToggle > 1, it also orders by
+      //When priceViewToggle > 1, it also orders by price.
       setNriViewToggle(0); //we need to make sure there is no other ordering.
       orderNftArray(filteredArray, "price");
     }
   }, [priceViewToggle]);
 
   useEffect(() => {
-    if (priceViewToggle > 1 && nriViewToggle > 0) setPriceViewToggle(0);
-    orderNftArray(filteredArray, "nri");
+    //when priceViewToggle > 1, it means that price is being used for ordering. When priceViewToggle = 1, it's active filtering, 2 & 3 also filters, therefore > 1.
+    if (priceViewToggle > 1) {
+      setPriceViewToggle(0);
+    } else {
+      orderNftArray(filteredArray, "nri");
+    }
   }, [nriViewToggle]);
+
+  useEffect(() => {
+    setFilteredArray(nftArray);
+  }, [resetToggle]);
 
   const searchFilter = (mint) => {
     if (mint > 0 && mint <= 10000) {
@@ -161,6 +175,24 @@ export const NftContextProvider = ({ children }) => {
   useEffect(() => {
     searchFilter(searchIndex);
   }, [searchIndex]);
+
+  useEffect(() => {
+    const element = document.querySelector(".grid-container");
+    if (element) {
+      const width = element.offsetWidth;
+      const height = element.offsetHeight;
+      const calculatedArea = width * height;
+      setArea(calculatedArea);
+    }
+  }, []);
+
+  useEffect(() => {
+    let tempCount = 0;
+    tempCount = Math.ceil(area / 4000);
+    setCount(tempCount);
+    setShownCount(tempCount);
+    setIncrement(tempCount);
+  }, [area]);
 
   return (
     <NftContext.Provider
@@ -184,6 +216,11 @@ export const NftContextProvider = ({ children }) => {
         setSearchIndex,
         mobileFilter,
         setMobileFilter,
+        shownCount,
+        setShownCount,
+        increment,
+        resetToggle,
+        setResetToggle,
       }}
     >
       {children}

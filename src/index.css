@@ -1,17 +1,18 @@
-* {
-  box-sizing: border-box;
-}
-
 @font-face {
   font-family: 'Half Bold Pixel-7';
   src: url('assets/font/half_bold_pixel-7.ttf') format('truetype');
 }
 
+* {
+  box-sizing: border-box;
+  font-family: 'Half Bold Pixel-7', sans-serif;
+}
+
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%; /* Keeps it relative to the viewport */
-  font-family: 'Half Bold Pixel-7', sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -100,15 +101,5 @@ body::-webkit-scrollbar-track {
 .value {
   margin-top: 5px; /* Adjust spacing between title and value */
   font-size: 49px; /* Adjust font size for values */
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-}
-
-.pagination button {
-  /* Add any button styling you need */
-  margin: 0 5px; /* Adjust spacing between buttons */
 }
 

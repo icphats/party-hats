@@ -32,6 +32,10 @@ const FilterView = () => {
     searchIndex,
     setSearchIndex,
     viewMode,
+    count,
+    setShownCount,
+    resetToggle,
+    setResetToggle,
   } = useNftContext();
 
   const CUSTOM_GR = [
@@ -75,10 +79,6 @@ const FilterView = () => {
 
       if (asset.classList.contains("filter-active")) {
         asset.classList.remove("filter-active");
-
-        // console.log(assetIndexWithinLayer);
-        // console.log(emblemLayer);
-
         switch (layerName) {
           case "Emblem":
             setEmblemLayer(
@@ -140,15 +140,16 @@ const FilterView = () => {
     }
   };
 
-  const handleReset = () => {
+  useEffect(() => {
     setSearchIndex("");
     setBackgroundLayer([]);
     setBorderLayer([]);
     setEmblemLayer([]);
     setPhatLayer([]);
     setGlowLayer([]);
-    setPriceViewToggle(0);
     setNriViewToggle(0);
+    setPriceViewToggle(0);
+    setShownCount(count);
     for (let i = 0; i < LAYERSECTIONS.length; i++) {
       for (let j = 0; j < layer_assets[LAYERSECTIONS[i]]?.length; j++) {
         let actualLayerName = layer_assets[LAYERSECTIONS[i]][j];
@@ -156,13 +157,58 @@ const FilterView = () => {
         a.classList.remove("filter-active");
       }
     }
-  };
+  }, [resetToggle]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.keyCode === 27) {
+      if (event.keyCode === 27 || event.keyCode === 81) {
         // Check if ESC key is pressed (keyCode 27)
-        handleReset();
+        handleResetToggle();
+
+        const button = document.querySelector(".escape-icon");
+        if (button) {
+          button.classList.add("active-simulated");
+          setTimeout(() => {
+            button.classList.remove("active-simulated");
+          }, 150); // Duration of the simulated active state in milliseconds
+        }
+      }
+
+      if (event.keyCode === 87) {
+        // Check if ESC key is pressed (keyCode 27)
+        handleViewMode();
+        const button = document.querySelector(".view-mode-icon");
+        if (button) {
+          button.classList.add("active-simulated");
+          setTimeout(() => {
+            button.classList.remove("active-simulated");
+          }, 150); // Duration of the simulated active state in milliseconds
+        }
+      }
+
+      if (event.keyCode === 69) {
+        // Check if ESC key is pressed (keyCode 27)
+        handlePriceFilter();
+        const button = document.querySelector(".price-view");
+        if (button) {
+          button.classList.add("active-simulated");
+          setTimeout(() => {
+            button.classList.remove("active-simulated");
+          }, 150); // Duration of the simulated active state in milliseconds
+        }
+      }
+
+      if (event.keyCode === 82) {
+        handleNriOrder();
+        // Check if ESC key is pressed (keyCode 27)
+
+        const button = document.querySelector(".nri-view");
+        if (button) {
+          button.classList.add("active-simulated");
+          setTimeout(() => {
+            button.classList.remove("active-simulated");
+          }, 150); // Duration of the simulated active state in milliseconds
+        }
       }
     };
 
@@ -174,12 +220,20 @@ const FilterView = () => {
     };
   }, []);
 
-  const handlePriceView = () => {
-    setPriceViewToggle((prev) => (Math.abs(prev) + 1) % 4);
+  const handleResetToggle = () => {
+    setResetToggle((prev) => !prev);
+  };
+
+  const handleViewMode = () => {
+    setViewMode((prev) => (prev === 1 ? 2 : 1));
+  };
+
+  const handlePriceFilter = () => {
+    setPriceViewToggle((prev) => (prev + 1) % 4);
   };
 
   const handleNriOrder = () => {
-    setNriViewToggle((prev) => (Math.abs(prev) + 1) % 3);
+    setNriViewToggle((prev) => (prev + 1) % 3);
   };
 
   useEffect(() => {
@@ -230,33 +284,26 @@ const FilterView = () => {
         />
       </div>
       <div className="filters-button-container">
-        <a
-          href="#"
-          onClick={() => {
-            setTrigger((prev) => prev + 1);
-          }}
-        >
-          <div className="escape-icon">ESC</div>
-        </a>
-        <a href="#" onClick={() => setViewMode(viewMode === 1 ? 2 : 1)}>
+        <button onClick={handleResetToggle} className="escape-icon">
+          ESC
+        </button>
+        <button className="view-mode-icon" onClick={handleViewMode}>
           <img src={gridview_icon} alt="Card View" />
-        </a>
-        <a href="#" onClick={handlePriceView}>
-          <div
-            className={`price-view ${
-              priceViewToggle > 0 ? "price-view-active" : ""
-            }`}
-          >
-            <p>{priceSymbol}</p>
-          </div>
-        </a>
-        <a href="#" onClick={handleNriOrder}>
-          <div
-            className={`nri-view ${nriViewToggle > 0 ? "nri-view-active" : ""}`}
-          >
-            <p>{nriSymbol}</p>
-          </div>
-        </a>
+        </button>
+        <button
+          onClick={handlePriceFilter}
+          className={`price-view ${
+            priceViewToggle > 0 ? "price-view-active" : ""
+          }`}
+        >
+          <p>{priceSymbol}</p>
+        </button>
+        <button
+          onClick={handleNriOrder}
+          className={`nri-view ${nriViewToggle > 0 ? "nri-view-active" : ""}`}
+        >
+          <p>{nriSymbol}</p>
+        </button>
       </div>
       <div className="filter-preview">
         {LAYERSECTIONS.map((layer) => {
