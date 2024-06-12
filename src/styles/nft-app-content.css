@@ -193,9 +193,6 @@
   
 
   .nri-view {
-    display: flex; /* Allows setting width and height */
-    width: 26px; /* Adjusted width to accommodate for border within a 20x20px box */
-    height: 26px; /* Adjusted height for the same reason */
     background-color: #374fd8; /* Light grey background */
     box-shadow: none; /* No shadow to save space and because it won't be noticeable */
     align-items: center;
@@ -260,38 +257,24 @@
     padding: 0px;
     height: 30px;
     width: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: none;
   }
 
 
   .filters-button-container button:active {
-    background-color: #C0C0C0;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    box-shadow: none;
   }
 
   /* For when using eyboard short cut, should much button:active */
   .filters-button-container button.active-simulated {
-    background-color: #ccc;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    box-shadow: none;
   }
 
   .filters-button-container button:focus{
     outline: none;
   }
-
-
-
-  .filters-button-container a{
-    display: flex;
-    flex-direction: row;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    text-decoration: none;
-  }
-
-  .filters-button-container img{
-    height: 100%;
-    width: 100%;
-  }
-
 
   .escape-icon {
     display: flex; /* Allows setting width and height */
@@ -310,8 +293,21 @@
   }
 
   .view-mode-icon {
-
+    background: none;
   }
+
+  .view-mode-icon img{
+    height: 100%;
+    width: 100%;
+  }
+  /* .shift {
+    background: none;
+    border: 1px solid white;
+  }
+
+  .shift img{
+    transform: translateY(2px) translateX(2px);
+  }  */
 
   .layer-view{
     width: 100%;

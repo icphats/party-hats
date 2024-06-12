@@ -225,7 +225,7 @@ const FilterView = () => {
   };
 
   const handleViewMode = () => {
-    setViewMode((prev) => (prev === 1 ? 2 : 1));
+    setViewMode((prev) => (prev ? 0 : 1));
   };
 
   const handlePriceFilter = () => {
@@ -287,7 +287,10 @@ const FilterView = () => {
         <button onClick={handleResetToggle} className="escape-icon">
           ESC
         </button>
-        <button className="view-mode-icon" onClick={handleViewMode}>
+        <button
+          className={viewMode ? "view-mode-icon" : "view-mode-icon"}
+          onClick={handleViewMode}
+        >
           <img src={gridview_icon} alt="Card View" />
         </button>
         <button

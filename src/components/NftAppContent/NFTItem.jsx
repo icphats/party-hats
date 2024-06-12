@@ -115,7 +115,7 @@ const NftItem = (props) => {
             loading="lazy"
           />
         </div>
-        {viewMode == 2 && (
+        {viewMode == 1 && (
           <div className="card-description-container">
             <div className="card-d-container-row">
               <p className="">#{mint}</p>

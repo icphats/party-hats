@@ -39,11 +39,12 @@ const NftRightComponent = () => {
 
   return (
     <>
+      {console.log(viewMode)}
       {
         <div className="grid-container">
           <div
             className={
-              viewMode == 1 ? "nft-container" : "nft-container-card-version"
+              viewMode === 0 ? "nft-container" : "nft-container-card-version"
             }
             onScroll={handleScroll}
             ref={scrollContainerRef}

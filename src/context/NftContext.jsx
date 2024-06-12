@@ -27,7 +27,7 @@ export const NftContextProvider = ({ children }) => {
 
   // For View
   const [mobileFilter, setMobileFilter] = useState(0);
-  const [viewMode, setViewMode] = useState(2);
+  const [viewMode, setViewMode] = useState(1);
   const [area, setArea] = useState(0);
   const [increment, setIncrement] = useState(0); // Number of items to load on each increment
   const [count, setCount] = useState(10); //this is the count used in the beginning and for resets.
