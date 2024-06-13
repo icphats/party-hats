@@ -288,7 +288,7 @@ const FilterView = () => {
           ESC
         </button>
         <button
-          className={viewMode ? "view-mode-icon" : "view-mode-icon"}
+          className={viewMode ? "view-mode-icon" : "view-mode-icon shift"}
           onClick={handleViewMode}
         >
           <img src={gridview_icon} alt="Card View" />

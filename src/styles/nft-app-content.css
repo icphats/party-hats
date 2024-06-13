@@ -202,6 +202,10 @@
     cursor: pointer; /* Changes the cursor to indicate it's clickable */
     text-decoration: none;
     color: black;
+    border-top: 2px solid rgb(0, 0, 0, 0.8);
+    border-left: 2px solid rgb(0, 0, 0, 0.8);
+    border-bottom: 2px solid rgb(0, 0, 0, 0.6);
+    border-right: 2px solid rgb(0, 0, 0, 0.6);
   }
 
   .nri-view-active{
@@ -222,6 +226,10 @@
     cursor: pointer; /* Changes the cursor to indicate it's clickable */
     text-decoration: none;
     color: black;
+    border-top: 2px solid rgb(0, 0, 0, 0.8);
+    border-left: 2px solid rgb(0, 0, 0, 0.8);
+    border-bottom: 2px solid rgb(0, 0, 0, 0.6);
+    border-right: 2px solid rgb(0, 0, 0, 0.6);
   }
 
   .price-view-active{
@@ -257,19 +265,22 @@
     padding: 0px;
     height: 30px;
     width: 30px;
-    transition: none;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  
+  .filters-button-container button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
 
   .filters-button-container button:active {
     /* background-color: rgba(255, 255, 255, 0.9); */
-    box-shadow: none;
   }
 
   /* For when using eyboard short cut, should much button:active */
   .filters-button-container button.active-simulated {
     /* background-color: rgba(255, 255, 255, 0.9); */
-    box-shadow: none;
   }
 
   .filters-button-container button:focus{
@@ -290,24 +301,29 @@
     cursor: pointer; /* Changes the cursor to indicate it's clickable */
     text-decoration: none;
     color: black;
+    border-top: 2px solid rgb(0, 0, 0, 0.8);
+    border-left: 2px solid rgb(0, 0, 0, 0.8);
+    border-bottom: 2px solid rgb(0, 0, 0, 0.6);
+    border-right: 2px solid rgb(0, 0, 0, 0.6);
   }
 
   .view-mode-icon {
-    background: none;
+    border-top: 2px solid rgb(0, 0, 0, 1);
+    border-left: 2px solid rgb(0, 0, 0, 1);
+    border-bottom: 2px solid rgb(0, 0, 0, 1);
+    border-right: 2px solid rgb(0, 0, 0, 1);
   }
 
   .view-mode-icon img{
     height: 100%;
     width: 100%;
   }
-  /* .shift {
-    background: none;
-    border: 1px solid white;
+  .shift {
   }
 
   .shift img{
     transform: translateY(2px) translateX(2px);
-  }  */
+  } 
 
   .layer-view{
     width: 100%;
