@@ -4,6 +4,7 @@ import { useLayerContext } from "../../context/LayerContext";
 import { useEffect, useState } from "react";
 import ProfileRectangle from "../Profile/ProfileRectangle";
 import gridview_icon from "../../assets/grid-view-icon.png";
+import mixpanel from "mixpanel-browser";
 
 const LAYERSECTIONS = ["background", "border", "emblem", "glow", "phat"];
 
@@ -68,9 +69,13 @@ const FilterView = () => {
       if (asset.classList.contains("filter-active")) {
         asset.classList.remove("filter-active");
         setEmblemLayer(emblemLayer.filter((item) => !CUSTOM_GR.includes(item)));
+        mixpanel.track("Filter Removed", { layer: "Emblem", item });
+
       } else {
         asset.classList.add("filter-active");
         setEmblemLayer([...emblemLayer, ...CUSTOM_GR]);
+        mixpanel.track("Filter Added", { layer: "Emblem", item });
+
       }
     } else {
       let layerIndex = layerStatic.findIndex((i) => i[0] === item);
@@ -113,6 +118,8 @@ const FilterView = () => {
             console.log("Invalid layer");
             break;
         }
+        mixpanel.track("Filter Removed", { layer: layerName, item });
+
       } else {
         asset.classList.add("filter-active");
 
@@ -136,6 +143,8 @@ const FilterView = () => {
             console.log("Invalid layer");
             break;
         }
+        mixpanel.track("Filter Added", { layer: layerName, item });
+
       }
     }
   };
@@ -172,6 +181,7 @@ const FilterView = () => {
             button.classList.remove("active-simulated");
           }, 150); // Duration of the simulated active state in milliseconds
         }
+        mixpanel.track("Reset Filters");
       }
 
       if (event.keyCode === 87) {
@@ -184,6 +194,8 @@ const FilterView = () => {
             button.classList.remove("active-simulated");
           }, 150); // Duration of the simulated active state in milliseconds
         }
+        mixpanel.track("Toggle View Mode");
+
       }
 
       if (event.keyCode === 69) {
@@ -196,6 +208,8 @@ const FilterView = () => {
             button.classList.remove("active-simulated");
           }, 150); // Duration of the simulated active state in milliseconds
         }
+        mixpanel.track("Toggle Price Filter");
+
       }
 
       if (event.keyCode === 82) {
@@ -209,6 +223,7 @@ const FilterView = () => {
             button.classList.remove("active-simulated");
           }, 150); // Duration of the simulated active state in milliseconds
         }
+        mixpanel.track("Toggle NRI Filter");
       }
     };
 
@@ -222,18 +237,25 @@ const FilterView = () => {
 
   const handleResetToggle = () => {
     setResetToggle((prev) => !prev);
+    mixpanel.track("ESC");
   };
 
   const handleViewMode = () => {
     setViewMode((prev) => (prev ? 0 : 1));
+    mixpanel.track("View");
+
   };
 
   const handlePriceFilter = () => {
     setPriceViewToggle((prev) => (prev + 1) % 4);
+    mixpanel.track("Dollar");
+
   };
 
   const handleNriOrder = () => {
     setNriViewToggle((prev) => (prev + 1) % 3);
+    mixpanel.track("%");
+
   };
 
   useEffect(() => {
