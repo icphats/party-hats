@@ -131,6 +131,7 @@
   flex-direction: column;
   gap: 10px;
   overflow-y: auto;
+  padding-bottom: 80px;
 }
 
 
@@ -140,7 +141,7 @@
 
   .filter-preview::-webkit-scrollbar {
     margin-right: 0;
-    width: 10px;
+    width: 10px;    
   }
   
   .filter-preview::-webkit-scrollbar-thumb {
@@ -150,10 +151,6 @@
   
   .filter-preview::-webkit-scrollbar-track {
     background-color: black;
-  }
-
-  .filter-preview::-webkit-scrollbar-track-piece {
-
   }
 
   .one-∞{
