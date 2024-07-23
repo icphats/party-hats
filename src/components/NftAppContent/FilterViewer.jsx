@@ -288,15 +288,15 @@ const FilterView = () => {
     "background", "border", "emblem", "glow", "phat";
     switch (layerName) {
       case "background":
-        return "Background";
+        return "Backgrounds";
       case "border":
-        return "Border";
+        return "Borders";
       case "emblem":
-        return "Emblem";
+        return "Emblems";
       case "glow":
-        return "Glow";
+        return "Glows";
       case "phat":
-        return "Partyhat";
+        return "Partyhats";
       default:
         return "N/A";
     }
