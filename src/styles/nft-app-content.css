@@ -129,9 +129,8 @@
   width: 200px;
   padding: 0px 10px 0px 10px;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   overflow-y: auto;
-  padding-bottom: 80px;
 }
 
 
@@ -162,7 +161,8 @@
   .NFT-Search-Container{
     display: flex;
     height: 50px;
-    margin: 0px 0 10px 10px;
+    margin: 0px 0 10px 0px;
+    padding: 0 0 0 10px;
   }
 
   .NFT-search-input {
@@ -194,7 +194,7 @@
     box-shadow: none; /* No shadow to save space and because it won't be noticeable */
     align-items: center;
     justify-content: center;
-    font-size: 12px; /* Essentially removes the text by setting font size to 0 */
+    font-size: 14px; /* Essentially removes the text by setting font size to 0 */
     user-select: none; /* Prevents text selection */
     cursor: pointer; /* Changes the cursor to indicate it's clickable */
     text-decoration: none;
@@ -218,7 +218,7 @@
     box-shadow: none; /* No shadow to save space and because it won't be noticeable */
     align-items: center;
     justify-content: center;
-    font-size: 12px; /* Essentially removes the text by setting font size to 0 */
+    font-size: 14px; /* Essentially removes the text by setting font size to 0 */
     user-select: none; /* Prevents text selection */
     cursor: pointer; /* Changes the cursor to indicate it's clickable */
     text-decoration: none;
@@ -247,11 +247,12 @@
   .filters-button-container{
     align-items: center;
     width: 200px;
-    padding: 0px 10px 0px 10px;
-    margin: 0 0 20px 0;
+    padding: 0px 0px 0px 10px;
+    margin: 0 0 15px 0;
     border-radius: 0px;
     display: flex;
     flex-direction: row;
+    justify-content:space-around;    
     gap: 5px;
   }
 
@@ -260,9 +261,14 @@
     flex-direction: row;
     border-radius: 0px;
     padding: 0px;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+
+  .filters-button-container button:hover {
+    transform: translateY(-1px);
+    cursor: pointer;
   }
   
   .filters-button-container button:active {
@@ -272,12 +278,7 @@
 
 
   .filters-button-container button:active {
-    /* background-color: rgba(255, 255, 255, 0.9); */
-  }
-
-  /* For when using eyboard short cut, should much button:active */
-  .filters-button-container button.active-simulated {
-    /* background-color: rgba(255, 255, 255, 0.9); */
+    background-color: rgba(255, 255, 255, 0.9);
   }
 
   .filters-button-container button:focus{
@@ -293,7 +294,7 @@
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif; /* Uses Arial as the sans-serif font */
-    font-size: 6px; /* Essentially removes the text by setting font size to 0 */
+    font-size: 8px; /* Essentially removes the text by setting font size to 0 */
     user-select: none; /* Prevents text selection */
     cursor: pointer; /* Changes the cursor to indicate it's clickable */
     text-decoration: none;
@@ -321,6 +322,11 @@
   .shift img{
     transform: translateY(2px) translateX(2px);
   } 
+
+  .layer-title {
+    font-size: 12px;
+    padding: 0 0 5px 0;
+  }
 
   .layer-view{
     width: 100%;
@@ -555,7 +561,17 @@
       flex-wrap: wrap;
       width: 110px;
       padding: 0px 0px 0px 10px;
+      justify-content: center;
+    }
 
+    .filters-button-container button{
+      display: flex;
+      flex-direction: row;
+      border-radius: 0px;
+      padding: 0px;
+      height: 35px;
+      width: 35px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
     }
 
     .filter-container {

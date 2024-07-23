@@ -70,12 +70,10 @@ const FilterView = () => {
         asset.classList.remove("filter-active");
         setEmblemLayer(emblemLayer.filter((item) => !CUSTOM_GR.includes(item)));
         mixpanel.track("Filter Removed", { layer: "Emblem", item });
-
       } else {
         asset.classList.add("filter-active");
         setEmblemLayer([...emblemLayer, ...CUSTOM_GR]);
         mixpanel.track("Filter Added", { layer: "Emblem", item });
-
       }
     } else {
       let layerIndex = layerStatic.findIndex((i) => i[0] === item);
@@ -119,7 +117,6 @@ const FilterView = () => {
             break;
         }
         mixpanel.track("Filter Removed", { layer: layerName, item });
-
       } else {
         asset.classList.add("filter-active");
 
@@ -144,7 +141,6 @@ const FilterView = () => {
             break;
         }
         mixpanel.track("Filter Added", { layer: layerName, item });
-
       }
     }
   };
@@ -195,7 +191,6 @@ const FilterView = () => {
           }, 150); // Duration of the simulated active state in milliseconds
         }
         mixpanel.track("Toggle View Mode");
-
       }
 
       if (event.keyCode === 69) {
@@ -209,7 +204,6 @@ const FilterView = () => {
           }, 150); // Duration of the simulated active state in milliseconds
         }
         mixpanel.track("Toggle Price Filter");
-
       }
 
       if (event.keyCode === 82) {
@@ -243,19 +237,16 @@ const FilterView = () => {
   const handleViewMode = () => {
     setViewMode((prev) => (prev ? 0 : 1));
     mixpanel.track("View");
-
   };
 
   const handlePriceFilter = () => {
     setPriceViewToggle((prev) => (prev + 1) % 4);
     mixpanel.track("Dollar");
-
   };
 
   const handleNriOrder = () => {
     setNriViewToggle((prev) => (prev + 1) % 3);
     mixpanel.track("%");
-
   };
 
   useEffect(() => {
@@ -292,6 +283,24 @@ const FilterView = () => {
     }
     setSearchIndex("");
   }, [priceViewToggle, nriViewToggle]);
+
+  const layerNameReformat = (layerName) => {
+    "background", "border", "emblem", "glow", "phat";
+    switch (layerName) {
+      case "background":
+        return "Background";
+      case "border":
+        return "Border";
+      case "emblem":
+        return "Emblem";
+      case "glow":
+        return "Glow";
+      case "phat":
+        return "Partyhat";
+      default:
+        return "N/A";
+    }
+  };
 
   return (
     <>
@@ -333,24 +342,27 @@ const FilterView = () => {
       <div className="filter-preview">
         {LAYERSECTIONS.map((layer) => {
           return (
-            <div key={layer} className="layer-view">
-              {layer_assets[layer].map((item) => (
-                <div
-                  key={item}
-                  className="filter_asset_container"
-                  id={item}
-                  onClick={() => {
-                    handleClick(item);
-                  }}
-                >
-                  <img
-                    width={26}
-                    height={26}
-                    src={`./assets/layers/${layer}/${item}.png`}
-                    className="filter-image"
-                  />
-                </div>
-              ))}
+            <div>
+              <div className="layer-title">{layerNameReformat(layer)}</div>
+              <div key={layer} className="layer-view">
+                {layer_assets[layer].map((item) => (
+                  <div
+                    key={item}
+                    className="filter_asset_container"
+                    id={item}
+                    onClick={() => {
+                      handleClick(item);
+                    }}
+                  >
+                    <img
+                      width={26}
+                      height={26}
+                      src={`./assets/layers/${layer}/${item}.png`}
+                      className="filter-image"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           );
         })}

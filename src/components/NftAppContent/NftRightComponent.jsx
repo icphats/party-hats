@@ -39,7 +39,6 @@ const NftRightComponent = () => {
 
   return (
     <>
-      {console.log(viewMode)}
       {
         <div className="grid-container">
           <div
