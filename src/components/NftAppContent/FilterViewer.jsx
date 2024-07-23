@@ -6,7 +6,7 @@ import ProfileRectangle from "../Profile/ProfileRectangle";
 import gridview_icon from "../../assets/grid-view-icon.png";
 import mixpanel from "mixpanel-browser";
 
-const LAYERSECTIONS = ["background", "border", "emblem", "glow", "phat"];
+const LAYERSECTIONS = ["background", "phat", "emblem", "border", "glow"];
 
 const FilterView = () => {
   const {
