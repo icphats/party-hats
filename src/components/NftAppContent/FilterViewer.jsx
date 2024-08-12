@@ -166,10 +166,11 @@ const FilterView = () => {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.keyCode === 27 || event.keyCode === 81) {
-        // Check if ESC key is pressed (keyCode 27)
-        handleResetToggle();
+      event.preventDefault();
 
+      if (event.keyCode === 27 || event.keyCode === 81) {
+        //27 is ESC 81 is Q
+        handleResetToggle();
         const button = document.querySelector(".escape-icon");
         if (button) {
           button.classList.add("active-simulated");
@@ -181,7 +182,6 @@ const FilterView = () => {
       }
 
       if (event.keyCode === 87) {
-        // Check if ESC key is pressed (keyCode 27)
         handleViewMode();
         const button = document.querySelector(".view-mode-icon");
         if (button) {
@@ -194,7 +194,6 @@ const FilterView = () => {
       }
 
       if (event.keyCode === 69) {
-        // Check if ESC key is pressed (keyCode 27)
         handlePriceFilter();
         const button = document.querySelector(".price-view");
         if (button) {
@@ -208,8 +207,6 @@ const FilterView = () => {
 
       if (event.keyCode === 82) {
         handleNriOrder();
-        // Check if ESC key is pressed (keyCode 27)
-
         const button = document.querySelector(".nri-view");
         if (button) {
           button.classList.add("active-simulated");
@@ -218,6 +215,11 @@ const FilterView = () => {
           }, 150); // Duration of the simulated active state in milliseconds
         }
         mixpanel.track("Toggle NRI Filter");
+      }
+
+      // If the div or any element still gains focus, blur it
+      if (document.activeElement && document.activeElement.tagName === "DIV") {
+        document.activeElement.blur();
       }
     };
 
@@ -240,7 +242,7 @@ const FilterView = () => {
   };
 
   const handlePriceFilter = () => {
-    setPriceViewToggle((prev) => (prev + 1) % 4);
+    setPriceViewToggle((prev) => (prev + 1) % 3);
     mixpanel.track("Dollar");
   };
 
@@ -255,12 +257,9 @@ const FilterView = () => {
         setPriceSymbol("$");
         break;
       case 1:
-        setPriceSymbol("$");
-        break;
-      case 2:
         setPriceSymbol("↑");
         break;
-      case 3:
+      case 2:
         setPriceSymbol("↓");
         break;
       default:

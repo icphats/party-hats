@@ -64,9 +64,9 @@ export const NftContextProvider = ({ children }) => {
   }, []);
 
   const filterNftArray = async (a) => {
-    if (priceViewToggle) {
-      a = a.filter((el) => el.price);
-    }
+    // if (priceViewToggle) {
+    //   a = a.filter((el) => el.price);
+    // }
 
     let newFilteredArray = a.reduce((acc, item) => {
       const layerData = item.assetlayers;
@@ -86,6 +86,7 @@ export const NftContextProvider = ({ children }) => {
   };
 
   const orderNftArray = (a, type) => {
+    console.log(priceViewToggle, nriViewToggle);
     switch (type) {
       case "price":
         switch (priceViewToggle) {
@@ -93,11 +94,15 @@ export const NftContextProvider = ({ children }) => {
             a = [...a].sort((a, b) => a.mint - b.mint);
             setFilteredArray(a);
             break;
-          case 2:
-            a = [...a].sort((a, b) => a.price - b.price);
+          case 1:
+            a = [...a].sort((a, b) => {
+              if (a.price === null) return 1; // Place null values at the end
+              if (b.price === null) return -1; // Place null values at the end
+              return a.price - b.price;
+            });
             setFilteredArray(a);
             break;
-          case 3:
+          case 2:
             a = [...a].sort((a, b) => b.price - a.price);
             setFilteredArray(a);
             break;
@@ -142,21 +147,21 @@ export const NftContextProvider = ({ children }) => {
   }, [backgroundLayer, borderLayer, emblemLayer, phatLayer, glowLayer]);
 
   useEffect(() => {
-    filterNftArray(nftArray);
-    if (priceViewToggle > 1) {
-      //When priceViewToggle > 1, it also orders by price.
-      setNriViewToggle(0); //we need to make sure there is no other ordering.
-      orderNftArray(filteredArray, "price");
+    if (priceViewToggle === 0 && nriViewToggle > 0) return; //Handles reset of price filter when nri filter is turned on (while price was previously on)
+
+    if (nriViewToggle > 0) {
+      setNriViewToggle(0);
     }
+    orderNftArray(filteredArray, "price");
   }, [priceViewToggle]);
 
   useEffect(() => {
-    //when priceViewToggle > 1, it means that price is being used for ordering. When priceViewToggle = 1, it's active filtering, 2 & 3 also filters, therefore > 1.
-    if (priceViewToggle > 1) {
+    if (nriViewToggle === 0 && priceViewToggle > 0) return; //Handles reset of nri filter when price filter is turned on (while nri was previously on)
+
+    if (priceViewToggle > 0) {
       setPriceViewToggle(0);
-    } else {
-      orderNftArray(filteredArray, "nri");
     }
+    orderNftArray(filteredArray, "nri");
   }, [nriViewToggle]);
 
   useEffect(() => {
